@@ -1,0 +1,24 @@
+src/*.exe
+src/digitalcoin
+src/digitalcoind
+src/test_digitalcoin
+src/build.h
+.*.swp
+*.*~*
+*.bak
+*.rej
+*.orig
+*.o
+*.patch
+.bitcoin
+#compilation and Qt preprocessor part
+*.qm
+Makefile
+digitalcoin-qt
+#resources cpp
+qrc_*.cpp
+#qt creator
+*.pro.user
+#mac specific
+.DS_Store
+build

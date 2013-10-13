@@ -835,7 +835,7 @@ uint256 static GetOrphanRoot(const CBlock* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 20 * COIN;
+    int64 nSubsidy = 15 * COIN;
 	
 	if(nHeight < 1080)  
     {
@@ -869,6 +869,10 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     {
         nSubsidy = 17 * COIN;
     }
+	else if(nHeight < 523800)  
+    {
+        nSubsidy = 20 * COIN;
+    }
 
     // Subsidy is cut in half every 4730400 blocks, which will occur approximately every 3 years
     nSubsidy >>= (nHeight / 4730400);
@@ -876,9 +880,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan =  6 * 60 * 3 * 20; // digitalcoin: 6 hours
-static const int64 nTargetSpacing = 1 * 20; // digitalcoin: 20 seconds
-static const int64 nInterval = nTargetTimespan / nTargetSpacing;
+static const int64 nTargetTimespan =  108 * 40; // digitalcoin: 108 blocks (72 mins)  [OLD WAS 6*60*3*20]
+static const int64 nTargetSpacing = 1 * 40; // digitalcoin: 40 seconds
 
 //
 // minimum amount of work that could possibly be required nTime after
@@ -895,8 +898,8 @@ unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
     bnResult.SetCompact(nBase);
     while (nTime > 0 && bnResult < bnProofOfWorkLimit)
     {
-        // Maximum 200% adjustment...
-        bnResult *= 2;
+        // Maximum 136% adjustment...
+			bnResult = (bnResult * 75) / 55; 
         // ... in best-case exactly 4-times-normal target time
         nTime -= nTargetTimespan*4;
     }
@@ -908,12 +911,17 @@ unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
 unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlock *pblock)
 {
     unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
-		
-	// Digitalcoin difficulty adjustment protocol switch
-  	static const int nDifficultySwitchHeight = 476280;
-  	int nHeight = pindexLast->nHeight + 1;
-  	bool fNewDifficultyProtocol = (nHeight >= nDifficultySwitchHeight || fTestNet); 
 
+// Digitalcoin difficulty adjustment protocol switch
+   static const int nDifficultySwitchHeight = 476280;
+   static const int nInflationFixHeight = 523800;
+   int nHeight = pindexLast->nHeight + 1;
+   bool fNewDifficultyProtocol = (nHeight >= nDifficultySwitchHeight || fTestNet);
+   bool fInflationFixProtocol = (nHeight >= nInflationFixHeight || fTestNet);      
+
+   int64 nTargetTimespanCurrent = fInflationFixProtocol? nTargetTimespan : (nTargetTimespan*5);
+   int64 nInterval = fInflationFixProtocol? (nTargetTimespanCurrent / nTargetSpacing) : (nTargetTimespanCurrent / (nTargetSpacing / 2));
+   
     // Genesis block
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
@@ -957,8 +965,14 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
     int64 nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
     printf(" nActualTimespan = %"PRI64d" before bounds\n", nActualTimespan);
 
-	int64 nActualTimespanMax = fNewDifficultyProtocol? (nTargetTimespan*2) : (nTargetTimespan*4);
-    int64 nActualTimespanMin = fNewDifficultyProtocol? (nTargetTimespan/2) : (nTargetTimespan/4);
+    int64 nActualTimespanMax = fNewDifficultyProtocol? (nTargetTimespanCurrent*2) : (nTargetTimespanCurrent*4);
+    int64 nActualTimespanMin = fNewDifficultyProtocol? (nTargetTimespanCurrent/2) : (nTargetTimespanCurrent/4);
+	
+	//new for v1.0
+	if (fInflationFixProtocol){
+	    int64 nActualTimespanMax = ((nTargetTimespanCurrent*75)/55);
+		int64 nActualTimespanMin = ((nTargetTimespanCurrent*55)/75); }
+	
     if (nActualTimespan < nActualTimespanMin)
         nActualTimespan = nActualTimespanMin;
     if (nActualTimespan > nActualTimespanMax)
@@ -968,14 +982,14 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
     CBigNum bnNew;
     bnNew.SetCompact(pindexLast->nBits);
     bnNew *= nActualTimespan;
-    bnNew /= nTargetTimespan;
+    bnNew /= nTargetTimespanCurrent;
 
     if (bnNew > bnProofOfWorkLimit)
         bnNew = bnProofOfWorkLimit;
 
     /// debug print
     printf("GetNextWorkRequired RETARGET\n");
-    printf("nTargetTimespan = %"PRI64d" nActualTimespan = %"PRI64d"\n", nTargetTimespan, nActualTimespan);
+    printf("nTargetTimespan = %"PRI64d" nActualTimespan = %"PRI64d"\n", nTargetTimespanCurrent, nActualTimespan);
     printf("Before: %08x %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
     printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
 

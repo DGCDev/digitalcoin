@@ -20,7 +20,7 @@ then execute the following:
 
 ::
 
-    qmake
+    qmake-qt4
     make
 
 Alternatively, install `Qt Creator`_ and open the `litecoin-qt.pro` file.

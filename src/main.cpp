@@ -915,9 +915,11 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
 // Digitalcoin difficulty adjustment protocol switch
    static const int nDifficultySwitchHeight = 476280;
    static const int nInflationFixHeight = 523800;
+   static const int nDifficultySwitchHeightTwo = 625800;
    int nHeight = pindexLast->nHeight + 1;
    bool fNewDifficultyProtocol = (nHeight >= nDifficultySwitchHeight || fTestNet);
-   bool fInflationFixProtocol = (nHeight >= nInflationFixHeight || fTestNet);      
+   bool fInflationFixProtocol = (nHeight >= nInflationFixHeight || fTestNet);
+   bool fDifficultySwitchHeightTwo = (nHeight >= nDifficultySwitchHeightTwo || fTestNet);         
 
    int64 nTargetTimespanCurrent = fInflationFixProtocol? nTargetTimespan : (nTargetTimespan*5);
    int64 nInterval = fInflationFixProtocol? (nTargetTimespanCurrent / nTargetSpacing) : (nTargetTimespanCurrent / (nTargetSpacing / 2));
@@ -968,10 +970,10 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
     int64 nActualTimespanMax = fNewDifficultyProtocol? (nTargetTimespanCurrent*2) : (nTargetTimespanCurrent*4);
     int64 nActualTimespanMin = fNewDifficultyProtocol? (nTargetTimespanCurrent/2) : (nTargetTimespanCurrent/4);
 	
-	//new for v1.0
-	if (fInflationFixProtocol){
-	    int64 nActualTimespanMax = ((nTargetTimespanCurrent*75)/55);
-		int64 nActualTimespanMin = ((nTargetTimespanCurrent*55)/75); }
+	//new for v1.0.1
+	if (fDifficultySwitchHeightTwo){
+	    nActualTimespanMax = ((nTargetTimespanCurrent*75)/60);
+		nActualTimespanMin = ((nTargetTimespanCurrent*55)/73); }
 	
     if (nActualTimespan < nActualTimespanMin)
         nActualTimespan = nActualTimespanMin;

@@ -9,13 +9,13 @@ INCLUDEPATHS= \
  -I"$(CURDIR)" \
  -I"c:/deps/boost_1_53_0" \
  -I"c:/deps/db-4.8.30.NC/build_unix" \
- -I"c:/deps/openssl-1.0.1e/include"
+ -I"c:/deps/openssl-1.0.1g/include"
 
 LIBPATHS= \
  -L"$(CURDIR)/leveldb" \
  -L"c:/deps/boost_1_53_0/stage/lib" \
  -L"c:/deps/db-4.8.30.NC/build_unix" \
- -L"c:/deps/openssl-1.0.1e"
+ -L"c:/deps/openssl-1.0.1g"
 
 LIBS= \
  -l boost_system$(BOOST_SUFFIX) \

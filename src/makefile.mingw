@@ -9,13 +9,13 @@ INCLUDEPATHS= \
  -I"$(CURDIR)" \
  -I"c:/deps/boost_1_53_0" \
  -I"c:/deps/db-4.8.30.NC/build_unix" \
- -I"c:/deps/openssl-1.0.1e/include"
+ -I"c:/deps/openssl-1.0.1g/include"
 
 LIBPATHS= \
  -L"$(CURDIR)/leveldb" \
  -L"c:/deps/boost_1_53_0/stage/lib" \
  -L"c:/deps/db-4.8.30.NC/build_unix" \
- -L"c:/deps/openssl-1.0.1e"
+ -L"c:/deps/openssl-1.0.1g"
 
 LIBS= \
  -l boost_system$(BOOST_SUFFIX) \
@@ -34,7 +34,7 @@ CFLAGS=-mthreads -O2 -w -Wall -Wextra -Wformat -Wformat-security -Wno-unused-par
 TESTDEFS = -DTEST_DATA_DIR=$(abspath test/data)
 
 ifndef USE_UPNP
-	override USE_UPNP = -
+  override USE_UPNP = -
 endif
 ifneq (${USE_UPNP}, -)
  LIBS += -l miniupnpc -l iphlpapi
@@ -76,21 +76,21 @@ OBJS= \
 all: digitalcoind.exe
 
 obj/scrypt.o: scrypt.c
-	gcc -c $(CFLAGS) -o $@ $^
+  gcc -c $(CFLAGS) -o $@ $^
 
 obj/%.o: %.cpp $(HEADERS)
-	g++ -c $(CFLAGS) -o $@ $<
+  g++ -c $(CFLAGS) -o $@ $<
 
 digitalcoind.exe: $(OBJS:obj/%=obj/%)
-	g++ $(CFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
+  g++ $(CFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
 
 TESTOBJS := $(patsubst test/%.cpp,obj-test/%.o,$(wildcard test/*.cpp))
 
 obj-test/%.o: test/%.cpp $(HEADERS)
-	g++ -c $(TESTDEFS) $(CFLAGS) -o $@ $<
+  g++ -c $(TESTDEFS) $(CFLAGS) -o $@ $<
 
 test_digitalcoin.exe: $(TESTOBJS) $(filter-out obj/init.o,$(OBJS:obj/%=obj/%))
-	g++ $(CFLAGS) -o $@ $(LIBPATHS) $^ -lboost_unit_test_framework $(LIBS)
+  g++ $(CFLAGS) -o $@ $(LIBPATHS) $^ -lboost_unit_test_framework $(LIBS)
 
 clean:
 	-del /Q digitalcoind test_digitalcoin

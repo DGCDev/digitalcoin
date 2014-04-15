@@ -1,8 +1,8 @@
-digitalcoin V1 BETA
+digitalcoin v1.2.1
 
 Copyright (c) 2009-2012 Bitcoin Developers
 Copyright (c) 2011-2012 Litecoin Developers
-Copyright (c) 2011-2012 Digitalcoin Developers
+Copyright (c) 2011-2014 Digitalcoin Developers
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
 This product includes software developed by the OpenSSL Project for use in
@@ -27,5 +27,5 @@ Learn More:
 Official forums: http://digitalcoin.co/forums
 bitcointalk thread: https://bitcointalk.org/index.php?topic=209508.0
 
-Copyright digitalcoin.co 2013
+Copyright digitalcoin.co 2014
 

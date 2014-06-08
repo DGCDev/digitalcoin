@@ -15,7 +15,7 @@ DigitalCoin is a decentralized peer-to-peer cryptographic currency that is not c
 - subsidy halves every ~3 years
 - ~145 million total coins
 - 15 coins per block
-- 2016 blocks to retarget difficulty
+- 108 blocks to retarget difficulty
 
 For more information, see www.digitalcoin.co
 

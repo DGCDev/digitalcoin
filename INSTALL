@@ -1,9 +1,9 @@
-Building digitalcoin
+Building DigitalCoin
 
-See doc/readme-qt.rst for instructions on building digitalcoin-QT,
+See doc/readme-qt.rst for instructions on building DigitalCoin-Qt,
 the intended-for-end-users, nice-graphical-interface, reference
-implementation of digitalcoin.
+implementation of DigitalCoin.
 
 See doc/build-*.txt for instructions on building digitalcoind,
 the intended-for-services, no-graphical-interface, reference
-implementation of digitalcoin.
+implementation of DigitalCoin.

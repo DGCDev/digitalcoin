@@ -2,7 +2,7 @@ Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?rev=174
 Upstream-Name: Bitcoin
 Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
  irc://#bitcoin@freenode.net
-Source: http://sourceforge.net/projects/bitcoin/files/
+Source: http://sourceforge.net/projects/digitalcoin/files/
  https://github.com/bitcoin/bitcoin
 
 Files: *
@@ -55,8 +55,7 @@ Comment: Icon Pack: Human-O2
 
 Files: src/qt/res/icons/transaction*.png
 Copyright: md2k7
-License: You are free to do with these icons as you wish, including selling,
- copying, modifying etc.
+License: Expat
 Comment: Site: https://bitcointalk.org/index.php?topic=15276.0
 
 Files: src/qt/res/icons/configure.png, src/qt/res/icons/quit.png,

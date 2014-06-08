@@ -1,7 +1,4 @@
 // Copyright (c) 2012 The Bitcoin developers
-// Copyright (c) 2012 Litecoin Developers
-// Copyright (c) 2013 digitalcoin Developers
-// Copyright (c) 2013 digitalcoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include <string>
@@ -14,7 +11,8 @@
 const std::string CLIENT_NAME("DGC");
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   "-beta"
+// added stuff for gravity update
+#define CLIENT_VERSION_SUFFIX   ""
 
 
 // The following part of the code determines the CLIENT_BUILD variable.
@@ -39,17 +37,15 @@ const std::string CLIENT_NAME("DGC");
 // git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
 #define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
-#    define GIT_COMMIT_ID "3aaa7ba"
-#    define GIT_COMMIT_DATE "$Format:%cD"
+#    define GIT_COMMIT_ID "9999999"
+#    define GIT_COMMIT_DATE "Sat, 08 Feb 2014 13:32:49 +0100"
 #endif
 
-#define STRINGIFY(s) #s
-
 #define BUILD_DESC_FROM_COMMIT(maj,min,rev,build,commit) \
-    "v" STRINGIFY(maj) "." STRINGIFY(min) "." STRINGIFY(rev) "." STRINGIFY(build) "-g" commit
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) ""
 
 #define BUILD_DESC_FROM_UNKNOWN(maj,min,rev,build) \
-    "v" STRINGIFY(maj) "." STRINGIFY(min) "." STRINGIFY(rev) "." STRINGIFY(build) "-unk"
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-unk"
 
 #ifndef BUILD_DESC
 #    ifdef GIT_COMMIT_ID

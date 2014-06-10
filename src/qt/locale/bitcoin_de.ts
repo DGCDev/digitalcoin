@@ -35,7 +35,7 @@ Dieses Produkt enthält Software, die vom OpenSSL-Projekt zur Verwendung im Open
     <message>
         <location line="+0"/>
         <source>The DigitalCoin developers</source>
-        <translation>Die DigitalCoinentwickler</translation>
+        <translation>Die DigitalCoin Entwickler</translation>
     </message>
 </context>
 <context>
@@ -133,7 +133,7 @@ Dieses Produkt enthält Software, die vom OpenSSL-Projekt zur Verwendung im Open
     <message>
         <location line="+1"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Editieren</translation>
+        <translation>&amp;Bearbeiten</translation>
     </message>
     <message>
         <location line="+1"/>

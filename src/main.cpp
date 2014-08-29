@@ -409,6 +409,12 @@ bool CTransaction::IsStandard(string& strReason) const
             return false;
         }
     }
+    
+    // only one OP_RETURN txout is permitted
+    if (nDataOut > 1) {
+        reason = "multi-op-return";
+        return false;
+    }
     return true;
 }
 

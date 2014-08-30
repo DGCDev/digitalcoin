@@ -1319,6 +1319,11 @@ int64 GetTimeOffset()
     return nTimeOffset;
 }
 
+int64 GetNTPOffset()
+{
+   return nTimeNTPOffset;
+}
+
 int64 GetAdjustedTime()
 {
    if (fNTPSynced)
@@ -1335,7 +1340,7 @@ void AddTimeData(const CNetAddr& ip, int64 nTime)
     if (!setKnown.insert(ip).second)
         return;
 
-    // Add data
+    // NTP Time Code
     vTimeOffsets.input(nOffsetSample);
     printf("Added time data, samples %d, offset %+"PRI64d" (%+"PRI64d" minutes)\n", vTimeOffsets.size(), nOffsetSample, nOffsetSample/60);
     if (fNTPSynced && vTimeOffsets.size() >= 7)
@@ -1343,8 +1348,8 @@ void AddTimeData(const CNetAddr& ip, int64 nTime)
         int64 nMedian = vTimeOffsets.median();
 	std::vector<int64> vSorted = vTimeOffsets.sorted();
         int ninagreement = 0;
-        BOOST_FOREACH(int64 nOffset, vSorted)
-            if (abs(nMedian - nOffset) <= 5)
+        BOOST_FOREACH(int64 nTimeNTPOffset, vSorted)
+            if (abs(nMedian - nTimeNTPOffset) <= 5)
                 ++ninagreement;
 
         // The median of our peers is more than 10 seconds out from NTP time and the simple majority of peers are in +-5 sec of that, warn the user.
@@ -1353,7 +1358,9 @@ void AddTimeData(const CNetAddr& ip, int64 nTime)
             string strMessage = _("Warning: A majority of peers disagree with NTP time. Something is off here!");
             printf("*** %s\n", strMessage.c_str());
         }
+        nTimeNTPOffset = nMedian;
     }
+    // DGC Network Time Code
     if (vTimeOffsets.size() >= 5 && vTimeOffsets.size() % 2 == 1)
     {
         int64 nMedian = vTimeOffsets.median();

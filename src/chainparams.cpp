@@ -20,22 +20,22 @@ using namespace boost::assign;
 
 unsigned int pnSeed[] =
 {
-    0x12345678
+    0xE195C721, 0x31D3A142, 0x92B9B572, 0xA2F3716E, 0x5F551D90
 };
 
 class CMainParams : public CChainParams {
 public:
     CMainParams() {
-        // The message start string is designed to be unlikely to occur in normal data.
+	// The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xfa;
-        pchMessageStart[1] = 0xc3;
+        pchMessageStart[0] = 0xfb;
+        pchMessageStart[1] = 0xc0;
         pchMessageStart[2] = 0xb6;
-        pchMessageStart[3] = 0xda;
+        pchMessageStart[3] = 0xdb;
         vAlertPubKey = ParseHex("04F04441C4757F356290A37C313C3772C5BC5003E898EB2E0CF365795543A7BF690C8BBBFA32EE3A3325477CE2000B7D0453EFBB203329D0F9DF34D5927D022BC9");
-        nDefaultPort = 12024;
-        nRPCPort = 14022;
+        nDefaultPort = 7999;
+        nRPCPort = 7998;
 
         bnProofOfWorkLimit[ALGO_SHA256D] = CBigNum(~uint256(0) >> 20);
         bnProofOfWorkLimit[ALGO_SCRYPT]  = CBigNum(~uint256(0) >> 20);
@@ -43,27 +43,27 @@ public:
         bnProofOfWorkLimit[ALGO_SKEIN]   = CBigNum(~uint256(0) >> 20);
         bnProofOfWorkLimit[ALGO_QUBIT]   = CBigNum(~uint256(0) >> 20);
 
-        // Build the genesis block. Note that the output of the genesis coinbase cannot
+	// Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
-        const char* pszTimestamp = "USA Today: 10/Jan/2014, Target: Data stolen from up to 110M customers";
+        const char* pszTimestamp = "Digitalcoin, A Currency for a Digital Age";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 8000;
-        txNew.vout[0].scriptPubKey = CScript() << 0x0 << OP_CHECKSIG;          
+        txNew.vout[0].nValue = 50 * COIN;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04a5814813115273a109cff99907ba4a05d951873dae7acb6c973d0c9e7c88911a3dbc9aa600deac241b91707e7b4ffb30ad91c8e56e695a1ddf318592988afe0a") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1389388394;
+        genesis.nTime    = 1367867384;
         genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 2447652;
-    
+        genesis.nNonce   = 672176;
+
         hashGenesisBlock = genesis.GetHash();
 
-        assert(hashGenesisBlock == uint256("0x7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496"));
-        assert(genesis.hashMerkleRoot == uint256("0x72ddd9496b004221ed0557358846d9248ecd4c440ebd28ed901efc18757d0fad"));
+        assert(hashGenesisBlock == uint256("0x5e039e1ca1dbf128973bf6cff98169e40a1b194c3b91463ab74956f413b2f9c8"));
+        assert(genesis.hashMerkleRoot == uint256("0xecb2c595fff9f2364152c32027737007c5a4c60ec960cf93754b0211bc2a1501"));
 
         vSeeds.push_back(CDNSSeedData("digibyte.co seed #1", "seed1.digibyte.co"));
         vSeeds.push_back(CDNSSeedData("hashdragon.com seed #2", "seed2.hashdragon.com"));
@@ -128,7 +128,7 @@ public:
         genesis.nTime = 1392796564;
         genesis.nNonce = 961533;
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0xb5dca8039e300198e5fe7cd23bdd1728e2a444af34c447dbd0916fa3430a68c2"));
+        //assert(hashGenesisBlock == uint256("0xb5dca8039e300198e5fe7cd23bdd1728e2a444af34c447dbd0916fa3430a68c2"));
 
         vFixedSeeds.clear();
         vSeeds.clear();

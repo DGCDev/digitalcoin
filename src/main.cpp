@@ -1222,30 +1222,46 @@ int64_t GetDGBSubsidy(int nHeight) {
 
 int64_t GetBlockValue(int nHeight, int64_t nFees)
 {
-   int64_t nSubsidy = COIN;
-   
-   if(nHeight < nDiffChangeTarget) {
-      //this is pre-patch, reward is 8000.
-      nSubsidy = 8000 * COIN;
-      
-      if(nHeight < 1440)  //1440
-      {
-        nSubsidy = 72000 * COIN;
-      }
-      else if(nHeight < 5760)  //5760
-      {
-        nSubsidy = 16000 * COIN;
-      }
-      
-   } else {
-      //patch takes effect after 67,200 blocks solved
-      nSubsidy = GetDGBSubsidy(nHeight);
-   }
+   int64_t nSubsidy = 15 *COIN;
+    if(nHeight < 1080)
+    {
+        nSubsidy = 2 * COIN;
+    }
+    else if(nHeight < 2160)
+    {
+        nSubsidy = 1 * COIN;
+    }
+    else if(nHeight < 3240)
+    {
+        nSubsidy = 2 * COIN;
+    }
+    else if(nHeight < 4320)
+    {
+        nSubsidy = 5 * COIN;
+    }
+    else if(nHeight < 5400)
+    {
+        nSubsidy = 8 * COIN;
+    }
+    else if(nHeight < 6480)
+    {
+        nSubsidy = 11 * COIN;
+    }
+    else if(nHeight < 7560)
+    {
+        nSubsidy = 14 * COIN;
+    }
+    else if(nHeight < 8640)
+    {
+        nSubsidy = 17 * COIN;
+    }
+    else if(nHeight < 523800)
+    {
+        nSubsidy = 20 * COIN;
+    }
 
-   //make sure the reward is at least 1 DGB
-   if(nSubsidy < COIN) {
-      nSubsidy = COIN;
-   }
+    // Subsidy is cut in half every 4730400 blocks, which will occur approximately every 3 years
+    nSubsidy >>= (nHeight / 4730400);
 
    return nSubsidy + nFees;
 }

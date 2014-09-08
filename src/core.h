@@ -10,20 +10,16 @@
 #include "serialize.h"
 #include "uint256.h"
 #include "scrypt.h"
-#include "hashgroestl.h"
-#include "hashskein.h"
-#include "hashqubit.h"
+#include "hashx11.h"
 
 #include <stdint.h>
 
-enum { 
-    ALGO_SHA256D = 0, 
-    ALGO_SCRYPT  = 1, 
-    ALGO_GROESTL = 2,
-    ALGO_SKEIN   = 3,
-    ALGO_QUBIT   = 4,
+enum {
+    ALGO_SHA256D = 0,
+    ALGO_SCRYPT  = 1,
+    ALGO_X11     = 2,
     NUM_ALGOS };
-    
+
 enum
 {
     // primary version
@@ -32,9 +28,7 @@ enum
     // algo
     BLOCK_VERSION_ALGO           = (7 << 9),
     BLOCK_VERSION_SHA256D        = (1 << 9),
-    BLOCK_VERSION_GROESTL        = (2 << 9),
-    BLOCK_VERSION_SKEIN          = (3 << 9),
-    BLOCK_VERSION_QUBIT          = (4 << 9),
+    BLOCK_VERSION_X11      	 = (2 << 9),
 };
 
 inline int GetAlgo(int nVersion)
@@ -45,12 +39,8 @@ inline int GetAlgo(int nVersion)
             return ALGO_SCRYPT;
         case BLOCK_VERSION_SHA256D:
             return ALGO_SHA256D;
-        case BLOCK_VERSION_GROESTL:
-            return ALGO_GROESTL;
-        case BLOCK_VERSION_SKEIN:
-            return ALGO_SKEIN;
-        case BLOCK_VERSION_QUBIT:
-            return ALGO_QUBIT;
+        case BLOCK_VERSION_X11:
+            return ALGO_X11;
     }
     return ALGO_SCRYPT;
 }
@@ -63,12 +53,8 @@ inline std::string GetAlgoName(int Algo)
             return std::string("sha256d");
         case ALGO_SCRYPT:
             return std::string("scrypt");
-        case ALGO_GROESTL:
-            return std::string("groestl");
-        case ALGO_SKEIN:
-            return std::string("skein");
-        case ALGO_QUBIT:
-            return std::string("qubit");
+        case ALGO_X11:
+            return std::string("x11");
     }
     return std::string("unknown");       
 }
@@ -76,7 +62,7 @@ inline std::string GetAlgoName(int Algo)
 class CTransaction;
 
 /** No amount larger than this (in satoshi) is valid */
-static const int64_t MAX_MONEY = 21000000000 * COIN;
+static const int64_t MAX_MONEY = 200000000 * COIN;
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 
 /** An outpoint - a combination of a transaction hash and an index n into its vout */
@@ -464,12 +450,8 @@ public:
                 scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
                 return thash;
             }
-            case ALGO_GROESTL:
-                return HashGroestl(BEGIN(nVersion), END(nNonce));
-            case ALGO_SKEIN:
-                return HashSkein(BEGIN(nVersion), END(nNonce));
-            case ALGO_QUBIT:
-                return HashQubit(BEGIN(nVersion), END(nNonce));
+            case ALGO_X11:
+                return HashX11(BEGIN(nVersion), END(nNonce));
         }
         return GetHash();
     }

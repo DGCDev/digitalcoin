@@ -39,9 +39,7 @@ public:
 
         bnProofOfWorkLimit[ALGO_SHA256D] = CBigNum(~uint256(0) >> 20);
         bnProofOfWorkLimit[ALGO_SCRYPT]  = CBigNum(~uint256(0) >> 20);
-        bnProofOfWorkLimit[ALGO_GROESTL] = CBigNum(~uint256(0) >> 20);
-        bnProofOfWorkLimit[ALGO_SKEIN]   = CBigNum(~uint256(0) >> 20);
-        bnProofOfWorkLimit[ALGO_QUBIT]   = CBigNum(~uint256(0) >> 20);
+        bnProofOfWorkLimit[ALGO_X11] = CBigNum(~uint256(0) >> 20);
 
 	// Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.

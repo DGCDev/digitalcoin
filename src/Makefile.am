@@ -82,9 +82,7 @@ BITCOIN_CORE_H = \
   sph_simd.h \
   sph_cubehash.h \
   sph_shavite.h \
-  hashgroestl.h \
-  hashskein.h \
-  hashqubit.h
+  hashx11.h 
 
 JSON_H = \
   json/json_spirit.h \

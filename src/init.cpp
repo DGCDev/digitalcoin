@@ -501,15 +501,11 @@ bool AppInit2(boost::thread_group& threadGroup)
         miningAlgo = ALGO_SHA256D;
     else if (strAlgo == "scrypt")
         miningAlgo = ALGO_SCRYPT;
-    else if (strAlgo == "groestl" || strAlgo == "groestlsha2")
-        miningAlgo = ALGO_GROESTL;
-    else if (strAlgo == "skein" || strAlgo == "skeinsha2")
-        miningAlgo = ALGO_SKEIN;
-    else if (strAlgo == "q2c" || strAlgo == "qubit")
-        miningAlgo = ALGO_QUBIT;
+    else if (strAlgo == "x11")
+        miningAlgo = ALGO_X11;
     else
-        miningAlgo = ALGO_SHA256D;
-        
+        miningAlgo = ALGO_SCRYPT;
+
     // Make sure enough file descriptors are available
     int nBind = std::max((int)mapArgs.count("-bind"), 1);
     nMaxConnections = GetArg("-maxconnections", 125);

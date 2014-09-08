@@ -1310,7 +1310,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
    int nHeight = pindexLast->nHeight + 1;
 
     // Switch to DigiShield
-   if (nHeight > 960000)
+   if (nHeight >= 960000)
    {
 	LogPrintf("Switch to DigiShield");
 	return GetNextWorkRequiredV2(pindexLast, pblock, algo);
@@ -1384,31 +1384,15 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 unsigned int GetNextWorkRequiredV2(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo)
 {
     unsigned int nProofOfWorkLimit = Params().ProofOfWorkLimit(algo).GetCompact();
+    LogPrintf("Proof Of Work Limit For Algo %i, is % i", nProofOfWorkLimit, algo);
 
     // Genesis block
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
 
-    if (TestNet())
-    {
-        // Special difficulty rule for testnet:
-        // If the new block's timestamp is more than 2* 10 minutes
-        // then allow mining of a min-difficulty block.
-        if (pblock->nTime > pindexLast->nTime + nTargetSpacing*2)
-            return nProofOfWorkLimit;
-        else
-        {
-            // Return the last non-special-min-difficulty-rules-block
-            const CBlockIndex* pindex = pindexLast;
-            while (pindex->pprev && pindex->nHeight % nInterval != 0 && pindex->nBits == nProofOfWorkLimit)
-                pindex = pindex->pprev;
-            return pindex->nBits;
-        }
-    }
-
     // find previous block with same algo
     const CBlockIndex* pindexPrev = GetLastBlockIndexForAlgo(pindexLast, algo);
-    
+
     // find first block in averaging interval
     // Go back by what we want to be nAveragingInterval blocks
     const CBlockIndex* pindexFirst = pindexPrev;

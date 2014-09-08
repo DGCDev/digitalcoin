@@ -48,7 +48,7 @@ bool fReindex = false;
 bool fBenchmark = false;
 bool fTxIndex = false;
 unsigned int nCoinCacheSize = 5000;
-uint256 hashGenesisBlock("0x7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496");
+uint256 hashGenesisBlock("0x5e039e1ca1dbf128973bf6cff98169e40a1b194c3b91463ab74956f413b2f9c8");
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
 int64_t CTransaction::nMinTxFee = 2000000;  // Override with -mintxfee
@@ -1205,20 +1205,6 @@ const CBlockIndex* GetLastBlockIndexForAlgo(const CBlockIndex* pindex, int algo)
     }
 }
 
-static const int64_t nDiffChangeTarget = 67200; // Patch effective @ block 67200
-static const int64_t patchBlockRewardDuration = 10080; // 10080 blocks main net change
-//mulitAlgoTargetChange = 145000 located in main.h
-
-int64_t GetDGBSubsidy(int nHeight) {
-   // thanks to RealSolid & WDC for helping out with this code
-   int64_t qSubsidy = 8000*COIN;
-   int blocks = nHeight - nDiffChangeTarget;
-   int weeks = (blocks / patchBlockRewardDuration)+1;
-   //decrease reward by 0.5% every week
-   for(int i = 0; i < weeks; i++)  qSubsidy -= (qSubsidy/200);  
-   return qSubsidy;
-
-}
 
 int64_t GetBlockValue(int nHeight, int64_t nFees)
 {
@@ -2548,6 +2534,10 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
 
         // Check proof of work
         if (block.nBits != GetNextWorkRequired(pindexPrev, &block, block.GetAlgo()))
+	    LogPrintf("Checking Block %d with Algo %d \n", nHeight, block.GetAlgo());
+	    if (block.GetAlgo() == ALGO_SCRYPT)  { LogPrintf("Algo is Scrypt \n ");}
+	    if (block.GetAlgo() == ALGO_SHA256D) { LogPrintf("Algo is SHA256 \n");}
+    	    if (block.GetAlgo() == ALGO_X11)     { LogPrintf("Algo is X11 \n");}
             return state.DoS(100, error("AcceptBlock() : incorrect proof of work"),
                              REJECT_INVALID, "bad-diffbits");
 

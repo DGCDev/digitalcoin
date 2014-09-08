@@ -48,7 +48,7 @@ bool fReindex = false;
 bool fBenchmark = false;
 bool fTxIndex = false;
 unsigned int nCoinCacheSize = 5000;
-uint256 hashGenesisBlock("0x5e039e1ca1dbf128973bf6cff98169e40a1b194c3b91463ab74956f413b2f9c8");
+uint256 hashGenesisBlock("0x7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496");
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
 int64_t CTransaction::nMinTxFee = 2000000;  // Override with -mintxfee
@@ -1306,12 +1306,13 @@ static const int64_t nMaxActualTimespan = nAveragingTargetTimespan * (100 + nMax
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo)
 {
-   unsigned int nProofOfWorkLimit = Params().ProofOfWorkLimit(ALGO_SCRYPT).GetCompact();
+   unsigned int nProofOfWorkLimit = Params().ProofOfWorkLimit(algo).GetCompact();
    int nHeight = pindexLast->nHeight + 1;
 
     // Switch to DigiShield
-   if (pindexLast->nHeight < multiAlgoDiffChangeTarget)
+   if (nHeight > 960000)
    {
+	LogPrintf("Switch to DigiShield");
 	return GetNextWorkRequiredV2(pindexLast, pblock, algo);
    }
 
@@ -1325,7 +1326,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
    int64_t nTargetTimespanCurrent = fInflationFixProtocol? nTargetTimespan : (nTargetTimespan*5);
    int64_t nInterval = fInflationFixProtocol? (nTargetTimespanCurrent / nTargetSpacing) : (nTargetTimespanCurrent / (nTargetSpacing / 2));
-   
+
     // Genesis block
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
@@ -1370,8 +1371,8 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     bnNew *= nActualTimespan;
     bnNew /= nTargetTimespanCurrent;
 
-    if (bnNew > Params().ProofOfWorkLimit(ALGO_SCRYPT))
-        bnNew = Params().ProofOfWorkLimit(ALGO_SCRYPT);
+    if (bnNew > Params().ProofOfWorkLimit(algo))
+        bnNew = Params().ProofOfWorkLimit(algo);
 
     /// debug print
     LogPrintf("GetNextWorkRequired V1 RETARGET\n");
@@ -2532,12 +2533,13 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
         pindexPrev = (*mi).second;
         nHeight = pindexPrev->nHeight+1;
 
+        LogPrintf("Checking Block %d with Algo %d \n", nHeight, block.GetAlgo());
+        if (block.GetAlgo() == ALGO_SCRYPT)  { LogPrintf("Algo is Scrypt \n ");}
+        if (block.GetAlgo() == ALGO_SHA256D) { LogPrintf("Algo is SHA256 \n");}
+        if (block.GetAlgo() == ALGO_X11)     { LogPrintf("Algo is X11 \n");}
+
         // Check proof of work
         if (block.nBits != GetNextWorkRequired(pindexPrev, &block, block.GetAlgo()))
-	    LogPrintf("Checking Block %d with Algo %d \n", nHeight, block.GetAlgo());
-	    if (block.GetAlgo() == ALGO_SCRYPT)  { LogPrintf("Algo is Scrypt \n ");}
-	    if (block.GetAlgo() == ALGO_SHA256D) { LogPrintf("Algo is SHA256 \n");}
-    	    if (block.GetAlgo() == ALGO_X11)     { LogPrintf("Algo is X11 \n");}
             return state.DoS(100, error("AcceptBlock() : incorrect proof of work"),
                              REJECT_INVALID, "bad-diffbits");
 

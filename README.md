@@ -1,5 +1,5 @@
 =======
-Digibyte Ubuntu Build
+DigitalCoin v3 Ubuntu Build
 =====================================
 
 sudo apt-get install build-essential libtool autotools-dev autoconf pkg-config libssl-dev git
@@ -8,9 +8,9 @@ sudo apt-get install libboost-all-dev
 
 sudo apt-get install libdb4.8-dev
 
-git clone git://github.com/digibyte/DigiByteProject.git
+git clone git://github.com/DGCFoundation/DGCV3.0.git
 
-cd DigiByteProject
+cd DGCV3.0
 
 ./autogen.sh
 
@@ -20,61 +20,54 @@ make
 
 cd src
 
-sudo cp digibyted /usr/bin
+sudo cp digitalcoind /usr/bin
 
 
 =======
-DigiByte Core integration/staging tree
+DigitalCoin Core integration/staging tree
 =====================================
 
-http://www.digibyte.co
+http://digitalcoin.co
 
-Copyright (c) 2009-2014 DigiByte Core Developers
+Copyright (c) 2009-2014 Bitcoin Developers
+Copyright (c) 2011-2014 Litecoin Developers 
+Copyright (c) 2011-2014 DigitalCoin Developers
 
-What is DigiByte?
-----------------
+What is DigitalCoin?
+--------------------
+DigitalCoin is a decentralized peer-to-peer cryptographic currency that is not controlled by any central authority. DigitalCoin is designed for transaction speed, security, stability, and ease of use. This regard for stability is inherent in the design of the economy and in the spirit of the community.
 
-DigiByte is an experimental new digital currency that enables instant payments to
-anyone, anywhere in the world. DigiByte uses peer-to-peer technology to operate
-with no central authority: managing transactions and issuing money are carried
-out collectively by the network. DigiByte Core is the name of open source
-software which enables the use of this currency.
+- 40 second block targets
+- subsidy halves every ~3 years
+- ~145 million total coins
+- 5 coins per block
+- 3 algorithms
+- 108 blocks to retarget difficulty
 
-For more information, as well as an immediately useable, binary version of
-the DigiByte Core software, see http://www.digibyte.co.
+For more information, see www.digitalcoin.co
 
-Technical Specifications
----------------------
-
- - MultiAlgo POW (Scrypt, SHA256D, Qubit, Skein and Groestl) algorithms
- - 30 Second block Target (2.5 min per Algo)
- - ~21 billion total coins
- - 8000 coins per block, reduces by 0.5% every 10,080 blocks starting 2/28/14
- - Difficulty retarget every 1 block (2.5 Min) Averaged over previous 10 blocks per algo
- 
 Links
 ------------------------
-Website: http://www.digibyte.co
+Website: http://www.digitalcoin.co
 
-DigiByteTalk: http://digibytetalk.com/index.php
+Forums: http://www.digitalcoin.co/forums/
 
-BitcoinTalk: https://bitcointalk.org/index.php?topic=408268.0
+BitcoinTalk: https://bitcointalk.org/index.php?topic=209508.0
 
-Facebook: https://www.facebook.com/digibytecoin
+Facebook: https://www.facebook.com/DigitalCoinDGC
 
-Twitter: https://twitter.com/digibytecoin
+Twitter: https://twitter.com/DigitalcoinDGC
 
-VK: https://vk.com/digibyte
+Reddit: http://www.reddit.com/r/digitalcoin/
 
-Reddit: http://www.reddit.com/r/Digibyte/
-
-IRC Channel: http://webchat.freenode.net/?channels=#digibytecoin
+IRC Channel: http://webchat.freenode.net/?channels=#digitalcoin
 
 License
 -------
 
-DigiByte Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
-information or see http://opensource.org/licenses/MIT.
+DigitalCoin is released under the terms of the MIT license. See COPYING for more information or see http://opensource.org/licenses/MIT.
+
+
 
 Development process
 -------------------
@@ -82,12 +75,8 @@ Development process
 Developers work in their own trees, then submit pull requests when they think
 their feature or bug fix is ready.
 
-If it is a simple/trivial/non-controversial change, then one of the DigiByte
+If it is a simple/trivial/non-controversial change, then one of the DigitalCoin
 development team members simply pulls it.
-
-If it is a *more complicated or potentially controversial* change, then the patch
-submitter will be asked to start a discussion (if they haven't already) on the
-[mailing list](http://sourceforge.net/mailarchive/forum.php?forum_name=digibyte-development).
 
 The patch will be accepted if there is broad consensus that it is a good thing.
 Developers should expect to rework and resubmit patches if the code doesn't
@@ -96,7 +85,7 @@ controversial.
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
 completely stable. [Tags](https://github.com/bitcoin/bitcoin/tags) are created
-regularly to indicate new official, stable release versions of DigiByte.
+regularly to indicate new official, stable release versions of DigitalCoin.
 
 Testing
 -------

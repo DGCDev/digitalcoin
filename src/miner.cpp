@@ -130,11 +130,18 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, int algo)
             error("CreateNewBlock: bad algo");
             return NULL;
     }
-    if (pindexPrev->nHeight < multiAlgoDiffChangeTarget && algo != ALGO_SCRYPT) {
-	    error("MultiAlgo is not yet active. Current block height %d, height multialgo becomes active %d", pindexPrev->nHeight, multiAlgoDiffChangeTarget);
-            return NULL;
+    if(TestNet() && pindexPrev->nHeight < V3_TESTNET_FORK && algo != ALGO_SCRYPT)
+    {
+	error("MultiAlgo is not yet active. Current block height %d, height multialgo becomes active %d", pindexPrev->nHeight, V3_TESTNET_FORK);
+	return NULL;
     }
-    
+    else if(!TestNet() && pindexPrev->nHeight < V3_FORK && algo != ALGO_SCRYPT)
+    {
+        error("MultiAlgo is not yet active. Current block height %d, height multialgo becomes active %d", pindexPrev->nHeight, V3_FORK);
+        return NULL;
+
+    }
+
     // Create coinbase tx
     CTransaction txNew;
     txNew.vin.resize(1);
@@ -533,7 +540,7 @@ void static MinerWaitOnline()
     {
         // Busy-wait for the network to come online so we don't waste time mining
         // on an obsolete chain. In regtest mode we expect to fly solo.
-        while (vNodes.empty() || IsInitialBlockDownload())
+        while (vNodes.empty())
         {
             MilliSleep(1000);
             boost::this_thread::interruption_point();
@@ -683,7 +690,7 @@ void static ScryptMiner(CWallet *pwallet)
     while(true)
     {
         MinerWaitOnline();
-        
+
         //
         // Create new block
         //
@@ -695,7 +702,7 @@ void static ScryptMiner(CWallet *pwallet)
             return;
         CBlock *pblock = &pblocktemplate->block;
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
-            
+
         LogPrintf("Running scrypt miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 

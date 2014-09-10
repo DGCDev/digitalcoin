@@ -25,7 +25,7 @@ fi
 DISTDIR=bitcoin-3.0.1
 
 # Cross-compile for windows first (breaking the mingw/windows build is most common)
-cd /home/ubuntu/DigiByteProject
+cd /home/ubuntu/DGCv3.0
 make distdir
 mkdir -p win32-build
 rsync -av $DISTDIR/ win32-build/
@@ -40,7 +40,7 @@ fi
 make -j$JOBS
 
 # And compile for Linux:
-cd /home/ubuntu/DigiByteProject
+cd /home/ubuntu/DGCv3.0
 make distdir
 mkdir -p linux-build
 rsync -av $DISTDIR/ linux-build/
@@ -58,41 +58,41 @@ make -j$JOBS
 if [ -d "$OUT_DIR" -a -w "$OUT_DIR" ]; then
   set +e
   # Windows:
-  cp /home/ubuntu/DigiByteProject/win32-build/src/bitcoind.exe $OUT_DIR/bitcoind.exe
-  cp /home/ubuntu/DigiByteProject/win32-build/src/test/test_bitcoin.exe $OUT_DIR/test_bitcoin.exe
-  cp /home/ubuntu/DigiByteProject/win32-build/src/qt/bitcoind-qt.exe $OUT_DIR/bitcoin-qt.exe
+  cp /home/ubuntu/DGCv3.0/win32-build/src/bitcoind.exe $OUT_DIR/bitcoind.exe
+  cp /home/ubuntu/DGCv3.0/win32-build/src/test/test_bitcoin.exe $OUT_DIR/test_bitcoin.exe
+  cp /home/ubuntu/DGCv3.0/win32-build/src/qt/bitcoind-qt.exe $OUT_DIR/bitcoin-qt.exe
   # Linux:
-  cp /home/ubuntu/DigiByteProject/linux-build/src/bitcoind $OUT_DIR/bitcoind
-  cp /home/ubuntu/DigiByteProject/linux-build/src/test/test_bitcoin $OUT_DIR/test_bitcoin
-  cp /home/ubuntu/DigiByteProject/linux-build/src/qt/bitcoind-qt $OUT_DIR/bitcoin-qt
+  cp /home/ubuntu/DGCv3.0/linux-build/src/bitcoind $OUT_DIR/bitcoind
+  cp /home/ubuntu/DGCv3.0/linux-build/src/test/test_bitcoin $OUT_DIR/test_bitcoin
+  cp /home/ubuntu/DGCv3.0/linux-build/src/qt/bitcoind-qt $OUT_DIR/bitcoin-qt
   set -e
 fi
 
 # Run unit tests and blockchain-tester on Linux:
-cd /home/ubuntu/DigiByteProject/linux-build
+cd /home/ubuntu/DGCv3.0/linux-build
 make check
 
 # Run RPC integration test on Linux:
-/home/ubuntu/DigiByteProject/qa/rpc-tests/wallet.sh /home/ubuntu/DigiByteProject/linux-build/src
-/home/ubuntu/DigiByteProject/qa/rpc-tests/listtransactions.py --srcdir /home/ubuntu/DigiByteProject/linux-build/src
+/home/ubuntu/DGCv3.0/qa/rpc-tests/wallet.sh /home/ubuntu/DGCv3.0/linux-build/src
+/home/ubuntu/DGCv3.0/qa/rpc-tests/listtransactions.py --srcdir /home/ubuntu/DGCv3.0/linux-build/src
 # Clean up cache/ directory that the python regression tests create
 rm -rf cache
 
 if [ $RUN_EXPENSIVE_TESTS = 1 ]; then
   # Run unit tests and blockchain-tester on Windows:
-  cd /home/ubuntu/DigiByteProject/win32-build
+  cd /home/ubuntu/DGCv3.0/win32-build
   make check
 fi
 
 # Clean up builds (pull-tester machine doesn't have infinite disk space)
-cd /home/ubuntu/DigiByteProject/linux-build
+cd /home/ubuntu/DGCv3.0/linux-build
 make clean
-cd /home/ubuntu/DigiByteProject/win32-build
+cd /home/ubuntu/DGCv3.0/win32-build
 make clean
 
 # TODO: Fix code coverage builds on pull-tester machine
 # # Test code coverage
-# cd /home/ubuntu/DigiByteProject
+# cd /home/ubuntu/DGCv3.0
 # make distdir
 # mv $DISTDIR linux-coverage-build
 # cd linux-coverage-build

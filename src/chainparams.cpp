@@ -113,25 +113,17 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xfc;
-        pchMessageStart[1] = 0xc1;
-        pchMessageStart[2] = 0xb7;
-        pchMessageStart[3] = 0xdc;
+        pchMessageStart2[0] = 0xfc;
+        pchMessageStart2[1] = 0xc1;
+        pchMessageStart2[2] = 0xb7;
+        pchMessageStart2[3] = 0xdc;
         vAlertPubKey = ParseHex("b5dca8039e300198e5fe7cd23bdd1728e2a444af34c447dbd0916fa3430a68c2");
         nDefaultPort = 12025;
         nRPCPort = 14023;
         strDataDir = "testnet3";
 
-        // Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1392796564;
-        genesis.nNonce = 961533;
-        hashGenesisBlock = genesis.GetHash();
-        //assert(hashGenesisBlock == uint256("0xb5dca8039e300198e5fe7cd23bdd1728e2a444af34c447dbd0916fa3430a68c2"));
-
-        vFixedSeeds.clear();
+	vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("digibyte.petertodd.org", "testnet-seed.digibyte.petertodd.org"));
-        vSeeds.push_back(CDNSSeedData("bluematt.me", "testnet-seed.bluematt.me"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(111);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(196);

@@ -1245,7 +1245,11 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
     {
         nSubsidy = 20 * COIN;
     }
-    else if(nHeight > multiAlgoDiffChangeTarget)
+    else if(Testnet() && nHeight >= V3_TESTNET_FORK)
+    {
+	nSubsidy = 5 * COIN;
+    }
+    else if(!Testnet() && nHeight >= V3_FORK)
     {
 	nSubsidy = 5 * COIN;
     }
@@ -1307,13 +1311,18 @@ static const int64_t nMaxActualTimespan = nAveragingTargetTimespan * (100 + nMax
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo)
 {
    unsigned int nProofOfWorkLimit = Params().ProofOfWorkLimit(algo).GetCompact();
-   int nHeight = pindexLast->nHeight + 1;
+   int nHeight = pindexLast->nHeight;
 
     // Switch to DigiShield
-   if (nHeight >= 960000)
+   if (Testnet() && nHeight >= V3_TESTNET_FORK)
    {
 	LogPrintf("Switch to DigiShield");
 	return GetNextWorkRequiredV2(pindexLast, pblock, algo);
+   }
+   else if (!Testnet() && nHeight >= V3_FORK)
+   {
+        LogPrintf("Switch to DigiShield");
+        return GetNextWorkRequiredV2(pindexLast, pblock, algo);
    }
 
    // Digitalcoin difficulty adjustment protocol switch
@@ -1384,7 +1393,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 unsigned int GetNextWorkRequiredV2(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo)
 {
     unsigned int nProofOfWorkLimit = Params().ProofOfWorkLimit(algo).GetCompact();
-    LogPrintf("Proof Of Work Limit For Algo %i, is % i", nProofOfWorkLimit, algo);
+    LogPrintf("Proof Of Work Limit For Algo %i, is % i", algo, nProofOfWorkLimit);
 
     // Genesis block
     if (pindexLast == NULL)
@@ -2527,9 +2536,13 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
             return state.DoS(100, error("AcceptBlock() : incorrect proof of work"),
                              REJECT_INVALID, "bad-diffbits");
 
-	 if ( nHeight < multiAlgoDiffChangeTarget && block.GetAlgo() != ALGO_SCRYPT )
+	 if (Testnet() && nHeight < V3_TESTNET_FORK && block.GetAlgo() != ALGO_SCRYPT )
             return state.Invalid(error("AcceptBlock() : incorrect hasing algo, only scrypt accepted until block 145000"), 
 			    REJECT_INVALID, "bad-hashalgo");
+
+	 else if(!Testnet() && nHeight < V3_FORK && block.GetAlgo() != ALGO_SCRYPT)
+               return state.Invalid(error("AcceptBlock() : incorrect hasing algo, only scrypt accepted until block 145000"),
+                           REJECT_INVALID, "bad-hashalgo");
 
         // Check timestamp against prev
         if (block.GetBlockTime() <= pindexPrev->GetMedianTimePast())

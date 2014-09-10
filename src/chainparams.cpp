@@ -113,11 +113,6 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart2[0] = 0xfc;
-        pchMessageStart2[1] = 0xc1;
-        pchMessageStart2[2] = 0xb7;
-        pchMessageStart2[3] = 0xdc;
-        vAlertPubKey = ParseHex("b5dca8039e300198e5fe7cd23bdd1728e2a444af34c447dbd0916fa3430a68c2");
         nDefaultPort = 12025;
         nRPCPort = 14023;
         strDataDir = "testnet3";
@@ -125,11 +120,6 @@ public:
 	vFixedSeeds.clear();
         vSeeds.clear();
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(111);
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(196);
-        base58Prefixes[SECRET_KEY]     = list_of(239);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x35)(0x87)(0xCF);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x35)(0x83)(0x94);
     }
     virtual Network NetworkID() const { return CChainParams::TESTNET; }
 };

@@ -1245,11 +1245,11 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
     {
         nSubsidy = 20 * COIN;
     }
-    else if(Testnet() && nHeight >= V3_TESTNET_FORK)
+    else if(TestNet() && nHeight >= V3_TESTNET_FORK)
     {
 	nSubsidy = 5 * COIN;
     }
-    else if(!Testnet() && nHeight >= V3_FORK)
+    else if(!TestNet() && nHeight >= V3_FORK)
     {
 	nSubsidy = 5 * COIN;
     }
@@ -1314,12 +1314,12 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
    int nHeight = pindexLast->nHeight;
 
     // Switch to DigiShield
-   if (Testnet() && nHeight >= V3_TESTNET_FORK)
+   if (TestNet() && nHeight >= V3_TESTNET_FORK)
    {
 	LogPrintf("Switch to DigiShield");
 	return GetNextWorkRequiredV2(pindexLast, pblock, algo);
    }
-   else if (!Testnet() && nHeight >= V3_FORK)
+   else if (!TestNet() && nHeight >= V3_FORK)
    {
         LogPrintf("Switch to DigiShield");
         return GetNextWorkRequiredV2(pindexLast, pblock, algo);
@@ -2536,11 +2536,11 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
             return state.DoS(100, error("AcceptBlock() : incorrect proof of work"),
                              REJECT_INVALID, "bad-diffbits");
 
-	 if (Testnet() && nHeight < V3_TESTNET_FORK && block.GetAlgo() != ALGO_SCRYPT )
+	 if (TestNet() && nHeight < V3_TESTNET_FORK && block.GetAlgo() != ALGO_SCRYPT )
             return state.Invalid(error("AcceptBlock() : incorrect hasing algo, only scrypt accepted until block 145000"), 
 			    REJECT_INVALID, "bad-hashalgo");
 
-	 else if(!Testnet() && nHeight < V3_FORK && block.GetAlgo() != ALGO_SCRYPT)
+	 else if(!TestNet() && nHeight < V3_FORK && block.GetAlgo() != ALGO_SCRYPT)
                return state.Invalid(error("AcceptBlock() : incorrect hasing algo, only scrypt accepted until block 145000"),
                            REJECT_INVALID, "bad-hashalgo");
 

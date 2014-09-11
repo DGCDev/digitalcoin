@@ -58,8 +58,12 @@ static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 static const int COINBASE_MATURITY = 5;
 static const int COINBASE_MATURITY_2 = 100;
 /** DGC V3 Hard Fork Block */
-static const int V3_FORK = 970000;
+static const int V3_FORK = 961900;
 static const int V3_TESTNET_FORK = 100;
+/* Other DGC Fork Blocks */
+static const int DIFF_SWITCH_HEIGHT = 476280;
+static const int INFLATION_FIX_HEIGHT = 523800;
+static const int DIFF2_SWITCH_HEIGHT = 625800;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
 /** Maximum number of script-checking threads allowed */
@@ -178,6 +182,7 @@ bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock, b
 bool ActivateBestChain(CValidationState &state);
 int64_t GetBlockValue(int nHeight, int64_t nFees);
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo);
+unsigned int GetNextWorkRequiredV1(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo);
 unsigned int GetNextWorkRequiredV2(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo);
 
 void UpdateTime(CBlockHeader& block, const CBlockIndex* pindexPrev);

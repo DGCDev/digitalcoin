@@ -130,12 +130,14 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, int algo)
             error("CreateNewBlock: bad algo");
             return NULL;
     }
-    if(TestNet() && pindexPrev->nHeight < V3_TESTNET_FORK && algo != ALGO_SCRYPT)
+
+    if(TestNet() && pindexPrev->nHeight < (V3_TESTNET_FORK-1) && algo != ALGO_SCRYPT)
     {
 	error("MultiAlgo is not yet active. Current block height %d, height multialgo becomes active %d", pindexPrev->nHeight, V3_TESTNET_FORK);
 	return NULL;
     }
-    else if(!TestNet() && pindexPrev->nHeight < V3_FORK && algo != ALGO_SCRYPT)
+
+    if(!TestNet() && pindexPrev->nHeight < (V3_FORK-1) && algo != ALGO_SCRYPT)
     {
         error("MultiAlgo is not yet active. Current block height %d, height multialgo becomes active %d", pindexPrev->nHeight, V3_FORK);
         return NULL;

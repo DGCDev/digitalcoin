@@ -1310,11 +1310,16 @@ static const int64_t nMaxActualTimespan = nAveragingTargetTimespan * (100 + nMax
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo)
 {
-   unsigned int nProofOfWorkLimit = Params().ProofOfWorkLimit(algo).GetCompact();
    int nHeight = pindexLast->nHeight;
-
-    // Switch to DigiShield
-   if (TestNet() && nHeight >= V3_TESTNET_FORK)
+   if (!TestNet() && nHeight < V3_FORK)
+   {
+	return GetNextWorkRequiredV1(pindexLast, pblock, algo);
+   }
+   else if (TestNet() && nHeight < V3_TESTNET_FORK)
+   {
+	return GetNextWorkRequiredV1(pindexLast, pblock, algo);
+   }
+   else if (TestNet() && nHeight >= V3_TESTNET_FORK)
    {
 	LogPrintf("Switch to DigiShield");
 	return GetNextWorkRequiredV2(pindexLast, pblock, algo);
@@ -1325,13 +1330,16 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
         return GetNextWorkRequiredV2(pindexLast, pblock, algo);
    }
 
-   // Digitalcoin difficulty adjustment protocol switch
-   static const int nDifficultySwitchHeight = 476280;
-   static const int nInflationFixHeight = 523800;
-   static const int nDifficultySwitchHeightTwo = 625800;
-   bool fNewDifficultyProtocol = (nHeight >= nDifficultySwitchHeight);
-   bool fInflationFixProtocol = (nHeight >= nInflationFixHeight);
-   bool fDifficultySwitchHeightTwo = (nHeight >= nDifficultySwitchHeightTwo);
+}
+
+unsigned int GetNextWorkRequiredV1(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo)
+{
+   unsigned int nProofOfWorkLimit = Params().ProofOfWorkLimit(algo).GetCompact();
+   int nHeight = pindexLast->nHeight + 1;
+
+   bool fNewDifficultyProtocol = (nHeight >= DIFF_SWITCH_HEIGHT);
+   bool fInflationFixProtocol = (nHeight >= INFLATION_FIX_HEIGHT);
+   bool fDifficultySwitchHeightTwo = (nHeight >= DIFF2_SWITCH_HEIGHT);
 
    int64_t nTargetTimespanCurrent = fInflationFixProtocol? nTargetTimespan : (nTargetTimespan*5);
    int64_t nInterval = fInflationFixProtocol? (nTargetTimespanCurrent / nTargetSpacing) : (nTargetTimespanCurrent / (nTargetSpacing / 2));
@@ -1360,12 +1368,11 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
     // Limit adjustment step
     int64_t nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
-
     int64_t nActualTimespanMax = fNewDifficultyProtocol? (nTargetTimespanCurrent*2) : (nTargetTimespanCurrent*4);
     int64_t nActualTimespanMin = fNewDifficultyProtocol? (nTargetTimespanCurrent/2) : (nTargetTimespanCurrent/4);
 
-	//new for v1.0.1
-	if (fDifficultySwitchHeightTwo){
+    //new for v1.0.1
+    if (fDifficultySwitchHeightTwo){
 	nActualTimespanMax = ((nTargetTimespanCurrent*75)/60);
 	nActualTimespanMin = ((nTargetTimespanCurrent*55)/73); }
 
@@ -2537,11 +2544,11 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
                              REJECT_INVALID, "bad-diffbits");
 
 	 if (TestNet() && nHeight < V3_TESTNET_FORK && block.GetAlgo() != ALGO_SCRYPT )
-            return state.Invalid(error("AcceptBlock() : incorrect hasing algo, only scrypt accepted until block 145000"), 
+            return state.Invalid(error("AcceptBlock() : incorrect hasing algo, only scrypt accepted until block %u", V3_FORK),
 			    REJECT_INVALID, "bad-hashalgo");
 
 	 else if(!TestNet() && nHeight < V3_FORK && block.GetAlgo() != ALGO_SCRYPT)
-               return state.Invalid(error("AcceptBlock() : incorrect hasing algo, only scrypt accepted until block 145000"),
+               return state.Invalid(error("AcceptBlock() : incorrect hasing algo, only scrypt accepted until block %u", V3_FORK),
                            REJECT_INVALID, "bad-hashalgo");
 
         // Check timestamp against prev

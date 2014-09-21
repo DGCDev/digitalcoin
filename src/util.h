@@ -26,7 +26,8 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/date_time/gregorian/gregorian_types.hpp>
 #include <boost/date_time/posix_time/posix_time_types.hpp>
-
+#include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/asio.hpp>
 #include "netbase.h" // for AddTimeData
 
 typedef long long  int64;
@@ -34,6 +35,7 @@ typedef unsigned long long  uint64;
 
 static const int64 COIN = 100000000;
 static const int64 CENT = 1000000;
+
 
 #define loop                for (;;)
 #define BEGIN(a)            ((char*)&(a))
@@ -148,7 +150,8 @@ extern bool fBloomFilters;
 extern bool fNoListen;
 extern bool fLogTimestamps;
 extern volatile bool fReopenDebugLog;
-
+extern bool fNTPSynced;
+extern int nTimeNTPOffset;
 void RandAddSeed();
 void RandAddSeedPerfmon();
 int ATTR_WARN_PRINTF(1,2) OutputDebugStringF(const char* pszFormat, ...);
@@ -227,6 +230,7 @@ int64 GetTime();
 void SetMockTime(int64 nMockTimeIn);
 int64 GetAdjustedTime();
 int64 GetTimeOffset();
+int64 GetNTPOffset();
 long hex2long(const char* hexString);
 std::string FormatFullVersion();
 std::string FormatSubVersion(const std::string& name, int nClientVersion, const std::vector<std::string>& comments);

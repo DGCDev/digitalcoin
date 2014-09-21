@@ -83,6 +83,8 @@ string strMiscWarning;
 bool fTestNet = false;
 bool fBloomFilters = true;
 bool fNoListen = false;
+int nTimeNTPOffset = 0;
+bool fNTPSynced = false;
 bool fLogTimestamps = false;
 CMedianFilter<int64> vTimeOffsets(200,0);
 volatile bool fReopenDebugLog = false;
@@ -1295,6 +1297,7 @@ void ShrinkDebugFile()
 //  - Median of other nodes clocks
 //  - The user (asking the user to fix the system clock if the first two disagree)
 //
+
 static int64 nMockTime = 0;  // For unit testing
 
 int64 GetTime()
@@ -1309,16 +1312,23 @@ void SetMockTime(int64 nMockTimeIn)
     nMockTime = nMockTimeIn;
 }
 
-static int64 nTimeOffset = 0;
+static int64 nTimeOffset	= 0;
 
 int64 GetTimeOffset()
 {
     return nTimeOffset;
 }
 
+int64 GetNTPOffset()
+{
+   return nTimeNTPOffset;
+}
+
 int64 GetAdjustedTime()
 {
-    return GetTime() + GetTimeOffset();
+   if (fNTPSynced)
+        return GetTime() + nTimeNTPOffset;
+    return GetTime() + nTimeOffset;
 }
 
 void AddTimeData(const CNetAddr& ip, int64 nTime)
@@ -1330,9 +1340,27 @@ void AddTimeData(const CNetAddr& ip, int64 nTime)
     if (!setKnown.insert(ip).second)
         return;
 
-    // Add data
+    // NTP Time Code
     vTimeOffsets.input(nOffsetSample);
     printf("Added time data, samples %d, offset %+"PRI64d" (%+"PRI64d" minutes)\n", vTimeOffsets.size(), nOffsetSample, nOffsetSample/60);
+    if (fNTPSynced && vTimeOffsets.size() >= 7)
+    {
+        int64 nMedian = vTimeOffsets.median();
+	std::vector<int64> vSorted = vTimeOffsets.sorted();
+        int ninagreement = 0;
+        BOOST_FOREACH(int64 nTimeNTPOffset, vSorted)
+            if (abs(nMedian - nTimeNTPOffset) <= 5)
+                ++ninagreement;
+
+        // The median of our peers is more than 10 seconds out from NTP time and the simple majority of peers are in +-5 sec of that, warn the user.
+        if ((abs(nMedian - nTimeNTPOffset) > 10) && (ninagreement >= vTimeOffsets.size()/2))
+        {
+            string strMessage = _("Warning: A majority of peers disagree with NTP time. Something is off here!");
+            printf("*** %s\n", strMessage.c_str());
+        }
+        nTimeNTPOffset = nMedian;
+    }
+    // DGC Network Time Code
     if (vTimeOffsets.size() >= 5 && vTimeOffsets.size() % 2 == 1)
     {
         int64 nMedian = vTimeOffsets.median();

@@ -541,7 +541,7 @@ void CNode::Cleanup()
 void CNode::PushVersion()
 {
     /// when NTP implemented, change to just nTime = GetAdjustedTime()
-    int64 nTime = (fInbound ? GetAdjustedTime() : GetTime());
+    int64 nTime = ((fInbound || fNTPSynced) ? GetAdjustedTime() : GetTime());
     CAddress addrYou = (addr.IsRoutable() && !IsProxy(addr) ? addr : CAddress(CService("0.0.0.0",0)));
     CAddress addrMe = GetLocalAddress(&addr);
     RAND_bytes((unsigned char*)&nLocalHostNonce, sizeof(nLocalHostNonce));
@@ -1181,10 +1181,154 @@ void MapPort(bool)
 }
 #endif
 
+static boost::posix_time::time_duration getNTPOffset(SOCKET hSocket)
+{
+    using namespace boost::posix_time;
 
+    const unsigned char sendbuffer[48] = {
+        0x1b, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
+    ptime sendtime = microsec_clock::universal_time();
+    if (send(hSocket, (char*)sendbuffer, 48, 0) != 48)
+    {
+        printf("NTP send() failed\n");
+        return time_duration(not_a_date_time);
+    }
 
+    fd_set fdset;
+    FD_ZERO(&fdset);
+    FD_SET(hSocket, &fdset);
+    struct timeval t = {3, 0};
+    int n_readable = select(hSocket+1, &fdset, NULL, NULL, &t);
+    if (n_readable <= 0)
+    {
+        printf("NTP timeout\n");
+        return time_duration(not_a_date_time);
+    }
 
+    unsigned char recvbuffer[48];
+    if (recv(hSocket, (char*)recvbuffer, 48, 0) != 48)
+    {
+        printf("NTP recv() failed\n");
+        return time_duration(not_a_date_time);
+    }
+    ptime recvtime = microsec_clock::universal_time();
+
+    time_duration half_roundtrip = (recvtime - sendtime) / 2;
+
+    typedef boost::uint32_t u32;
+    u32 iPart(
+        static_cast<u32>(recvbuffer[40]) << 24
+        | static_cast<u32>(recvbuffer[41]) << 16
+        | static_cast<u32>(recvbuffer[42]) << 8
+        | static_cast<u32>(recvbuffer[43])
+    );
+    u32 fPart(
+        static_cast<u32>(recvbuffer[44]) << 24
+        | static_cast<u32>(recvbuffer[45]) << 16
+        | static_cast<u32>(recvbuffer[46]) << 8
+        | static_cast<u32>(recvbuffer[47])
+    );
+
+    ptime pt(
+        boost::gregorian::date(1900,1,1),
+        milliseconds(iPart * 1.0E3 + fPart * 1.0E3 / 0x100000000ULL )
+    );
+    ptime servertime = pt + half_roundtrip;
+    return (servertime - recvtime);
+}
+
+static void ThreadNTPSync()
+{
+    printf("ThreadNTPSync started\n");
+
+    //look up a bunch of NTP servers
+    struct addrinfo* ntphosts;
+    int ai_err = getaddrinfo("pool.ntp.org", "123", NULL, &ntphosts);
+    if (ai_err != 0)
+    {
+        printf("NTP name lookup failed: %s\n", gai_strerror(ai_err));
+        return;
+    }
+    if (! ntphosts)
+    {
+        printf("NTP name lookup returned no results\n");
+        return;
+    }
+    vector<struct sockaddr> ntpaddrs;
+    for (struct addrinfo* tmpaddr = ntphosts; tmpaddr; tmpaddr = tmpaddr->ai_next)
+    {
+        if (tmpaddr->ai_family == AF_INET)
+        {
+            struct sockaddr toadd;
+            memcpy(&toadd, tmpaddr->ai_addr, sizeof(sockaddr));
+            ntpaddrs.push_back(toadd);
+        }
+    }
+    freeaddrinfo(ntphosts);
+    if (ntpaddrs.empty())
+    {
+        printf("NTP name lookup returned no usable results\n");
+        return;
+    }
+
+    SOCKET hSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    if (hSocket == INVALID_SOCKET)
+    {
+        printf("NTP socket() failed\n");
+        return;
+    }
+    vector<struct sockaddr>::iterator ithost = ntpaddrs.begin();
+    if (connect(hSocket, &(*ithost), sizeof(sockaddr)))
+    {
+        printf("NTP connect() failed\n");
+        return;
+    }
+
+    loop
+    {
+        boost::posix_time::time_duration offset = getNTPOffset(hSocket);
+
+        if (offset.is_not_a_date_time())
+        {
+            // Something went wrong, try a different server in 5 seconds
+            if(++ithost == ntpaddrs.end())
+                 ithost = ntpaddrs.begin();
+            if (connect(hSocket, &(*ithost), sizeof(sockaddr)))
+            {
+                printf("NTP connect() failed\n");
+                return;
+            }
+            MilliSleep(5000);
+            continue;
+        }
+
+        printf("NTP sync, offset %+li ms\n", offset.total_milliseconds());
+
+        // Show a warning if NTP time is off more than 1 hour
+        if (abs(offset.total_seconds()) >= 70 * 60)
+        {
+            string strMessage = _("Warning: Please check that your computer's date and time are correct.  If your clock is wrong Digitalcoin will not work properly.");
+            printf("*** %s\n", strMessage.c_str());
+        }
+        else
+        {
+            int ntpoffset = time_t(offset.total_seconds());
+
+            // This should be reasonably threadsafe on any platform we run on
+            nTimeNTPOffset = ntpoffset;
+            fNTPSynced = true;
+        }
+
+        // Sleep for about 1 hour
+        for(int i = 0; i < 60 * 60; i++)
+        {
+            MilliSleep(1000);
+        }
+    }
+    closesocket(hSocket);
+}
 
 
 
@@ -1196,9 +1340,9 @@ void MapPort(bool)
 static const char *strMainNetDNSSeed[][2] = {
     {"dgc1.seed.nodes.mywl.lt", "dgc1.seed.nodes.mywl.lt"},
     {"dgc2.seed.nodes.mywl.lt", "dgc2.seed.nodes.mywl.lt"},
-	{"dgc3.seed.nodes.mywl.lt", "dgc3.seed.nodes.mywl.lt"},
-	{"dgc4.seed.nodes.mywl.lt", "dgc4.seed.nodes.mywl.lt"},
-	{NULL, NULL}
+    {"dgc3.seed.nodes.mywl.lt", "dgc3.seed.nodes.mywl.lt"},
+    {"dgc4.seed.nodes.mywl.lt", "dgc4.seed.nodes.mywl.lt"},
+    {NULL, NULL}
 };
 
 static const char *strTestNetDNSSeed[][2] = {
@@ -1304,6 +1448,17 @@ void ThreadOpenConnections()
         }
     }
 
+    // Wait up to 20 seconds for initial NTP sync
+    int ntpwaits;
+    for (ntpwaits = 0; ntpwaits < 20; ntpwaits++)
+    {
+	if(fNTPSynced){ break; }
+        else { MilliSleep(1000); }
+        if (ntpwaits == 20)
+        {
+            printf("ThreadOpenConnections wait for NTP sync timed out\n");
+        }
+    }
     // Initiate network connections
     int64 nStart = GetTime();
     loop
@@ -1786,6 +1941,7 @@ void StartNode(boost::thread_group& threadGroup)
     else
         threadGroup.create_thread(boost::bind(&TraceThread<boost::function<void()> >, "dnsseed", &ThreadDNSAddressSeed));
 
+
 #ifdef USE_UPNP
     // Map ports with UPnP
     MapPort(GetBoolArg("-upnp", USE_UPNP));
@@ -1796,6 +1952,9 @@ void StartNode(boost::thread_group& threadGroup)
 
     // Send and receive from sockets, accept connections
     threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "net", &ThreadSocketHandler));
+
+    // Initiate the NTP Thread
+    threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "ntp", &ThreadNTPSync));
 
     // Initiate outbound connections from -addnode
     threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "addcon", &ThreadOpenAddedConnections));

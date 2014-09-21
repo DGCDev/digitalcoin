@@ -150,6 +150,41 @@ Value getblockhash(const Array& params, bool fHelp)
     return pblockindex->phashBlock->GetHex();
 }
 
+Value getblockinfo(const Array& params, bool fHelp)
+{
+   if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "getblockhash <index>\n"
+            "Returns hash of block in best-block-chain at <index>.");
+
+    int nHeight = params[0].get_int();
+    if (nHeight < 0 || nHeight > nBestHeight)
+        throw runtime_error("Block number out of range.");
+
+    CBlockIndex* pblockindex = FindBlockByHeight(nHeight);
+    uint256 hash(pblockindex->phashBlock->GetHex());
+
+    bool fVerbose = true;
+    if (params.size() > 1)
+        fVerbose = params[1].get_bool();
+
+    if (mapBlockIndex.count(hash) == 0)
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Block not found");
+
+    CBlock block;
+    block.ReadFromDisk(pblockindex);
+
+    if (!fVerbose)
+    {
+        CDataStream ssBlock(SER_NETWORK, PROTOCOL_VERSION);
+        ssBlock << block;
+        std::string strHex = HexStr(ssBlock.begin(), ssBlock.end());
+        return strHex;
+    }
+
+    return blockToJSON(block, pblockindex);
+}
+
 Value getblock(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)

@@ -149,7 +149,6 @@ libbitcoin_common_a_SOURCES = \
   util.cpp \
   version.cpp \
   scrypt.cpp \
-  scrypt-sse2.cpp \
   blake.c \
   bmw.c \
   groestl.c \

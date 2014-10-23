@@ -1344,6 +1344,11 @@ unsigned int GetNextWorkRequiredV1(const CBlockIndex* pindexLast, const CBlockHe
    int64_t nTargetTimespanCurrent = fInflationFixProtocol? nTargetTimespan : (nTargetTimespan*5);
    int64_t nInterval = fInflationFixProtocol? (nTargetTimespanCurrent / nTargetSpacing) : (nTargetTimespanCurrent / (nTargetSpacing / 2));
 
+    // Testnet Fixed Diff
+    if (TestNet())
+    {
+	return nProofOfWorkLimit;
+    }
     // Genesis block
     if (pindexLast == NULL)
         return nProofOfWorkLimit;

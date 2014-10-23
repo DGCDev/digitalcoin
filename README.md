@@ -24,14 +24,14 @@ sudo cp digitalcoind /usr/bin
 
 
 =======
-DigitalCoin Core integration/staging tree
+Digitalcoin integration/staging tree
 =====================================
 
 http://digitalcoin.co
 
 Copyright (c) 2009-2014 Bitcoin Developers
 Copyright (c) 2011-2014 Litecoin Developers 
-Copyright (c) 2011-2014 DigitalCoin Developers
+Copyright (c) 2011-2014 Digitalcoin Developers
 
 What is DigitalCoin?
 --------------------

@@ -42,11 +42,11 @@ static bool AppInitRPC(int argc, char* argv[])
     if (argc<2 || mapArgs.count("-?") || mapArgs.count("--help"))
     {
         // First part of help message is specific to RPC client
-        std::string strUsage = _("DigiByte Core RPC client version") + " " + FormatFullVersion() + "\n\n" +
+        std::string strUsage = _("Digitalcoin RPC client version") + " " + FormatFullVersion() + "\n\n" +
             _("Usage:") + "\n" +
-              "  digibyte-cli [options] <command> [params]  " + _("Send command to DigiByte Core") + "\n" +
-              "  digibyte-cli [options] help                " + _("List commands") + "\n" +
-              "  digibyte-cli [options] help <command>      " + _("Get help for a command") + "\n";
+              "  digitalcoin-cli [options] <command> [params]  " + _("Send command to Digitalcoin") + "\n" +
+              "  digitalcoin-cli [options] help                " + _("List commands") + "\n" +
+              "  digitalcoin-cli [options] help <command>      " + _("Get help for a command") + "\n";
 
         strUsage += "\n" + HelpMessageCli(true);
 

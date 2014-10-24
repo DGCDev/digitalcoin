@@ -561,7 +561,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString& text)
         }
         else if (!addr.IsValid()) // Invalid address
         {
-            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid DigiByte address"));
+            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Digitalcoin address"));
         }
         else // Valid address
         {

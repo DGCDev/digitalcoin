@@ -27,7 +27,7 @@ using namespace std;
 using namespace boost;
 
 #if defined(NDEBUG)
-# error "DigiByte cannot be compiled without assertions."
+# error "Digitalcoin cannot be compiled without assertions."
 #endif
 
 //
@@ -71,7 +71,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "DigiByte Signed Message:\n";
+const string strMessageMagic = "Digitalcoin Signed Message:\n";
 
 // Settings
 int miningAlgo = ALGO_SCRYPT;

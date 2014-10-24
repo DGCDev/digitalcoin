@@ -1,4 +1,4 @@
-test_digibyte_qt-uritests.o: uritests.cpp uritests.h \
+test_digitalcoin_qt-uritests.o: uritests.cpp uritests.h \
  /usr/include/qt4/QtCore/QObject /usr/include/qt4/QtCore/qobject.h \
  /usr/include/qt4/QtCore/qobjectdefs.h \
  /usr/include/qt4/QtCore/qnamespace.h /usr/include/qt4/QtCore/qglobal.h \

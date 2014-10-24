@@ -1,4 +1,4 @@
-test_digibyte_qt-moc_paymentservertests.o: moc_paymentservertests.cpp \
+test_digitalcoin_qt-moc_paymentservertests.o: moc_paymentservertests.cpp \
  paymentservertests.h ../paymentserver.h ../paymentrequestplus.h \
  ../paymentrequest.pb.h /usr/include/c++/4.6/string \
  /usr/include/c++/4.6/x86_64-linux-gnu/./bits/c++config.h \

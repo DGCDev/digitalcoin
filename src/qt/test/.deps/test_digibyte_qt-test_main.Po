@@ -1,4 +1,4 @@
-test_digibyte_qt-test_main.o: test_main.cpp ../../../src/bitcoin-config.h \
+test_digitalcoin_qt-test_main.o: test_main.cpp ../../../src/bitcoin-config.h \
  paymentservertests.h ../paymentserver.h ../paymentrequestplus.h \
  ../paymentrequest.pb.h /usr/include/c++/4.6/string \
  /usr/include/c++/4.6/x86_64-linux-gnu/./bits/c++config.h \

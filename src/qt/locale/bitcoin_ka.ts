@@ -2,12 +2,12 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About DigiByte Core</source>
-        <translation>DigiByte Core-ს შესახებ</translation>
+        <source>About Digitalcoin</source>
+        <translation>Digitalcoin-ს შესახებ</translation>
     </message>
     <message>
-        <source>&lt;b&gt;DigiByte Core&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;DigiByte Core&lt;/b&gt;-ს ვერსია</translation>
+        <source>&lt;b&gt;Digitalcoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Digitalcoin&lt;/b&gt;-ს ვერსია</translation>
     </message>
     <message>
         <source>
@@ -28,8 +28,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>საავტორო უფლებები</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
-        <translation>DigiByte Core-ს ავტორები</translation>
+        <source>The Bitcoin and Digitalcoin developers</source>
+        <translation>Digitalcoin-ს ავტორები</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -103,12 +103,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>მიღების მისამართი</translation>
     </message>
     <message>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>ეს არის თქვენი DigiByte-მისამართები გადახდების შესასრულებლად. მონეტების გაგზავნამდე ყოველთვის შეამოწმეთ თანხა და მიმღების მისამართი.</translation>
+        <source>These are your Digitalcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>ეს არის თქვენი Digitalcoin-მისამართები გადახდების შესასრულებლად. მონეტების გაგზავნამდე ყოველთვის შეამოწმეთ თანხა და მიმღების მისამართი.</translation>
     </message>
     <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>ეს არის თქვენი DigiByte-მისამართები გადახდების მისაღებად. რეკომენდებულია ყოველი ტრანსაქციისათვის ახალი მიღების მისამართის გამოყენება.</translation>
+        <source>These are your Digitalcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>ეს არის თქვენი Digitalcoin-მისამართები გადახდების მისაღებად. რეკომენდებულია ყოველი ტრანსაქციისათვის ახალი მიღების მისამართის გამოყენება.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -225,8 +225,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>საფულე დაშიფრულია</translation>
     </message>
     <message>
-        <source>DigiByte will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-        <translation>ახლა DigiByte დაიხურება დაშიფრვის პროცესის დასასრულებლად. გაითვალისწინეთ, რომ დაშიფრვა სრულად ვერ დაიცავს თქვენს ბითქოინებს თქვენს კომპიუტერში შემოპარული მავნე პროგრამების საშუალებით დატაცებისაგან.</translation>
+        <source>Digitalcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digitalcoins from being stolen by malware infecting your computer.</source>
+        <translation>ახლა Digitalcoin დაიხურება დაშიფრვის პროცესის დასასრულებლად. გაითვალისწინეთ, რომ დაშიფრვა სრულად ვერ დაიცავს თქვენს ბითქოინებს თქვენს კომპიუტერში შემოპარული მავნე პროგრამების საშუალებით დატაცებისაგან.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -258,7 +258,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
 </context>
 <context>
-    <name>DigiByteGUI</name>
+    <name>DigitalcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>ხელ&amp;მოწერა</translation>
@@ -296,8 +296,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>გასვლა</translation>
     </message>
     <message>
-        <source>Show information about DigiByte</source>
-        <translation>ინფორმაცია DigiByte-ის შესახებ</translation>
+        <source>Show information about Digitalcoin</source>
+        <translation>ინფორმაცია Digitalcoin-ის შესახებ</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -344,12 +344,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>დისკზე ბლოკების რეინდექსაცია...</translation>
     </message>
     <message>
-        <source>Send coins to a DigiByte address</source>
-        <translation>მონეტების გაგზავნა DigiByte-მისამართზე</translation>
+        <source>Send coins to a Digitalcoin address</source>
+        <translation>მონეტების გაგზავნა Digitalcoin-მისამართზე</translation>
     </message>
     <message>
-        <source>Modify configuration options for DigiByte</source>
-        <translation>DigiByte-ის საკონფიგურაციო პარამეტრების ცვლილება</translation>
+        <source>Modify configuration options for Digitalcoin</source>
+        <translation>Digitalcoin-ის საკონფიგურაციო პარამეტრების ცვლილება</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -372,8 +372,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;ვერიფიკაცია</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -400,12 +400,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>თქვენი საფულის პირადი გასაღებების დაშიფრვა</translation>
     </message>
     <message>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
-        <translation>მესიჯებზე ხელმოწერა თქვენი DigiByte-მისამართებით იმის დასტურად, რომ ის თქვენია</translation>
+        <source>Sign messages with your Digitalcoin addresses to prove you own them</source>
+        <translation>მესიჯებზე ხელმოწერა თქვენი Digitalcoin-მისამართებით იმის დასტურად, რომ ის თქვენია</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
-        <translation>შეამოწმეთ, რომ მესიჯები ხელმოწერილია მითითებული DigiByte-მისამართით</translation>
+        <source>Verify messages to ensure they were signed with specified Digitalcoin addresses</source>
+        <translation>შეამოწმეთ, რომ მესიჯები ხელმოწერილია მითითებული Digitalcoin-მისამართით</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -428,16 +428,16 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>[testnet]</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
-        <translation>გადახდის მოთხოვნა (შეიქმნება QR-კოდები და digibyte: ბმულები)</translation>
+        <source>Request payments (generates QR codes and digitalcoin: URIs)</source>
+        <translation>გადახდის მოთხოვნა (შეიქმნება QR-კოდები და digitalcoin: ბმულები)</translation>
     </message>
     <message>
-        <source>&amp;About DigiByte Core</source>
-        <translation>DigiByte Core-ს შეს&amp;ახებ</translation>
+        <source>&amp;About Digitalcoin</source>
+        <translation>Digitalcoin-ს შეს&amp;ახებ</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -448,23 +448,23 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>გამოყენებული მიღების მისამართებისა და ნიშნულების სიის ჩვენება</translation>
     </message>
     <message>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>digibyte: URI-ის ან გადახდის მოთხოვნის გახსნა</translation>
+        <source>Open a digitalcoin: URI or payment request</source>
+        <translation>digitalcoin: URI-ის ან გადახდის მოთხოვნის გახსნა</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>საკომანდო სტრიქონის ოპ&amp;ციები</translation>
     </message>
     <message>
-        <source>Show the DigiByte Core help message to get a list with possible DigiByte command-line options</source>
-        <translation>DigiByte Core-ს დახმარების ჩვენება DigiByte-ის საკომანდო სტრიქონის დასაშვები ოპციების სანახავად</translation>
+        <source>Show the Digitalcoin help message to get a list with possible Digitalcoin command-line options</source>
+        <translation>Digitalcoin-ს დახმარების ჩვენება Digitalcoin-ის საკომანდო სტრიქონის დასაშვები ოპციების სანახავად</translation>
     </message>
     <message>
-        <source>DigiByte client</source>
-        <translation>DigiByte-კლიენტი</translation>
+        <source>Digitalcoin client</source>
+        <translation>Digitalcoin-კლიენტი</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to DigiByte network</source>
+        <source>%n active connection(s) to Digitalcoin network</source>
         <translation><numerusform>აქტიური მიერთებები ბითქოინის ქსელთან: %n</numerusform></translation>
     </message>
     <message>
@@ -560,8 +560,8 @@ Address: %4
         <translation>საფულე &lt;b&gt;დაშიფრულია&lt;/b&gt; და ამჟამად &lt;b&gt;დაბლოკილია&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
-        <translation>ფატალური შეცდომა. DigiByte ვერ უზრუნველყოფს უსაფრთხო გაგრძელებას, ამიტომ იხურება.</translation>
+        <source>A fatal error occurred. Digitalcoin can no longer continue safely and will quit.</source>
+        <translation>ფატალური შეცდომა. Digitalcoin ვერ უზრუნველყოფს უსაფრთხო გაგრძელებას, ამიტომ იხურება.</translation>
     </message>
 </context>
 <context>
@@ -845,8 +845,8 @@ Address: %4
         <translation>მისამართი &quot;%1&quot; უკვე არის მისამართების წიგნში.</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid DigiByte address.</source>
-        <translation>შეყვანილი მისამართი &quot;%1&quot; არ არის ვალიდური DigiByte-მისამართი.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Digitalcoin address.</source>
+        <translation>შეყვანილი მისამართი &quot;%1&quot; არ არის ვალიდური Digitalcoin-მისამართი.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -883,12 +883,12 @@ Address: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>DigiByte Core - Command-line options</source>
-        <translation>DigiByte Core - საკომანდო სტრიქონის ოპციები</translation>
+        <source>Digitalcoin - Command-line options</source>
+        <translation>Digitalcoin - საკომანდო სტრიქონის ოპციები</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>version</source>
@@ -934,16 +934,16 @@ Address: %4
         <translation>მოგესალმებით</translation>
     </message>
     <message>
-        <source>Welcome to DigiByte Core.</source>
-        <translation>მოგესალმებათ DigiByte Core.</translation>
+        <source>Welcome to Digitalcoin.</source>
+        <translation>მოგესალმებათ Digitalcoin.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where DigiByte Core will store its data.</source>
-        <translation>ეს პროგრამის პირველი გაშვებაა; შეგიძლიათ მიუთითოთ, სად შეინახოს მონაცემები DigiByte Core-მ.</translation>
+        <source>As this is the first time the program is launched, you can choose where Digitalcoin will store its data.</source>
+        <translation>ეს პროგრამის პირველი გაშვებაა; შეგიძლიათ მიუთითოთ, სად შეინახოს მონაცემები Digitalcoin-მ.</translation>
     </message>
     <message>
-        <source>DigiByte Core will download and store a copy of the DigiByte block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>DigiByte Core გადმოტვირთავს და შეინახავს DigiByte-ის ბლოკთა ჯაჭვს. მითითებულ კატალოგში დაგროვდება სულ ცოტა 1 გბ მონაცემები, და მომავალში უფრო გაიზრდება. საფულეც ამავე კატალოგში შეინახება.</translation>
+        <source>Digitalcoin will download and store a copy of the Digitalcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Digitalcoin გადმოტვირთავს და შეინახავს Digitalcoin-ის ბლოკთა ჯაჭვს. მითითებულ კატალოგში დაგროვდება სულ ცოტა 1 გბ მონაცემები, და მომავალში უფრო გაიზრდება. საფულეც ამავე კატალოგში შეინახება.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -954,8 +954,8 @@ Address: %4
         <translation>მითითებული კატალოგის გამოყენება:</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
@@ -1016,11 +1016,11 @@ Address: %4
         <translation>ტრანსაქციის სა&amp;ფასურის გადახდა</translation>
     </message>
     <message>
-        <source>Automatically start DigiByte after logging in to the system.</source>
-        <translation>სისტემაში შესვლის შემდეგ DigiByte-ის ავტომატური გაშვება.</translation>
+        <source>Automatically start Digitalcoin after logging in to the system.</source>
+        <translation>სისტემაში შესვლის შემდეგ Digitalcoin-ის ავტომატური გაშვება.</translation>
     </message>
     <message>
-        <source>&amp;Start DigiByte on system login</source>
+        <source>&amp;Start Digitalcoin on system login</source>
         <translation>&amp;სისტემაში შესვლისას გაშვება</translation>
     </message>
     <message>
@@ -1036,8 +1036,8 @@ Address: %4
         <translation>სკრიპტის &amp;ვერიფიცირების ნაკადების რაოდენობა</translation>
     </message>
     <message>
-        <source>Connect to the DigiByte network through a SOCKS proxy.</source>
-        <translation>DigiByte-ქსელზე მიერთება SOCKS-პროქსით.</translation>
+        <source>Connect to the Digitalcoin network through a SOCKS proxy.</source>
+        <translation>Digitalcoin-ქსელზე მიერთება SOCKS-პროქსით.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS proxy (default proxy):</source>
@@ -1096,8 +1096,8 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>როუტერში DigiByte-კლიენტის პორტის ავტომატური გახსნა. მუშაობს, თუ თქვენს როუტერს ჩართული აქვს UPnP.</translation>
+        <source>Automatically open the Digitalcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>როუტერში Digitalcoin-კლიენტის პორტის ავტომატური გახსნა. მუშაობს, თუ თქვენს როუტერს ჩართული აქვს UPnP.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1152,8 +1152,8 @@ Address: %4
         <translation>სამომხმარებ&amp;ლო ენა:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting DigiByte.</source>
-        <translation>აქ შეგიძლიათ აირჩიოთ სამომხმარებლო ენა. ძალაში შევა DigiByte-ის რესტარტის შემდეგ.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Digitalcoin.</source>
+        <translation>აქ შეგიძლიათ აირჩიოთ სამომხმარებლო ენა. ძალაში შევა Digitalcoin-ის რესტარტის შემდეგ.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1164,8 +1164,8 @@ Address: %4
         <translation>აირჩიეთ გასაგზავნი თანხის ნაგულისხმევი ერთეული.</translation>
     </message>
     <message>
-        <source>Whether to show DigiByte addresses in the transaction list or not.</source>
-        <translation>ტრანსაქციების სიაში იყოს თუ არა ნაჩვენები DigiByte-მისამართები.</translation>
+        <source>Whether to show Digitalcoin addresses in the transaction list or not.</source>
+        <translation>ტრანსაქციების სიაში იყოს თუ არა ნაჩვენები Digitalcoin-მისამართები.</translation>
     </message>
     <message>
         <source>&amp;Display addresses in transaction list</source>
@@ -1219,8 +1219,8 @@ Address: %4
         <translation>ფორმა</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
-        <translation>ნაჩვენები ინფორმაცია შეიძლება მოძველებული იყოს. თქვენი საფულე ავტომატურად სინქრონიზდება DigiByte-ის ქსელთან კავშირის დამყარების შემდეგ, ეს პროცესი ჯერ არ არის დასრულებული.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Digitalcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>ნაჩვენები ინფორმაცია შეიძლება მოძველებული იყოს. თქვენი საფულე ავტომატურად სინქრონიზდება Digitalcoin-ის ქსელთან კავშირის დამყარების შემდეგ, ეს პროცესი ჯერ არ არის დასრულებული.</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1274,8 +1274,8 @@ Address: %4
         <translation>URI-ების დამუშავება</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
-        <translation>URI-ის დამუშავება ვერ მოხერხდა. შესაძლოა არასწორია DigiByte-მისამართი ან  URI-ის პარამეტრები.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Digitalcoin address or malformed URI parameters.</source>
+        <translation>URI-ის დამუშავება ვერ მოხერხდა. შესაძლოა არასწორია Digitalcoin-მისამართი ან  URI-ის პარამეტრები.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
@@ -1286,8 +1286,8 @@ Address: %4
         <translation>გადახდის მოთხოვნის შეცდომა</translation>
     </message>
     <message>
-        <source>Cannot start digibyte: click-to-pay handler</source>
-        <translation>ვერ გაიშვა digibyte: click-to-pay</translation>
+        <source>Cannot start digitalcoin: click-to-pay handler</source>
+        <translation>ვერ გაიშვა digitalcoin: click-to-pay</translation>
     </message>
     <message>
         <source>Net manager warning</source>
@@ -1341,8 +1341,8 @@ Address: %4
 <context>
     <name>QObject</name>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
@@ -1357,11 +1357,11 @@ Address: %4
         <translation>შეცდომა: -regtest-ისა და -testnet-ის დაუშვებელი კომბინაცია.</translation>
     </message>
     <message>
-        <source>DigiByte Core didn&apos;t yet exit safely...</source>
+        <source>Digitalcoin didn&apos;t yet exit safely...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
         <translation>შეიყვანეთ ბიტკოინ-მისამართი (მაგ. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
 </context>
@@ -1483,16 +1483,16 @@ Address: %4
         <translation>დახვეწის ლოგ-ფაილი</translation>
     </message>
     <message>
-        <source>Open the DigiByte debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>გახსენით DigiByte-ის დახვეწის ლოგ-ფაილი მიმდინარე კატალოგიდან. დიდი ლოგ-ფაილის შემთხვევაში ამას შეიძლება რამდენიმე წამი მოუნდეს.</translation>
+        <source>Open the Digitalcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>გახსენით Digitalcoin-ის დახვეწის ლოგ-ფაილი მიმდინარე კატალოგიდან. დიდი ლოგ-ფაილის შემთხვევაში ამას შეიძლება რამდენიმე წამი მოუნდეს.</translation>
     </message>
     <message>
         <source>Clear console</source>
         <translation>კონსოლის გასუფთავება</translation>
     </message>
     <message>
-        <source>Welcome to the DigiByte RPC console.</source>
-        <translation>მოგესალმებათ DigiByte-ის RPC კონსოლი.</translation>
+        <source>Welcome to the Digitalcoin RPC console.</source>
+        <translation>მოგესალმებათ Digitalcoin-ის RPC კონსოლი.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1554,7 +1554,7 @@ Address: %4
         <translation>ად&amp;რე გამოყენებული მიღების მისამართის გამოყენება (არ არის რეკომენდებული)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Digitalcoin network.</source>
         <translation>არააუცილებელი მესიჯი, რომელიც ერთვის გადახდის მოთხოვნას და ნაჩვენები იქნება მოთხოვნის გახსნისას. შენიშვნა: მესიჯი არ გაყვება გადახდას ბითქოინის ქსელში.</translation>
     </message>
     <message>
@@ -1867,8 +1867,8 @@ Address: %4
         <translation>ტრანსაქცია უარყოფილია! შესაძლოა მონეტების ნაწილი თქვენი საფულიდან უკვე გამოყენებულია, რაც შეიძლება მოხდეს wallet.dat-ის ასლის გამოყენებისას, როცა მონეტები გაიგზავნა სხვა ასლიდან, აქ კი არ არის გაგზავნილად მონიშნული.</translation>
     </message>
     <message>
-        <source>Warning: Invalid DigiByte address</source>
-        <translation>ყურადღება: არასწორია DigiByte-მისამართი</translation>
+        <source>Warning: Invalid Digitalcoin address</source>
+        <translation>ყურადღება: არასწორია Digitalcoin-მისამართი</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1954,7 +1954,7 @@ Address: %4
         <translation>შეიყვანეთ ამ მისამართის ნიშნული გამოყენებული მისამართების სიაში დასამატებლად</translation>
     </message>
     <message>
-        <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
+        <source>A message that was attached to the digitalcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Digitalcoin network.</source>
         <translation>მესიჯი, რომელიც თან ერთვის მონეტებს:  URI, რომელიც შეინახება ტრანსაქციასთან ერთად თქვენთვის. შენიშვნა: მესიჯი არ გაყვება გადახდას ბითქოინის ქსელში.</translation>
     </message>
     <message>
@@ -1973,8 +1973,8 @@ Address: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>DigiByte Core is shutting down...</source>
-        <translation>DigiByte Core იხურება...</translation>
+        <source>Digitalcoin is shutting down...</source>
+        <translation>Digitalcoin იხურება...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2028,7 +2028,7 @@ Address: %4
         <translation>მიმდინარე ხელმოწერის კოპირება კლიპბორდში</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this DigiByte address</source>
+        <source>Sign the message to prove you own this Digitalcoin address</source>
         <translation>მოაწერეთ ხელი იმის დასადასტურებლად, რომ ეს მისამართი თქვენია</translation>
     </message>
     <message>
@@ -2056,8 +2056,8 @@ Address: %4
         <translation>მისამართი, რომლითაც ხელმოწერილია მესიჯი (მაგ.: DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
-        <translation>შეამოწმეთ, რომ მესიჯი ხელმოწერილია მითითებული DigiByte-მისამართით</translation>
+        <source>Verify the message to ensure it was signed with the specified Digitalcoin address</source>
+        <translation>შეამოწმეთ, რომ მესიჯი ხელმოწერილია მითითებული Digitalcoin-მისამართით</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2068,7 +2068,7 @@ Address: %4
         <translation>ვერიფიკაციის ყველა ველის წაშლა</translation>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
         <translation>შეიყვანეთ ბიტკოინ-მისამართი (მაგ. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
@@ -2127,12 +2127,12 @@ Address: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
-        <translation>DigiByte Core-ს ავტორები</translation>
+        <source>The Bitcoin and Digitalcoin developers</source>
+        <translation>Digitalcoin-ს ავტორები</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2610,12 +2610,12 @@ Address: %4
         <translation>ოპციები:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: digibyte.conf)</source>
-        <translation>მიუთითეთ საკონფიგურაციო ფაილი (ნაგულისხმევია: digibyte.conf)</translation>
+        <source>Specify configuration file (default: digitalcoin.conf)</source>
+        <translation>მიუთითეთ საკონფიგურაციო ფაილი (ნაგულისხმევია: digitalcoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: digibyted.pid)</source>
-        <translation>მიუთითეთ pid ფაილი (ნაგულისხმევია: digibyted.pid)</translation>
+        <source>Specify pid file (default: digitalcoind.pid)</source>
+        <translation>მიუთითეთ pid ფაილი (ნაგულისხმევია: digitalcoind.pid)</translation>
     </message>
     <message>
         <source>Specify data directory</source>
@@ -2658,7 +2658,7 @@ Address: %4
         <translation>საკომანდო სტრიქონისა და JSON-RPC-კომამდების ნებართვა</translation>
     </message>
     <message>
-        <source>DigiByte Core RPC client version</source>
+        <source>Digitalcoin RPC client version</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2677,24 +2677,24 @@ Address: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Digitalcoin Alert&quot; admin@foo.com
 </source>
         <translation>%s, მიუთითეთ rpcpassword საკონფიგურაციო ფაილში:
 %s
 რეკომენდებულია შემდეგი შემთხვევითი პაროლი:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (ამის დამახსოვრება არ გჭირდებათ)
 სახელი და პაროლი ერთმანეთს არ უნდა ემთხვეოდეს.
 თუ ფაილი არ არსებობს, შექმენით იგი უფლებებით owner-readable-only.
 ასევე რეკომენდებულია დააყენოთ alertnotify რათა მიიღოთ შეტყობინებები პრობლემების შესახებ;
-მაგალითად: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com
+მაგალითად: alertnotify=echo %%s | mail -s &quot;Digitalcoin Alert&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -2766,7 +2766,7 @@ rpcpassword=%s
         <translation>ეს არის წინასწარი სატესტო ვერსია - გამოიყენეთ საკუთარი რისკით - არ გამოიყენოთ მოპოვებისა ან კომერციული მიზნებისათვის</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. DigiByte Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2778,8 +2778,8 @@ rpcpassword=%s
         <translation>ყურადღება:  ძალიან მაღალია -paytxfee - საკომისო, რომელსაც თქვენ გადაიხდით ამ ტრანსაქციის გაგზავნის საფასურად.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong DigiByte will not work properly.</source>
-        <translation>ყურადღება: შეამოწმეთ თქვენი კომპიუტერის სისტემური თარიღი და დრო! თუ ისინი არასწორია, DigiByte ვერ იმუშავებს კორექტულად.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Digitalcoin will not work properly.</source>
+        <translation>ყურადღება: შეამოწმეთ თქვენი კომპიუტერის სისტემური თარიღი და დრო! თუ ისინი არასწორია, Digitalcoin ვერ იმუშავებს კორექტულად.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2814,8 +2814,8 @@ rpcpassword=%s
         <translation>პირადი გასაღებების აღდგენის მცდელობა wallet.dat-იდან</translation>
     </message>
     <message>
-        <source>DigiByte Core Daemon</source>
-        <translation>DigiByte Core დემონი</translation>
+        <source>Digitalcoin Daemon</source>
+        <translation>Digitalcoin დემონი</translation>
     </message>
     <message>
         <source>Block creation options:</source>
@@ -3022,8 +3022,8 @@ rpcpassword=%s
         <translation>გამოიყენება რეგრესული ტესტირების ინსტრუმენტებისა და პროგრამების შემუშავებისას.</translation>
     </message>
     <message>
-        <source>Usage (deprecated, use digibyte-cli):</source>
-        <translation>გამოყენება (მოძველებულია, გამოიყენეთ digibyte-cli):</translation>
+        <source>Usage (deprecated, use digitalcoin-cli):</source>
+        <translation>გამოყენება (მოძველებულია, გამოიყენეთ digitalcoin-cli):</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3058,7 +3058,7 @@ rpcpassword=%s
         <translation>ბლოკების იმპორტი გარე blk000??.dat ფაილიდან</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. DigiByte Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3122,7 +3122,7 @@ rpcpassword=%s
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>RPC SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
+        <source>RPC SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3142,11 +3142,11 @@ rpcpassword=%s
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
-        <translation>SSL ოპციები: (იხილე DigiByte Wiki-ში  SSL-ს მოწყობის ინსტრუქციები)</translation>
+        <source>SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
+        <translation>SSL ოპციები: (იხილე Digitalcoin Wiki-ში  SSL-ს მოწყობის ინსტრუქციები)</translation>
     </message>
     <message>
-        <source>Send command to DigiByte Core</source>
+        <source>Send command to Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3182,7 +3182,7 @@ rpcpassword=%s
         <translation>მიუთითეთ შეერთების ტაიმაუტი მილიწამებში (ნაგულისხმევი: 5000)</translation>
     </message>
     <message>
-        <source>Start DigiByte Core Daemon</source>
+        <source>Start Digitalcoin Daemon</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3298,12 +3298,12 @@ rpcpassword=%s
         <translation>არ იტვირთება wallet.dat: საფულე დაზიანებულია</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of DigiByte</source>
-        <translation>არ იტვირთება wallet.dat: საფულეს სჭირდება DigiByte-ის ახალი ვერსია</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Digitalcoin</source>
+        <translation>არ იტვირთება wallet.dat: საფულეს სჭირდება Digitalcoin-ის ახალი ვერსია</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart DigiByte to complete</source>
-        <translation>საჭიროა საფულის აღდგენა: დაარესტარტეთ DigiByte </translation>
+        <source>Wallet needed to be rewritten: restart Digitalcoin to complete</source>
+        <translation>საჭიროა საფულის აღდგენა: დაარესტარტეთ Digitalcoin </translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>

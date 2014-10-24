@@ -2,11 +2,11 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About DigiByte Core</source>
+        <source>About Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>&lt;b&gt;DigiByte Core&lt;/b&gt; version</source>
+        <source>&lt;b&gt;Digitalcoin&lt;/b&gt; version</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -23,8 +23,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
-        <translation>El nucleo de DigiByte de desarrolladores</translation>
+        <source>The Bitcoin and Digitalcoin developers</source>
+        <translation>El nucleo de Digitalcoin de desarrolladores</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -98,11 +98,11 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Digitalcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Digitalcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -220,7 +220,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Cartera encriptada</translation>
     </message>
     <message>
-        <source>DigiByte will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
+        <source>Digitalcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digitalcoins from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -253,7 +253,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
 </context>
 <context>
-    <name>DigiByteGUI</name>
+    <name>DigitalcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation type="unfinished"/>
@@ -291,8 +291,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Salir de la aplicación</translation>
     </message>
     <message>
-        <source>Show information about DigiByte</source>
-        <translation>Mostrar información acerca de DigiByte</translation>
+        <source>Show information about Digitalcoin</source>
+        <translation>Mostrar información acerca de Digitalcoin</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -339,11 +339,11 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Send coins to a DigiByte address</source>
+        <source>Send coins to a Digitalcoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Modify configuration options for DigiByte</source>
+        <source>Modify configuration options for Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -367,7 +367,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte</source>
+        <source>Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -395,11 +395,11 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
+        <source>Sign messages with your Digitalcoin addresses to prove you own them</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
+        <source>Verify messages to ensure they were signed with specified Digitalcoin addresses</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -423,15 +423,15 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>nucleo DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>nucleo Digitalcoin</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
+        <source>Request payments (generates QR codes and digitalcoin: URIs)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>&amp;About DigiByte Core</source>
+        <source>&amp;About Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -443,7 +443,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Open a digibyte: URI or payment request</source>
+        <source>Open a digitalcoin: URI or payment request</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -451,16 +451,16 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>opciones de la &amp;Linea de comandos</translation>
     </message>
     <message>
-        <source>Show the DigiByte Core help message to get a list with possible DigiByte command-line options</source>
-        <translation>Mostrar mensaje de ayuda del nucleo de DigiByte para optener una lista con los posibles comandos  de DigiByte</translation>
+        <source>Show the Digitalcoin help message to get a list with possible Digitalcoin command-line options</source>
+        <translation>Mostrar mensaje de ayuda del nucleo de Digitalcoin para optener una lista con los posibles comandos  de Digitalcoin</translation>
     </message>
     <message>
-        <source>DigiByte client</source>
+        <source>Digitalcoin client</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to DigiByte network</source>
-        <translation><numerusform>%n Activar conexión a la red de DigiByte</numerusform><numerusform>%n Activar conexiones a la red de DigiByte</numerusform></translation>
+        <source>%n active connection(s) to Digitalcoin network</source>
+        <translation><numerusform>%n Activar conexión a la red de Digitalcoin</numerusform><numerusform>%n Activar conexiones a la red de Digitalcoin</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -551,7 +551,7 @@ Address: %4
         <translation>La cartera esta &lt;b&gt;encriptada&lt;/b&gt; y &lt;b&gt;bloqueada&lt;/b&gt; actualmente </translation>
     </message>
     <message>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. Digitalcoin can no longer continue safely and will quit.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -836,7 +836,7 @@ Address: %4
         <translation>El domicilio ingresado &quot;%1&quot; ya existe en la libreta de direcciones</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid DigiByte address.</source>
+        <source>The entered address &quot;%1&quot; is not a valid Digitalcoin address.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -874,12 +874,12 @@ Address: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>DigiByte Core - Command-line options</source>
-        <translation>Opciones de lineas de comando del nucleo de DigiByte</translation>
+        <source>Digitalcoin - Command-line options</source>
+        <translation>Opciones de lineas de comando del nucleo de Digitalcoin</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>nucleo DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>nucleo Digitalcoin</translation>
     </message>
     <message>
         <source>version</source>
@@ -925,15 +925,15 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Welcome to DigiByte Core.</source>
+        <source>Welcome to Digitalcoin.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where DigiByte Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Digitalcoin will store its data.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core will download and store a copy of the DigiByte block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Digitalcoin will download and store a copy of the Digitalcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -945,7 +945,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte</source>
+        <source>Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1007,11 +1007,11 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically start DigiByte after logging in to the system.</source>
+        <source>Automatically start Digitalcoin after logging in to the system.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>&amp;Start DigiByte on system login</source>
+        <source>&amp;Start Digitalcoin on system login</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1027,7 +1027,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Connect to the DigiByte network through a SOCKS proxy.</source>
+        <source>Connect to the Digitalcoin network through a SOCKS proxy.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1087,7 +1087,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Digitalcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1143,7 +1143,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting DigiByte.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting Digitalcoin.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1155,7 +1155,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Whether to show DigiByte addresses in the transaction list or not.</source>
+        <source>Whether to show Digitalcoin addresses in the transaction list or not.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1210,7 +1210,7 @@ Address: %4
         <translation>Formulario</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Digitalcoin network after a connection is established, but this process has not completed yet.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1265,7 +1265,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <source>URI can not be parsed! This can be caused by an invalid Digitalcoin address or malformed URI parameters.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1277,7 +1277,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cannot start digibyte: click-to-pay handler</source>
+        <source>Cannot start digitalcoin: click-to-pay handler</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1332,7 +1332,7 @@ Address: %4
 <context>
     <name>QObject</name>
     <message>
-        <source>DigiByte</source>
+        <source>Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1348,12 +1348,12 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core didn&apos;t yet exit safely...</source>
+        <source>Digitalcoin didn&apos;t yet exit safely...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Ingrese una direccion DigiByte (ejem. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Ingrese una direccion Digitalcoin (ejem. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
 </context>
 <context>
@@ -1474,7 +1474,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Open the DigiByte debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the Digitalcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1482,7 +1482,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Welcome to the DigiByte RPC console.</source>
+        <source>Welcome to the Digitalcoin RPC console.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1545,8 +1545,8 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
-        <translation>Mensaje opcional para agregar a la solicitud de pago, el cual será mostrado cuando la solicitud este abierta. Nota: El mensaje no se manda con el pago a travéz de la red de DigiByte.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Digitalcoin network.</source>
+        <translation>Mensaje opcional para agregar a la solicitud de pago, el cual será mostrado cuando la solicitud este abierta. Nota: El mensaje no se manda con el pago a travéz de la red de Digitalcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1858,8 +1858,8 @@ Address: %4
         <translation>¡La transación fue rechazada! Esto puede ocurrir si algunas de tus monedas en tu cartera han sido gastadas, al igual que si usas una cartera copiada y la monedas fueron gastadas en la copia pero no se marcaron como gastadas.</translation>
     </message>
     <message>
-        <source>Warning: Invalid DigiByte address</source>
-        <translation>Advertencia: Dirección de DigiByte invalida</translation>
+        <source>Warning: Invalid Digitalcoin address</source>
+        <translation>Advertencia: Dirección de Digitalcoin invalida</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1945,7 +1945,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
+        <source>A message that was attached to the digitalcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Digitalcoin network.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1964,8 +1964,8 @@ Address: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>DigiByte Core is shutting down...</source>
-        <translation>Apagando el nucleo de DigiByte...</translation>
+        <source>Digitalcoin is shutting down...</source>
+        <translation>Apagando el nucleo de Digitalcoin...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2019,7 +2019,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sign the message to prove you own this DigiByte address</source>
+        <source>Sign the message to prove you own this Digitalcoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2047,7 +2047,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
+        <source>Verify the message to ensure it was signed with the specified Digitalcoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2059,8 +2059,8 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Ingrese una direccion DigiByte (ejem. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Ingrese una direccion Digitalcoin (ejem. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
@@ -2118,12 +2118,12 @@ Address: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>DigiByte Core</source>
-        <translation>nucleo DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>nucleo Digitalcoin</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
-        <translation>El nucleo de DigiByte de desarrolladores</translation>
+        <source>The Bitcoin and Digitalcoin developers</source>
+        <translation>El nucleo de Digitalcoin de desarrolladores</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2601,11 +2601,11 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Specify configuration file (default: digibyte.conf)</source>
+        <source>Specify configuration file (default: digitalcoin.conf)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Specify pid file (default: digibyted.pid)</source>
+        <source>Specify pid file (default: digitalcoind.pid)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2649,7 +2649,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core RPC client version</source>
+        <source>Digitalcoin RPC client version</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2668,13 +2668,13 @@ Address: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Digitalcoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2747,7 +2747,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. DigiByte Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2759,7 +2759,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong DigiByte will not work properly.</source>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Digitalcoin will not work properly.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2795,7 +2795,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core Daemon</source>
+        <source>Digitalcoin Daemon</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3003,7 +3003,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Usage (deprecated, use digibyte-cli):</source>
+        <source>Usage (deprecated, use digitalcoin-cli):</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3039,7 +3039,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. DigiByte Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3103,7 +3103,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>RPC SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
+        <source>RPC SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3123,11 +3123,11 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
+        <source>SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Send command to DigiByte Core</source>
+        <source>Send command to Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3163,7 +3163,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Start DigiByte Core Daemon</source>
+        <source>Start Digitalcoin Daemon</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3279,11 +3279,11 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of DigiByte</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart DigiByte to complete</source>
+        <source>Wallet needed to be rewritten: restart Digitalcoin to complete</source>
         <translation type="unfinished"/>
     </message>
     <message>

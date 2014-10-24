@@ -491,7 +491,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     uint256 hashBlock = pblock->GetHash();
     
     //// debug print
-    LogPrintf("DigiByteMiner:\n");
+    LogPrintf("DigitalcoinMiner:\n");
     LogPrintf("proof-of-work found  \n  block-hash: %s\n  pow-hash: %s\ntarget: %s\n", 
         hashBlock.GetHex(), 
         hashPoW.GetHex(), 
@@ -503,7 +503,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
-            return error("DigiByteMiner : generated block is stale");
+            return error("DigitalcoinMiner : generated block is stale");
 
         // Remove key from key pool
         reservekey.KeepKey();
@@ -517,7 +517,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         // Process this block the same as if we had received it from another node
         CValidationState state;
         if (!ProcessBlock(state, NULL, pblock))
-            return error("DigiByteMiner : ProcessBlock, block not accepted");
+            return error("DigitalcoinMiner : ProcessBlock, block not accepted");
     }
 
     return true;
@@ -905,7 +905,7 @@ void static GenericMiner(CWallet *pwallet, int algo)
 
 void static ThreadBitcoinMiner(CWallet *pwallet)
 {
-    LogPrintf("DigiByte miner started\n");
+    LogPrintf("Digitalcoin miner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
     RenameThread("bitcoin-miner");
     
@@ -926,7 +926,7 @@ void static ThreadBitcoinMiner(CWallet *pwallet)
     }
     catch (boost::thread_interrupted)
     {
-        LogPrintf("DigiByte miner terminated\n");
+        LogPrintf("Digitalcoin miner terminated\n");
         throw;
     }
 }

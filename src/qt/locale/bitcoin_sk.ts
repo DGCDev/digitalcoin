@@ -2,12 +2,12 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About DigiByte Core</source>
-        <translation>O jadre DigiByte</translation>
+        <source>About Digitalcoin</source>
+        <translation>O jadre Digitalcoin</translation>
     </message>
     <message>
-        <source>&lt;b&gt;DigiByte Core&lt;/b&gt; version</source>
-        <translation>Verzia &lt;b&gt;DigiByte jadra&lt;/b&gt;</translation>
+        <source>&lt;b&gt;Digitalcoin&lt;/b&gt; version</source>
+        <translation>Verzia &lt;b&gt;Digitalcoin jadra&lt;/b&gt;</translation>
     </message>
     <message>
         <source>
@@ -28,8 +28,8 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>Autorské práva</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
-        <translation>Vývojári jadra DigiByte</translation>
+        <source>The Bitcoin and Digitalcoin developers</source>
+        <translation>Vývojári jadra Digitalcoin</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -103,12 +103,12 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>Adresa prijatia</translation>
     </message>
     <message>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Toto sú Vaše DigiByte adresy pre posielanie platieb. Vždy skontrolujte množstvo a prijímaciu adresu pred poslaním coins.</translation>
+        <source>These are your Digitalcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Toto sú Vaše Digitalcoin adresy pre posielanie platieb. Vždy skontrolujte množstvo a prijímaciu adresu pred poslaním coins.</translation>
     </message>
     <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Toto sú vaše DigiByte adresy pre prijímanie platieb. Odporúča sa použiť novú prijímaciu adresu pre každú transakciu.</translation>
+        <source>These are your Digitalcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Toto sú vaše Digitalcoin adresy pre prijímanie platieb. Odporúča sa použiť novú prijímaciu adresu pre každú transakciu.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -206,7 +206,7 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
-        <translation>Varovanie: Ak zašifrujete peňaženku a stratíte heslo, &lt;b&gt;STRATÍTE VŠETKY VAŠE DGBIADCOINY&lt;/b&gt;!⏎</translation>
+        <translation>Varovanie: Ak zašifrujete peňaženku a stratíte heslo, &lt;b&gt;STRATÍTE VŠETKY VAŠE DGCIADCOINY&lt;/b&gt;!⏎</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -225,8 +225,8 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>Peňaženka zašifrovaná</translation>
     </message>
     <message>
-        <source>DigiByte will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-        <translation>DigiByte sa teraz ukončí pre dokončenie procesu šifrovania. Pamätaj že šifrovanie peňaženky Ťa nemôže úplne ochrániť pred kráďežou bitcoinov pomocou škodlivého software.</translation>
+        <source>Digitalcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digitalcoins from being stolen by malware infecting your computer.</source>
+        <translation>Digitalcoin sa teraz ukončí pre dokončenie procesu šifrovania. Pamätaj že šifrovanie peňaženky Ťa nemôže úplne ochrániť pred kráďežou bitcoinov pomocou škodlivého software.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -258,7 +258,7 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
     </message>
 </context>
 <context>
-    <name>DigiByteGUI</name>
+    <name>DigitalcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Podpísať &amp;správu...</translation>
@@ -296,8 +296,8 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>Ukončiť program</translation>
     </message>
     <message>
-        <source>Show information about DigiByte</source>
-        <translation>Zobraziť informácie o DigiByte</translation>
+        <source>Show information about Digitalcoin</source>
+        <translation>Zobraziť informácie o Digitalcoin</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -344,11 +344,11 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>Preindexúvam bloky na disku...</translation>
     </message>
     <message>
-        <source>Send coins to a DigiByte address</source>
-        <translation>Poslať digibytes na adresu</translation>
+        <source>Send coins to a Digitalcoin address</source>
+        <translation>Poslať digitalcoins na adresu</translation>
     </message>
     <message>
-        <source>Modify configuration options for DigiByte</source>
+        <source>Modify configuration options for Digitalcoin</source>
         <translation>Upraviť možnosti nastavenia pre bitcoin</translation>
     </message>
     <message>
@@ -372,8 +372,8 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>Overiť správu</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -400,12 +400,12 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>Zašifruj súkromné kľúče ktoré patria do vašej peňaženky</translation>
     </message>
     <message>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
-        <translation>Podpísať správu s vašou adresou DigiByte aby ste preukázali že ju vlastníte</translation>
+        <source>Sign messages with your Digitalcoin addresses to prove you own them</source>
+        <translation>Podpísať správu s vašou adresou Digitalcoin aby ste preukázali že ju vlastníte</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
-        <translation>Overiť či správa bola podpísaná uvedenou DigiByte adresou</translation>
+        <source>Verify messages to ensure they were signed with specified Digitalcoin addresses</source>
+        <translation>Overiť či správa bola podpísaná uvedenou Digitalcoin adresou</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -428,16 +428,16 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>[testovacia sieť]</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>Jadro DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Jadro Digitalcoin</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
-        <translation>Vyžiadať platbu (vygeneruje QR kód a digibyte: URI)</translation>
+        <source>Request payments (generates QR codes and digitalcoin: URIs)</source>
+        <translation>Vyžiadať platbu (vygeneruje QR kód a digitalcoin: URI)</translation>
     </message>
     <message>
-        <source>&amp;About DigiByte Core</source>
-        <translation>O jadre DigiByte</translation>
+        <source>&amp;About Digitalcoin</source>
+        <translation>O jadre Digitalcoin</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -448,24 +448,24 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>Zobraziť zoznam použitých prijímacích adries a ich popisov</translation>
     </message>
     <message>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>Otvoriť digibyte URI alebo výzvu k platbe</translation>
+        <source>Open a digitalcoin: URI or payment request</source>
+        <translation>Otvoriť digitalcoin URI alebo výzvu k platbe</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Možnosti príkazového riadku</translation>
     </message>
     <message>
-        <source>Show the DigiByte Core help message to get a list with possible DigiByte command-line options</source>
-        <translation>Zobraziť pomocnú správu od DigiByte Jadra pre získanie zoznamu dostupných možností príkazového riadku</translation>
+        <source>Show the Digitalcoin help message to get a list with possible Digitalcoin command-line options</source>
+        <translation>Zobraziť pomocnú správu od Digitalcoin Jadra pre získanie zoznamu dostupných možností príkazového riadku</translation>
     </message>
     <message>
-        <source>DigiByte client</source>
-        <translation>DigiByte klient</translation>
+        <source>Digitalcoin client</source>
+        <translation>Digitalcoin klient</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to DigiByte network</source>
-        <translation><numerusform>%n aktívne spojenie v DigiByte sieti</numerusform><numerusform>%n aktívne spojenia v DigiByte sieti</numerusform><numerusform>%n aktívnych spojení v Bitconi sieti</numerusform></translation>
+        <source>%n active connection(s) to Digitalcoin network</source>
+        <translation><numerusform>%n aktívne spojenie v Digitalcoin sieti</numerusform><numerusform>%n aktívne spojenia v Digitalcoin sieti</numerusform><numerusform>%n aktívnych spojení v Bitconi sieti</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -559,8 +559,8 @@ Adresa: %4</translation>
         <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/b&gt; a momentálne &lt;b&gt;zamknutá&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
-        <translation>Vyskytla sa neblahá chyba. DigiByte nemôže daľej bezpečne pokračovať a vypne sa.</translation>
+        <source>A fatal error occurred. Digitalcoin can no longer continue safely and will quit.</source>
+        <translation>Vyskytla sa neblahá chyba. Digitalcoin nemôže daľej bezpečne pokračovať a vypne sa.</translation>
     </message>
 </context>
 <context>
@@ -844,7 +844,7 @@ Adresa: %4</translation>
         <translation>Vložená adresa &quot;%1&quot; sa už nachádza v adresári.</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid DigiByte address.</source>
+        <source>The entered address &quot;%1&quot; is not a valid Digitalcoin address.</source>
         <translation>Vložená adresa &quot;%1&quot; nieje platnou adresou bitcoin.</translation>
     </message>
     <message>
@@ -882,12 +882,12 @@ Adresa: %4</translation>
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>DigiByte Core - Command-line options</source>
-        <translation>Jadro DigiByte - možnosti príkazového riadku</translation>
+        <source>Digitalcoin - Command-line options</source>
+        <translation>Jadro Digitalcoin - možnosti príkazového riadku</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>Jadro DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Jadro Digitalcoin</translation>
     </message>
     <message>
         <source>version</source>
@@ -933,16 +933,16 @@ Adresa: %4</translation>
         <translation>Vitajte</translation>
     </message>
     <message>
-        <source>Welcome to DigiByte Core.</source>
-        <translation>Vitajte v jadre DigiByte.</translation>
+        <source>Welcome to Digitalcoin.</source>
+        <translation>Vitajte v jadre Digitalcoin.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where DigiByte Core will store its data.</source>
-        <translation>Keďže spúštate program prvý krát, môžte si vybrať kde bude DigiByte Jadro ukladať svoje dáta.</translation>
+        <source>As this is the first time the program is launched, you can choose where Digitalcoin will store its data.</source>
+        <translation>Keďže spúštate program prvý krát, môžte si vybrať kde bude Digitalcoin Jadro ukladať svoje dáta.</translation>
     </message>
     <message>
-        <source>DigiByte Core will download and store a copy of the DigiByte block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Jadro DigiByte stiahne zo siete a uloží kópiu DigiByte blockchain. Aspoň %1GB dát bude uložených v tomto priečinku a časom porastie. Peňaženka bude tiež uložená v tomto priečinku.</translation>
+        <source>Digitalcoin will download and store a copy of the Digitalcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Jadro Digitalcoin stiahne zo siete a uloží kópiu Digitalcoin blockchain. Aspoň %1GB dát bude uložených v tomto priečinku a časom porastie. Peňaženka bude tiež uložená v tomto priečinku.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -953,8 +953,8 @@ Adresa: %4</translation>
         <translation>Použiť vlastný dátový adresár:</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
@@ -1015,12 +1015,12 @@ Adresa: %4</translation>
         <translation>Zaplatiť transakčné &amp;poplatky</translation>
     </message>
     <message>
-        <source>Automatically start DigiByte after logging in to the system.</source>
-        <translation>Automaticky spustiť DigiByte po zapnutí počítača</translation>
+        <source>Automatically start Digitalcoin after logging in to the system.</source>
+        <translation>Automaticky spustiť Digitalcoin po zapnutí počítača</translation>
     </message>
     <message>
-        <source>&amp;Start DigiByte on system login</source>
-        <translation>&amp;Spustiť DigiByte pri spustení systému správy okien</translation>
+        <source>&amp;Start Digitalcoin on system login</source>
+        <translation>&amp;Spustiť Digitalcoin pri spustení systému správy okien</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1035,8 +1035,8 @@ Adresa: %4</translation>
         <translation>Počet skript overujucich vlákien</translation>
     </message>
     <message>
-        <source>Connect to the DigiByte network through a SOCKS proxy.</source>
-        <translation>Pripojiť k DigiByte sieti cez SOCKS proxy.</translation>
+        <source>Connect to the Digitalcoin network through a SOCKS proxy.</source>
+        <translation>Pripojiť k Digitalcoin sieti cez SOCKS proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS proxy (default proxy):</source>
@@ -1095,8 +1095,8 @@ Adresa: %4</translation>
         <translation>Minúť nepotvrdený výdavok</translation>
     </message>
     <message>
-        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automaticky otvorit port pre DigiByte na routeri. Toto funguje len ak router podporuje UPnP a je táto podpora aktivovaná.</translation>
+        <source>Automatically open the Digitalcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automaticky otvorit port pre Digitalcoin na routeri. Toto funguje len ak router podporuje UPnP a je táto podpora aktivovaná.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1151,8 +1151,8 @@ Adresa: %4</translation>
         <translation>Jazyk užívateľského rozhrania:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting DigiByte.</source>
-        <translation>Tu sa dá nastaviť jazyk užívateľského rozhrania. Toto nastavenie bude účinné po reštartovaní DigiByte.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Digitalcoin.</source>
+        <translation>Tu sa dá nastaviť jazyk užívateľského rozhrania. Toto nastavenie bude účinné po reštartovaní Digitalcoin.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1160,11 +1160,11 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Zvoľte ako deliť digibyte pri zobrazovaní pri platbách a užívateľskom rozhraní.</translation>
+        <translation>Zvoľte ako deliť digitalcoin pri zobrazovaní pri platbách a užívateľskom rozhraní.</translation>
     </message>
     <message>
-        <source>Whether to show DigiByte addresses in the transaction list or not.</source>
-        <translation>Či ukazovať DigiByte adresy v zozname transakcií alebo nie.</translation>
+        <source>Whether to show Digitalcoin addresses in the transaction list or not.</source>
+        <translation>Či ukazovať Digitalcoin adresy v zozname transakcií alebo nie.</translation>
     </message>
     <message>
         <source>&amp;Display addresses in transaction list</source>
@@ -1218,8 +1218,8 @@ Adresa: %4</translation>
         <translation>Forma</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
-        <translation>Zobrazené informácie môžu byť neaktuápne. Vaša peňaženka sa automaticky synchronizuje so sieťou DigiByte po nadviazaní spojenia ale tento proces ešte nieje ukončený.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Digitalcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Zobrazené informácie môžu byť neaktuápne. Vaša peňaženka sa automaticky synchronizuje so sieťou Digitalcoin po nadviazaní spojenia ale tento proces ešte nieje ukončený.</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1273,8 +1273,8 @@ Adresa: %4</translation>
         <translation>Spracovanie URI</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
-        <translation>URI sa nedá rozložiť! To môže byť spôsobené neplatou DigiByte adresou alebo zle upravenými vlastnosťami URI.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Digitalcoin address or malformed URI parameters.</source>
+        <translation>URI sa nedá rozložiť! To môže byť spôsobené neplatou Digitalcoin adresou alebo zle upravenými vlastnosťami URI.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
@@ -1285,8 +1285,8 @@ Adresa: %4</translation>
         <translation>Chyba pri vyžiadaní platby</translation>
     </message>
     <message>
-        <source>Cannot start digibyte: click-to-pay handler</source>
-        <translation>Nedá sa spustiť obslužný program digibyte: click-to-pay zaplatiť kliknutím</translation>
+        <source>Cannot start digitalcoin: click-to-pay handler</source>
+        <translation>Nedá sa spustiť obslužný program digitalcoin: click-to-pay zaplatiť kliknutím</translation>
     </message>
     <message>
         <source>Net manager warning</source>
@@ -1340,8 +1340,8 @@ Adresa: %4</translation>
 <context>
     <name>QObject</name>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
@@ -1356,12 +1356,12 @@ Adresa: %4</translation>
         <translation>Chyba: Nesprávna kombinácia -regtest a -testnet.</translation>
     </message>
     <message>
-        <source>DigiByte Core didn&apos;t yet exit safely...</source>
-        <translation>Jadro DigiByte sa ešte úspešne nevyplo ...</translation>
+        <source>Digitalcoin didn&apos;t yet exit safely...</source>
+        <translation>Jadro Digitalcoin sa ešte úspešne nevyplo ...</translation>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Zadajte DigiByte adresu (napr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Zadajte Digitalcoin adresu (napr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
 </context>
 <context>
@@ -1482,16 +1482,16 @@ Adresa: %4</translation>
         <translation>Súbor záznamu ladenia</translation>
     </message>
     <message>
-        <source>Open the DigiByte debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Otvoriť DigiByte log súbor pre ladenie z aktuálneho dátového adresára. Toto môže trvať niekoľko sekúnd pre veľké súbory.</translation>
+        <source>Open the Digitalcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Otvoriť Digitalcoin log súbor pre ladenie z aktuálneho dátového adresára. Toto môže trvať niekoľko sekúnd pre veľké súbory.</translation>
     </message>
     <message>
         <source>Clear console</source>
         <translation>Vymazať konzolu</translation>
     </message>
     <message>
-        <source>Welcome to the DigiByte RPC console.</source>
-        <translation>Vitajte v DigiByte RPC konzole. Baník, pyčo!</translation>
+        <source>Welcome to the Digitalcoin RPC console.</source>
+        <translation>Vitajte v Digitalcoin RPC konzole. Baník, pyčo!</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1553,8 +1553,8 @@ Adresa: %4</translation>
         <translation>Znovu použiť jestvujúcu prijímaciu adresu (neodporúča sa)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
-        <translation>Pridať voliteľnú správu k výzve na zaplatenie, ktorá sa zobrazí keď bude výzva otvorená. Poznámka: Správa nebude poslaná s platbou cez sieť DigiByte.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Digitalcoin network.</source>
+        <translation>Pridať voliteľnú správu k výzve na zaplatenie, ktorá sa zobrazí keď bude výzva otvorená. Poznámka: Správa nebude poslaná s platbou cez sieť Digitalcoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1703,7 +1703,7 @@ Adresa: %4</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Poslať DigiBytes</translation>
+        <translation>Poslať Digitalcoins</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1791,7 +1791,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Potvrdiť odoslanie digibytes</translation>
+        <translation>Potvrdiť odoslanie digitalcoins</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -1866,8 +1866,8 @@ Adresa: %4</translation>
         <translation>Transakcia bola zamietnutá! Toto sa môže stať ak niektoré coins vo vašej peňaženke už boli minuté, ako keď použijete kópiu wallet.dat a coins boli minuté z kópie ale neoznačené ako minuté tu.</translation>
     </message>
     <message>
-        <source>Warning: Invalid DigiByte address</source>
-        <translation>Varovanie: Nesprávna DigiByte adresa</translation>
+        <source>Warning: Invalid Digitalcoin address</source>
+        <translation>Varovanie: Nesprávna Digitalcoin adresa</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1953,8 +1953,8 @@ Adresa: %4</translation>
         <translation>Vložte popis pre túto adresu aby sa uložila do zoznamu použitých adries</translation>
     </message>
     <message>
-        <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
-        <translation>Správa ktorá bola pripojená k digibyte: URI a ktorá bude uložená s transakcou pre Vaše potreby. Poznámka: Táto správa nebude poslaná cez sieť DigiByte.</translation>
+        <source>A message that was attached to the digitalcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Digitalcoin network.</source>
+        <translation>Správa ktorá bola pripojená k digitalcoin: URI a ktorá bude uložená s transakcou pre Vaše potreby. Poznámka: Táto správa nebude poslaná cez sieť Digitalcoin.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -1972,8 +1972,8 @@ Adresa: %4</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>DigiByte Core is shutting down...</source>
-        <translation>Jadro DigiByte sa ukončuje...</translation>
+        <source>Digitalcoin is shutting down...</source>
+        <translation>Jadro Digitalcoin sa ukončuje...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1996,7 +1996,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>The address to sign the message with (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Zadajte DigiByte adresu (napr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <translation>Zadajte Digitalcoin adresu (napr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2027,7 +2027,7 @@ Adresa: %4</translation>
         <translation>Kopírovať práve zvolenú adresu do systémového klipbordu</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this DigiByte address</source>
+        <source>Sign the message to prove you own this Digitalcoin address</source>
         <translation>Podpíšte správu aby ste dokázali že vlastníte túto adresu</translation>
     </message>
     <message>
@@ -2052,11 +2052,11 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>The address the message was signed with (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Zadajte DigiByte adresu (napr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <translation>Zadajte Digitalcoin adresu (napr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
-        <translation>Overím správy sa uistiť že bola podpísaná označenou DigiByte adresou</translation>
+        <source>Verify the message to ensure it was signed with the specified Digitalcoin address</source>
+        <translation>Overím správy sa uistiť že bola podpísaná označenou Digitalcoin adresou</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2067,8 +2067,8 @@ Adresa: %4</translation>
         <translation>Obnoviť všetky polia v overiť správu</translation>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Zadajte DigiByte adresu (napr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Zadajte Digitalcoin adresu (napr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
@@ -2126,12 +2126,12 @@ Adresa: %4</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>DigiByte Core</source>
-        <translation>Jadro DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Jadro Digitalcoin</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
-        <translation>Vývojári jadra DigiByte</translation>
+        <source>The Bitcoin and Digitalcoin developers</source>
+        <translation>Vývojári jadra Digitalcoin</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2552,7 +2552,7 @@ Adresa: %4</translation>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Poslať DigiBytes</translation>
+        <translation>Poslať Digitalcoins</translation>
     </message>
 </context>
 <context>
@@ -2609,12 +2609,12 @@ Adresa: %4</translation>
         <translation>Možnosti:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: digibyte.conf)</source>
-        <translation>Určiť súbor s nastaveniami (predvolené: digibyte.conf)</translation>
+        <source>Specify configuration file (default: digitalcoin.conf)</source>
+        <translation>Určiť súbor s nastaveniami (predvolené: digitalcoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: digibyted.pid)</source>
-        <translation>Určiť súbor pid (predvolené: digibyted.pid)</translation>
+        <source>Specify pid file (default: digitalcoind.pid)</source>
+        <translation>Určiť súbor pid (predvolené: digitalcoind.pid)</translation>
     </message>
     <message>
         <source>Specify data directory</source>
@@ -2657,8 +2657,8 @@ Adresa: %4</translation>
         <translation>Prijímať príkazy z príkazového riadku a JSON-RPC</translation>
     </message>
     <message>
-        <source>DigiByte Core RPC client version</source>
-        <translation>Verzia RPC klienta Jadra DigiByte</translation>
+        <source>Digitalcoin RPC client version</source>
+        <translation>Verzia RPC klienta Jadra Digitalcoin</translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
@@ -2676,24 +2676,24 @@ Adresa: %4</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Digitalcoin Alert&quot; admin@foo.com
 </source>
         <translation>%s, musíte nastaviť rpcpassword heslo v súbore nastavení:
 %s
 Odporúča sa používať nasledujúce náhodné heslo:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (nemusíte si pamätať toto heslo)
 Užívateľské meno a heslo NESMÚ byť rovnaké.
 Ak súbor neexistuje, vytvorte ho s prístupovým právom owner-readable-only čitateľné len pre majiteľa.
 Tiež sa odporúča nastaviť alertnotify aby ste boli upozorňovaní na problémy;
-napríklad: alertnotify=echo %%s | mail -s &quot;DigiByte Výstraha&quot; admin@foo.com
+napríklad: alertnotify=echo %%s | mail -s &quot;Digitalcoin Výstraha&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -2762,11 +2762,11 @@ napríklad: alertnotify=echo %%s | mail -s &quot;DigiByte Výstraha&quot; admin@
     </message>
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>Toto je pred-testovacia verzia - použitie je na vlastné riziko - nepoužívajte na tvorbu digibyte ani obchodovanie.</translation>
+        <translation>Toto je pred-testovacia verzia - použitie je na vlastné riziko - nepoužívajte na tvorbu digitalcoin ani obchodovanie.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. DigiByte Core is probably already running.</source>
-        <translation>Nepodarilo sa pripojiť na %s na tomto počítači. DigiByte Jadro je už pravdepodobne spustené.</translation>
+        <source>Unable to bind to %s on this computer. Digitalcoin is probably already running.</source>
+        <translation>Nepodarilo sa pripojiť na %s na tomto počítači. Digitalcoin Jadro je už pravdepodobne spustené.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
@@ -2777,8 +2777,8 @@ napríklad: alertnotify=echo %%s | mail -s &quot;DigiByte Výstraha&quot; admin@
         <translation>Varovanie: -paytxfee je nastavené veľmi vysoko. Toto sú transakčné poplatky ktoré zaplatíte ak odošlete transakciu.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong DigiByte will not work properly.</source>
-        <translation>Varovanie: Skontroluj či je na počítači nastavený správny čas a dátum. Ak sú hodiny nastavené nesprávne, DigiByte nebude správne pracovať.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Digitalcoin will not work properly.</source>
+        <translation>Varovanie: Skontroluj či je na počítači nastavený správny čas a dátum. Ak sú hodiny nastavené nesprávne, Digitalcoin nebude správne pracovať.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2815,8 +2815,8 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Pokus zachrániť súkromné kľúče z poškodeného wallet.dat</translation>
     </message>
     <message>
-        <source>DigiByte Core Daemon</source>
-        <translation>Démon Jadro DigiByte</translation>
+        <source>Digitalcoin Daemon</source>
+        <translation>Démon Jadro Digitalcoin</translation>
     </message>
     <message>
         <source>Block creation options:</source>
@@ -2948,7 +2948,7 @@ The network does not appear to fully agree! Some miners appear to be experiencin
     </message>
     <message>
         <source>Find peers using DNS lookup (default: 1 unless -connect)</source>
-        <translation>Nájsť počítače v digibyte sieti použitím DNS vyhľadávania (predvolené: 1 okrem -connect)</translation>
+        <translation>Nájsť počítače v digitalcoin sieti použitím DNS vyhľadávania (predvolené: 1 okrem -connect)</translation>
     </message>
     <message>
         <source>Force safe mode (default: 0)</source>
@@ -3023,8 +3023,8 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Toto je mienené nástrojom pre regresné testovania a vývoj programu.</translation>
     </message>
     <message>
-        <source>Usage (deprecated, use digibyte-cli):</source>
-        <translation>Použitie (neodporúča sa, použite digibyte-cli):</translation>
+        <source>Usage (deprecated, use digitalcoin-cli):</source>
+        <translation>Použitie (neodporúča sa, použite digitalcoin-cli):</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3059,8 +3059,8 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Importuje bloky z externého súboru blk000??.dat</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. DigiByte Core is probably already running.</source>
-        <translation>Neviem uzamknúť data adresár %s. Jadro DigiByte je pravdepodobne už spustené.</translation>
+        <source>Cannot obtain a lock on data directory %s. Digitalcoin is probably already running.</source>
+        <translation>Neviem uzamknúť data adresár %s. Jadro Digitalcoin je pravdepodobne už spustené.</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
@@ -3123,8 +3123,8 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Vytlačiť strom blokov pri spustení (prednastavené: 0)</translation>
     </message>
     <message>
-        <source>RPC SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
-        <translation>Možnosti RPC SSL: (Pozri v DigiByte Wiki pokyny pre SSL nastavenie)</translation>
+        <source>RPC SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
+        <translation>Možnosti RPC SSL: (Pozri v Digitalcoin Wiki pokyny pre SSL nastavenie)</translation>
     </message>
     <message>
         <source>RPC server options:</source>
@@ -3143,12 +3143,12 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Mať spustené vlákno pravidelného čístenia peňaženky (predvolené: 1)</translation>
     </message>
     <message>
-        <source>SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
-        <translation>SSL možnosť: (pozrite DigiByte Wiki pre návod na nastavenie SSL)</translation>
+        <source>SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
+        <translation>SSL možnosť: (pozrite Digitalcoin Wiki pre návod na nastavenie SSL)</translation>
     </message>
     <message>
-        <source>Send command to DigiByte Core</source>
-        <translation>Poslať príkaz Jadru DigiByte</translation>
+        <source>Send command to Digitalcoin</source>
+        <translation>Poslať príkaz Jadru Digitalcoin</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
@@ -3183,8 +3183,8 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Určiť aut spojenia v milisekundách (predvolené: 5000)</translation>
     </message>
     <message>
-        <source>Start DigiByte Core Daemon</source>
-        <translation>Štart služby Jadro DigiByte</translation>
+        <source>Start Digitalcoin Daemon</source>
+        <translation>Štart služby Jadro Digitalcoin</translation>
     </message>
     <message>
         <source>System error: </source>
@@ -3299,12 +3299,12 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Chyba načítania wallet.dat: Peňaženka je poškodená</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of DigiByte</source>
-        <translation>Chyba načítania wallet.dat: Peňaženka vyžaduje novšiu verziu DigiByte</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Digitalcoin</source>
+        <translation>Chyba načítania wallet.dat: Peňaženka vyžaduje novšiu verziu Digitalcoin</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart DigiByte to complete</source>
-        <translation>Bolo potrebné prepísať peňaženku: dokončite reštartovaním DigiByte</translation>
+        <source>Wallet needed to be rewritten: restart Digitalcoin to complete</source>
+        <translation>Bolo potrebné prepísať peňaženku: dokončite reštartovaním Digitalcoin</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>

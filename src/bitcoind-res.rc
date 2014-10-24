@@ -5,7 +5,7 @@
 #define VER_PRODUCTVERSION_STR STRINGIZE(CLIENT_VERSION_MAJOR) "." STRINGIZE(CLIENT_VERSION_MINOR) "." STRINGIZE(CLIENT_VERSION_REVISION) "." STRINGIZE(CLIENT_VERSION_BUILD)
 #define VER_FILEVERSION        VER_PRODUCTVERSION
 #define VER_FILEVERSION_STR    VER_PRODUCTVERSION_STR
-#define COPYRIGHT_STR          "2009-" STRINGIZE(COPYRIGHT_YEAR) " The DigiByte Core developers"
+#define COPYRIGHT_STR          "2009-" STRINGIZE(COPYRIGHT_YEAR) " The Digitalcoin developers"
 
 VS_VERSION_INFO VERSIONINFO
 FILEVERSION     VER_FILEVERSION
@@ -17,14 +17,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "DigiByte"
-            VALUE "FileDescription",    "DigiByted (OSS daemon/client for DigiByte)"
+            VALUE "CompanyName",        "Digitalcoin"
+            VALUE "FileDescription",    "Digitalcoind (OSS daemon/client for Digitalcoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "digibyted"
+            VALUE "InternalName",       "digitalcoind"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "digibyted.exe"
-            VALUE "ProductName",        "DigiByted"
+            VALUE "OriginalFilename",   "digitalcoind.exe"
+            VALUE "ProductName",        "Digitalcoind"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

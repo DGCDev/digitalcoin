@@ -2,11 +2,11 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About DigiByte Core</source>
+        <source>About Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>&lt;b&gt;DigiByte Core&lt;/b&gt; version</source>
+        <source>&lt;b&gt;Digitalcoin&lt;/b&gt; version</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -27,7 +27,7 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
         <translation>Copyright</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
+        <source>The Bitcoin and Digitalcoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -102,11 +102,11 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Digitalcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Digitalcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -205,7 +205,7 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
-        <translation>Figyelem: Ha kódolod a tárcát, és elveszíted a jelszavad, akkor &lt;b&gt;AZ ÖSSZES DGBIADCOINODAT IS EL FOGOD VESZÍTENI!&lt;/b&gt;</translation>
+        <translation>Figyelem: Ha kódolod a tárcát, és elveszíted a jelszavad, akkor &lt;b&gt;AZ ÖSSZES DGCIADCOINODAT IS EL FOGOD VESZÍTENI!&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -224,8 +224,8 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
         <translation>Tárca kódolva</translation>
     </message>
     <message>
-        <source>DigiByte will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-        <translation>DigiByte will close now to finish the encryption process. Ne feledd, hogy a tárca titkosítása sem nyújt teljes védelmet az adathalász programok fertőzésével szemben.</translation>
+        <source>Digitalcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digitalcoins from being stolen by malware infecting your computer.</source>
+        <translation>Digitalcoin will close now to finish the encryption process. Ne feledd, hogy a tárca titkosítása sem nyújt teljes védelmet az adathalász programok fertőzésével szemben.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -257,7 +257,7 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
     </message>
 </context>
 <context>
-    <name>DigiByteGUI</name>
+    <name>DigitalcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Üzenet aláírása...</translation>
@@ -295,8 +295,8 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
         <translation>Kilépés</translation>
     </message>
     <message>
-        <source>Show information about DigiByte</source>
-        <translation>Információk a DigiByteról</translation>
+        <source>Show information about Digitalcoin</source>
+        <translation>Információk a Digitalcoinról</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -343,12 +343,12 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
         <translation>A blokkok lemezen történő ujraindexelése...</translation>
     </message>
     <message>
-        <source>Send coins to a DigiByte address</source>
+        <source>Send coins to a Digitalcoin address</source>
         <translation>Érmék küldése megadott címre</translation>
     </message>
     <message>
-        <source>Modify configuration options for DigiByte</source>
-        <translation>DigiByte konfigurációs opciók</translation>
+        <source>Modify configuration options for Digitalcoin</source>
+        <translation>Digitalcoin konfigurációs opciók</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -371,8 +371,8 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
         <translation>Üzenet &amp;valódiságának ellenőrzése</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -399,12 +399,12 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
         <translation>A pénztárcájához tartozó privát kulcsok titkosítása</translation>
     </message>
     <message>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
-        <translation>Üzenet aláírása a DigiByte címmel, amivel bizonyítja, hogy a cím az ön tulajdona.</translation>
+        <source>Sign messages with your Digitalcoin addresses to prove you own them</source>
+        <translation>Üzenet aláírása a Digitalcoin címmel, amivel bizonyítja, hogy a cím az ön tulajdona.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
-        <translation>Annak ellenőrzése, hogy az üzenetek valóban a megjelölt DigiByte címekkel vannak-e alaírva</translation>
+        <source>Verify messages to ensure they were signed with specified Digitalcoin addresses</source>
+        <translation>Annak ellenőrzése, hogy az üzenetek valóban a megjelölt Digitalcoin címekkel vannak-e alaírva</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -427,15 +427,15 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
         <translation>[teszthálózat]</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
+        <source>Request payments (generates QR codes and digitalcoin: URIs)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>&amp;About DigiByte Core</source>
+        <source>&amp;About Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -447,7 +447,7 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Open a digibyte: URI or payment request</source>
+        <source>Open a digitalcoin: URI or payment request</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -455,16 +455,16 @@ Ez a termék az OpenSSL Project által lett kifejlesztve az OpenSSL Toolkit (htt
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Show the DigiByte Core help message to get a list with possible DigiByte command-line options</source>
+        <source>Show the Digitalcoin help message to get a list with possible Digitalcoin command-line options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte client</source>
-        <translation>DigiByte kliens</translation>
+        <source>Digitalcoin client</source>
+        <translation>Digitalcoin kliens</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to DigiByte network</source>
-        <translation><numerusform>%n aktív kapcsolat a DigiByte-hálózattal</numerusform><numerusform>%n aktív kapcsolat a DigiByte-hálózattal</numerusform></translation>
+        <source>%n active connection(s) to Digitalcoin network</source>
+        <translation><numerusform>%n aktív kapcsolat a Digitalcoin-hálózattal</numerusform><numerusform>%n aktív kapcsolat a Digitalcoin-hálózattal</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -559,7 +559,7 @@ Cím: %4
         <translation>Tárca &lt;b&gt;kódolva&lt;/b&gt; és jelenleg &lt;b&gt;zárva&lt;/b&gt;.</translation>
     </message>
     <message>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. Digitalcoin can no longer continue safely and will quit.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -844,8 +844,8 @@ Cím: %4
         <translation>A megadott &quot;%1&quot; cím már szerepel a címjegyzékben.</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid DigiByte address.</source>
-        <translation>A megadott &quot;%1&quot; cím nem egy érvényes DigiByte-cím.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Digitalcoin address.</source>
+        <translation>A megadott &quot;%1&quot; cím nem egy érvényes Digitalcoin-cím.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -882,12 +882,12 @@ Cím: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>DigiByte Core - Command-line options</source>
+        <source>Digitalcoin - Command-line options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>version</source>
@@ -934,15 +934,15 @@ Cím: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Welcome to DigiByte Core.</source>
+        <source>Welcome to Digitalcoin.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where DigiByte Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Digitalcoin will store its data.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core will download and store a copy of the DigiByte block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Digitalcoin will download and store a copy of the Digitalcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -954,8 +954,8 @@ Cím: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
@@ -1016,11 +1016,11 @@ Cím: %4
         <translation>Tranzakciós &amp;díj fizetése</translation>
     </message>
     <message>
-        <source>Automatically start DigiByte after logging in to the system.</source>
-        <translation>Induljon el a DigiByte a számítógép bekapcsolásakor</translation>
+        <source>Automatically start Digitalcoin after logging in to the system.</source>
+        <translation>Induljon el a Digitalcoin a számítógép bekapcsolásakor</translation>
     </message>
     <message>
-        <source>&amp;Start DigiByte on system login</source>
+        <source>&amp;Start Digitalcoin on system login</source>
         <translation>&amp;Induljon el a számítógép bekapcsolásakor</translation>
     </message>
     <message>
@@ -1036,7 +1036,7 @@ Cím: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Connect to the DigiByte network through a SOCKS proxy.</source>
+        <source>Connect to the Digitalcoin network through a SOCKS proxy.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1096,8 +1096,8 @@ Cím: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>A DigiByte-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
+        <source>Automatically open the Digitalcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>A Digitalcoin-kliens portjának automatikus megnyitása a routeren. Ez csak akkor működik, ha a routered támogatja az UPnP-t és az engedélyezve is van rajta.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1152,8 +1152,8 @@ Cím: %4
         <translation>Felhasználófelület nye&amp;lve:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting DigiByte.</source>
-        <translation>Itt beállíthatod a felhasználófelület nyelvét. Ez a beállítás a DigiByte ujraindítása után lép érvénybe.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Digitalcoin.</source>
+        <translation>Itt beállíthatod a felhasználófelület nyelvét. Ez a beállítás a Digitalcoin ujraindítása után lép érvénybe.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1164,8 +1164,8 @@ Cím: %4
         <translation>Válaszd ki az interfészen és érmék küldésekor megjelenítendő alapértelmezett alegységet.</translation>
     </message>
     <message>
-        <source>Whether to show DigiByte addresses in the transaction list or not.</source>
-        <translation>Mutassa-e a DigiByte címeket a tranzakciólistában.</translation>
+        <source>Whether to show Digitalcoin addresses in the transaction list or not.</source>
+        <translation>Mutassa-e a Digitalcoin címeket a tranzakciólistában.</translation>
     </message>
     <message>
         <source>&amp;Display addresses in transaction list</source>
@@ -1219,8 +1219,8 @@ Cím: %4
         <translation>Űrlap</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
-        <translation>A kijelzett információ lehet, hogy elavult. A pénztárcája automatikusan szinkronizálja magát a DigiByte hálózattal miután a kapcsolat létrejön, de ez e folyamat még nem fejeződött be.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Digitalcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>A kijelzett információ lehet, hogy elavult. A pénztárcája automatikusan szinkronizálja magát a Digitalcoin hálózattal miután a kapcsolat létrejön, de ez e folyamat még nem fejeződött be.</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1274,7 +1274,7 @@ Cím: %4
         <translation>URI kezelés</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <source>URI can not be parsed! This can be caused by an invalid Digitalcoin address or malformed URI parameters.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1286,7 +1286,7 @@ Cím: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cannot start digibyte: click-to-pay handler</source>
+        <source>Cannot start digitalcoin: click-to-pay handler</source>
         <translation>A bitcoint nem lehet elindítani: click-to-pay handler</translation>
     </message>
     <message>
@@ -1341,8 +1341,8 @@ Cím: %4
 <context>
     <name>QObject</name>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
@@ -1357,12 +1357,12 @@ Cím: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core didn&apos;t yet exit safely...</source>
+        <source>Digitalcoin didn&apos;t yet exit safely...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Adj meg egy DigiByte-címet (pl.: DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L )</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Adj meg egy Digitalcoin-címet (pl.: DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L )</translation>
     </message>
 </context>
 <context>
@@ -1483,7 +1483,7 @@ Cím: %4
         <translation>Debug naplófájl</translation>
     </message>
     <message>
-        <source>Open the DigiByte debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the Digitalcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1491,8 +1491,8 @@ Cím: %4
         <translation>Konzol törlése</translation>
     </message>
     <message>
-        <source>Welcome to the DigiByte RPC console.</source>
-        <translation>Üdv a DigiByte RPC konzoljában!</translation>
+        <source>Welcome to the Digitalcoin RPC console.</source>
+        <translation>Üdv a Digitalcoin RPC konzoljában!</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1554,7 +1554,7 @@ Cím: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Digitalcoin network.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1848,7 +1848,7 @@ Cím: %4
     </message>
     <message>
         <source>The amount exceeds your balance.</source>
-        <translation>Nincs ennyi digibyte az egyenlegeden.</translation>
+        <translation>Nincs ennyi digitalcoin az egyenlegeden.</translation>
     </message>
     <message>
         <source>The total exceeds your balance when the %1 transaction fee is included.</source>
@@ -1867,7 +1867,7 @@ Cím: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Warning: Invalid DigiByte address</source>
+        <source>Warning: Invalid Digitalcoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1955,7 +1955,7 @@ Cím: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
+        <source>A message that was attached to the digitalcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Digitalcoin network.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1974,7 +1974,7 @@ Cím: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>DigiByte Core is shutting down...</source>
+        <source>Digitalcoin is shutting down...</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1998,7 +1998,7 @@ Cím: %4
     </message>
     <message>
         <source>The address to sign the message with (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Adj meg egy DigiByte-címet (pl.: DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L )</translation>
+        <translation>Adj meg egy Digitalcoin-címet (pl.: DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L )</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2029,7 +2029,7 @@ Cím: %4
         <translation>A jelenleg kiválasztott aláírás másolása a rendszer-vágólapra</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this DigiByte address</source>
+        <source>Sign the message to prove you own this Digitalcoin address</source>
         <translation>Üzenet </translation>
     </message>
     <message>
@@ -2054,10 +2054,10 @@ Cím: %4
     </message>
     <message>
         <source>The address the message was signed with (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Adj meg egy DigiByte-címet (pl.: DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L )</translation>
+        <translation>Adj meg egy Digitalcoin-címet (pl.: DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L )</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
+        <source>Verify the message to ensure it was signed with the specified Digitalcoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2069,8 +2069,8 @@ Cím: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Adj meg egy DigiByte-címet (pl.: DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L )</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Adj meg egy Digitalcoin-címet (pl.: DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L )</translation>
     </message>
     <message>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
@@ -2128,11 +2128,11 @@ Cím: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
+        <source>The Bitcoin and Digitalcoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2614,13 +2614,13 @@ Cím: %4
 </translation>
     </message>
     <message>
-        <source>Specify configuration file (default: digibyte.conf)</source>
-        <translation>Konfigurációs fájl (alapértelmezett: digibyte.conf)
+        <source>Specify configuration file (default: digitalcoin.conf)</source>
+        <translation>Konfigurációs fájl (alapértelmezett: digitalcoin.conf)
 </translation>
     </message>
     <message>
-        <source>Specify pid file (default: digibyted.pid)</source>
-        <translation>pid-fájl (alapértelmezett: digibyted.pid)
+        <source>Specify pid file (default: digitalcoind.pid)</source>
+        <translation>pid-fájl (alapértelmezett: digitalcoind.pid)
 </translation>
     </message>
     <message>
@@ -2666,7 +2666,7 @@ Cím: %4
 </translation>
     </message>
     <message>
-        <source>DigiByte Core RPC client version</source>
+        <source>Digitalcoin RPC client version</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2687,13 +2687,13 @@ Cím: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Digitalcoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2766,7 +2766,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. DigiByte Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2778,8 +2778,8 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation>Figyelem: a -paytxfee nagyon magas.  Ennyi tranzakciós díjat fogsz fizetni, ha elküldöd a tranzakciót.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong DigiByte will not work properly.</source>
-        <translation>Figyelem: Ellenőrizd, hogy helyesen van-e beállítva a gépeden a dátum és az idő.  A DigiByte nem fog megfelelően működni, ha rosszul van beállítvaaz órád.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Digitalcoin will not work properly.</source>
+        <translation>Figyelem: Ellenőrizd, hogy helyesen van-e beállítva a gépeden a dátum és az idő.  A Digitalcoin nem fog megfelelően működni, ha rosszul van beállítvaaz órád.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2814,7 +2814,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core Daemon</source>
+        <source>Digitalcoin Daemon</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3022,7 +3022,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Usage (deprecated, use digibyte-cli):</source>
+        <source>Usage (deprecated, use digitalcoin-cli):</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3058,7 +3058,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. DigiByte Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3122,7 +3122,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>RPC SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
+        <source>RPC SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3142,11 +3142,11 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
-        <translation>SSL-opciók: (lásd a DigiByte Wiki SSL-beállítási instrukcióit)</translation>
+        <source>SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
+        <translation>SSL-opciók: (lásd a Digitalcoin Wiki SSL-beállítási instrukcióit)</translation>
     </message>
     <message>
-        <source>Send command to DigiByte Core</source>
+        <source>Send command to Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3182,7 +3182,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation>Csatlakozás időkerete milliszekundumban (alapértelmezett: 5000)</translation>
     </message>
     <message>
-        <source>Start DigiByte Core Daemon</source>
+        <source>Start Digitalcoin Daemon</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3308,12 +3308,12 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation>Hiba a wallet.dat betöltése közben: meghibásodott tárca</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of DigiByte</source>
-        <translation>Hiba a wallet.dat betöltése közben: ehhez a tárcához újabb verziójú DigiByte-kliens szükséges</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Digitalcoin</source>
+        <translation>Hiba a wallet.dat betöltése közben: ehhez a tárcához újabb verziójú Digitalcoin-kliens szükséges</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart DigiByte to complete</source>
-        <translation>A Tárca újraírása szükséges: Indítsa újra a teljesen a DigiByte-t</translation>
+        <source>Wallet needed to be rewritten: restart Digitalcoin to complete</source>
+        <translation>A Tárca újraírása szükséges: Indítsa újra a teljesen a Digitalcoin-t</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>

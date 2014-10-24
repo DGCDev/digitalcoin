@@ -2,11 +2,11 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About DigiByte Core</source>
+        <source>About Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>&lt;b&gt;DigiByte Core&lt;/b&gt; version</source>
+        <source>&lt;b&gt;Digitalcoin&lt;/b&gt; version</source>
         <translation>&lt;b&gt;ビットコインコア&lt;/b&gt; バージョン</translation>
     </message>
     <message>
@@ -28,7 +28,7 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
         <translation>Copyright</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
+        <source>The Bitcoin and Digitalcoin developers</source>
         <translation>ビットコインコアの開発者</translation>
     </message>
     <message>
@@ -103,11 +103,11 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
         <translation>アドレス受信中</translation>
     </message>
     <message>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>これらは支払いを送信するためのあなたの DigiByte アドレスです。コインを送信する前に、常に額と受信アドレスを確認してください。</translation>
+        <source>These are your Digitalcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>これらは支払いを送信するためのあなたの Digitalcoin アドレスです。コインを送信する前に、常に額と受信アドレスを確認してください。</translation>
     </message>
     <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Digitalcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -206,7 +206,7 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR DIGIBYTES&lt;/b&gt;!</source>
-        <translation>警告: もしもあなたのウォレットを暗号化してパスフレーズを失ってしまったなら、&lt;b&gt;あなたの DigiByte はすべて失われます&lt;/b&gt;!</translation>
+        <translation>警告: もしもあなたのウォレットを暗号化してパスフレーズを失ってしまったなら、&lt;b&gt;あなたの Digitalcoin はすべて失われます&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -225,8 +225,8 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
         <translation>ウォレットは暗号化されました</translation>
     </message>
     <message>
-        <source>DigiByte will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-        <translation>DigiByte は暗号化プロセスを終了するために今すぐ終了します。あなたのコンピュータがマルウェアに感染してコインを盗まれることもあるので、暗号化してもあなたのウォレットを完全に保護できないことを覚えていてください。</translation>
+        <source>Digitalcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digitalcoins from being stolen by malware infecting your computer.</source>
+        <translation>Digitalcoin は暗号化プロセスを終了するために今すぐ終了します。あなたのコンピュータがマルウェアに感染してコインを盗まれることもあるので、暗号化してもあなたのウォレットを完全に保護できないことを覚えていてください。</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -258,7 +258,7 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
     </message>
 </context>
 <context>
-    <name>DigiByteGUI</name>
+    <name>DigitalcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>メッセージの署名... (&amp;m)</translation>
@@ -296,8 +296,8 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
         <translation>アプリケーションを終了</translation>
     </message>
     <message>
-        <source>Show information about DigiByte</source>
-        <translation>DigiByteに関する情報を見る</translation>
+        <source>Show information about Digitalcoin</source>
+        <translation>Digitalcoinに関する情報を見る</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -344,12 +344,12 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
         <translation>ディスク上のブロックのインデックスを再作成中...</translation>
     </message>
     <message>
-        <source>Send coins to a DigiByte address</source>
-        <translation>DigiByte アドレスにコインを送る</translation>
+        <source>Send coins to a Digitalcoin address</source>
+        <translation>Digitalcoin アドレスにコインを送る</translation>
     </message>
     <message>
-        <source>Modify configuration options for DigiByte</source>
-        <translation>DigiByte の設定を変更する</translation>
+        <source>Modify configuration options for Digitalcoin</source>
+        <translation>Digitalcoin の設定を変更する</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -372,8 +372,8 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
         <translation>メッセージの検証... (&amp;V)</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -400,12 +400,12 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
         <translation>あなたのウォレットの秘密鍵を暗号化します</translation>
     </message>
     <message>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
-        <translation>あなたが所有していることを証明するために、あなたの DigiByte アドレスでメッセージに署名してください</translation>
+        <source>Sign messages with your Digitalcoin addresses to prove you own them</source>
+        <translation>あなたが所有していることを証明するために、あなたの Digitalcoin アドレスでメッセージに署名してください</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
-        <translation>指定された DigiByte アドレスで署名されたことを確認するためにメッセージを検証します</translation>
+        <source>Verify messages to ensure they were signed with specified Digitalcoin addresses</source>
+        <translation>指定された Digitalcoin アドレスで署名されたことを確認するためにメッセージを検証します</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -428,15 +428,15 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
         <translation>[testnet]</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte のコア</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin のコア</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
+        <source>Request payments (generates QR codes and digitalcoin: URIs)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>&amp;About DigiByte Core</source>
+        <source>&amp;About Digitalcoin</source>
         <translation>ビットコインコアについて (&amp;A)</translation>
     </message>
     <message>
@@ -448,7 +448,7 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
         <translation>支払いを受け取るアドレスとラベルのリストを表示する</translation>
     </message>
     <message>
-        <source>Open a digibyte: URI or payment request</source>
+        <source>Open a digitalcoin: URI or payment request</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -456,16 +456,16 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
         <translation>コマンドラインオプション (&amp;C)</translation>
     </message>
     <message>
-        <source>Show the DigiByte Core help message to get a list with possible DigiByte command-line options</source>
+        <source>Show the Digitalcoin help message to get a list with possible Digitalcoin command-line options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte client</source>
-        <translation>DigiByte クライアント</translation>
+        <source>Digitalcoin client</source>
+        <translation>Digitalcoin クライアント</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to DigiByte network</source>
-        <translation><numerusform>%n の DigiByte ネットワークへのアクティブな接続</numerusform></translation>
+        <source>%n active connection(s) to Digitalcoin network</source>
+        <translation><numerusform>%n の Digitalcoin ネットワークへのアクティブな接続</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -559,8 +559,8 @@ Address: %4
         <translation>ウォレットは&lt;b&gt;暗号化されて、ロックされています&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
-        <translation>致命的なエラーが発生しました。DigiByte は安全に継続することができず終了するでしょう。
+        <source>A fatal error occurred. Digitalcoin can no longer continue safely and will quit.</source>
+        <translation>致命的なエラーが発生しました。Digitalcoin は安全に継続することができず終了するでしょう。
 </translation>
     </message>
 </context>
@@ -845,8 +845,8 @@ Address: %4
         <translation>入力されたアドレス &quot;%1&quot; は既にアドレス帳にあります。</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid DigiByte address.</source>
-        <translation>入力されたアドレス &quot;%1&quot; は無効な DigiByte アドレスです。</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Digitalcoin address.</source>
+        <translation>入力されたアドレス &quot;%1&quot; は無効な Digitalcoin アドレスです。</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -883,12 +883,12 @@ Address: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>DigiByte Core - Command-line options</source>
+        <source>Digitalcoin - Command-line options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte のコア</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin のコア</translation>
     </message>
     <message>
         <source>version</source>
@@ -934,15 +934,15 @@ Address: %4
         <translation>ようこそ</translation>
     </message>
     <message>
-        <source>Welcome to DigiByte Core.</source>
+        <source>Welcome to Digitalcoin.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where DigiByte Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Digitalcoin will store its data.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core will download and store a copy of the DigiByte block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Digitalcoin will download and store a copy of the Digitalcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -954,8 +954,8 @@ Address: %4
         <translation>任意のデータ ディレクトリを使用:</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
@@ -1016,12 +1016,12 @@ Address: %4
         <translation>支払う取引手数料 (&amp;f)</translation>
     </message>
     <message>
-        <source>Automatically start DigiByte after logging in to the system.</source>
-        <translation>システムにログインした時に自動的に DigiByte を起動します。</translation>
+        <source>Automatically start Digitalcoin after logging in to the system.</source>
+        <translation>システムにログインした時に自動的に Digitalcoin を起動します。</translation>
     </message>
     <message>
-        <source>&amp;Start DigiByte on system login</source>
-        <translation>システムにログインした時に DigiByte を起動 (&amp;S)</translation>
+        <source>&amp;Start Digitalcoin on system login</source>
+        <translation>システムにログインした時に Digitalcoin を起動 (&amp;S)</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1036,7 +1036,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Connect to the DigiByte network through a SOCKS proxy.</source>
+        <source>Connect to the Digitalcoin network through a SOCKS proxy.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1096,8 +1096,8 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>自動的にルーター上の DigiByte クライアントのポートを開きます。あなたのルーターが UPnP に対応していて、それが有効になっている場合に作動します。</translation>
+        <source>Automatically open the Digitalcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>自動的にルーター上の Digitalcoin クライアントのポートを開きます。あなたのルーターが UPnP に対応していて、それが有効になっている場合に作動します。</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1152,8 +1152,8 @@ Address: %4
         <translation>ユーザインターフェースの言語 (&amp;l) :</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting DigiByte.</source>
-        <translation>ここでユーザインターフェースの言語を設定できます。設定を反映するには DigiByte を再起動します。</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Digitalcoin.</source>
+        <translation>ここでユーザインターフェースの言語を設定できます。設定を反映するには Digitalcoin を再起動します。</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1164,8 +1164,8 @@ Address: %4
         <translation>インターフェース上の表示とコインの送信で使用する単位を選択します。</translation>
     </message>
     <message>
-        <source>Whether to show DigiByte addresses in the transaction list or not.</source>
-        <translation>最近の取引履歴で DigiByte アドレスを表示するかしないか。</translation>
+        <source>Whether to show Digitalcoin addresses in the transaction list or not.</source>
+        <translation>最近の取引履歴で Digitalcoin アドレスを表示するかしないか。</translation>
     </message>
     <message>
         <source>&amp;Display addresses in transaction list</source>
@@ -1219,8 +1219,8 @@ Address: %4
         <translation>フォーム</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
-        <translation>表示された情報は古いかもしれません。接続が確立されると、あなたのウォレットは DigiByte ネットワークと自動的に同期しますが、このプロセスはまだ完了していません。</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Digitalcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>表示された情報は古いかもしれません。接続が確立されると、あなたのウォレットは Digitalcoin ネットワークと自動的に同期しますが、このプロセスはまだ完了していません。</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1274,8 +1274,8 @@ Address: %4
         <translation>URI の操作</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
-        <translation>URI を解析できません! これは無効な DigiByte アドレスあるいや不正な形式の URI パラメーターによって引き起こされる場合があります。
+        <source>URI can not be parsed! This can be caused by an invalid Digitalcoin address or malformed URI parameters.</source>
+        <translation>URI を解析できません! これは無効な Digitalcoin アドレスあるいや不正な形式の URI パラメーターによって引き起こされる場合があります。
 </translation>
     </message>
     <message>
@@ -1287,8 +1287,8 @@ Address: %4
         <translation>支払いのリクエストのエラーです</translation>
     </message>
     <message>
-        <source>Cannot start digibyte: click-to-pay handler</source>
-        <translation>DigiByte を起動できません: click-to-pay handler</translation>
+        <source>Cannot start digitalcoin: click-to-pay handler</source>
+        <translation>Digitalcoin を起動できません: click-to-pay handler</translation>
     </message>
     <message>
         <source>Net manager warning</source>
@@ -1342,8 +1342,8 @@ Address: %4
 <context>
     <name>QObject</name>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
@@ -1358,12 +1358,12 @@ Address: %4
         <translation>エラー：　-regtestと-testnetは一緒にするのは無効です。</translation>
     </message>
     <message>
-        <source>DigiByte Core didn&apos;t yet exit safely...</source>
+        <source>Digitalcoin didn&apos;t yet exit safely...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>DigiByte アドレスを入力します (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Digitalcoin アドレスを入力します (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
 </context>
 <context>
@@ -1484,16 +1484,16 @@ Address: %4
         <translation>デバッグ用ログファイル</translation>
     </message>
     <message>
-        <source>Open the DigiByte debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>現在のデータ ディレクトリから DigiByte のデバッグ用ログファイルを開きます。ログファイルが大規模な場合には数秒かかることがあります。</translation>
+        <source>Open the Digitalcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>現在のデータ ディレクトリから Digitalcoin のデバッグ用ログファイルを開きます。ログファイルが大規模な場合には数秒かかることがあります。</translation>
     </message>
     <message>
         <source>Clear console</source>
         <translation>コンソールをクリア</translation>
     </message>
     <message>
-        <source>Welcome to the DigiByte RPC console.</source>
-        <translation>DigiByte RPC コンソールへようこそ。</translation>
+        <source>Welcome to the Digitalcoin RPC console.</source>
+        <translation>Digitalcoin RPC コンソールへようこそ。</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1555,7 +1555,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Digitalcoin network.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1868,7 +1868,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Warning: Invalid DigiByte address</source>
+        <source>Warning: Invalid Digitalcoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1955,7 +1955,7 @@ Address: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
+        <source>A message that was attached to the digitalcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Digitalcoin network.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1974,7 +1974,7 @@ Address: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>DigiByte Core is shutting down...</source>
+        <source>Digitalcoin is shutting down...</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2029,8 +2029,8 @@ Address: %4
         <translation>現在の署名をシステムのクリップボードにコピーする</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this DigiByte address</source>
-        <translation>この DigiByte アドレスを所有していることを証明するためにメッセージに署名</translation>
+        <source>Sign the message to prove you own this Digitalcoin address</source>
+        <translation>この Digitalcoin アドレスを所有していることを証明するためにメッセージに署名</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2057,8 +2057,8 @@ Address: %4
         <translation>メッセージが署名されたアドレス (例 DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
-        <translation>指定された DigiByte アドレスで署名されたことを保証するメッセージを検証</translation>
+        <source>Verify the message to ensure it was signed with the specified Digitalcoin address</source>
+        <translation>指定された Digitalcoin アドレスで署名されたことを保証するメッセージを検証</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2069,8 +2069,8 @@ Address: %4
         <translation>入力項目の内容をすべて消去します</translation>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>DigiByte アドレスを入力します (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Digitalcoin アドレスを入力します (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
@@ -2128,11 +2128,11 @@ Address: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte のコア</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin のコア</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
+        <source>The Bitcoin and Digitalcoin developers</source>
         <translation>ビットコインコアの開発者</translation>
     </message>
     <message>
@@ -2611,12 +2611,12 @@ Address: %4
         <translation>オプション:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: digibyte.conf)</source>
-        <translation>設定ファイルの指定 (初期値: digibyte.conf)</translation>
+        <source>Specify configuration file (default: digitalcoin.conf)</source>
+        <translation>設定ファイルの指定 (初期値: digitalcoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: digibyted.pid)</source>
-        <translation>pid ファイルの指定 (初期値: digibyted.pid)</translation>
+        <source>Specify pid file (default: digitalcoind.pid)</source>
+        <translation>pid ファイルの指定 (初期値: digitalcoind.pid)</translation>
     </message>
     <message>
         <source>Specify data directory</source>
@@ -2659,7 +2659,7 @@ Address: %4
         <translation>コマンドラインと JSON-RPC コマンドを許可</translation>
     </message>
     <message>
-        <source>DigiByte Core RPC client version</source>
+        <source>Digitalcoin RPC client version</source>
         <translation>ビットコインコアRPCクライアントのバージョン</translation>
     </message>
     <message>
@@ -2678,24 +2678,24 @@ Address: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Digitalcoin Alert&quot; admin@foo.com
 </source>
         <translation>%s, rpcpassword を設定ファイルで設定してください:
 %s
 下記のランダムなパスワードの使用を推奨します:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (このパスワードを覚える必要はありません)
 ユーザー名とパスワードが同じであってはいけません。
 もしもファイルが存在しないなら、所有者だけが読み取れる権限で作成してください。
 また、問題が通知されるように alertnotify を設定することをお勧めします;
-例えば: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com</translation>
+例えば: alertnotify=echo %%s | mail -s &quot;Digitalcoin Alert&quot; admin@foo.com</translation>
     </message>
     <message>
         <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
@@ -2766,7 +2766,7 @@ rpcpassword=%s
         <translation>これはリリース前のテストビルドです - 各自の責任で利用すること - 採掘や商取引に使用しないでください</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. DigiByte Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2778,8 +2778,8 @@ rpcpassword=%s
         <translation>警告: -paytxfee が非常に高く設定されています! これは取引を送信する場合に支払う取引手数料です。</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong DigiByte will not work properly.</source>
-        <translation>警告: あなたのコンピュータの日時が正しいことを確認してください! 時計が間違っていると DigiByte は正常に動作しません。</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Digitalcoin will not work properly.</source>
+        <translation>警告: あなたのコンピュータの日時が正しいことを確認してください! 時計が間違っていると Digitalcoin は正常に動作しません。</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2814,7 +2814,7 @@ rpcpassword=%s
         <translation>壊れた wallet.dat から秘密鍵を復旧することを試す</translation>
     </message>
     <message>
-        <source>DigiByte Core Daemon</source>
+        <source>Digitalcoin Daemon</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3023,7 +3023,7 @@ rpcpassword=%s
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Usage (deprecated, use digibyte-cli):</source>
+        <source>Usage (deprecated, use digitalcoin-cli):</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3059,7 +3059,7 @@ rpcpassword=%s
         <translation>外部の blk000??.dat ファイルからブロックをインポート</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. DigiByte Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3123,7 +3123,7 @@ rpcpassword=%s
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>RPC SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
+        <source>RPC SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
         <translation>RPC SSL オプション: (SSLのセットアップ手順はビットコインWikiを参照してください)</translation>
     </message>
     <message>
@@ -3143,11 +3143,11 @@ rpcpassword=%s
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
-        <translation>SSL オプション: (SSLのセットアップ手順は DigiByte Wiki をご覧下さい)</translation>
+        <source>SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
+        <translation>SSL オプション: (SSLのセットアップ手順は Digitalcoin Wiki をご覧下さい)</translation>
     </message>
     <message>
-        <source>Send command to DigiByte Core</source>
+        <source>Send command to Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3183,7 +3183,7 @@ rpcpassword=%s
         <translation>接続のタイムアウトをミリセコンドで指定 (初期値: 5000)</translation>
     </message>
     <message>
-        <source>Start DigiByte Core Daemon</source>
+        <source>Start Digitalcoin Daemon</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3299,12 +3299,12 @@ rpcpassword=%s
         <translation>wallet.dat 読み込みエラー: ウォレットが壊れました</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of DigiByte</source>
-        <translation>wallet.dat 読み込みエラー: ウォレットは DigiByte の最新バージョンを必要とします</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Digitalcoin</source>
+        <translation>wallet.dat 読み込みエラー: ウォレットは Digitalcoin の最新バージョンを必要とします</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart DigiByte to complete</source>
-        <translation>ウォレットが書き直される必要がありました: 完了するために DigiByte を再起動します</translation>
+        <source>Wallet needed to be rewritten: restart Digitalcoin to complete</source>
+        <translation>ウォレットが書き直される必要がありました: 完了するために Digitalcoin を再起動します</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>

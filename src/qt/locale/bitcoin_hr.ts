@@ -2,11 +2,11 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About DigiByte Core</source>
-        <translation>O DigiByte Jezrgu</translation>
+        <source>About Digitalcoin</source>
+        <translation>O Digitalcoin Jezrgu</translation>
     </message>
     <message>
-        <source>&lt;b&gt;DigiByte Core&lt;/b&gt; version</source>
+        <source>&lt;b&gt;Digitalcoin&lt;/b&gt; version</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -23,7 +23,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Autorsko pravo</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
+        <source>The Bitcoin and Digitalcoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -98,11 +98,11 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Digitalcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Digitalcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -220,8 +220,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Novčanik šifriran</translation>
     </message>
     <message>
-        <source>DigiByte will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-        <translation>DigiByte će se sada zatvoriti kako bi dovršio postupak šifriranja. Zapamtite da šifriranje vašeg novčanika ne može u potpunosti zaštititi vaše bitcoine od krađe preko zloćudnog softvera koji bi bio na vašem računalu.</translation>
+        <source>Digitalcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digitalcoins from being stolen by malware infecting your computer.</source>
+        <translation>Digitalcoin će se sada zatvoriti kako bi dovršio postupak šifriranja. Zapamtite da šifriranje vašeg novčanika ne može u potpunosti zaštititi vaše bitcoine od krađe preko zloćudnog softvera koji bi bio na vašem računalu.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -253,7 +253,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
 </context>
 <context>
-    <name>DigiByteGUI</name>
+    <name>DigitalcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Potpišite poruku...</translation>
@@ -291,8 +291,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Izlazak iz programa</translation>
     </message>
     <message>
-        <source>Show information about DigiByte</source>
-        <translation>Prikaži informacije o DigiByteu</translation>
+        <source>Show information about Digitalcoin</source>
+        <translation>Prikaži informacije o Digitalcoinu</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -339,11 +339,11 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Re-indeksiranje blokova na disku...</translation>
     </message>
     <message>
-        <source>Send coins to a DigiByte address</source>
-        <translation>Slanje novca na digibyte adresu</translation>
+        <source>Send coins to a Digitalcoin address</source>
+        <translation>Slanje novca na digitalcoin adresu</translation>
     </message>
     <message>
-        <source>Modify configuration options for DigiByte</source>
+        <source>Modify configuration options for Digitalcoin</source>
         <translation>Promijeni postavke konfiguracije za bitcoin</translation>
     </message>
     <message>
@@ -367,8 +367,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Potvrdite poruku...</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -395,11 +395,11 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
+        <source>Sign messages with your Digitalcoin addresses to prove you own them</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
+        <source>Verify messages to ensure they were signed with specified Digitalcoin addresses</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -423,15 +423,15 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>[testnet]</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Jezgra</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin Jezgra</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
+        <source>Request payments (generates QR codes and digitalcoin: URIs)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>&amp;About DigiByte Core</source>
+        <source>&amp;About Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -443,7 +443,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Open a digibyte: URI or payment request</source>
+        <source>Open a digitalcoin: URI or payment request</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -451,16 +451,16 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Show the DigiByte Core help message to get a list with possible DigiByte command-line options</source>
+        <source>Show the Digitalcoin help message to get a list with possible Digitalcoin command-line options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte client</source>
-        <translation>DigiByte klijent</translation>
+        <source>Digitalcoin client</source>
+        <translation>Digitalcoin klijent</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to DigiByte network</source>
-        <translation><numerusform>%n aktivna veza na DigiByte mrežu</numerusform><numerusform>%n aktivne veze na DigiByte mrežu</numerusform><numerusform>%n aktivnih veza na DigiByte mrežu</numerusform></translation>
+        <source>%n active connection(s) to Digitalcoin network</source>
+        <translation><numerusform>%n aktivna veza na Digitalcoin mrežu</numerusform><numerusform>%n aktivne veze na Digitalcoin mrežu</numerusform><numerusform>%n aktivnih veza na Digitalcoin mrežu</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -555,7 +555,7 @@ Adresa:%4
         <translation>Novčanik je &lt;b&gt;šifriran&lt;/b&gt; i trenutno &lt;b&gt;zaključan&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. Digitalcoin can no longer continue safely and will quit.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -840,8 +840,8 @@ Adresa:%4
         <translation>Upisana adresa &quot;%1&quot; je već u adresaru.</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid DigiByte address.</source>
-        <translation>Upisana adresa &quot;%1&quot; nije valjana digibyte adresa.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Digitalcoin address.</source>
+        <translation>Upisana adresa &quot;%1&quot; nije valjana digitalcoin adresa.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -878,12 +878,12 @@ Adresa:%4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>DigiByte Core - Command-line options</source>
+        <source>Digitalcoin - Command-line options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Jezgra</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin Jezgra</translation>
     </message>
     <message>
         <source>version</source>
@@ -929,15 +929,15 @@ Adresa:%4
         <translation>Dobrodošli</translation>
     </message>
     <message>
-        <source>Welcome to DigiByte Core.</source>
+        <source>Welcome to Digitalcoin.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where DigiByte Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Digitalcoin will store its data.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core will download and store a copy of the DigiByte block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Digitalcoin will download and store a copy of the Digitalcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -949,8 +949,8 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
@@ -1011,12 +1011,12 @@ Adresa:%4
         <translation>Plati &amp;naknadu za transakciju</translation>
     </message>
     <message>
-        <source>Automatically start DigiByte after logging in to the system.</source>
-        <translation>Automatski pokreni DigiByte kad se uključi računalo</translation>
+        <source>Automatically start Digitalcoin after logging in to the system.</source>
+        <translation>Automatski pokreni Digitalcoin kad se uključi računalo</translation>
     </message>
     <message>
-        <source>&amp;Start DigiByte on system login</source>
-        <translation>&amp;Pokreni DigiByte kod pokretanja sustava</translation>
+        <source>&amp;Start Digitalcoin on system login</source>
+        <translation>&amp;Pokreni Digitalcoin kod pokretanja sustava</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1031,7 +1031,7 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Connect to the DigiByte network through a SOCKS proxy.</source>
+        <source>Connect to the Digitalcoin network through a SOCKS proxy.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1091,8 +1091,8 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatski otvori port DigiByte klijenta na ruteru. To radi samo ako ruter podržava UPnP i ako je omogućen.</translation>
+        <source>Automatically open the Digitalcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatski otvori port Digitalcoin klijenta na ruteru. To radi samo ako ruter podržava UPnP i ako je omogućen.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1147,7 +1147,7 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting DigiByte.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting Digitalcoin.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1159,7 +1159,7 @@ Adresa:%4
         <translation>Izaberite željeni najmanji dio bitcoina koji će biti prikazan u sučelju i koji će se koristiti za plaćanje.</translation>
     </message>
     <message>
-        <source>Whether to show DigiByte addresses in the transaction list or not.</source>
+        <source>Whether to show Digitalcoin addresses in the transaction list or not.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1214,8 +1214,8 @@ Adresa:%4
         <translation>Oblik</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
-        <translation>Prikazani podatci mogu biti zastarjeli. Vaš novčanik se automatski sinkronizira s DigiByte mrežom kada je veza uspostavljena, ali taj proces još nije završen.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Digitalcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Prikazani podatci mogu biti zastarjeli. Vaš novčanik se automatski sinkronizira s Digitalcoin mrežom kada je veza uspostavljena, ali taj proces još nije završen.</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1269,7 +1269,7 @@ Adresa:%4
         <translation>URI upravljanje</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <source>URI can not be parsed! This can be caused by an invalid Digitalcoin address or malformed URI parameters.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1281,7 +1281,7 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cannot start digibyte: click-to-pay handler</source>
+        <source>Cannot start digitalcoin: click-to-pay handler</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1336,8 +1336,8 @@ Adresa:%4
 <context>
     <name>QObject</name>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
@@ -1352,12 +1352,12 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core didn&apos;t yet exit safely...</source>
+        <source>Digitalcoin didn&apos;t yet exit safely...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Unesite DigiByte adresu (npr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Unesite Digitalcoin adresu (npr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
 </context>
 <context>
@@ -1478,7 +1478,7 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Open the DigiByte debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the Digitalcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1486,8 +1486,8 @@ Adresa:%4
         <translation>Očisti konzolu</translation>
     </message>
     <message>
-        <source>Welcome to the DigiByte RPC console.</source>
-        <translation>Dobrodošli u DigiByte RPC konzolu.</translation>
+        <source>Welcome to the Digitalcoin RPC console.</source>
+        <translation>Dobrodošli u Digitalcoin RPC konzolu.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1549,7 +1549,7 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Digitalcoin network.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1862,7 +1862,7 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Warning: Invalid DigiByte address</source>
+        <source>Warning: Invalid Digitalcoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1949,7 +1949,7 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
+        <source>A message that was attached to the digitalcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Digitalcoin network.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1968,7 +1968,7 @@ Adresa:%4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>DigiByte Core is shutting down...</source>
+        <source>Digitalcoin is shutting down...</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1992,7 +1992,7 @@ Adresa:%4
     </message>
     <message>
         <source>The address to sign the message with (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Unesite DigiByte adresu (npr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <translation>Unesite Digitalcoin adresu (npr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2023,7 +2023,7 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sign the message to prove you own this DigiByte address</source>
+        <source>Sign the message to prove you own this Digitalcoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2048,10 +2048,10 @@ Adresa:%4
     </message>
     <message>
         <source>The address the message was signed with (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Unesite DigiByte adresu (npr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <translation>Unesite Digitalcoin adresu (npr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
+        <source>Verify the message to ensure it was signed with the specified Digitalcoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2063,8 +2063,8 @@ Adresa:%4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Unesite DigiByte adresu (npr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Unesite Digitalcoin adresu (npr. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
@@ -2122,11 +2122,11 @@ Adresa:%4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Jezgra</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin Jezgra</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
+        <source>The Bitcoin and Digitalcoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2605,11 +2605,11 @@ Adresa:%4
         <translation>Postavke:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: digibyte.conf)</source>
-        <translation>Odredi konfiguracijsku datoteku (ugrađeni izbor: digibyte.conf)</translation>
+        <source>Specify configuration file (default: digitalcoin.conf)</source>
+        <translation>Odredi konfiguracijsku datoteku (ugrađeni izbor: digitalcoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: digibyted.pid)</source>
+        <source>Specify pid file (default: digitalcoind.pid)</source>
         <translation>Odredi proces ID datoteku (ugrađeni izbor: bitcoin.pid)</translation>
     </message>
     <message>
@@ -2653,7 +2653,7 @@ Adresa:%4
         <translation>Prihvati komande iz tekst moda i JSON-RPC</translation>
     </message>
     <message>
-        <source>DigiByte Core RPC client version</source>
+        <source>Digitalcoin RPC client version</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2672,13 +2672,13 @@ Adresa:%4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Digitalcoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2751,7 +2751,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. DigiByte Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2763,8 +2763,8 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation>Upozorenje: -paytxfee je podešen na preveliki iznos.  To je iznos koji ćete platiti za obradu transakcije.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong DigiByte will not work properly.</source>
-        <translation>Upozorenje: Molimo provjerite jesu li datum i vrijeme na vašem računalu točni. Ako vaš sat ide krivo, DigiByte neće raditi ispravno.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Digitalcoin will not work properly.</source>
+        <translation>Upozorenje: Molimo provjerite jesu li datum i vrijeme na vašem računalu točni. Ako vaš sat ide krivo, Digitalcoin neće raditi ispravno.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2799,7 +2799,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core Daemon</source>
+        <source>Digitalcoin Daemon</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3007,7 +3007,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Usage (deprecated, use digibyte-cli):</source>
+        <source>Usage (deprecated, use digitalcoin-cli):</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3043,7 +3043,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation>Importiraj blokove sa vanjskog blk000??.dat fajla</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. DigiByte Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3107,7 +3107,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>RPC SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
+        <source>RPC SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3127,11 +3127,11 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
-        <translation>SSL postavke: (za detalje o podešavanju SSL opcija vidi DigiByte Wiki)</translation>
+        <source>SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
+        <translation>SSL postavke: (za detalje o podešavanju SSL opcija vidi Digitalcoin Wiki)</translation>
     </message>
     <message>
-        <source>Send command to DigiByte Core</source>
+        <source>Send command to Digitalcoin</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3167,7 +3167,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation>Odredi vremenski prozor za spajanje na mrežu u milisekundama (ugrađeni izbor: 5000)</translation>
     </message>
     <message>
-        <source>Start DigiByte Core Daemon</source>
+        <source>Start Digitalcoin Daemon</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3283,12 +3283,12 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation>Greška kod učitavanja wallet.dat: Novčanik pokvaren</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of DigiByte</source>
-        <translation>Greška kod učitavanja wallet.dat: Novčanik zahtjeva noviju verziju DigiBytea</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Digitalcoin</source>
+        <translation>Greška kod učitavanja wallet.dat: Novčanik zahtjeva noviju verziju Digitalcoina</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart DigiByte to complete</source>
-        <translation>Novčanik je trebao prepravak: ponovo pokrenite DigiByte</translation>
+        <source>Wallet needed to be rewritten: restart Digitalcoin to complete</source>
+        <translation>Novčanik je trebao prepravak: ponovo pokrenite Digitalcoin</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>

@@ -41,9 +41,9 @@ static const int MAX_PAYMENT_REQUEST_SIZE = 50000; // bytes
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 35
 
-#define QAPP_ORG_NAME "DigiByte"
-#define QAPP_ORG_DOMAIN "digibyte.org"
-#define QAPP_APP_NAME_DEFAULT "DigiByte-Qt"
-#define QAPP_APP_NAME_TESTNET "DigiByte-Qt-testnet"
+#define QAPP_ORG_NAME "Digitalcoin"
+#define QAPP_ORG_DOMAIN "digitalcoin.org"
+#define QAPP_APP_NAME_DEFAULT "Digitalcoin-Qt"
+#define QAPP_APP_NAME_TESTNET "Digitalcoin-Qt-testnet"
 
 #endif // GUICONSTANTS_H

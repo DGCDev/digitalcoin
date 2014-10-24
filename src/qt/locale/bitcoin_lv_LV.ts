@@ -2,12 +2,12 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About DigiByte Core</source>
-        <translation>Par DigiByte Core</translation>
+        <source>About Digitalcoin</source>
+        <translation>Par Digitalcoin</translation>
     </message>
     <message>
-        <source>&lt;b&gt;DigiByte Core&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;DigiByte Core&lt;/b&gt; versija</translation>
+        <source>&lt;b&gt;Digitalcoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Digitalcoin&lt;/b&gt; versija</translation>
     </message>
     <message>
         <source>
@@ -28,8 +28,8 @@ Izplatīta saskaņā ar MIT/X11 programmatūras licenci, skatīt pievienoto datn
         <translation>Autortiesības</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
-        <translation>DigiByte Core izstrādātāji</translation>
+        <source>The Bitcoin and Digitalcoin developers</source>
+        <translation>Digitalcoin izstrādātāji</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -84,11 +84,11 @@ Izplatīta saskaņā ar MIT/X11 programmatūras licenci, skatīt pievienoto datn
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Izvēlies adresi uz kuru sūtīt digibytes</translation>
+        <translation>Izvēlies adresi uz kuru sūtīt digitalcoins</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Izvēlies adresi ar kuru saņemt digibytes</translation>
+        <translation>Izvēlies adresi ar kuru saņemt digitalcoins</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -103,11 +103,11 @@ Izplatīta saskaņā ar MIT/X11 programmatūras licenci, skatīt pievienoto datn
         <translation>Saņemšanas adreses</translation>
     </message>
     <message>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Digitalcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Digitalcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -225,8 +225,8 @@ Izplatīta saskaņā ar MIT/X11 programmatūras licenci, skatīt pievienoto datn
         <translation>Maciņš nošifrēts</translation>
     </message>
     <message>
-        <source>DigiByte will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-        <translation>DigiByte aizvērsies, lai pabeigtu šifrēšanu. Atcerieties, ka maciņa šifrēšana nevar pilnībā novērst bitkoinu zādzību, ko veic datorā ieviesušās kaitīgas programmas.</translation>
+        <source>Digitalcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digitalcoins from being stolen by malware infecting your computer.</source>
+        <translation>Digitalcoin aizvērsies, lai pabeigtu šifrēšanu. Atcerieties, ka maciņa šifrēšana nevar pilnībā novērst bitkoinu zādzību, ko veic datorā ieviesušās kaitīgas programmas.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -258,7 +258,7 @@ Izplatīta saskaņā ar MIT/X11 programmatūras licenci, skatīt pievienoto datn
     </message>
 </context>
 <context>
-    <name>DigiByteGUI</name>
+    <name>DigitalcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Parakstīt &amp;ziņojumu...</translation>
@@ -296,8 +296,8 @@ Izplatīta saskaņā ar MIT/X11 programmatūras licenci, skatīt pievienoto datn
         <translation>Aizvērt programmu</translation>
     </message>
     <message>
-        <source>Show information about DigiByte</source>
-        <translation>Parādīt informāciju par DigiByte</translation>
+        <source>Show information about Digitalcoin</source>
+        <translation>Parādīt informāciju par Digitalcoin</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -344,12 +344,12 @@ Izplatīta saskaņā ar MIT/X11 programmatūras licenci, skatīt pievienoto datn
         <translation>Bloku reindeksēšana no diska...</translation>
     </message>
     <message>
-        <source>Send coins to a DigiByte address</source>
-        <translation>Nosūtīt bitkoinus uz DigiByte adresi</translation>
+        <source>Send coins to a Digitalcoin address</source>
+        <translation>Nosūtīt bitkoinus uz Digitalcoin adresi</translation>
     </message>
     <message>
-        <source>Modify configuration options for DigiByte</source>
-        <translation>Mainīt DigiByte konfigurācijas uzstādījumus</translation>
+        <source>Modify configuration options for Digitalcoin</source>
+        <translation>Mainīt Digitalcoin konfigurācijas uzstādījumus</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -372,8 +372,8 @@ Izplatīta saskaņā ar MIT/X11 programmatūras licenci, skatīt pievienoto datn
         <translation>&amp;Pārbaudīt ziņojumu...</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -400,12 +400,12 @@ Izplatīta saskaņā ar MIT/X11 programmatūras licenci, skatīt pievienoto datn
         <translation>Šifrēt privātās atslēgas kuras pieder tavam maciņam</translation>
     </message>
     <message>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
-        <translation>Parakstīt ziņojumus ar savām DigiByte adresēm lai pierādītu ka tās pieder tev</translation>
+        <source>Sign messages with your Digitalcoin addresses to prove you own them</source>
+        <translation>Parakstīt ziņojumus ar savām Digitalcoin adresēm lai pierādītu ka tās pieder tev</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
-        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām DigiByte adresēm</translation>
+        <source>Verify messages to ensure they were signed with specified Digitalcoin addresses</source>
+        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām Digitalcoin adresēm</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -428,16 +428,16 @@ Izplatīta saskaņā ar MIT/X11 programmatūras licenci, skatīt pievienoto datn
         <translation>[testnet]</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
-        <translation>Pieprasīt maksājumus (izveido QR kodu un digibyte: URIs)</translation>
+        <source>Request payments (generates QR codes and digitalcoin: URIs)</source>
+        <translation>Pieprasīt maksājumus (izveido QR kodu un digitalcoin: URIs)</translation>
     </message>
     <message>
-        <source>&amp;About DigiByte Core</source>
-        <translation>Par &amp;DigiByte Core</translation>
+        <source>&amp;About Digitalcoin</source>
+        <translation>Par &amp;Digitalcoin</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -448,24 +448,24 @@ Izplatīta saskaņā ar MIT/X11 programmatūras licenci, skatīt pievienoto datn
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>Atvērt digibyte URI vai maksājuma pieprasījumu</translation>
+        <source>Open a digitalcoin: URI or payment request</source>
+        <translation>Atvērt digitalcoin URI vai maksājuma pieprasījumu</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Komandrindas iespējas</translation>
     </message>
     <message>
-        <source>Show the DigiByte Core help message to get a list with possible DigiByte command-line options</source>
+        <source>Show the Digitalcoin help message to get a list with possible Digitalcoin command-line options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte client</source>
-        <translation>DigiByte klients</translation>
+        <source>Digitalcoin client</source>
+        <translation>Digitalcoin klients</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to DigiByte network</source>
-        <translation><numerusform>%n aktīvu savienojumu ar DigiByte tīklu</numerusform><numerusform>%n aktīvs savienojums ar DigiByte tīklu</numerusform><numerusform>%n aktīvu savienojumu as DigiByte tīklu</numerusform></translation>
+        <source>%n active connection(s) to Digitalcoin network</source>
+        <translation><numerusform>%n aktīvu savienojumu ar Digitalcoin tīklu</numerusform><numerusform>%n aktīvs savienojums ar Digitalcoin tīklu</numerusform><numerusform>%n aktīvu savienojumu as Digitalcoin tīklu</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -560,8 +560,8 @@ Adrese: %4
         <translation>Maciņš ir &lt;b&gt;šifrēts&lt;/b&gt; un pašlaik &lt;b&gt;slēgts&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
-        <translation>Radās fatāla kļūda. DigiByte Core nevar vairs droši turpināt un tiks izslēgta.</translation>
+        <source>A fatal error occurred. Digitalcoin can no longer continue safely and will quit.</source>
+        <translation>Radās fatāla kļūda. Digitalcoin nevar vairs droši turpināt un tiks izslēgta.</translation>
     </message>
 </context>
 <context>
@@ -575,7 +575,7 @@ Adrese: %4
     <name>CoinControlDialog</name>
     <message>
         <source>Coin Control Address Selection</source>
-        <translation>DigiByte Kontroles Adrešu Atlase</translation>
+        <translation>Digitalcoin Kontroles Adrešu Atlase</translation>
     </message>
     <message>
         <source>Quantity:</source>
@@ -845,8 +845,8 @@ Adrese: %4
         <translation>Nupat ierakstītā adrese &quot;%1&quot; jau atrodas adrešu grāmatā.</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid DigiByte address.</source>
-        <translation>Ierakstītā adrese &quot;%1&quot; nav derīga DigiByte adrese.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Digitalcoin address.</source>
+        <translation>Ierakstītā adrese &quot;%1&quot; nav derīga Digitalcoin adrese.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -883,12 +883,12 @@ Adrese: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>DigiByte Core - Command-line options</source>
-        <translation>DigiByte Core - Komandrindas iespējas</translation>
+        <source>Digitalcoin - Command-line options</source>
+        <translation>Digitalcoin - Komandrindas iespējas</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>version</source>
@@ -934,15 +934,15 @@ Adrese: %4
         <translation>Sveiciens</translation>
     </message>
     <message>
-        <source>Welcome to DigiByte Core.</source>
-        <translation>Sveicināts DigiByte Core</translation>
+        <source>Welcome to Digitalcoin.</source>
+        <translation>Sveicināts Digitalcoin</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where DigiByte Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Digitalcoin will store its data.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core will download and store a copy of the DigiByte block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Digitalcoin will download and store a copy of the Digitalcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -954,8 +954,8 @@ Adrese: %4
         <translation>Izmantot pielāgotu datu mapi:</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
@@ -1016,12 +1016,12 @@ Adrese: %4
         <translation>&amp;Maksāt par transakciju</translation>
     </message>
     <message>
-        <source>Automatically start DigiByte after logging in to the system.</source>
-        <translation>Automātiski sākt DigiByte pēc pieteikšanās sistēmā.</translation>
+        <source>Automatically start Digitalcoin after logging in to the system.</source>
+        <translation>Automātiski sākt Digitalcoin pēc pieteikšanās sistēmā.</translation>
     </message>
     <message>
-        <source>&amp;Start DigiByte on system login</source>
-        <translation>&amp;Sākt DigiByte reizē ar sistēmu</translation>
+        <source>&amp;Start Digitalcoin on system login</source>
+        <translation>&amp;Sākt Digitalcoin reizē ar sistēmu</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1036,8 +1036,8 @@ Adrese: %4
         <translation>Skriptu &amp;pārbaudes pavedienu skaits</translation>
     </message>
     <message>
-        <source>Connect to the DigiByte network through a SOCKS proxy.</source>
-        <translation>Savienoties ar DigiByte tīklu caur SOCKS starpniekserveri.</translation>
+        <source>Connect to the Digitalcoin network through a SOCKS proxy.</source>
+        <translation>Savienoties ar Digitalcoin tīklu caur SOCKS starpniekserveri.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS proxy (default proxy):</source>
@@ -1085,7 +1085,7 @@ Adrese: %4
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
-        <translation>Ieslēgt digibyte &amp;kontroles funkcijas</translation>
+        <translation>Ieslēgt digitalcoin &amp;kontroles funkcijas</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
@@ -1096,8 +1096,8 @@ Adrese: %4
         <translation>&amp;Tērēt neapstiprinātu atlikumu</translation>
     </message>
     <message>
-        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Uz rūtera automātiski atvērt DigiByte klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
+        <source>Automatically open the Digitalcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Uz rūtera automātiski atvērt Digitalcoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1152,8 +1152,8 @@ Adrese: %4
         <translation>Lietotāja interfeiss un &amp;valoda:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting DigiByte.</source>
-        <translation>Šeit var iestatīt lietotāja valodu. Iestatījums aktivizēsies pēc DigiByte pārstartēšanas.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Digitalcoin.</source>
+        <translation>Šeit var iestatīt lietotāja valodu. Iestatījums aktivizēsies pēc Digitalcoin pārstartēšanas.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1164,8 +1164,8 @@ Adrese: %4
         <translation>Izvēlēties dalījuma vienību pēc noklusēšanas, ko izmantot interfeisā un nosūtot bitkoinus.</translation>
     </message>
     <message>
-        <source>Whether to show DigiByte addresses in the transaction list or not.</source>
-        <translation>Rādīt vai nē DigiByte adreses transakciju sarakstā.</translation>
+        <source>Whether to show Digitalcoin addresses in the transaction list or not.</source>
+        <translation>Rādīt vai nē Digitalcoin adreses transakciju sarakstā.</translation>
     </message>
     <message>
         <source>&amp;Display addresses in transaction list</source>
@@ -1173,7 +1173,7 @@ Adrese: %4
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
-        <translation>Vai rādīt DigiByte kontroles funkcijas vai nē.</translation>
+        <translation>Vai rādīt Digitalcoin kontroles funkcijas vai nē.</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -1219,8 +1219,8 @@ Adrese: %4
         <translation>Forma</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
-        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar DigiByte tīklu, taču šis process vēl nav beidzies.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Digitalcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Digitalcoin tīklu, taču šis process vēl nav beidzies.</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1274,7 +1274,7 @@ Adrese: %4
         <translation>URI apstrāde</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
+        <source>URI can not be parsed! This can be caused by an invalid Digitalcoin address or malformed URI parameters.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1286,8 +1286,8 @@ Adrese: %4
         <translation>Maksājumu pieprasījuma kļūda</translation>
     </message>
     <message>
-        <source>Cannot start digibyte: click-to-pay handler</source>
-        <translation>Nevar palaist DigiByte: nospied-lai-maksātu apstrādātāju</translation>
+        <source>Cannot start digitalcoin: click-to-pay handler</source>
+        <translation>Nevar palaist Digitalcoin: nospied-lai-maksātu apstrādātāju</translation>
     </message>
     <message>
         <source>Net manager warning</source>
@@ -1341,8 +1341,8 @@ Adrese: %4
 <context>
     <name>QObject</name>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
@@ -1357,12 +1357,12 @@ Adrese: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>DigiByte Core didn&apos;t yet exit safely...</source>
-        <translation>DigiByte Core vel neizgāja droši...</translation>
+        <source>Digitalcoin didn&apos;t yet exit safely...</source>
+        <translation>Digitalcoin vel neizgāja droši...</translation>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Ierakstiet DigiByte adresi (piem. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Ierakstiet Digitalcoin adresi (piem. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
 </context>
 <context>
@@ -1483,7 +1483,7 @@ Adrese: %4
         <translation>Atkļūdošanas žurnāla datne</translation>
     </message>
     <message>
-        <source>Open the DigiByte debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the Digitalcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1491,8 +1491,8 @@ Adrese: %4
         <translation>Notīrīt konsoli</translation>
     </message>
     <message>
-        <source>Welcome to the DigiByte RPC console.</source>
-        <translation>Laipni lūgti DigiByte RPC konsolē.</translation>
+        <source>Welcome to the Digitalcoin RPC console.</source>
+        <translation>Laipni lūgti Digitalcoin RPC konsolē.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1554,7 +1554,7 @@ Adrese: %4
         <translation>&amp;Atkārtoti izmantot esošo saņemšanas adresi (nav ieteicams)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Digitalcoin network.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1708,7 +1708,7 @@ Adrese: %4
     </message>
     <message>
         <source>Coin Control Features</source>
-        <translation>DigiByte Kontroles Funkcijas</translation>
+        <translation>Digitalcoin Kontroles Funkcijas</translation>
     </message>
     <message>
         <source>Inputs...</source>
@@ -1867,8 +1867,8 @@ Adrese: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Warning: Invalid DigiByte address</source>
-        <translation>Brīdinājums: Nederīga DigiByte adrese</translation>
+        <source>Warning: Invalid Digitalcoin address</source>
+        <translation>Brīdinājums: Nederīga Digitalcoin adrese</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1954,7 +1954,7 @@ Adrese: %4
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
+        <source>A message that was attached to the digitalcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Digitalcoin network.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1973,8 +1973,8 @@ Adrese: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>DigiByte Core is shutting down...</source>
-        <translation>DigiByte Core tiek izslēgta...</translation>
+        <source>Digitalcoin is shutting down...</source>
+        <translation>Digitalcoin tiek izslēgta...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2028,8 +2028,8 @@ Adrese: %4
         <translation>Kopēt parakstu uz sistēmas starpliktuvi</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this DigiByte address</source>
-        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs DigiByte adreses īpašnieks.</translation>
+        <source>Sign the message to prove you own this Digitalcoin address</source>
+        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs Digitalcoin adreses īpašnieks.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2056,7 +2056,7 @@ Adrese: %4
         <translation>Adrese ar kādu ziņojums tika parakstīts (piem. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
+        <source>Verify the message to ensure it was signed with the specified Digitalcoin address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2068,8 +2068,8 @@ Adrese: %4
         <translation>Atiestatīt visus laukus</translation>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Ierakstiet DigiByte adresi (piem. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Ierakstiet Digitalcoin adresi (piem. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
@@ -2127,12 +2127,12 @@ Adrese: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Core</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
-        <translation>DigiByte Core izstrādātāji</translation>
+        <source>The Bitcoin and Digitalcoin developers</source>
+        <translation>Digitalcoin izstrādātāji</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2610,12 +2610,12 @@ Adrese: %4
         <translation>Iespējas:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: digibyte.conf)</source>
-        <translation>Norādiet konfigurācijas failu (pēc noklusēšanas: digibyte.conf)</translation>
+        <source>Specify configuration file (default: digitalcoin.conf)</source>
+        <translation>Norādiet konfigurācijas failu (pēc noklusēšanas: digitalcoin.conf)</translation>
     </message>
     <message>
-        <source>Specify pid file (default: digibyted.pid)</source>
-        <translation>Norādiet pid failu (pēc noklusēšanas: digibyted.pid)</translation>
+        <source>Specify pid file (default: digitalcoind.pid)</source>
+        <translation>Norādiet pid failu (pēc noklusēšanas: digitalcoind.pid)</translation>
     </message>
     <message>
         <source>Specify data directory</source>
@@ -2658,8 +2658,8 @@ Adrese: %4
         <translation>Pieņemt komandrindas un JSON-RPC komandas</translation>
     </message>
     <message>
-        <source>DigiByte Core RPC client version</source>
-        <translation>DigiByte Core RPC klienta versija</translation>
+        <source>Digitalcoin RPC client version</source>
+        <translation>Digitalcoin RPC klienta versija</translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
@@ -2677,13 +2677,13 @@ Adrese: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Digitalcoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2756,7 +2756,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. DigiByte Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2768,8 +2768,8 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong DigiByte will not work properly.</source>
-        <translation>Brīdinājums: Lūdzu pārbaudi vai tava datora datums un laiks ir pareizs! Ja pulkstenis ir nepareizs, DigiByte Core nestrādās pareizi.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Digitalcoin will not work properly.</source>
+        <translation>Brīdinājums: Lūdzu pārbaudi vai tava datora datums un laiks ir pareizs! Ja pulkstenis ir nepareizs, Digitalcoin nestrādās pareizi.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2804,8 +2804,8 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation>Mēģināt atgūt privātās atslēgas no bojāta wallet.dat</translation>
     </message>
     <message>
-        <source>DigiByte Core Daemon</source>
-        <translation>DigiByte Core Process</translation>
+        <source>Digitalcoin Daemon</source>
+        <translation>Digitalcoin Process</translation>
     </message>
     <message>
         <source>Block creation options:</source>
@@ -3012,7 +3012,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Usage (deprecated, use digibyte-cli):</source>
+        <source>Usage (deprecated, use digitalcoin-cli):</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3048,7 +3048,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation>Importēt blokus no ārējās blk000??.dat datnes</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. DigiByte Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Digitalcoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3112,7 +3112,7 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>RPC SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
+        <source>RPC SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3132,12 +3132,12 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
+        <source>SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Send command to DigiByte Core</source>
-        <translation>Sūtīt komandu uz DigiByte Core</translation>
+        <source>Send command to Digitalcoin</source>
+        <translation>Sūtīt komandu uz Digitalcoin</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
@@ -3172,8 +3172,8 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Start DigiByte Core Daemon</source>
-        <translation>Sākt DigiByte Core Procesu</translation>
+        <source>Start Digitalcoin Daemon</source>
+        <translation>Sākt Digitalcoin Procesu</translation>
     </message>
     <message>
         <source>System error: </source>
@@ -3288,12 +3288,12 @@ for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo
         <translation>Nevar ielādēt wallet.dat: maciņš bojāts</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of DigiByte</source>
-        <translation>Nevar ielādēt wallet.dat: maciņa atvēršanai nepieciešama jaunāka DigiByte versija</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Digitalcoin</source>
+        <translation>Nevar ielādēt wallet.dat: maciņa atvēršanai nepieciešama jaunāka Digitalcoin versija</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart DigiByte to complete</source>
-        <translation>Bija nepieciešams pārstartēt maciņu: pabeigšanai pārstartējiet DigiByte</translation>
+        <source>Wallet needed to be rewritten: restart Digitalcoin to complete</source>
+        <translation>Bija nepieciešams pārstartēt maciņu: pabeigšanai pārstartējiet Digitalcoin</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>

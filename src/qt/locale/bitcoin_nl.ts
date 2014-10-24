@@ -2,12 +2,12 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <source>About DigiByte Core</source>
-        <translation>Over DigiByte Core</translation>
+        <source>About Digitalcoin</source>
+        <translation>Over Digitalcoin</translation>
     </message>
     <message>
-        <source>&lt;b&gt;DigiByte Core&lt;/b&gt; version</source>
-        <translation>&lt;b&gt; DigiByte Core&lt;/b&gt; versie</translation>
+        <source>&lt;b&gt;Digitalcoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt; Digitalcoin&lt;/b&gt; versie</translation>
     </message>
     <message>
         <source>
@@ -28,8 +28,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>Auteursrecht</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
-        <translation>De DigiByte Core ontwikkelaars</translation>
+        <source>The Bitcoin and Digitalcoin developers</source>
+        <translation>De Digitalcoin ontwikkelaars</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
@@ -84,11 +84,11 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Kies het adres om DigiBytes naar te versturen</translation>
+        <translation>Kies het adres om Digitalcoins naar te versturen</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Kies het adres om DigiBytes voor te ontvangen</translation>
+        <translation>Kies het adres om Digitalcoins voor te ontvangen</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -103,12 +103,12 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>Adressen ontvangen</translation>
     </message>
     <message>
-        <source>These are your DigiByte addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Dit zijn uw DigiByte adressen om betalingen mee te verzenden. Check altijd het bedrag en het ontvangende adres voordat u uw digibytes verzendt.</translation>
+        <source>These are your Digitalcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Dit zijn uw Digitalcoin adressen om betalingen mee te verzenden. Check altijd het bedrag en het ontvangende adres voordat u uw digitalcoins verzendt.</translation>
     </message>
     <message>
-        <source>These are your DigiByte addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Dit zijn uw DigiByte-adressen waarmee u kunt betalen. We raden u aan om een nieuw ontvangstadres voor elke transactie te gebruiken.</translation>
+        <source>These are your Digitalcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Dit zijn uw Digitalcoin-adressen waarmee u kunt betalen. We raden u aan om een nieuw ontvangstadres voor elke transactie te gebruiken.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -225,8 +225,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>Portemonnee versleuteld</translation>
     </message>
     <message>
-        <source>DigiByte will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digibytes from being stolen by malware infecting your computer.</source>
-        <translation>DigiByte zal nu afsluiten om het versleutelingsproces te voltooien. Onthoud dat het versleutelen van uw portemonnee u niet volledig kan beschermen: Malware kan uw computer infecteren en uw digibytes stelen.</translation>
+        <source>Digitalcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your digitalcoins from being stolen by malware infecting your computer.</source>
+        <translation>Digitalcoin zal nu afsluiten om het versleutelingsproces te voltooien. Onthoud dat het versleutelen van uw portemonnee u niet volledig kan beschermen: Malware kan uw computer infecteren en uw digitalcoins stelen.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -258,7 +258,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
 </context>
 <context>
-    <name>DigiByteGUI</name>
+    <name>DigitalcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>&amp;Onderteken bericht...</translation>
@@ -296,8 +296,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>Programma afsluiten</translation>
     </message>
     <message>
-        <source>Show information about DigiByte</source>
-        <translation>Laat informatie zien over DigiByte</translation>
+        <source>Show information about Digitalcoin</source>
+        <translation>Laat informatie zien over Digitalcoin</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -344,12 +344,12 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>Bezig met herindexeren van blokken op harde schijf...</translation>
     </message>
     <message>
-        <source>Send coins to a DigiByte address</source>
-        <translation>Verstuur DigiBytes naar een DigiByte adres</translation>
+        <source>Send coins to a Digitalcoin address</source>
+        <translation>Verstuur Digitalcoins naar een Digitalcoin adres</translation>
     </message>
     <message>
-        <source>Modify configuration options for DigiByte</source>
-        <translation>Wijzig instellingen van DigiByte</translation>
+        <source>Modify configuration options for Digitalcoin</source>
+        <translation>Wijzig instellingen van Digitalcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -372,8 +372,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>&amp;Verifiëer bericht...</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -400,12 +400,12 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>Versleutel de geheime sleutels die bij uw portemonnee horen</translation>
     </message>
     <message>
-        <source>Sign messages with your DigiByte addresses to prove you own them</source>
-        <translation>Onderteken berichten met uw DigiByte adressen om te bewijzen dat u deze adressen bezit</translation>
+        <source>Sign messages with your Digitalcoin addresses to prove you own them</source>
+        <translation>Onderteken berichten met uw Digitalcoin adressen om te bewijzen dat u deze adressen bezit</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified DigiByte addresses</source>
-        <translation>Verifiëer handtekeningen om zeker te zijn dat de berichten zijn ondertekend met de gespecificeerde DigiByte adressen</translation>
+        <source>Verify messages to ensure they were signed with specified Digitalcoin addresses</source>
+        <translation>Verifiëer handtekeningen om zeker te zijn dat de berichten zijn ondertekend met de gespecificeerde Digitalcoin adressen</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -428,16 +428,16 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>[testnetwerk]</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Kern</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin Kern</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and digibyte: URIs)</source>
-        <translation>Vraag betaling aan (genereert QR codes en digibyte: URIs)</translation>
+        <source>Request payments (generates QR codes and digitalcoin: URIs)</source>
+        <translation>Vraag betaling aan (genereert QR codes en digitalcoin: URIs)</translation>
     </message>
     <message>
-        <source>&amp;About DigiByte Core</source>
-        <translation>&amp;Over DigiByte Core</translation>
+        <source>&amp;About Digitalcoin</source>
+        <translation>&amp;Over Digitalcoin</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -448,24 +448,24 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>Toon de lijst met gebruikte ontvangst adressen en labels</translation>
     </message>
     <message>
-        <source>Open a digibyte: URI or payment request</source>
-        <translation>Open een digibyte: URI of betalingsverzoek</translation>
+        <source>Open a digitalcoin: URI or payment request</source>
+        <translation>Open een digitalcoin: URI of betalingsverzoek</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Commandoregel-opties</translation>
     </message>
     <message>
-        <source>Show the DigiByte Core help message to get a list with possible DigiByte command-line options</source>
-        <translation>Toon het DigiByte Core hulpbericht om een lijst te krijgen met mogelijke DigiByte commandoregelopties</translation>
+        <source>Show the Digitalcoin help message to get a list with possible Digitalcoin command-line options</source>
+        <translation>Toon het Digitalcoin hulpbericht om een lijst te krijgen met mogelijke Digitalcoin commandoregelopties</translation>
     </message>
     <message>
-        <source>DigiByte client</source>
-        <translation>DigiByte client</translation>
+        <source>Digitalcoin client</source>
+        <translation>Digitalcoin client</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to DigiByte network</source>
-        <translation><numerusform>%n actieve connectie naar DigiByte netwerk</numerusform><numerusform>%n actieve connecties naar DigiByte netwerk</numerusform></translation>
+        <source>%n active connection(s) to Digitalcoin network</source>
+        <translation><numerusform>%n actieve connectie naar Digitalcoin netwerk</numerusform><numerusform>%n actieve connecties naar Digitalcoin netwerk</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -560,8 +560,8 @@ Adres: %4
         <translation>Portemonnee is &lt;b&gt;versleuteld&lt;/b&gt; en momenteel &lt;b&gt;gesloten&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. DigiByte can no longer continue safely and will quit.</source>
-        <translation>Er is een fatale fout opgetreden. DigiByte kan niet meer veilig doorgaan en zal nu afgesloten worden.</translation>
+        <source>A fatal error occurred. Digitalcoin can no longer continue safely and will quit.</source>
+        <translation>Er is een fatale fout opgetreden. Digitalcoin kan niet meer veilig doorgaan en zal nu afgesloten worden.</translation>
     </message>
 </context>
 <context>
@@ -845,8 +845,8 @@ Adres: %4
         <translation>Het opgegeven adres &quot;%1&quot; bestaat al in uw adresboek.</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid DigiByte address.</source>
-        <translation>Het opgegeven adres &quot;%1&quot; is een ongeldig DigiByte adres</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Digitalcoin address.</source>
+        <translation>Het opgegeven adres &quot;%1&quot; is een ongeldig Digitalcoin adres</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -883,12 +883,12 @@ Adres: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>DigiByte Core - Command-line options</source>
-        <translation>DigiByte Core - Commandoregel-opties</translation>
+        <source>Digitalcoin - Command-line options</source>
+        <translation>Digitalcoin - Commandoregel-opties</translation>
     </message>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Kern</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin Kern</translation>
     </message>
     <message>
         <source>version</source>
@@ -934,16 +934,16 @@ Adres: %4
         <translation>Welkom</translation>
     </message>
     <message>
-        <source>Welcome to DigiByte Core.</source>
-        <translation>Welkom bij DigiByte Core</translation>
+        <source>Welcome to Digitalcoin.</source>
+        <translation>Welkom bij Digitalcoin</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where DigiByte Core will store its data.</source>
-        <translation>Omdat dit de eerste keer is dat het programma gestart is, kunt u nu kiezen waar DigiByte Core de data moet opslaan.</translation>
+        <source>As this is the first time the program is launched, you can choose where Digitalcoin will store its data.</source>
+        <translation>Omdat dit de eerste keer is dat het programma gestart is, kunt u nu kiezen waar Digitalcoin de data moet opslaan.</translation>
     </message>
     <message>
-        <source>DigiByte Core will download and store a copy of the DigiByte block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>DigiByte Core zal een kopie van de DigiByte blokketen downloaden en opslaan. Tenminste %1 GB aan data wordt opgeslagen in deze map en het zal groeien in de tijd. De portemonnee wordt ook in deze map opgeslagen.</translation>
+        <source>Digitalcoin will download and store a copy of the Digitalcoin block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Digitalcoin zal een kopie van de Digitalcoin blokketen downloaden en opslaan. Tenminste %1 GB aan data wordt opgeslagen in deze map en het zal groeien in de tijd. De portemonnee wordt ook in deze map opgeslagen.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -954,8 +954,8 @@ Adres: %4
         <translation>Gebruik een persoonlijke gegevensmap:</translation>
     </message>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
@@ -1016,12 +1016,12 @@ Adres: %4
         <translation>Betaal &amp;transactiekosten</translation>
     </message>
     <message>
-        <source>Automatically start DigiByte after logging in to the system.</source>
-        <translation>Start DigiByte automatisch na inloggen in het systeem</translation>
+        <source>Automatically start Digitalcoin after logging in to the system.</source>
+        <translation>Start Digitalcoin automatisch na inloggen in het systeem</translation>
     </message>
     <message>
-        <source>&amp;Start DigiByte on system login</source>
-        <translation>Start &amp;DigiByte bij het inloggen in het systeem</translation>
+        <source>&amp;Start Digitalcoin on system login</source>
+        <translation>Start &amp;Digitalcoin bij het inloggen in het systeem</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1036,8 +1036,8 @@ Adres: %4
         <translation>Aantal threads voor &amp;scriptverificatie</translation>
     </message>
     <message>
-        <source>Connect to the DigiByte network through a SOCKS proxy.</source>
-        <translation>Verbind met het DigiByte-netwerk via een SOCKS-proxy.</translation>
+        <source>Connect to the Digitalcoin network through a SOCKS proxy.</source>
+        <translation>Verbind met het Digitalcoin-netwerk via een SOCKS-proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS proxy (default proxy):</source>
@@ -1096,8 +1096,8 @@ Adres: %4
         <translation>&amp;Spendeer onbevestigd wisselgeld</translation>
     </message>
     <message>
-        <source>Automatically open the DigiByte client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Open de DigiByte-poort automatisch op de router. Dit werkt alleen als de router UPnP ondersteunt en het aanstaat.</translation>
+        <source>Automatically open the Digitalcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Open de Digitalcoin-poort automatisch op de router. Dit werkt alleen als de router UPnP ondersteunt en het aanstaat.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1152,8 +1152,8 @@ Adres: %4
         <translation>Taal &amp;Gebruikersinterface:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting DigiByte.</source>
-        <translation>De taal van de gebruikersinterface kan hier ingesteld worden. Deze instelling zal pas van kracht worden nadat DigiByte herstart wordt.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Digitalcoin.</source>
+        <translation>De taal van de gebruikersinterface kan hier ingesteld worden. Deze instelling zal pas van kracht worden nadat Digitalcoin herstart wordt.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1161,11 +1161,11 @@ Adres: %4
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Kies de standaard onderverdelingseenheid om weer te geven in uw programma, en voor het versturen van DigiBytes</translation>
+        <translation>Kies de standaard onderverdelingseenheid om weer te geven in uw programma, en voor het versturen van Digitalcoins</translation>
     </message>
     <message>
-        <source>Whether to show DigiByte addresses in the transaction list or not.</source>
-        <translation>Of DigiByte adressen getoond worden in de transactielijst</translation>
+        <source>Whether to show Digitalcoin addresses in the transaction list or not.</source>
+        <translation>Of Digitalcoin adressen getoond worden in de transactielijst</translation>
     </message>
     <message>
         <source>&amp;Display addresses in transaction list</source>
@@ -1219,8 +1219,8 @@ Adres: %4
         <translation>Vorm</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the DigiByte network after a connection is established, but this process has not completed yet.</source>
-        <translation>De weergegeven informatie kan verouderd zijn. Uw portemonnee synchroniseert automaticsh met het DigiByte netwerk nadat een verbinding is gelegd, maar dit proces is nog niet voltooid.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Digitalcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>De weergegeven informatie kan verouderd zijn. Uw portemonnee synchroniseert automaticsh met het Digitalcoin netwerk nadat een verbinding is gelegd, maar dit proces is nog niet voltooid.</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1274,8 +1274,8 @@ Adres: %4
         <translation>URI-behandeling</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters.</source>
-        <translation>URI kan niet worden geïnterpreteerd. Dit kan komen door een ongeldig DigiByte adres of misvormde URI-parameters.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Digitalcoin address or malformed URI parameters.</source>
+        <translation>URI kan niet worden geïnterpreteerd. Dit kan komen door een ongeldig Digitalcoin adres of misvormde URI-parameters.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
@@ -1286,8 +1286,8 @@ Adres: %4
         <translation>Fout bij betalingsverzoek</translation>
     </message>
     <message>
-        <source>Cannot start digibyte: click-to-pay handler</source>
-        <translation>Kan digibyte niet starten: click-to-pay handler</translation>
+        <source>Cannot start digitalcoin: click-to-pay handler</source>
+        <translation>Kan digitalcoin niet starten: click-to-pay handler</translation>
     </message>
     <message>
         <source>Net manager warning</source>
@@ -1341,8 +1341,8 @@ Adres: %4
 <context>
     <name>QObject</name>
     <message>
-        <source>DigiByte</source>
-        <translation>DigiByte</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin</translation>
     </message>
     <message>
         <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
@@ -1357,12 +1357,12 @@ Adres: %4
         <translation>Fout: Ongeldige combinatie van -regtest en -testnet</translation>
     </message>
     <message>
-        <source>DigiByte Core didn&apos;t yet exit safely...</source>
-        <translation>DigiByte Core is nog niet veilig uitgeschakeld...</translation>
+        <source>Digitalcoin didn&apos;t yet exit safely...</source>
+        <translation>Digitalcoin is nog niet veilig uitgeschakeld...</translation>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Vul een DigiByte adres in (bijv. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Vul een Digitalcoin adres in (bijv. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
 </context>
 <context>
@@ -1483,16 +1483,16 @@ Adres: %4
         <translation>Debug-logbestand</translation>
     </message>
     <message>
-        <source>Open the DigiByte debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Open het DigiBytedebug-logbestand van de huidige datamap. Dit kan een aantal seconden duren voor grote logbestanden.</translation>
+        <source>Open the Digitalcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Open het Digitalcoindebug-logbestand van de huidige datamap. Dit kan een aantal seconden duren voor grote logbestanden.</translation>
     </message>
     <message>
         <source>Clear console</source>
         <translation>Maak console leeg</translation>
     </message>
     <message>
-        <source>Welcome to the DigiByte RPC console.</source>
-        <translation>Welkom bij de DigiByte RPC-console.</translation>
+        <source>Welcome to the Digitalcoin RPC console.</source>
+        <translation>Welkom bij de Digitalcoin RPC-console.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1554,8 +1554,8 @@ Adres: %4
         <translation>H&amp;ergebruik en bestaand ontvangstadres (niet aanbevolen)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the DigiByte network.</source>
-        <translation>Een optioneel bericht om bij te voegen aan het betalingsverzoek, dewelke zal getoond worden wanneer het verzoek is geopend. Opermerking: Het bericht zal niet worden verzonden met de betaling over het DigiByte netwerk.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Digitalcoin network.</source>
+        <translation>Een optioneel bericht om bij te voegen aan het betalingsverzoek, dewelke zal getoond worden wanneer het verzoek is geopend. Opermerking: Het bericht zal niet worden verzonden met de betaling over het Digitalcoin netwerk.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1704,7 +1704,7 @@ Adres: %4
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Verstuur DigiBytes</translation>
+        <translation>Verstuur Digitalcoins</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1792,7 +1792,7 @@ Adres: %4
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Bevestig versturen DigiBytes</translation>
+        <translation>Bevestig versturen Digitalcoins</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -1864,11 +1864,11 @@ Adres: %4
     </message>
     <message>
         <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>De transactie was afgewezen. Dit kan gebeuren als u eerder uitgegeven DigiBytes opnieuw wilt versturen, zoals wanneer u een kopie van uw wallet.dat heeft gebruikt en in de kopie deze DigiBytes zijn gemarkeerd als uitgegeven, maar in de huidige nog niet.</translation>
+        <translation>De transactie was afgewezen. Dit kan gebeuren als u eerder uitgegeven Digitalcoins opnieuw wilt versturen, zoals wanneer u een kopie van uw wallet.dat heeft gebruikt en in de kopie deze Digitalcoins zijn gemarkeerd als uitgegeven, maar in de huidige nog niet.</translation>
     </message>
     <message>
-        <source>Warning: Invalid DigiByte address</source>
-        <translation>Waarschuwing: Ongeldig DigiByte adres</translation>
+        <source>Warning: Invalid Digitalcoin address</source>
+        <translation>Waarschuwing: Ongeldig Digitalcoin adres</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1954,8 +1954,8 @@ Adres: %4
         <translation>Vul een label voor dit adres in om het aan de lijst met gebruikte adressen toe te voegen</translation>
     </message>
     <message>
-        <source>A message that was attached to the digibyte: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the DigiByte network.</source>
-        <translation>Een bericht dat werd toegevoegd aan de digibyte: URI dewelke wordt opgeslagen met de transactie ter referentie. Opmerking: Dit bericht zal niet worden verzonden over het DigiByte netwerk.</translation>
+        <source>A message that was attached to the digitalcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Digitalcoin network.</source>
+        <translation>Een bericht dat werd toegevoegd aan de digitalcoin: URI dewelke wordt opgeslagen met de transactie ter referentie. Opmerking: Dit bericht zal niet worden verzonden over het Digitalcoin netwerk.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -1973,8 +1973,8 @@ Adres: %4
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>DigiByte Core is shutting down...</source>
-        <translation>DigiByte Core is aan het afsluiten...</translation>
+        <source>Digitalcoin is shutting down...</source>
+        <translation>Digitalcoin is aan het afsluiten...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2028,8 +2028,8 @@ Adres: %4
         <translation>Kopieer de huidige handtekening naar het systeemklembord</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this DigiByte address</source>
-        <translation>Onderteken een bericht om te bewijzen dat u een bepaald DigiByte adres bezit</translation>
+        <source>Sign the message to prove you own this Digitalcoin address</source>
+        <translation>Onderteken een bericht om te bewijzen dat u een bepaald Digitalcoin adres bezit</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2056,8 +2056,8 @@ Adres: %4
         <translation>Het adres waarmee bet bericht was ondertekend (Vb.: DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L).</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified DigiByte address</source>
-        <translation>Controleer een bericht om te verifiëren dat het gespecificeerde DigiByte adres het bericht heeft ondertekend.</translation>
+        <source>Verify the message to ensure it was signed with the specified Digitalcoin address</source>
+        <translation>Controleer een bericht om te verifiëren dat het gespecificeerde Digitalcoin adres het bericht heeft ondertekend.</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2068,8 +2068,8 @@ Adres: %4
         <translation>Verwijder alles in de invulvelden</translation>
     </message>
     <message>
-        <source>Enter a DigiByte address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
-        <translation>Vul een DigiByte adres in (bijv. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
+        <source>Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>Vul een Digitalcoin adres in (bijv. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
     <message>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
@@ -2127,12 +2127,12 @@ Adres: %4
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>DigiByte Core</source>
-        <translation>DigiByte Kern</translation>
+        <source>Digitalcoin</source>
+        <translation>Digitalcoin Kern</translation>
     </message>
     <message>
-        <source>The Bitcoin and DigiByte Core developers</source>
-        <translation>De DigiByte Core ontwikkelaars</translation>
+        <source>The Bitcoin and Digitalcoin developers</source>
+        <translation>De Digitalcoin ontwikkelaars</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2246,7 +2246,7 @@ Adres: %4
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Gegenereerde DigiBytes moeten %1 blokken rijpen voordat ze kunnen worden besteed. Toen dit blok gegenereerd werd, werd het uitgezonden naar het netwerk om aan de blokketen toegevoegd te worden. Als het niet lukt om in de keten toegevoegd te worden, zal de status te veranderen naar &quot;niet geaccepteerd&quot; en het zal deze niet besteedbaar zijn. Dit kan soms gebeuren als een ander knooppunt een blok genereert binnen een paar seconden na die van u.</translation>
+        <translation>Gegenereerde Digitalcoins moeten %1 blokken rijpen voordat ze kunnen worden besteed. Toen dit blok gegenereerd werd, werd het uitgezonden naar het netwerk om aan de blokketen toegevoegd te worden. Als het niet lukt om in de keten toegevoegd te worden, zal de status te veranderen naar &quot;niet geaccepteerd&quot; en het zal deze niet besteedbaar zijn. Dit kan soms gebeuren als een ander knooppunt een blok genereert binnen een paar seconden na die van u.</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -2553,7 +2553,7 @@ Adres: %4
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>Verstuur DigiBytes</translation>
+        <translation>Verstuur Digitalcoins</translation>
     </message>
 </context>
 <context>
@@ -2610,13 +2610,13 @@ Adres: %4
         <translation>Opties:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: digibyte.conf)</source>
-        <translation>Specificeer configuratiebestand (standaard: digibyte.conf)
+        <source>Specify configuration file (default: digitalcoin.conf)</source>
+        <translation>Specificeer configuratiebestand (standaard: digitalcoin.conf)
 </translation>
     </message>
     <message>
-        <source>Specify pid file (default: digibyted.pid)</source>
-        <translation>Specificeer pid-bestand (standaard: digibyted.pid)
+        <source>Specify pid file (default: digitalcoind.pid)</source>
+        <translation>Specificeer pid-bestand (standaard: digitalcoind.pid)
 </translation>
     </message>
     <message>
@@ -2660,8 +2660,8 @@ Adres: %4
         <translation>Aanvaard commandoregel- en JSON-RPC-commando&apos;s</translation>
     </message>
     <message>
-        <source>DigiByte Core RPC client version</source>
-        <translation>DigiByte Core RPC-client versie</translation>
+        <source>Digitalcoin RPC client version</source>
+        <translation>Digitalcoin RPC-client versie</translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
@@ -2679,23 +2679,23 @@ Adres: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Digitalcoin Alert&quot; admin@foo.com
 </source>
         <translation>%s, u moet een RPC-wachtwoord instellen in het configuratiebestand: %s
 U wordt aangeraden het volgende willekeurige wachtwoord te gebruiken:
-rpcuser=digibyterpc
+rpcuser=digitalcoinrpc
 rpcpassword=%s
 (u hoeft dit wachtwoord niet te onthouden)
 De gebruikersnaam en wachtwoord mogen niet hetzelfde zijn.
 Als het bestand niet bestaat, make hem dan aan met leesrechten voor enkel de eigenaar.
 Het is ook aan te bevelen &quot;alertnotify&quot; in te stellen zodat u op de hoogte gesteld wordt van problemen;
-bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@foo.com</translation>
+bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Digitalcoin Alert&quot; admin@foo.com</translation>
     </message>
     <message>
         <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
@@ -2727,11 +2727,11 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@fo
     </message>
     <message>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Fout: De transactie was afgewezen! Dit kan gebeuren als sommige DigiBytes in uw portemonnee al eerder uitgegeven zijn, zoals wanneer u een kopie van uw wallet.dat heeft gebruikt en in de kopie deze DigiBytes zijn uitgegeven, maar in deze portemonnee die DigiBytes nog niet als zodanig zijn gemarkeerd.</translation>
+        <translation>Fout: De transactie was afgewezen! Dit kan gebeuren als sommige Digitalcoins in uw portemonnee al eerder uitgegeven zijn, zoals wanneer u een kopie van uw wallet.dat heeft gebruikt en in de kopie deze Digitalcoins zijn uitgegeven, maar in deze portemonnee die Digitalcoins nog niet als zodanig zijn gemarkeerd.</translation>
     </message>
     <message>
         <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation>Fout: Deze transactie vereist transactiekosten van tenminste %s, vanwege zijn grootte, complexiteit, of het gebruik van onlangs ontvangen DigiBytes!</translation>
+        <translation>Fout: Deze transactie vereist transactiekosten van tenminste %s, vanwege zijn grootte, complexiteit, of het gebruik van onlangs ontvangen Digitalcoins!</translation>
     </message>
     <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
@@ -2763,11 +2763,11 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@fo
     </message>
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>Dit is een pre-release testversie - gebruik op eigen risico! Gebruik deze niet voor het delven van DigiBytes of handelsdoeleinden</translation>
+        <translation>Dit is een pre-release testversie - gebruik op eigen risico! Gebruik deze niet voor het delven van Digitalcoins of handelsdoeleinden</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. DigiByte Core is probably already running.</source>
-        <translation>Niet in staat om %s te verbinden op deze computer. DigiByte Core draait waarschijnlijk al.</translation>
+        <source>Unable to bind to %s on this computer. Digitalcoin is probably already running.</source>
+        <translation>Niet in staat om %s te verbinden op deze computer. Digitalcoin draait waarschijnlijk al.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
@@ -2778,8 +2778,8 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@fo
         <translation>Waarschuwing: -paytxfee is zeer hoog ingesteld.  Dit zijn de transactiekosten die u betaalt bij het versturen van een transactie.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong DigiByte will not work properly.</source>
-        <translation>Waarschuwing: Controleer dat de datum en tijd op uw computer correct zijn ingesteld. Als uw klok fout staat zal DigiByte niet correct werken.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Digitalcoin will not work properly.</source>
+        <translation>Waarschuwing: Controleer dat de datum en tijd op uw computer correct zijn ingesteld. Als uw klok fout staat zal Digitalcoin niet correct werken.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2814,8 +2814,8 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@fo
         <translation>Poog de geheime sleutels uit een corrupt wallet.dat bestand terug te halen</translation>
     </message>
     <message>
-        <source>DigiByte Core Daemon</source>
-        <translation>DigiByte Core Daemon</translation>
+        <source>Digitalcoin Daemon</source>
+        <translation>Digitalcoin Daemon</translation>
     </message>
     <message>
         <source>Block creation options:</source>
@@ -2955,7 +2955,7 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@fo
     </message>
     <message>
         <source>Generate coins (default: 0)</source>
-        <translation>Genereer DigiBytes (standaard: 0)</translation>
+        <translation>Genereer Digitalcoins (standaard: 0)</translation>
     </message>
     <message>
         <source>How many blocks to check at startup (default: 288, 0 = all)</source>
@@ -3022,8 +3022,8 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@fo
         <translation>Dit is bedoeld voor regressie test toepassingen en applicatie onwikkeling.</translation>
     </message>
     <message>
-        <source>Usage (deprecated, use digibyte-cli):</source>
-        <translation>Gebruik (vervangen; gebruik DigiByte-cli);</translation>
+        <source>Usage (deprecated, use digitalcoin-cli):</source>
+        <translation>Gebruik (vervangen; gebruik Digitalcoin-cli);</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3058,8 +3058,8 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@fo
         <translation>Importeert blokken van extern blk000??.dat bestand</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. DigiByte Core is probably already running.</source>
-        <translation>Kan geen lock verkrijgen op gegevensmap %s. DigiByte Core draait waarschijnlijk al.</translation>
+        <source>Cannot obtain a lock on data directory %s. Digitalcoin is probably already running.</source>
+        <translation>Kan geen lock verkrijgen op gegevensmap %s. Digitalcoin draait waarschijnlijk al.</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
@@ -3122,8 +3122,8 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@fo
         <translation>Toon block structuur bij opstarten (default: 0)</translation>
     </message>
     <message>
-        <source>RPC SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
-        <translation>RPC SSL opties: (zie de DigiByte Wiki voor SSL installatie-instructies)</translation>
+        <source>RPC SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
+        <translation>RPC SSL opties: (zie de Digitalcoin Wiki voor SSL installatie-instructies)</translation>
     </message>
     <message>
         <source>RPC server options:</source>
@@ -3142,12 +3142,12 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@fo
         <translation>Draai een proces om de wallet periodiek te flushen (default: 1)</translation>
     </message>
     <message>
-        <source>SSL options: (see the DigiByte Wiki for SSL setup instructions)</source>
-        <translation>SSL-opties: (zie de DigiByte wiki voor SSL-instructies)</translation>
+        <source>SSL options: (see the Digitalcoin Wiki for SSL setup instructions)</source>
+        <translation>SSL-opties: (zie de Digitalcoin wiki voor SSL-instructies)</translation>
     </message>
     <message>
-        <source>Send command to DigiByte Core</source>
-        <translation>Stuur commando naar DigiByte Core</translation>
+        <source>Send command to Digitalcoin</source>
+        <translation>Stuur commando naar Digitalcoin</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
@@ -3182,8 +3182,8 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@fo
         <translation>Specificeer de time-outtijd in milliseconden (standaard: 5000)</translation>
     </message>
     <message>
-        <source>Start DigiByte Core Daemon</source>
-        <translation>Start DigiByte Core Daemon</translation>
+        <source>Start Digitalcoin Daemon</source>
+        <translation>Start Digitalcoin Daemon</translation>
     </message>
     <message>
         <source>System error: </source>
@@ -3298,12 +3298,12 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;DigiByte Alert&quot; admin@fo
         <translation>Fout bij laden wallet.dat: Portemonnee corrupt</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of DigiByte</source>
-        <translation>Fout bij laden wallet.dat: Portemonnee vereist een nieuwere versie van DigiByte</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Digitalcoin</source>
+        <translation>Fout bij laden wallet.dat: Portemonnee vereist een nieuwere versie van Digitalcoin</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart DigiByte to complete</source>
-        <translation>Portemonnee moest herschreven worden: Herstart DigiByte om te voltooien</translation>
+        <source>Wallet needed to be rewritten: restart Digitalcoin to complete</source>
+        <translation>Portemonnee moest herschreven worden: Herstart Digitalcoin om te voltooien</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>

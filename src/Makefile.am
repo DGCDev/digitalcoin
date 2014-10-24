@@ -13,11 +13,11 @@ endif
 bin_PROGRAMS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += digibyted
+  bin_PROGRAMS += digitalcoind
 endif
 
 if BUILD_BITCOIN_CLI
-  bin_PROGRAMS += digibyte-cli
+  bin_PROGRAMS += digitalcoin-cli
 endif
 
 SUBDIRS = . $(BUILD_QT) $(BUILD_TEST)
@@ -176,35 +176,35 @@ nodist_libbitcoin_common_a_SOURCES = $(top_srcdir)/src/obj/build.h
 #
 
 # bitcoind binary #
-digibyted_LDADD = \
+digitalcoind_LDADD = \
   libbitcoin_server.a \
   libbitcoin_cli.a \
   libbitcoin_common.a \
   $(LIBLEVELDB) \
   $(LIBMEMENV)
 if ENABLE_WALLET
-digibyted_LDADD += libbitcoin_wallet.a
+digitalcoind_LDADD += libbitcoin_wallet.a
 endif
-digibyted_SOURCES = bitcoind.cpp
+digitalcoind_SOURCES = bitcoind.cpp
 #
 
 if TARGET_WINDOWS
-digibyted_SOURCES += bitcoind-res.rc
+digitalcoind_SOURCES += bitcoind-res.rc
 endif
 
 AM_CPPFLAGS += $(BDB_CPPFLAGS)
-digibyted_LDADD += $(BOOST_LIBS) $(BDB_LIBS)
+digitalcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS)
 
 # bitcoin-cli binary #
-digibyte_cli_LDADD = \
+digitalcoin_cli_LDADD = \
   libbitcoin_cli.a \
   libbitcoin_common.a \
   $(BOOST_LIBS)
-digibyte_cli_SOURCES = bitcoin-cli.cpp
+digitalcoin_cli_SOURCES = bitcoin-cli.cpp
 #
 
 if TARGET_WINDOWS
-digibyte_cli_SOURCES += bitcoin-cli-res.rc
+digitalcoin_cli_SOURCES += bitcoin-cli-res.rc
 endif
 
 # NOTE: This dependency is not strictly necessary, but without it make may try to build both in parallel, which breaks the LevelDB build system in a race

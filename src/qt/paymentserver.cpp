@@ -47,10 +47,10 @@
 using namespace boost;
 
 const int BITCOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
-const QString BITCOIN_IPC_PREFIX("digibyte:");
-const char* BITCOIN_REQUEST_MIMETYPE = "application/digibyte-paymentrequest";
-const char* BITCOIN_PAYMENTACK_MIMETYPE = "application/digibyte-paymentack";
-const char* BITCOIN_PAYMENTACK_CONTENTTYPE = "application/digibyte-payment";
+const QString BITCOIN_IPC_PREFIX("digitalcoin:");
+const char* BITCOIN_REQUEST_MIMETYPE = "application/digitalcoin-paymentrequest";
+const char* BITCOIN_PAYMENTACK_MIMETYPE = "application/digitalcoin-paymentack";
+const char* BITCOIN_PAYMENTACK_CONTENTTYPE = "application/digitalcoin-payment";
 
 X509_STORE* PaymentServer::certStore = NULL;
 void PaymentServer::freeCertStore()
@@ -69,7 +69,7 @@ void PaymentServer::freeCertStore()
 //
 static QString ipcServerName()
 {
-    QString name("DigiByteQt");
+    QString name("DigitalcoinQt");
 
     // Append a simple hash of the datadir
     // Note that GetDataDir(true) returns a different path
@@ -290,7 +290,7 @@ PaymentServer::PaymentServer(QObject* parent, bool startLocalServer) :
         if (!uriServer->listen(name)) {
             // constructor is called early in init, so don't use "emit message()" here
             QMessageBox::critical(0, tr("Payment request error"),
-                tr("Cannot start digibyte: click-to-pay handler"));
+                tr("Cannot start digitalcoin: click-to-pay handler"));
         }
         else {
             connect(uriServer, SIGNAL(newConnection()), this, SLOT(handleURIConnection()));
@@ -414,7 +414,7 @@ void PaymentServer::handleURIOrFile(const QString& s)
                 emit receivedPaymentRequest(recipient);
             else
                 emit message(tr("URI handling"),
-                    tr("URI can not be parsed! This can be caused by an invalid DigiByte address or malformed URI parameters."),
+                    tr("URI can not be parsed! This can be caused by an invalid Digitalcoin address or malformed URI parameters."),
                     CClientUIInterface::ICON_WARNING);
 
             return;

@@ -2,9 +2,9 @@ include $(top_srcdir)/src/Makefile.include
 
 AM_CPPFLAGS += -I$(top_srcdir)/src
 
-bin_PROGRAMS = test_digibyte
+bin_PROGRAMS = test_digitalcoin
 
-TESTS = test_digibyte
+TESTS = test_digitalcoin
 
 JSON_TEST_FILES = \
   data/script_valid.json \
@@ -23,15 +23,15 @@ RAW_TEST_FILES = data/alertTests.raw
 BUILT_SOURCES = $(JSON_TEST_FILES:.json=.json.h) $(RAW_TEST_FILES:.raw=.raw.h)
 
 # test_bitcoin binary #
-test_digibyte_CPPFLAGS = $(AM_CPPFLAGS) $(TESTDEFS)
-test_digibyte_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
+test_digitalcoin_CPPFLAGS = $(AM_CPPFLAGS) $(TESTDEFS)
+test_digitalcoin_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB)
 if ENABLE_WALLET
-test_digibyte_LDADD += $(LIBBITCOIN_WALLET)
+test_digitalcoin_LDADD += $(LIBBITCOIN_WALLET)
 endif
-test_digibyte_LDADD += $(BDB_LIBS)
+test_digitalcoin_LDADD += $(BDB_LIBS)
 
-test_digibyte_SOURCES = \
+test_digitalcoin_SOURCES = \
   alert_tests.cpp \
   allocator_tests.cpp \
   base32_tests.cpp \
@@ -65,12 +65,12 @@ test_digibyte_SOURCES = \
   $(JSON_TEST_FILES) $(RAW_TEST_FILES)
 
 if ENABLE_WALLET
-test_digibyte_SOURCES += \
+test_digitalcoin_SOURCES += \
    accounting_tests.cpp \
    wallet_tests.cpp \
    rpc_wallet_tests.cpp
 endif
 
-nodist_test_digibyte_SOURCES = $(BUILT_SOURCES)
+nodist_test_digitalcoin_SOURCES = $(BUILT_SOURCES)
 
 CLEANFILES = *.gcda *.gcno $(BUILT_SOURCES)

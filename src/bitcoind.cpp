@@ -86,13 +86,13 @@ bool AppInit(int argc, char* argv[])
         if (mapArgs.count("-?") || mapArgs.count("--help"))
         {
             // First part of help message is specific to bitcoind / RPC client
-            std::string strUsage = _("DigiByte Core Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n\n" +
+            std::string strUsage = _("Digitalcoin Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  digibyted [options]                     " + _("Start DigiByte Core Daemon") + "\n" +
-                _("Usage (deprecated, use digibyte-cli):") + "\n" +
-                  "  digibyted [options] <command> [params]  " + _("Send command to DigiByte Core") + "\n" +
-                  "  digibyted [options] help                " + _("List commands") + "\n" +
-                  "  digibyted [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  digitalcoind [options]                     " + _("Start Digitalcoin Daemon") + "\n" +
+                _("Usage (deprecated, use digitalcoin-cli):") + "\n" +
+                  "  digitalcoind [options] <command> [params]  " + _("Send command to Digitalcoin") + "\n" +
+                  "  digitalcoind [options] help                " + _("List commands") + "\n" +
+                  "  digitalcoind [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage(HMM_BITCOIND);
             strUsage += "\n" + HelpMessageCli(false);
@@ -104,7 +104,7 @@ bool AppInit(int argc, char* argv[])
         // Command-line RPC
         bool fCommandLine = false;
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "digibyte:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "digitalcoin:"))
                 fCommandLine = true;
 
         if (fCommandLine)
@@ -116,7 +116,7 @@ bool AppInit(int argc, char* argv[])
         fDaemon = GetBoolArg("-daemon", false);
         if (fDaemon)
         {
-            fprintf(stdout, "DigiByte server starting\n");
+            fprintf(stdout, "Digitalcoin server starting\n");
 
             // Daemonize
             pid_t pid = fork();

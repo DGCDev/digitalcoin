@@ -849,15 +849,15 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree, 
 	{
 	    nMinFee *= 2;
 	}
-	else if (nBytes > 128 && <= 256)
+	else if (nBytes > 128 && nBytes <= 256)
 	{
 	    nMinFee *= 4;
 	{
-	else if (nBytes > 256 && <= 512)
+	else if (nBytes > 256 && nBytes <= 512)
 	{
 	    nMinFee *= 8;
 	}
-	else if (nBytes > 512 && <= 1024)
+	else if (nBytes > 512 && nBytes <= 1024)
 	{
 	    nMinFee *= 16;
 	}

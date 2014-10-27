@@ -55,7 +55,10 @@ static const unsigned int BLOCKFILE_CHUNK_SIZE = 0x1000000; // 16 MiB
 /** The pre-allocation chunk size for rev?????.dat files (since 0.8) */
 static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
-
+/** Default for -maxorphantx, maximum number of orphan transactions kept in memory */
+static const unsigned int DEFAULT_MAX_ORPHAN_TRANSACTIONS = 100;
+/** Default for -maxorphanblocks, maximum number of orphan blocks kept in memory */
+static const unsigned int DEFAULT_MAX_ORPHAN_BLOCKS = 750;
 static const int COINBASE_MATURITY = 100;
 /** DGC V3 Hard Fork Block */
 static const int V3_FORK = 961900;
@@ -878,7 +881,8 @@ public:
             return CheckProofOfWork(GetBlockHash(), nBits, algo);
         else
             return true;
-
+	}
+			
     enum { nMedianTimeSpan=11 };
 
     int64_t GetMedianTimePast() const

@@ -46,7 +46,7 @@ public:
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
-        txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
+        txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 50 * COIN;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("04a5814813115273a109cff99907ba4a05d951873dae7acb6c973d0c9e7c88911a3dbc9aa600deac241b91707e7b4ffb30ad91c8e56e695a1ddf318592988afe0a") << OP_CHECKSIG;
 
@@ -63,15 +63,15 @@ public:
         assert(hashGenesisBlock == uint256("0x5e039e1ca1dbf128973bf6cff98169e40a1b194c3b91463ab74956f413b2f9c8"));
         assert(genesis.hashMerkleRoot == uint256("0xecb2c595fff9f2364152c32027737007c5a4c60ec960cf93754b0211bc2a1501"));
 
-        vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #1", "seed1.digitalcoin.co"));
-        vSeeds.push_back(CDNSSeedData("hashdragon.com seed #2", "seed2.hashdragon.com"));
-        vSeeds.push_back(CDNSSeedData("digihash.co seed #3", "seed3.digihash.co"));
-        vSeeds.push_back(CDNSSeedData("love2hash.com seed #4", "seed4.love2hash.com"));
-        vSeeds.push_back(CDNSSeedData("digiexplorer.info seed #5", "seed5.digiexplorer.info"));
+        vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #1", "digitalcoin.co"));
+        vSeeds.push_back(CDNSSeedData("ahmed seed #2", "178.62.28.81"));
+        //vSeeds.push_back(CDNSSeedData("digihash.co seed #3", "seed3.digihash.co"));
+        //vSeeds.push_back(CDNSSeedData("love2hash.com seed #4", "seed4.love2hash.com"));
+        //vSeeds.push_back(CDNSSeedData("digiexplorer.info seed #5", "seed5.digiexplorer.info"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(30);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(5);
-        base58Prefixes[SECRET_KEY] =     list_of(128);
+        base58Prefixes[SECRET_KEY] =     list_of(0x9e);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
 

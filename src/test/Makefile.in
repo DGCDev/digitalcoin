@@ -84,7 +84,7 @@ am__test_digitalcoin_SOURCES_DIST = alert_tests.cpp \
 	rpc_tests.cpp script_P2SH_tests.cpp script_tests.cpp \
 	serialize_tests.cpp sigopcount_tests.cpp test_bitcoin.cpp \
 	transaction_tests.cpp uint256_tests.cpp util_tests.cpp \
-	sighash_tests.cpp data/script_valid.json \
+	scriptnum_tests.cpp sighash_tests.cpp data/script_valid.json \
 	data/base58_keys_valid.json data/sig_canonical.json \
 	data/sig_noncanonical.json data/base58_encode_decode.json \
 	data/base58_keys_invalid.json data/script_invalid.json \
@@ -124,6 +124,7 @@ am_test_digitalcoin_OBJECTS = test_digitalcoin-alert_tests.$(OBJEXT) \
 	test_digitalcoin-transaction_tests.$(OBJEXT) \
 	test_digitalcoin-uint256_tests.$(OBJEXT) \
 	test_digitalcoin-util_tests.$(OBJEXT) \
+	test_digitalcoin-scriptnum_tests.$(OBJEXT) \
 	test_digitalcoin-sighash_tests.$(OBJEXT) $(am__objects_1) \
 	$(am__objects_1) $(am__objects_2)
 am__objects_3 = $(am__objects_1) $(am__objects_1)
@@ -409,8 +410,9 @@ test_digitalcoin_SOURCES = alert_tests.cpp allocator_tests.cpp \
 	netbase_tests.cpp pmt_tests.cpp rpc_tests.cpp \
 	script_P2SH_tests.cpp script_tests.cpp serialize_tests.cpp \
 	sigopcount_tests.cpp test_bitcoin.cpp transaction_tests.cpp \
-	uint256_tests.cpp util_tests.cpp sighash_tests.cpp \
-	$(JSON_TEST_FILES) $(RAW_TEST_FILES) $(am__append_5)
+	uint256_tests.cpp util_tests.cpp scriptnum_tests.cpp \
+	sighash_tests.cpp $(JSON_TEST_FILES) $(RAW_TEST_FILES) \
+	$(am__append_5)
 nodist_test_digitalcoin_SOURCES = $(BUILT_SOURCES)
 CLEANFILES = *.gcda *.gcno $(BUILT_SOURCES)
 all: $(BUILT_SOURCES)
@@ -520,6 +522,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_digitalcoin-rpc_wallet_tests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_digitalcoin-script_P2SH_tests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_digitalcoin-script_tests.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_digitalcoin-scriptnum_tests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_digitalcoin-serialize_tests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_digitalcoin-sighash_tests.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_digitalcoin-sigopcount_tests.Po@am__quote@
@@ -1010,6 +1013,22 @@ test_digitalcoin-util_tests.obj: util_tests.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='util_tests.cpp' object='test_digitalcoin-util_tests.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_digitalcoin_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_digitalcoin-util_tests.obj `if test -f 'util_tests.cpp'; then $(CYGPATH_W) 'util_tests.cpp'; else $(CYGPATH_W) '$(srcdir)/util_tests.cpp'; fi`
+
+test_digitalcoin-scriptnum_tests.o: scriptnum_tests.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_digitalcoin_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_digitalcoin-scriptnum_tests.o -MD -MP -MF $(DEPDIR)/test_digitalcoin-scriptnum_tests.Tpo -c -o test_digitalcoin-scriptnum_tests.o `test -f 'scriptnum_tests.cpp' || echo '$(srcdir)/'`scriptnum_tests.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_digitalcoin-scriptnum_tests.Tpo $(DEPDIR)/test_digitalcoin-scriptnum_tests.Po
+@am__fastdepCXX_FALSE@	$(AM_V_CXX) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scriptnum_tests.cpp' object='test_digitalcoin-scriptnum_tests.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_digitalcoin_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_digitalcoin-scriptnum_tests.o `test -f 'scriptnum_tests.cpp' || echo '$(srcdir)/'`scriptnum_tests.cpp
+
+test_digitalcoin-scriptnum_tests.obj: scriptnum_tests.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_digitalcoin_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_digitalcoin-scriptnum_tests.obj -MD -MP -MF $(DEPDIR)/test_digitalcoin-scriptnum_tests.Tpo -c -o test_digitalcoin-scriptnum_tests.obj `if test -f 'scriptnum_tests.cpp'; then $(CYGPATH_W) 'scriptnum_tests.cpp'; else $(CYGPATH_W) '$(srcdir)/scriptnum_tests.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_digitalcoin-scriptnum_tests.Tpo $(DEPDIR)/test_digitalcoin-scriptnum_tests.Po
+@am__fastdepCXX_FALSE@	$(AM_V_CXX) @AM_BACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='scriptnum_tests.cpp' object='test_digitalcoin-scriptnum_tests.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_digitalcoin_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_digitalcoin-scriptnum_tests.obj `if test -f 'scriptnum_tests.cpp'; then $(CYGPATH_W) 'scriptnum_tests.cpp'; else $(CYGPATH_W) '$(srcdir)/scriptnum_tests.cpp'; fi`
 
 test_digitalcoin-sighash_tests.o: sighash_tests.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_digitalcoin_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_digitalcoin-sighash_tests.o -MD -MP -MF $(DEPDIR)/test_digitalcoin-sighash_tests.Tpo -c -o test_digitalcoin-sighash_tests.o `test -f 'sighash_tests.cpp' || echo '$(srcdir)/'`sighash_tests.cpp

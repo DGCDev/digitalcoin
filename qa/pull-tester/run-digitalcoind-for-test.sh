@@ -30,3 +30,4 @@ kill $BITCOIND && wait $BITCOIND
 
 # timeout returns 124 on timeout, otherwise the return value of the child
 exit $RETURN
+

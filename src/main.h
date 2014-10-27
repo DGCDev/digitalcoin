@@ -59,7 +59,6 @@ static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 static const int COINBASE_MATURITY = 100;
 /** DGC V3 Hard Fork Block */
 static const int V3_FORK = 961900;
-static const int V3_TESTNET_FORK = 100;
 /* Other DGC Fork Blocks */
 static const int DIFF_SWITCH_HEIGHT = 476280;
 static const int INFLATION_FIX_HEIGHT = 523800;

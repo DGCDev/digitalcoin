@@ -1364,18 +1364,13 @@ static const int64_t nMaxActualTimespan = nAveragingTargetTimespan * (100 + nMax
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo)
 {
    int nHeight = pindexLast->nHeight;
-   if (!TestNet() && nHeight < V3_FORK)
+   if (TestNet())
+   {
+	return 0x1d13ffec;
+   }
+   else if (!TestNet() && nHeight < V3_FORK)
    {
 	return GetNextWorkRequiredV1(pindexLast, pblock, algo);
-   }
-   else if (TestNet() && nHeight < V3_TESTNET_FORK)
-   {
-	return GetNextWorkRequiredV1(pindexLast, pblock, algo);
-   }
-   else if (TestNet() && nHeight >= V3_TESTNET_FORK)
-   {
-	LogPrintf("Switch to DigiShield");
-	return GetNextWorkRequiredV2(pindexLast, pblock, algo);
    }
    else if (!TestNet() && nHeight >= V3_FORK)
    {

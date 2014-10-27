@@ -843,6 +843,30 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree, 
                 nMinFee = nBaseFee;
     }
 
+    if (txout.IsScriptOpReturn())
+    {
+	if (nBytes <=128)
+	{
+	    nMinFee *= 2;
+	}
+	else if (nBytes > 128 && <= 256)
+	{
+	    nMinFee *= 4;
+	{
+	else if (nBytes > 256 && <= 512)
+	{
+	    nMinFee *= 8;
+	}
+	else if (nBytes > 512 && <= 1024)
+	{
+	    nMinFee *= 16;
+	}
+	else
+	{
+	    nMinFee *= 32;
+	}
+    }
+
     if (!MoneyRange(nMinFee))
         nMinFee = MAX_MONEY;
     return nMinFee;

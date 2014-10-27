@@ -15,6 +15,7 @@
 
 const QString AddressTableModel::Send = "S";
 const QString AddressTableModel::Receive = "R";
+const QString AddressTableModel::Import = "I";
 
 struct AddressTableEntry
 {
@@ -385,6 +386,53 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
         }
         strAddress = CBitcoinAddress(newKey.GetID()).ToString();
     }
+	else if(type == Import)
+	{
+		CKey key;
+		bool fCompressed;
+
+		WalletModel::UnlockContext ctx(walletModel->requestUnlock());
+		if(!ctx.isValid())
+		{
+			editStatus = WALLET_UNLOCK_FAILURE;
+			return QString();
+		}
+		
+		CBitcoinSecret vchSecret;
+		bool fGood = vchSecret.SetString(strAddress);
+
+		if (!fGood) {
+			editStatus = INVALID_PRIVKEY;
+			return QString();
+		}
+		
+		key = vchSecret.GetKey();
+		
+		CKeyID vchAddress = key.GetPubKey().GetID();
+		{
+			LOCK2(cs_main, wallet->cs_wallet);
+
+			wallet->MarkDirty();
+			
+			if (wallet->HaveKey(vchAddress))
+			{	
+				editStatus = IMPORT_DUPLICATE;
+				return QString();
+			}
+			
+			if (!wallet->AddKeyPubKey(key,key.GetPubKey()))
+			{
+				editStatus = IMPORT_FAIL;
+				return QString();
+			}
+
+			wallet->SetAddressBook(vchAddress, strLabel, "receive");
+			wallet->ScanForWalletTransactions(chainActive.Genesis(), true);
+			wallet->ReacceptWalletTransactions();
+		}
+
+		return QString::fromStdString(CBitcoinAddress(vchAddress).ToString());
+	}
     else
     {
         return QString();

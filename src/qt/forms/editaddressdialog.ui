@@ -56,6 +56,13 @@
     </layout>
    </item>
    <item>
+    <widget class="QLabel" name="label_3">
+	 <property name="text">
+	  <string> Please wait - scanning for transactions matching this address...</string>
+	 </property>
+     </widget>
+   </item>
+   <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>

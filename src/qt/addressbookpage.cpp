@@ -34,6 +34,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     ui->copyAddress->setIcon(QIcon());
     ui->deleteAddress->setIcon(QIcon());
     ui->exportButton->setIcon(QIcon());
+	ui->importAddressButton->setIcon(QIcon());
 #endif
 
     switch(mode)
@@ -63,10 +64,12 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     case SendingTab:
         ui->labelExplanation->setText(tr("These are your Digitalcoin addresses for sending payments. Always check the amount and the receiving address before sending coins."));
         ui->deleteAddress->setVisible(true);
+		ui->importAddressButton->setVisible(false);
         break;
     case ReceivingTab:
         ui->labelExplanation->setText(tr("These are your Digitalcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction."));
         ui->deleteAddress->setVisible(false);
+		ui->importAddressButton->setVisible(true);
         break;
     }
 
@@ -221,6 +224,8 @@ void AddressBookPage::selectionChanged()
             // In sending tab, allow deletion of selection
             ui->deleteAddress->setEnabled(true);
             ui->deleteAddress->setVisible(true);
+			ui->importAddressButton->setEnabled(false);
+			ui->importAddressButton->setVisible(false);
             deleteAction->setEnabled(true);
             break;
         case ReceivingTab:
@@ -228,6 +233,8 @@ void AddressBookPage::selectionChanged()
             ui->deleteAddress->setEnabled(false);
             ui->deleteAddress->setVisible(false);
             deleteAction->setEnabled(false);
+			ui->importAddressButton->setEnabled(true);
+			ui->importAddressButton->setVisible(true);
             break;
         }
         ui->copyAddress->setEnabled(true);
@@ -305,4 +312,19 @@ void AddressBookPage::selectNewAddress(const QModelIndex &parent, int begin, int
         ui->tableView->selectRow(idx.row());
         newAddressToSelect.clear();
     }
+}
+
+void AddressBookPage::on_importAddressButton_clicked()
+{
+	if(!model)
+		return;
+
+	EditAddressDialog dlg(EditAddressDialog::ImportReceivingAddress, this);
+
+	dlg.setModel(model);
+	
+	if(dlg.exec())
+	{
+		newAddressToSelect = dlg.getAddress();
+	}
 }

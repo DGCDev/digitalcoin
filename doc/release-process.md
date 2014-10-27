@@ -138,6 +138,11 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 	rm -rf digitalcoin-${VERSION}-win
 
 **Perform Mac build:**
+**Mac OS X .dmg:**
+
+	mv Bitcoin-Qt.dmg bitcoin-${VERSION}-osx.dmg
+
+###Next steps:
 
   OSX binaries are created by Gavin Andresen on a 64-bit, OSX 10.6 machine.
 

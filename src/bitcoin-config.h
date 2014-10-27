@@ -1,9 +1,9 @@
 /* src/bitcoin-config.h.  Generated from bitcoin-config.h.in by configure.  */
 /* src/bitcoin-config.h.in.  Generated from configure.ac by autoheader.  */
 
-#ifndef BITCOIN_CONFIG_H
+#ifndef DIGITALCOIN_CONFIG_H
 
-#define BITCOIN_CONFIG_H
+#define DIGITALCOIN_CONFIG_H
 
 /* Define if building universal (internal helper macro) */
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
@@ -202,10 +202,10 @@
 #define PACKAGE_BUGREPORT "info@bitcoin.org"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "DigiByte Core"
+#define PACKAGE_NAME "Digitalcoin"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "DigiByte Core 3.0.1"
+#define PACKAGE_STRING "Digitalcoin 3.0.1"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "bitcoin"
@@ -257,4 +257,4 @@
 /* Define for large files, on AIX-style hosts. */
 /* #undef _LARGE_FILES */
 
-#endif //BITCOIN_CONFIG_H
+#endif //DIGITALCOIN_CONFIG_H

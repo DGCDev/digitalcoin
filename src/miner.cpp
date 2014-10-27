@@ -550,135 +550,139 @@ void static BitcoinMiner(CWallet *pwallet)
     while(true)
     {
         MinerWaitOnline();
-    try { while (true) {
-        if (Params().NetworkID() != CChainParams::REGTEST) {
-            // Busy-wait for the network to come online so we don't waste time mining
-            // on an obsolete chain. In regtest mode we expect to fly solo.
-            while (vNodes.empty())
-                MilliSleep(1000);
-        }
+		try { 
+			while (true) {
+				if (Params().NetworkID() != CChainParams::REGTEST) {
+					// Busy-wait for the network to come online so we don't waste time mining
+					// on an obsolete chain. In regtest mode we expect to fly solo.
+					while (vNodes.empty())
+						MilliSleep(1000);
+				}
 
-        //
-        // Create new block
-        //
-        unsigned int nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
-        CBlockIndex* pindexPrev = chainActive.Tip();
+				//
+				// Create new block
+				//
+				unsigned int nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
+				CBlockIndex* pindexPrev = chainActive.Tip();
 
-        auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey, ALGO_SHA256D));
-        if (!pblocktemplate.get())
-            return;
-        CBlock *pblock = &pblocktemplate->block;
-        IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
+				auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey, ALGO_SHA256D));
+				if (!pblocktemplate.get())
+					return;
+				CBlock *pblock = &pblocktemplate->block;
+				IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-        LogPrintf("Running sha256d with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
-               ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
+				LogPrintf("Running sha256d with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+					   ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
-        //
-        // Pre-build hash buffers
-        //
-        char pmidstatebuf[32+16]; char* pmidstate = alignup<16>(pmidstatebuf);
-        char pdatabuf[128+16];    char* pdata     = alignup<16>(pdatabuf);
-        char phash1buf[64+16];    char* phash1    = alignup<16>(phash1buf);
+				//
+				// Pre-build hash buffers
+				//
+				char pmidstatebuf[32+16]; char* pmidstate = alignup<16>(pmidstatebuf);
+				char pdatabuf[128+16];    char* pdata     = alignup<16>(pdatabuf);
+				char phash1buf[64+16];    char* phash1    = alignup<16>(phash1buf);
 
-        FormatHashBuffers(pblock, pmidstate, pdata, phash1);
+				FormatHashBuffers(pblock, pmidstate, pdata, phash1);
 
-        unsigned int& nBlockTime = *(unsigned int*)(pdata + 64 + 4);
-        unsigned int& nBlockBits = *(unsigned int*)(pdata + 64 + 8);
-        unsigned int& nBlockNonce = *(unsigned int*)(pdata + 64 + 12);
+				unsigned int& nBlockTime = *(unsigned int*)(pdata + 64 + 4);
+				unsigned int& nBlockBits = *(unsigned int*)(pdata + 64 + 8);
+				unsigned int& nBlockNonce = *(unsigned int*)(pdata + 64 + 12);
 
 
-        //
-        // Search
-        //
-        int64_t nStart = GetTime();
-        uint256 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
-        uint256 hashbuf[2];
-        uint256& hash = *alignup<16>(hashbuf);
-        while (true)
-        {
-            unsigned int nHashesDone = 0;
-            unsigned int nNonceFound;
+				//
+				// Search
+				//
+				int64_t nStart = GetTime();
+				uint256 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
+				uint256 hashbuf[2];
+				uint256& hash = *alignup<16>(hashbuf);
+				while (true)
+				{
+					unsigned int nHashesDone = 0;
+					unsigned int nNonceFound;
 
-            // Crypto++ SHA256
-            nNonceFound = ScanHash_CryptoPP(pmidstate, pdata + 64, phash1,
-                                            (char*)&hash, nHashesDone);
+					// Crypto++ SHA256
+					nNonceFound = ScanHash_CryptoPP(pmidstate, pdata + 64, phash1,
+													(char*)&hash, nHashesDone);
 
-            // Check if something found
-            if (nNonceFound != (unsigned int) -1)
-            {
-                for (unsigned int i = 0; i < sizeof(hash)/4; i++)
-                    ((unsigned int*)&hash)[i] = ByteReverse(((unsigned int*)&hash)[i]);
+					// Check if something found
+					if (nNonceFound != (unsigned int) -1)
+					{
+						for (unsigned int i = 0; i < sizeof(hash)/4; i++)
+							((unsigned int*)&hash)[i] = ByteReverse(((unsigned int*)&hash)[i]);
 
-                if (hash <= hashTarget)
-                {
-                    // Found a solution
-                    pblock->nNonce = ByteReverse(nNonceFound);
-                    assert(hash == pblock->GetHash());
+						if (hash <= hashTarget)
+						{
+							// Found a solution
+							pblock->nNonce = ByteReverse(nNonceFound);
+							assert(hash == pblock->GetHash());
 
-                    SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                    CheckWork(pblock, *pwallet, reservekey);
-                    SetThreadPriority(THREAD_PRIORITY_LOWEST);
+							SetThreadPriority(THREAD_PRIORITY_NORMAL);
+							CheckWork(pblock, *pwallet, reservekey);
+							SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
-                    // In regression test mode, stop mining after a block is found. This
-                    // allows developers to controllably generate a block on demand.
-                    if (Params().NetworkID() == CChainParams::REGTEST)
-                        throw boost::thread_interrupted();
+							// In regression test mode, stop mining after a block is found. This
+							// allows developers to controllably generate a block on demand.
+							if (Params().NetworkID() == CChainParams::REGTEST)
+								throw boost::thread_interrupted();
 
-                    break;
-                }
-            }
+							break;
+						}
+					}
 
-            // Meter hashes/sec
-            static int64_t nHashCounter;
-            if (nHPSTimerStart == 0)
-            {
-                nHPSTimerStart = GetTimeMillis();
-                nHashCounter = 0;
-            }
-            else
-                nHashCounter += nHashesDone;
-            if (GetTimeMillis() - nHPSTimerStart > 4000)
-            {
-                static CCriticalSection cs;
-                {
-                    LOCK(cs);
-                    if (GetTimeMillis() - nHPSTimerStart > 4000)
-                    {
-                        dHashesPerSec = 1000.0 * nHashCounter / (GetTimeMillis() - nHPSTimerStart);
-                        nHPSTimerStart = GetTimeMillis();
-                        nHashCounter = 0;
-                        static int64_t nLogTime;
-                        if (GetTime() - nLogTime > 30 * 60)
-                        {
-                            nLogTime = GetTime();
-                            LogPrintf("hashmeter %6.0f khash/s\n", dHashesPerSec/1000.0);
-                        }
-                    }
-                }
-            }
+					// Meter hashes/sec
+					static int64_t nHashCounter;
+					if (nHPSTimerStart == 0)
+					{
+						nHPSTimerStart = GetTimeMillis();
+						nHashCounter = 0;
+					}
+					else
+						nHashCounter += nHashesDone;
+					if (GetTimeMillis() - nHPSTimerStart > 4000)
+					{
+						static CCriticalSection cs;
+						{
+							LOCK(cs);
+							if (GetTimeMillis() - nHPSTimerStart > 4000)
+							{
+								dHashesPerSec = 1000.0 * nHashCounter / (GetTimeMillis() - nHPSTimerStart);
+								nHPSTimerStart = GetTimeMillis();
+								nHashCounter = 0;
+								static int64_t nLogTime;
+								if (GetTime() - nLogTime > 30 * 60)
+								{
+									nLogTime = GetTime();
+									LogPrintf("hashmeter %6.0f khash/s\n", dHashesPerSec/1000.0);
+								}
+							}
+						}
+					}
 
-            // Check for stop or if block needs to be rebuilt
-            boost::this_thread::interruption_point();
-            if (vNodes.empty() && Params().NetworkID() != CChainParams::REGTEST)
-                break;
-            if (nBlockNonce >= 0xffff0000)
-                break;
-            if (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60)
-                break;
-            if (pindexPrev != chainActive.Tip())
-                break;
+					// Check for stop or if block needs to be rebuilt
+					boost::this_thread::interruption_point();
+					if (vNodes.empty() && Params().NetworkID() != CChainParams::REGTEST)
+						break;
+					if (nBlockNonce >= 0xffff0000)
+						break;
+					if (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60)
+						break;
+					if (pindexPrev != chainActive.Tip())
+						break;
 
-            // Update nTime every few seconds
-            UpdateTime(*pblock, pindexPrev);
-            nBlockTime = ByteReverse(pblock->nTime);
-            if (TestNet())
-            {
-                // Changing pblock->nTime can change work required on testnet:
-                nBlockBits = ByteReverse(pblock->nBits);
-                hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
-            }
-        }
-    }
+					// Update nTime every few seconds
+					UpdateTime(*pblock, pindexPrev);
+					nBlockTime = ByteReverse(pblock->nTime);
+					if (TestNet())
+					{
+						// Changing pblock->nTime can change work required on testnet:
+						nBlockBits = ByteReverse(pblock->nBits);
+						hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
+					}
+				}
+			}
+		}
+		catch (...){}
+	}
 }
 
 void static ScryptMiner(CWallet *pwallet)

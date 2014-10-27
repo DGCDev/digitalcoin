@@ -560,7 +560,7 @@ int64_t GetAccountBalance(CWalletDB& walletdb, const string& strAccount, int nMi
     for (map<uint256, CWalletTx>::iterator it = pwalletMain->mapWallet.begin(); it != pwalletMain->mapWallet.end(); ++it)
     {
         const CWalletTx& wtx = (*it).second;
-        if (!IsFinalTx(wtx) || wtx.GetBlocksToMaturity(chainActive.Height() - wtx.GetDepthInMainChain()) > 0 || wtx.GetDepthInMainChain() < 0)
+        if (!IsFinalTx(wtx) || wtx.GetBlocksToMaturity() > 0 || wtx.GetDepthInMainChain() < 0)
             continue;
 
         int64_t nReceived, nSent, nFee;
@@ -626,7 +626,7 @@ Value getbalance(const Array& params, bool fHelp)
         for (map<uint256, CWalletTx>::iterator it = pwalletMain->mapWallet.begin(); it != pwalletMain->mapWallet.end(); ++it)
         {
             const CWalletTx& wtx = (*it).second;
-            if (!wtx.IsTrusted() || wtx.GetBlocksToMaturity(chainActive.Height() - wtx.GetDepthInMainChain()) > 0)
+            if (!wtx.IsTrusted() || wtx.GetBlocksToMaturity() > 0)
                 continue;
 
             int64_t allFee;
@@ -871,7 +871,7 @@ Value sendmany(const Array& params, bool fHelp)
 }
 
 // Defined in rpcmisc.cpp
-extern CScript _createmultisig(const Array& params);
+extern CScript _createmultisig_redeemScript(const Array& params);
 
 Value addmultisigaddress(const Array& params, bool fHelp)
 {
@@ -879,20 +879,20 @@ Value addmultisigaddress(const Array& params, bool fHelp)
     {
         string msg = "addmultisigaddress nrequired [\"key\",...] ( \"account\" )\n"
             "\nAdd a nrequired-to-sign multisignature address to the wallet.\n"
-            "Each key is a Digitalcoin address or hex-encoded public key.\n"
+            "Each key is a Bitcoin address or hex-encoded public key.\n"
             "If 'account' is specified, assign address to that account.\n"
 
             "\nArguments:\n"
-            "1. nrequired           (numeric, required) The number of required signatures out of the n keys or addresses.\n"
-            "2. \"keysobject\"      (string, required) A json array of digitalcoin addresses or hex-encoded public keys\n"
+            "1. nrequired        (numeric, required) The number of required signatures out of the n keys or addresses.\n"
+            "2. \"keysobject\"   (string, required) A json array of bitcoin addresses or hex-encoded public keys\n"
             "     [\n"
-            "       \"address\"     (string) digitalcoin address or hex-encoded public key\n"
+            "       \"address\"  (string) bitcoin address or hex-encoded public key\n"
             "       ...,\n"
             "     ]\n"
-            "3. \"account\"         (string, optional) An account to assign the addresses to.\n"
+            "3. \"account\"      (string, optional) An account to assign the addresses to.\n"
 
             "\nResult:\n"
-            "\"digitalcoinaddress\"  (string) A digitalcoin address associated with the keys.\n"
+            "\"bitcoinaddress\"  (string) A bitcoin address associated with the keys.\n"
 
             "\nExamples:\n"
             "\nAdd a multisig address from 2 addresses\n"
@@ -908,7 +908,7 @@ Value addmultisigaddress(const Array& params, bool fHelp)
         strAccount = AccountFromValue(params[2]);
 
     // Construct using pay-to-script-hash:
-    CScript inner = _createmultisig(params);
+    CScript inner = _createmultisig_redeemScript(params);
     CScriptID innerID = inner.GetID();
     pwalletMain->AddCScript(inner);
 
@@ -1140,7 +1140,7 @@ void ListTransactions(const CWalletTx& wtx, const string& strAccount, int nMinDe
                 {
                     if (wtx.GetDepthInMainChain() < 1)
                         entry.push_back(Pair("category", "orphan"));
-		    else if (wtx.GetBlocksToMaturity(chainActive.Height() - wtx.GetDepthInMainChain()) > 0)
+                    else if (wtx.GetBlocksToMaturity() > 0)
                         entry.push_back(Pair("category", "immature"));
                     else
                         entry.push_back(Pair("category", "generate"));
@@ -1324,7 +1324,7 @@ Value listaccounts(const Array& params, bool fHelp)
         list<pair<CTxDestination, int64_t> > listReceived;
         list<pair<CTxDestination, int64_t> > listSent;
         int nDepth = wtx.GetDepthInMainChain();
-        if (wtx.GetBlocksToMaturity(chainActive.Height()  - nDepth) > 0 || nDepth < 0)
+        if (wtx.GetBlocksToMaturity() > 0 || nDepth < 0)
             continue;
         wtx.GetAmounts(listReceived, listSent, nFee, strSentAccount);
         mapAccountBalances[strSentAccount] -= nFee;
@@ -1748,7 +1748,6 @@ Value lockunspent(const Array& params, bool fHelp)
             "\nUpdates list of temporarily unspendable outputs.\n"
             "Temporarily lock (unlock=false) or unlock (unlock=true) specified transaction outputs.\n"
             "A locked transaction output will not be chosen by automatic coin selection, when spending digitalcoins.\n"
-            "Locks are stored in memory only. Nodes start with zero locked outputs, and the locked output list\n"
             "is always cleared (by virtue of process exit) when a node stops or fails.\n"
             "Also see the listunspent call\n"
             "\nArguments:\n"

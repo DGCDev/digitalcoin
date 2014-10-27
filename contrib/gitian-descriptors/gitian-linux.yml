@@ -1,5 +1,5 @@
 ---
-name: "digibyte"
+name: "bitcoin"
 suites:
 - "precise"
 architectures:
@@ -22,11 +22,11 @@ packages:
 - "libqt4-test"
 reference_datetime: "2013-06-01 00:00:00"
 remotes:
-- "url": "https://github.com/digibyte/DigiByteProject.git"
-  "dir": "digibyte"
+- "url": "https://github.com/bitcoin/bitcoin.git"
+  "dir": "bitcoin"
 files:
-- "digibyte-deps-linux32-gitian-r5.zip"
-- "digibyte-deps-linux64-gitian-r5.zip"
+- "bitcoin-deps-linux32-gitian-r8.zip"
+- "bitcoin-deps-linux64-gitian-r8.zip"
 - "boost-linux32-1.55.0-gitian-r1.zip"
 - "boost-linux64-1.55.0-gitian-r1.zip"
 - "qt-linux32-4.6.4-gitian-r1.tar.gz"
@@ -43,7 +43,7 @@ script: |
   #
   mkdir -p $STAGING
   cd $STAGING
-  unzip ../build/digibyte-deps-linux${GBUILD_BITS}-gitian-r5.zip
+  unzip ../build/bitcoin-deps-linux${GBUILD_BITS}-gitian-r8.zip
   unzip ../build/boost-linux${GBUILD_BITS}-1.55.0-gitian-r1.zip
   tar -zxf ../build/qt-linux${GBUILD_BITS}-4.6.4-gitian-r1.tar.gz
   cd ../build
@@ -59,10 +59,10 @@ script: |
     local: *;
   };' > $LINKER_SCRIPT
   function do_configure {
-    ./configure "$@" --enable-upnp-default --prefix=$STAGING --with-protoc-bindir=$STAGING/host/bin --with-qt-bindir=$STAGING/bin --with-boost=$STAGING --disable-maintainer-mode --disable-dependency-tracking PKG_CONFIG_PATH="$STAGING/lib/pkgconfig" CPPFLAGS="-I$STAGING/include ${OPTFLAGS}" LDFLAGS="-L$STAGING/lib  -Wl,--version-script=$LINKER_SCRIPT ${OPTFLAGS}" CXXFLAGS="-frandom-seed=digibyte -msse2 ${OPTFLAGS}" BOOST_CHRONO_EXTRALIBS="-lrt" --enable-glibc-back-compat
+      ./configure "$@" --enable-upnp-default --prefix=$STAGING --with-protoc-bindir=$STAGING/host/bin --with-qt-bindir=$STAGING/bin --with-boost=$STAGING --disable-maintainer-mode --disable-dependency-tracking PKG_CONFIG_PATH="$STAGING/lib/pkgconfig" CPPFLAGS="-I$STAGING/include ${OPTFLAGS}" LDFLAGS="-L$STAGING/lib -Wl,--version-script=$LINKER_SCRIPT ${OPTFLAGS}" CXXFLAGS="-frandom-seed=bitcoin ${OPTFLAGS}" BOOST_CHRONO_EXTRALIBS="-lrt" --enable-glibc-back-compat
   }
   #
-  cd digibyte
+  cd bitcoin
   ./autogen.sh
   do_configure
   make dist
@@ -77,10 +77,9 @@ script: |
   make $MAKEOPTS
   make $MAKEOPTS install-strip
   make $MAKEOPTS clean
-  
   # sort distribution tar file and normalize user/group/mtime information for deterministic output
   mkdir -p $OUTDIR/src
   rm -rf $TEMPDIR
   mkdir -p $TEMPDIR
   cd $TEMPDIR
-  tar -xvf $HOME/build/digibyte/$DISTNAME | sort | tar --no-recursion -cT /dev/stdin --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 --mtime="$REFERENCE_DATETIME" | gzip -n > $OUTDIR/src/$DISTNAME
+  tar -xvf $HOME/build/bitcoin/$DISTNAME | sort | tar --no-recursion -cT /dev/stdin --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 --mtime="$REFERENCE_DATETIME" | gzip -n > $OUTDIR/src/$DISTNAME

@@ -26,7 +26,7 @@ AboutDialog::AboutDialog(QWidget *parent) :
     ui->setupUi(this);
 
     // Set current copyright year
-    ui->copyrightLabel->setText(tr("Copyright") + QString(" &copy; 2009-%1 ").arg(COPYRIGHT_YEAR) + tr("The Bitcoin and Digitalcoin developers"));
+    ui->copyrightLabel->setText(tr("Copyright") + QString(" &copy; 2013-%1 ").arg(COPYRIGHT_YEAR) + tr("The Digitalcoin developers"));
 }
 
 void AboutDialog::setModel(ClientModel *model)
@@ -64,7 +64,7 @@ HelpMessageDialog::HelpMessageDialog(QWidget *parent) :
     ui->setupUi(this);
     GUIUtil::restoreWindowGeometry("nHelpMessageDialogWindow", this->size(), this);
 
-    header = tr("Digitalcoin") + " " + tr("version") + " " +
+    header = tr("Digitalcoin Core") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
         "  digitalcoin-qt [" + tr("command-line options") + "]                     " + "\n";
@@ -124,7 +124,7 @@ void ShutdownWindow::showShutdownWindow(BitcoinGUI *window)
     QWidget *shutdownWindow = new QWidget();
     QVBoxLayout *layout = new QVBoxLayout();
     layout->addWidget(new QLabel(
-        tr("Digitalcoin is shutting down...") + "<br /><br />" +
+        tr("Digitalcoin Core is shutting down...") + "<br /><br />" +
         tr("Do not shut down the computer until this window disappears.")));
     shutdownWindow->setLayout(layout);
 

@@ -515,6 +515,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
         }
         CScript scriptDummy = CScript() << OP_TRUE;
         pblocktemplate = CreateNewBlock(scriptDummy, miningAlgo);
+
         if (!pblocktemplate)
             throw JSONRPCError(RPC_OUT_OF_MEMORY, "Out of memory");
 

@@ -20,6 +20,12 @@
 #include <fcntl.h>
 #endif
 
+#ifdef USE_UPNP
+#include <miniupnpc/miniupnpc.h>
+#include <miniupnpc/miniwget.h>
+#include <miniupnpc/upnpcommands.h>
+#include <miniupnpc/upnperrors.h>
+#endif
 
 #include <boost/filesystem.hpp>
 
@@ -344,7 +350,7 @@ bool GetMyExternalIP(CNetAddr& ipRet)
     const char* pszKeyword;
 
     for (int nLookup = 0; nLookup <= 1; nLookup++)
-    for (int nHost = 1; nHost <= 2; nHost++)
+    for (int nHost = 1; nHost <= 1; nHost++)
     {
         // We should be phasing out our use of sites like these. If we need
         // replacements, we should ask for volunteers to put this simple
@@ -368,25 +374,6 @@ bool GetMyExternalIP(CNetAddr& ipRet)
                      "\r\n";
 
             pszKeyword = "Address:";
-        }
-        else if (nHost == 2)
-        {
-            addrConnect = CService("74.208.43.192", 80); // www.showmyip.com
-
-            if (nLookup == 1)
-            {
-                CService addrIP("www.showmyip.com", 80, true);
-                if (addrIP.IsValid())
-                    addrConnect = addrIP;
-            }
-
-            pszGet = "GET /simple/ HTTP/1.1\r\n"
-                     "Host: www.showmyip.com\r\n"
-                     "User-Agent: Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)\r\n"
-                     "Connection: close\r\n"
-                     "\r\n";
-
-            pszKeyword = NULL; // Returns just IP address
         }
 
         if (GetMyExternalIP2(addrConnect, pszGet, pszKeyword, ipRet))
@@ -1050,8 +1037,6 @@ void ThreadSocketHandler()
             BOOST_FOREACH(CNode* pnode, vNodesCopy)
                 pnode->Release();
         }
-
-        MilliSleep(10);
     }
 }
 
@@ -1063,12 +1048,114 @@ void ThreadSocketHandler()
 
 
 
+#ifdef USE_UPNP
+void ThreadMapPort()
+{
+    std::string port = strprintf("%u", GetListenPort());
+    const char * multicastif = 0;
+    const char * minissdpdpath = 0;
+    struct UPNPDev * devlist = 0;
+    char lanaddr[64];
 
+#ifndef UPNPDISCOVER_SUCCESS
+    /* miniupnpc 1.5 */
+    devlist = upnpDiscover(2000, multicastif, minissdpdpath, 0);
+#else
+    /* miniupnpc 1.6 */
+    int error = 0;
+    devlist = upnpDiscover(2000, multicastif, minissdpdpath, 0, 0, &error);
+#endif
+
+    struct UPNPUrls urls;
+    struct IGDdatas data;
+    int r;
+
+    r = UPNP_GetValidIGD(devlist, &urls, &data, lanaddr, sizeof(lanaddr));
+    if (r == 1)
+    {
+        if (fDiscover) {
+            char externalIPAddress[40];
+            r = UPNP_GetExternalIPAddress(urls.controlURL, data.first.servicetype, externalIPAddress);
+            if(r != UPNPCOMMAND_SUCCESS)
+                LogPrintf("UPnP: GetExternalIPAddress() returned %d\n", r);
+            else
+            {
+                if(externalIPAddress[0])
+                {
+                    LogPrintf("UPnP: ExternalIPAddress = %s\n", externalIPAddress);
+                    AddLocal(CNetAddr(externalIPAddress), LOCAL_UPNP);
+                }
+                else
+                    LogPrintf("UPnP: GetExternalIPAddress failed.\n");
+            }
+        }
+
+        string strDesc = "Bitcoin " + FormatFullVersion();
+
+        try {
+            while (true) {
+#ifndef UPNPDISCOVER_SUCCESS
+                /* miniupnpc 1.5 */
+                r = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype,
+                                    port.c_str(), port.c_str(), lanaddr, strDesc.c_str(), "TCP", 0);
+#else
+                /* miniupnpc 1.6 */
+                r = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype,
+                                    port.c_str(), port.c_str(), lanaddr, strDesc.c_str(), "TCP", 0, "0");
+#endif
+
+                if(r!=UPNPCOMMAND_SUCCESS)
+                    LogPrintf("AddPortMapping(%s, %s, %s) failed with code %d (%s)\n",
+                        port, port, lanaddr, r, strupnperror(r));
+                else
+                    LogPrintf("UPnP Port Mapping successful.\n");;
+
+                MilliSleep(20*60*1000); // Refresh every 20 minutes
+            }
+        }
+        catch (boost::thread_interrupted)
+        {
+            r = UPNP_DeletePortMapping(urls.controlURL, data.first.servicetype, port.c_str(), "TCP", 0);
+            LogPrintf("UPNP_DeletePortMapping() returned : %d\n", r);
+            freeUPNPDevlist(devlist); devlist = 0;
+            FreeUPNPUrls(&urls);
+            throw;
+        }
+    } else {
+        LogPrintf("No valid UPnP IGDs found\n");
+        freeUPNPDevlist(devlist); devlist = 0;
+        if (r != 0)
+            FreeUPNPUrls(&urls);
+    }
+}
+
+void MapPort(bool fUseUPnP)
+{
+    static boost::thread* upnp_thread = NULL;
+
+    if (fUseUPnP)
+    {
+        if (upnp_thread) {
+            upnp_thread->interrupt();
+            upnp_thread->join();
+            delete upnp_thread;
+        }
+        upnp_thread = new boost::thread(boost::bind(&TraceThread<void (*)()>, "upnp", &ThreadMapPort));
+    }
+    else if (upnp_thread) {
+        upnp_thread->interrupt();
+        upnp_thread->join();
+        delete upnp_thread;
+        upnp_thread = NULL;
+    }
+}
+
+#else
 void MapPort(bool)
 {
     // Intentionally left blank.
 }
-
+#endif
 
 
 
@@ -1077,6 +1164,18 @@ void MapPort(bool)
 
 void ThreadDNSAddressSeed()
 {
+    // goal: only query DNS seeds if address need is acute
+    if ((addrman.size() > 0) &&
+        (!GetBoolArg("-forcednsseed", false))) {
+        MilliSleep(11 * 1000);
+
+        LOCK(cs_vNodes);
+        if (vNodes.size() >= 2) {
+            LogPrintf("P2P peers available. Skipped DNS seeding.\n");
+            return;
+        }
+    }
+
     const vector<CDNSSeedData> &vSeeds = Params().DNSSeeds();
     int found = 0;
 
@@ -1528,7 +1627,7 @@ bool BindListenPort(const CService &addrBind, string& strError)
     {
         int nErr = WSAGetLastError();
         if (nErr == WSAEADDRINUSE)
-            strError = strprintf(_("Unable to bind to %s on this computer. Digitalcoin is probably already running."), addrBind.ToString());
+            strError = strprintf(_("Unable to bind to %s on this computer. Digitalcoin Core is probably already running."), addrBind.ToString());
         else
             strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %s)"), addrBind.ToString(), NetworkErrorString(nErr));
         LogPrintf("%s\n", strError);
@@ -1628,7 +1727,10 @@ void StartNode(boost::thread_group& threadGroup)
     else
         threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dnsseed", &ThreadDNSAddressSeed));
 
-
+#ifdef USE_UPNP
+    // Map ports with UPnP
+    MapPort(GetBoolArg("-upnp", USE_UPNP));
+#endif
 
     // Send and receive from sockets, accept connections
     threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "net", &ThreadSocketHandler));

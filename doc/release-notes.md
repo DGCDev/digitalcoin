@@ -1,90 +1,69 @@
-DigiByte Core version 2.9.0 is now available from:
+Digitalcoin Core version 3.0.0 is now available from:
 
-  http://digibyte.co
+  https://digitalcoin.co/
 
-This is a release candidate for a new major version. A major version brings
-both new features and bug fixes.
+This is a new minor version release, bringing only bug fixes and updated
+translations. Upgrading to this release is recommended.
 
 Please report bugs using the issue tracker at github:
 
-  https://github.com/digibyte/DigiByteProject/issues
+  https://github.com/DGCFoundation/digitalcoin/issues
+
+Upgrading and downgrading
+==========================
 
 How to Upgrade
 --------------
 
-If you are running an older version, shut it down. Wait until it has completely
-shut down (which might take a few minutes for older versions), uninstall all
-earlier versions of DigiByte, then run the installer (on Windows) or just copy
-over /Applications/DigiByte-Qt (on Mac) or digibyted/digibyte-qt (on Linux).
+If you are running an older version,shut it down (which might take a few minutes for older versions), then run the
+installer (on Windows) or just copy over /Applications/Digitalcoin-Qt (on Mac) or
+digitalcoind/digitalcoin-qt (on Linux).
 
 If you are upgrading from version 0.7.2 or earlier, the first time you run
-2.9.0 your blockchain files will be re-indexed, which will take anywhere from 
+0.9.3 your blockchain files will be re-indexed, which will take anywhere from 
 30 minutes to several hours, depending on the speed of your machine.
-
-On Windows, do not forget to uninstall all earlier versions of the DigiByte
-client first, especially if you are switching to the 64-bit version.
-
-Windows 64-bit installer
--------------------------
-
-New in 2.9.0 is the Windows 64-bit version of the client. There have been
-frequent reports of users running out of virtual memory on 32-bit systems
-during the initial sync. Because of this it is recommended to install the
-64-bit version if your system supports it.
-
-NOTE: Release candidate 2 Windows binaries are not code-signed; use PGP
-and the SHA256SUMS.asc file to make sure your binaries are correct.
-In the final 2.9.0 release, Windows setup.exe binaries will be code-signed.
-
-OSX 10.5 / 32-bit no longer supported
--------------------------------------
-
-2.9.0 drops support for older Macs. The minimum requirements are now:
-* A 64-bit-capable CPU (see http://support.apple.com/kb/ht3696);
-* Mac OS 10.6 or later (see https://support.apple.com/kb/ht1633).
 
 Downgrading warnings
 --------------------
 
 The 'chainstate' for this release is not always compatible with previous
-releases, so if you run 2.9 and then decide to switch back to a
-0.8.x release you might get a blockchain validation error when starting the
+releases, so if you run 3.0.0 and then decide to switch back to an older release you might get a blockchain validation error when starting the
 old release (due to 'pruned outputs' being omitted from the index of
 unspent transaction outputs).
 
 Running the old release with the -reindex option will rebuild the chainstate
 data structures and correct the problem.
 
-Also, the first time you run a 0.8.x release on a 2.9 wallet it will rescan
+Also, the first time you run a 3.0.0 release on an older wallet it will rescan
 the blockchain for missing spent coins, which will take a long time (tens
 of minutes on a typical machine).
 
-Rebranding to DigiByte Core
+Rebranding to Digitalcoin Core
 ---------------------------
 
-To reduce confusion between DigiByte-the-network and DigiByte-the-software we
-have renamed the reference client to DigiByte Core.
+To reduce confusion between Digitalcoin-the-network and Digitalcoin-the-software we
+have renamed the reference client to Digitalcoin Core.
 
 Autotools build system
 -----------------------
 
-For 0.9.0 we switched to an autotools-based build system instead of individual
+For 3.0.0 we switched to an autotools-based build system instead of individual
 (q)makefiles.
 
-Using the standard "./autogen.sh; ./configure; make" to build DigiByte-Qt and
-digibyted makes it easier for experienced open source developers to contribute 
+Using the standard "./autogen.sh; ./configure; make" to build Digitalcoin-Qt and
+digitalcoind makes it easier for experienced open source developers to contribute 
 to the project.
 
 Be sure to check doc/build-*.md for your platform before building from source.
 
-DigiByte-cli
+Digitalcoin-cli
 -------------
 
-Another change in the 0.9 release is moving away from the digibyted executable
+Another change in the 3.0.0 release is moving away from the digitalcoind executable
 functioning both as a server and as a RPC client. The RPC client functionality
-("tell the running digibyte daemon to do THIS") was split into a separate
-executable, 'digibyte-cli'. The RPC client code will eventually be removed from
-digibyted, but will be kept for backwards compatibility for a release or two.
+("tell the running digitalcoind daemon to do THIS") was split into a separate
+executable, 'digitalcoind-cli'. The RPC client code will eventually be removed from
+digitalcoind, but will be kept for backwards compatibility for a release or two.
 
 `walletpassphrase` RPC
 -----------------------
@@ -183,13 +162,13 @@ Command-line options:
 - New option: -nospendzeroconfchange to never spend unconfirmed change outputs
 - New option: -zapwallettxes to rebuild the wallet's transaction information
 - Rename option '-tor' to '-onion' to better reflect what it does
-- Add '-disablewallet' mode to let digibyted run entirely without wallet (when
+- Add '-disablewallet' mode to let digitalcoind run entirely without wallet (when
   built with wallet)
 - Update default '-rpcsslciphers' to include TLSv1.2
 - make '-logtimestamps' default on and rework help-message
 - RPC client option: '-rpcwait', to wait for server start
 - Remove '-logtodebugger'
-- Allow `-noserver` with digibyted
+- Allow `-noserver` with digitalcoind
 
 Block-chain handling and storage:
 
@@ -240,7 +219,6 @@ Protocol and network:
 - Improve logging of failed connections
 - Bump protocol version to 70002
 - Add some additional logging to give extra network insight
-- Added new DNS seed from digibytestats.com
 
 Validation:
 
@@ -285,14 +263,14 @@ GUI:
 - Move initialization/shutdown to a thread. This prevents "Not responding"
   messages during startup. Also show a window during shutdown.
 - Don't regenerate autostart link on every client startup
-- Show and store message of normal digibyte:URI
+- Show and store message of normal digitalcoin:URI
 - Fix richtext detection hang issue on very old Qt versions
 - OS X: Make use of the 10.8+ user notification center to display Growl-like 
   notifications
 - OS X: Added NSHighResolutionCapable flag to Info.plist for better font
   rendering on Retina displays.
-- OS X: Fix digibyte-qt startup crash when clicking dock icon
-- Linux: Fix Gnome digibyte: URI handler
+- OS X: Fix digitalcoin-qt startup crash when clicking dock icon
+- Linux: Fix Gnome digitalcoin: URI handler
 
 Miscellaneous:
 
@@ -300,98 +278,75 @@ Miscellaneous:
 - Add '-regtest' mode, similar to testnet but private with instant block
   generation with 'setgenerate' RPC.
 - Add 'linearize.py' script to contrib, for creating bootstrap.dat
-- Add separate digibyte-cli client
+- Add separate digitalcoin-cli client
+=======
+Also, the first time you run a 0.8.x release on a 0.9 wallet it will rescan
+the blockchain for missing spent coins, which will take a long time (tens
+of minutes on a typical machine).
+
+0.9.3 Release notes
+=======================
+
+RPC:
+- Avoid a segfault on getblock if it can't read a block from disk
+- Add paranoid return value checks in base58
+
+Protocol and network code:
+- Don't poll showmyip.com, it doesn't exist anymore
+- Add a way to limit deserialized string lengths and use it
+- Add a new checkpoint at block 295,000
+- Increase IsStandard() scriptSig length
+- Avoid querying DNS seeds, if we have open connections
+- Remove a useless millisleep in socket handler
+- Stricter memory limits on CNode
+- Better orphan transaction handling
+- Add `-maxorphantx=<n>` and `-maxorphanblocks=<n>` options for control over the maximum orphan transactions and blocks
+
+Wallet:
+- Check redeemScript size does not exceed 520 byte limit
+- Ignore (and warn about) too-long redeemScripts while loading wallet
+
+GUI:
+- fix 'opens in testnet mode when presented with a BIP-72 link with no fallback'
+- AvailableCoins: acquire cs_main mutex
+- Fix unicode character display on MacOSX
+
+Miscellaneous:
+- key.cpp: fail with a friendlier message on missing ssl EC support
+- Remove bignum dependency for scripts
+- Upgrade OpenSSL to 1.0.1i (see https://www.openssl.org/news/secadv_20140806.txt - just to be sure, no critical issues for Digitalcoin Core)
+- Upgrade miniupnpc to 1.9.20140701
+- Fix boost detection in build system on some platforms
 
 Credits
 --------
 
 Thanks to everyone who contributed to this release:
 
-- Andrey
-- Ashley Holman
-- b6393ce9-d324-4fe1-996b-acf82dbc3d53
-- bitsofproof
-- Brandon Dahler
-- Calvin Tam
-- Christian Decker
-- Christian von Roques
-- Christopher Latham
-- Chuck
-- coblee
-- constantined
+Bitcoin Devs 
+-------------
+- Andrew Poelstra
 - Cory Fields
-- Cozz Lovan
-- daniel
-- Daniel Larimer
-- David Hill
-- Dmitry Smirnov
-- Drak
-- Eric Lombrozo
-- fanquake
-- fcicq
-- Florin
-- frewil
 - Gavin Andresen
-- Gregory Maxwell
-- gubatron
-- Guillermo Céspedes Tabárez
-- Haakon Nilsen
-- HaltingState
-- Han Lin Yap
-- harry
-- Ian Kelling
 - Jeff Garzik
 - Johnathan Corgan
-- Jonas Schnelli
-- Josh Lehan
-- Josh Triplett
-- Julian Langschaedel
-- Kangmo
-- Lake Denman
-- Luke Dashjr
-- Mark Friedenbach
-- Matt Corallo
-- Michael Bauer
+- Julian Haight
 - Michael Ford
-- Michagogo
-- Midnight Magic
-- Mike Hearn
-- Nils Schneider
-- Noel Tiernan
-- Olivier Langlois
-- patrick s
-- Patrick Strateman
-- paveljanik
+- Pavel Vasin
 - Peter Todd
 - phantomcircuit
-- phelixbtc
-- Philip Kaufmann
 - Pieter Wuille
-- Rav3nPL
-- R E Broadley
-- regergregregerrge
-- Robert Backhaus
-- Roman Mindalev
-- Rune K. Svendsen
-- Ryan Niebur
-- Scott Ellis
-- Scott Willeke
-- Sergey Kazenyuk
-- Shawn Wilkinson
-- Sined
-- sje
-- Subo1978
-- super3
-- Tamas Blummer
-- theuni
-- Thomas Holenstein
-- Timon Rapp
-- Timothy Stranex
-- Tom Geller
-- Torstein Husebø
-- Vaclav Vobornik
-- vhf / victor felder
-- Vinnie Falco
+- Rose Toomey
+- Ruben Dario Ponticelli
+- shshshsh
+- Trevin Hofmann
 - Warren Togami
-- Wil Bown
 - Wladimir J. van der Laan
+- Zak Wilcox
+
+Digitalcoin Devs 
+-----------------
+- Ahmed Bodiwala
+- Xawksaw
+
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/bitcoin/).

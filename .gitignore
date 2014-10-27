@@ -1,11 +1,11 @@
 *.tar.gz
 
 *.exe
-src/digibyte
-src/digibyted
-src/digibyte-cli
-src/test/test_digibyte
-src/qt/test/test_digibyte-qt
+src/digitalcoin
+src/digitalcoind
+src/digitalcoin-cli
+src/test/test_digitalcoin
+src/qt/test/test_digitalcoin-qt
 
 Makefile.in
 aclocal.m4
@@ -13,8 +13,8 @@ autom4te.cache/
 config.log
 config.status
 configure
-src/digibyte-config.h
-src/digibyte-config.h.in
+src/digitalcoin-config.h
+src/digitalcoin-config.h.in
 src/build-aux/
 src/stamp-h1
 share/setup.nsi
@@ -36,7 +36,7 @@ src/qt/test/moc*.cpp
 *.o
 *.o-*
 *.patch
-.digibyte
+.digitalcoin
 *.a
 *.pb.cc
 *.pb.h
@@ -51,12 +51,12 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-digibyte-qt
-DigiByte-Qt.app
+digitalcoin-qt
+Digitalcoin-Qt.app
 
 # Unit-tests
 Makefile.test
-digibyte-qt_test
+digitalcoin-qt_test
 
 # Resources cpp
 qrc_*.cpp
@@ -71,7 +71,7 @@ build
 #lcov
 *.gcno
 /*.info
-test_digibyte.coverage/
+test_digitalcoin.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -79,7 +79,7 @@ coverage_percent.txt
 linux-coverage-build
 linux-build
 win32-build
-qa/pull-tester/run-digibyted-for-test.sh
+qa/pull-tester/run-digitalcoind-for-test.sh
 qa/pull-tester/build-tests.sh
 
 !src/leveldb*/Makefile

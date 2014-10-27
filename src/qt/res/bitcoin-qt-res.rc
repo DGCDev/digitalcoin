@@ -1,5 +1,5 @@
 IDI_ICON1 ICON DISCARDABLE "icons/bitcoin.ico"
-IDI_ICON2 ICON DISCARDABLE "icons/bitcoin.ico"
+IDI_ICON2 ICON DISCARDABLE "icons/bitcoin_testnet.ico"
 
 #include <windows.h>             // needed for VERSIONINFO
 #include "../../clientversion.h" // holds the needed client version information
@@ -21,13 +21,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "DigitalCoin"
-            VALUE "FileDescription",    "DigitalCoin-Qt (OSS GUI client for DigitalCoin)"
+            VALUE "FileDescription",    "DigitalCoin Core Qt (OSS GUI client for DigitalCoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "digitalcoin-qt"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "digitalcoin-qt.exe"
-            VALUE "ProductName",        "DigitalCoin-Qt"
+            VALUE "ProductName",        "DigitalCoin Core Qt"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

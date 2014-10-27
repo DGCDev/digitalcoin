@@ -86,11 +86,11 @@ bool AppInit(int argc, char* argv[])
         if (mapArgs.count("-?") || mapArgs.count("--help"))
         {
             // First part of help message is specific to bitcoind / RPC client
-            std::string strUsage = _("Digitalcoin Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n\n" +
+            std::string strUsage = _("Digitalcoin Core Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  digitalcoind [options]                     " + _("Start Digitalcoin Daemon") + "\n" +
+                  "  digitalcoind [options]                     " + _("Start Digitalcoin Core Daemon") + "\n" +
                 _("Usage (deprecated, use digitalcoin-cli):") + "\n" +
-                  "  digitalcoind [options] <command> [params]  " + _("Send command to Digitalcoin") + "\n" +
+                  "  digitalcoind [options] <command> [params]  " + _("Send command to Digitalcoin Core") + "\n" +
                   "  digitalcoind [options] help                " + _("List commands") + "\n" +
                   "  digitalcoind [options] help <command>      " + _("Get help for a command") + "\n";
 

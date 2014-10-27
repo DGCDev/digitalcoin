@@ -1,6 +1,6 @@
 UNIX BUILD NOTES
 ====================
-Some notes on how to build DigiByte in Unix. 
+Some notes on how to build Digitalcoin in Unix. 
 
 To Build
 ---------------------
@@ -9,7 +9,7 @@ To Build
 	./configure
 	make
 
-This will build digibyte-qt as well if the dependencies are met.
+This will build digitalcoin-qt as well if the dependencies are met.
 
 Dependencies
 ---------------------
@@ -51,6 +51,13 @@ Licenses of statically linked libraries:
 -  qt            4.8.3
 -  protobuf      2.5.0
 -  libqrencode   3.2.0
+
+System requirements
+--------------------
+
+C++ compilers are memory-hungry. It is recommended to have at least 1 GB of
+memory available when compiling Bitcoin Core. With 512MB of memory or less
+compilation will take much longer due to swap thrashing.
 
 Dependency Build Instructions: Ubuntu & Debian
 ----------------------------------------------
@@ -101,7 +108,7 @@ Optional:
 Dependencies for the GUI: Ubuntu & Debian
 -----------------------------------------
 
-If you want to build DigiByte-Qt, make sure that the required packages for Qt development
+If you want to build Digitalcoin-Qt, make sure that the required packages for Qt development
 are installed. Either Qt 4 or Qt 5 are necessary to build the GUI.
 If both Qt 4 and Qt 5 are installed, Qt 4 will be used. Pass `--with-gui=qt5` to configure to choose Qt5.
 To build without GUI pass `--without-gui`.
@@ -118,13 +125,11 @@ libqrencode (optional) can be installed with:
 
     apt-get install libqrencode-dev
 
-Once these are installed, they will be found by configure and a digibyte-qt executable will be
-built by default.
+Once these are installed, they will be found by configure and a digitalcoin-qt executable will be built by default.
 
 Notes
 -----
-The release is built with GCC and then "strip digibyted" to strip the debug
-symbols, which reduces the executable size by about 90%.
+The release is built with GCC and then "strip digitalcoind" to strip the debug symbols, which reduces the executable size by about 90%.
 
 
 miniupnpc
@@ -145,6 +150,33 @@ You need Berkeley DB 4.8.  If you have to build Berkeley DB yourself:
 	make
 	sudo make install
 
+It is recommended to use Berkeley DB 4.8. If you have to build it yourself:
+
+```bash
+BITCOIN_ROOT=$(pwd)
+
+# Pick some path to install BDB to, here we create a directory within the bitcoin directory
+BDB_PREFIX="${BITCOIN_ROOT}/db4"
+mkdir -p $BDB_PREFIX
+
+# Fetch the source and verify that it is not tampered with
+wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
+echo '12edc0df75bf9abd7f82f821795bcee50f42cb2e5f76a6a281b85732798364ef  db-4.8.30.NC.tar.gz' | sha256sum -c
+# -> db-4.8.30.NC.tar.gz: OK
+tar -xzvf db-4.8.30.NC.tar.gz
+
+# Build the library and install to our prefix
+cd db-4.8.30.NC/build_unix/
+#  Note: Do a static build so that it can be embedded into the exectuable, instead of having to find a .so at runtime
+../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
+make install
+
+# Configure Bitcoin Core to use our own-built instance of BDB
+cd $BITCOIN_ROOT
+./configure (other args...) LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
+```
+
+**Note**: You only need Berkeley DB if the wallet is enabled (see the section *Disable-Wallet mode* below).
 
 Boost
 -----
@@ -157,8 +189,7 @@ If you need to build Boost yourself:
 
 Security
 --------
-To help make your digibyte installation more secure by making certain attacks impossible to
-exploit even if a vulnerability is found, binaries are hardened by default.
+To help make your digitalcoin installation more secure by making certain attacks impossible to exploit even if a vulnerability is found, binaries are hardened by default.
 This can be disabled with:
 
 Hardening Flags:
@@ -181,7 +212,7 @@ Hardening enables the following features:
 
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
 
-    	scanelf -e ./digibyte
+    	scanelf -e ./digitalcoin
 
     The output should contain:
      TYPE
@@ -189,13 +220,13 @@ Hardening enables the following features:
 
 * Non-executable Stack
     If the stack is executable then trivial stack based buffer overflow exploits are possible if
-    vulnerable buffers are found. By default, digibyte should be built with a non-executable stack
+    vulnerable buffers are found. By default, digitalcoin should be built with a non-executable stack
     but if one of the libraries it uses asks for an executable stack or someone makes a mistake
     and uses a compiler extension which requires an executable stack, it will silently build an
     executable without the non-executable stack protection.
 
     To verify that the stack is non-executable after compiling use:
-    `scanelf -e ./digibyte`
+    `scanelf -e ./digitalcoin`
 
     the output should contain:
 	STK/REL/PTL
@@ -205,7 +236,7 @@ Hardening enables the following features:
 
 Disable-wallet mode
 --------------------
-When the intention is to run only a P2P node without a wallet, digibyte may be compiled in
+When the intention is to run only a P2P node without a wallet, digitalcoin may be compiled in
 disable-wallet mode with:
 
     ./configure --disable-wallet

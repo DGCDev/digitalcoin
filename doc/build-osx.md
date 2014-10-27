@@ -1,6 +1,6 @@
 Mac OS X Build Instructions and Notes
 ====================================
-This guide will show you how to build digibyted(headless client) for OSX.
+This guide will show you how to build digitalcoind(headless client) for OSX.
 
 Notes
 -----
@@ -26,55 +26,20 @@ There's an assumption that you already have `git` installed, as well. If
 not, it's the path of least resistance to install [Github for Mac](https://mac.github.com/)
 (OS X 10.7+) or
 [Git for OS X](https://code.google.com/p/git-osx-installer/). It is also
-available via Homebrew or MacPorts.
+available via Homebrew.
 
 You will also need to install [Homebrew](http://brew.sh)
-or [MacPorts](https://www.macports.org/) in order to install library
-dependencies. It's largely a religious decision which to choose, but, as of
-December 2012, MacPorts is a little easier because you can just install the
-dependencies immediately - no other work required. If you're unsure, read
-the instructions through first in order to assess what you want to do.
-Homebrew is a little more popular among those newer to OS X.
+in order to install library dependencies.
 
 The installation of the actual dependencies is covered in the Instructions
 sections below.
-
-Instructions: MacPorts
-----------------------
-
-### Install dependencies
-
-Installing the dependencies using MacPorts is very straightforward.
-
-    sudo port install boost db48@+no_java openssl miniupnpc autoconf pkgconfig automake
-
-Optional: install Qt4
-
-    sudo port install qt4-mac qrencode protobuf-cpp
-
-### Building `digibyted`
-
-1. Clone the github tree to get the source code and go into the directory.
-
-        git clone git@github.com:digibyte/digibyte.git digibyte
-        cd digibyte
-
-2.  Build digibyted (and DigiByte-Qt, if configured):
-
-        ./autogen.sh
-        ./configure
-        make
-
-3.  It is a good idea to build and run the unit tests, too:
-
-        make check
 
 Instructions: Homebrew
 ----------------------
 
 #### Install dependencies using Homebrew
 
-        brew install autoconf automake berkeley-db4 boost miniupnpc openssl pkg-config protobuf qt
+        brew install autoconf automake libtool boost miniupnpc openssl pkg-config protobuf qt
 
 Note: After you have installed the dependencies, you should check that the Homebrew installed version of OpenSSL is the one available for compilation. You can check this by typing
 
@@ -86,17 +51,41 @@ If not, you can ensure that the Homebrew OpenSSL is correctly linked by running
 
         brew link openssl --force
 
-Rerunning "openssl version" should now return the correct version.
+Rerunning "openssl version" should now return the correct version. If it
+doesn't, make sure `/usr/local/bin` comes before `/usr/bin` in your
+PATH. 
 
-### Building `digibyted`
+#### Installing berkeley-db4 using Homebrew
+
+The homebrew package for berkeley-db4 has been broken for some time.  It will install without Java though.
+
+Running this command takes you into brew's interactive mode, which allows you to configure, make, and install by hand:
+```
+$ brew install https://raw.github.com/mxcl/homebrew/master/Library/Formula/berkeley-db4.rb -–without-java 
+```
+
+These rest of these commands are run inside brew interactive mode:
+```
+/private/tmp/berkeley-db4-UGpd0O/db-4.8.30 $ cd ..
+/private/tmp/berkeley-db4-UGpd0O $ db-4.8.30/dist/configure --prefix=/usr/local/Cellar/berkeley-db4/4.8.30 --mandir=/usr/local/Cellar/berkeley-db4/4.8.30/share/man --enable-cxx
+/private/tmp/berkeley-db4-UGpd0O $ make
+/private/tmp/berkeley-db4-UGpd0O $ make install
+/private/tmp/berkeley-db4-UGpd0O $ exit
+```
+
+After exiting, you'll get a warning that the install is keg-only, which means it wasn't symlinked to `/usr/local`.  You don't need it to link it to build digitalcoin, but if you want to, here's how:
+
+    $ brew --force link berkeley-db4
+
+
+### Building `digitalcoind`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/digibyte/DigiByteProject.git
-        cd digibyte
+        git clone https://github.com/digitalcoin/digitalcoin.git
+        cd digitalcoin
 
-2.  Build digibyted:
-
+2.  Build digitalcoind:
         ./autogen.sh
         ./configure
         make
@@ -107,11 +96,11 @@ Rerunning "openssl version" should now return the correct version.
 
 Creating a release build
 ------------------------
-You can ignore this section if you are building `digibyted` for your own use.
+You can ignore this section if you are building `digitalcoind` for your own use.
 
-digibyted/digibyte-cli binaries are not included in the DigiByte-Qt.app bundle.
+digitalcoind/digitalcoin-cli binaries are not included in the Digitalcoin-Qt.app bundle.
 
-If you are building `digibyted` or `DigiByte-Qt` for others, your build machine should be set up
+If you are building `digitalcoind` or `Digitalcoin-Qt` for others, your build machine should be set up
 as follows for maximum compatibility:
 
 All dependencies should be compiled with these flags:
@@ -132,29 +121,28 @@ As of December 2012, the `boost` port does not obey `macosx_deployment_target`.
 Download `http://gavinandresen-digibyte.s3.amazonaws.com/boost_macports_fix.zip`
 for a fix.
 
-Once dependencies are compiled, see release-process.md for how the DigiByte-Qt.app
+Once dependencies are compiled, see release-process.md for how the Digitalcoin-Qt.app
 bundle is packaged and signed to create the .dmg disk image that is distributed.
 
 Running
 -------
-
-It's now available at `./digibyted`, provided that you are still in the `src`
+It's now available at `./digitalcoind`, provided that you are still in the `src`
 directory. We have to first create the RPC configuration file, though.
 
-Run `./digibyted` to get the filename where it should be put, or just try these
+Run `./digitalcoind` to get the filename where it should be put, or just try these
 commands:
 
-    echo -e "rpcuser=digibyterpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/DigiByte/digibyte.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/DigiByte/digibyte.conf"
+    echo -e "rpcuser=digitalcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Digitalcoin/digitalcoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Digitalcoin/digitalcoin.conf"
 
 When next you run it, it will start downloading the blockchain, but it won't
 output anything while it's doing this. This process may take several hours;
 you can monitor its process by looking at the debug.log file, like this:
 
-    tail -f $HOME/Library/Application\ Support/DigiByte/debug.log
+    tail -f $HOME/Library/Application\ Support/Digitalcoin/debug.log
 
 Other commands:
 
-    ./digibyted -daemon # to start the digibyte daemon.
-    ./digibyte-cli --help  # for a list of command-line options.
-    ./digibyte-cli help    # When the daemon is running, to get a list of RPC commands
+    ./digitalcoind -daemon # to start the digitalcoin daemon.
+    ./digitalcoin-cli --help  # for a list of command-line options.
+    ./digitalcoin-cli help    # When the daemon is running, to get a list of RPC commands

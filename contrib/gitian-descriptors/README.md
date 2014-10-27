@@ -20,35 +20,22 @@ Sanity checks:
 
 Once you've got the right hardware and software:
 
-    git clone git://github.com/digibyte/DigiByteProject.git
+    git clone git://github.com/bitcoin/bitcoin.git
     git clone git://github.com/devrandom/gitian-builder.git
     mkdir gitian-builder/inputs
     cd gitian-builder/inputs
 
-    # Get inputs (see doc/release-process.md for exact inputs needed and where to get them)
-    ...
-    cd ../..
-
+    # Create base images
     cd gitian-builder
     bin/make-base-vm --suite precise --arch i386
     bin/make-base-vm --suite precise --arch amd64
     cd ..
 
-    # Build Linux release:
-    cd DigiByteProject
-    git pull
-    cd ../gitian-builder
-    git pull
-    ./bin/gbuild --commit digibyte=HEAD ../digibyte/contrib/gitian-descriptors/gitian-linux.yml
+    # Get inputs (see doc/release-process.md for exact inputs needed and where to get them)
+    ...
 
-    # Build Win32 dependencies: (only needs to be done once, or when dependency versions change)
-    ./bin/gbuild --commit digibyte=HEAD ../DigiByteProject/contrib/gitian-descriptors/boost-win32.yml
-    ./bin/gbuild --commit digibyte=HEAD ../DigiByteProject/contrib/gitian-descriptors/deps-win32.yml
-    ./bin/gbuild --commit digibyte=HEAD ../DigiByteProject/contrib/gitian-descriptors/qt-win32.yml
-    ./bin/gbuild --commit digibyte=HEAD ../DigiByteProject/contrib/gitian-descriptors/protobuf-win32.yml
-
-    # Build Win32 release:
-    ./bin/gbuild --commit digibyte=HEAD ../DigiByteProject/contrib/gitian-descriptors/gitian-win32.yml
+    # For further build instructions see doc/release-notes.md
+    ...
 
 ---------------------
 
@@ -76,5 +63,5 @@ Here's a description of Gavin's setup on OSX 10.6:
 5. Still inside Ubuntu, tell gitian-builder to use LXC, then follow the "Once you've got the right hardware and software" instructions above:
 
 	export USE_LXC=1
-	git clone git://github.com/digibyte/DigiByteProject.git
+	git clone git://github.com/bitcoin/bitcoin.git
 	... etc

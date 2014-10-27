@@ -374,7 +374,7 @@ void IncrementExtraNonce(CBlock* pblock, CBlockIndex* pindexPrev, unsigned int& 
     }
     ++nExtraNonce;
     unsigned int nHeight = pindexPrev->nHeight+1; // Height first in coinbase required for block.version=2
-    pblock->vtx[0].vin[0].scriptSig = (CScript() << nHeight << CBigNum(nExtraNonce)) + COINBASE_FLAGS;
+    pblock->vtx[0].vin[0].scriptSig = (CScript() << nHeight << CScriptNum(nExtraNonce)) + COINBASE_FLAGS;
     assert(pblock->vtx[0].vin[0].scriptSig.size() <= 100);
 
     pblock->hashMerkleRoot = pblock->BuildMerkleTree();
@@ -539,6 +539,10 @@ void static MinerWaitOnline()
 
 void static BitcoinMiner(CWallet *pwallet)
 {
+    LogPrintf("BitcoinMiner started\n");
+    SetThreadPriority(THREAD_PRIORITY_LOWEST);
+    RenameThread("bitcoin-miner");
+
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
     unsigned int nExtraNonce = 0;
@@ -546,6 +550,13 @@ void static BitcoinMiner(CWallet *pwallet)
     while(true)
     {
         MinerWaitOnline();
+    try { while (true) {
+        if (Params().NetworkID() != CChainParams::REGTEST) {
+            // Busy-wait for the network to come online so we don't waste time mining
+            // on an obsolete chain. In regtest mode we expect to fly solo.
+            while (vNodes.empty())
+                MilliSleep(1000);
+        }
 
         //
         // Create new block

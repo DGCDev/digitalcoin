@@ -211,7 +211,7 @@ public:
     // Adds an encrypted key to the store, without saving it to disk (used by LoadWallet)
     bool LoadCryptedKey(const CPubKey &vchPubKey, const std::vector<unsigned char> &vchCryptedSecret);
     bool AddCScript(const CScript& redeemScript);
-    bool LoadCScript(const CScript& redeemScript) { return CCryptoKeyStore::AddCScript(redeemScript); }
+    bool LoadCScript(const CScript& redeemScript);
 
     /// Adds a destination data tuple to the store, and saves it to disk
     bool AddDestData(const CTxDestination &dest, const std::string &key, const std::string &value);
@@ -590,7 +590,7 @@ public:
     int64_t GetCredit(bool fUseCache=true) const
     {
         // Must wait until coinbase is safely deep enough in the chain before valuing it
-        if (IsCoinBase() && GetBlocksToMaturity(chainActive.Height() - GetDepthInMainChain()) > 0)
+        if (IsCoinBase() && GetBlocksToMaturity() > 0)
             return 0;
 
         // GetBalance can assume transactions in mapWallet won't change
@@ -603,7 +603,7 @@ public:
 
     int64_t GetImmatureCredit(bool fUseCache=true) const
     {
-        if (IsCoinBase() && GetBlocksToMaturity(chainActive.Height() - GetDepthInMainChain()) > 0 && IsInMainChain())
+        if (IsCoinBase() && GetBlocksToMaturity() > 0 && IsInMainChain())
         {
             if (fUseCache && fImmatureCreditCached)
                 return nImmatureCreditCached;
@@ -621,7 +621,7 @@ public:
             return 0;
 
         // Must wait until coinbase is safely deep enough in the chain before valuing it
-        if (IsCoinBase() && GetBlocksToMaturity((chainActive.Height() - GetDepthInMainChain()) > 0 ))
+        if (IsCoinBase() && GetBlocksToMaturity() > 0)
             return 0;
 
         if (fUseCache && fAvailableCreditCached)
@@ -756,7 +756,7 @@ public:
         READWRITE(vchPrivKey);
         READWRITE(nTimeCreated);
         READWRITE(nTimeExpires);
-        READWRITE(strComment);
+        READWRITE(LIMITED_STRING(strComment, 65536));
     )
 };
 
@@ -831,7 +831,7 @@ public:
         // Note: strAccount is serialized as part of the key, not here.
         READWRITE(nCreditDebit);
         READWRITE(nTime);
-        READWRITE(strOtherAccount);
+        READWRITE(LIMITED_STRING(strOtherAccount, 65536));
 
         if (!fRead)
         {
@@ -847,7 +847,7 @@ public:
             }
         }
 
-        READWRITE(strComment);
+        READWRITE(LIMITED_STRING(strComment, 65536));
 
         size_t nSepPos = strComment.find("\0", 0, 1);
         if (fRead)

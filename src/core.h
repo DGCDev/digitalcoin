@@ -406,7 +406,6 @@ public:
     }
 
     int GetAlgo() const { return ::GetAlgo(nVersion); }
-    
     IMPLEMENT_SERIALIZE
     (
         READWRITE(this->nVersion);
@@ -455,7 +454,6 @@ public:
         }
         return GetHash();
     }
-    
     int64_t GetBlockTime() const
     {
         return (int64_t)nTime;

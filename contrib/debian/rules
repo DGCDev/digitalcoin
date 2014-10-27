@@ -1,12 +1,12 @@
 #!/usr/bin/make -f
 # -*- mode: makefile; coding: utf-8 -*-
 
-#DEB_MAKE_CHECK_TARGET = test_digibyte
-#build/digibyted::
-#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_digibyte)
+#DEB_MAKE_CHECK_TARGET = test_digitalcoin
+#build/digitalcoind::
+#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_digitalcoin)
 
-DEB_INSTALL_EXAMPLES_digibyted += debian/examples/*
-DEB_INSTALL_MANPAGES_digibyted += debian/manpages/*
+DEB_INSTALL_EXAMPLES_digitalcoind += debian/examples/*
+DEB_INSTALL_MANPAGES_digitalcoind += debian/manpages/*
 
 %:
 	dh --with bash-completion $@
@@ -16,18 +16,13 @@ override_dh_auto_build:
 	$(MAKE)
 
 override_dh_auto_clean:
-	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f digibyte-qt; fi
-	cd src; $(MAKE) -f makefile.unix clean
+	if [ -f Makefile ]; then $(MAKE) distclean; fi
+	rm -rf Makefile.in aclocal.m4 configure src/Makefile.in src/digitalcoin-config.h.in src/build-aux src/qt/Makefile.in src/qt/test/Makefile.in src/test/Makefile.in
 
+# Yea, autogen should be run on the source archive, but I like doing git archive
 override_dh_auto_configure:
-	qmake digibyte-qt.pro USE_QRCODE=1
+	./autogen.sh
+	./configure
 
 override_dh_auto_test:
-	cd src; $(MAKE) -f makefile.unix test_digibyte
-	src/test_digibyte
-
-# Ensure wrapper is set executable
-binary-post-install/digibyted:
-	chmod +x $(cdbs_curdestdir)usr/bin/digibyted
-binary-post-install/digibyte-qt:
-	chmod +x $(cdbs_curdestdir)usr/bin/digibyte-qt
+	make check

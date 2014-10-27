@@ -1,4 +1,4 @@
-The following is a list of assets used in the digibyte source and their proper attribution.
+The following is a list of assets used in the Digitalcoin source and their proper attribution.
 
 [Wladimir van der Laan](https://github.com/laanwj)
 -----------------------
@@ -78,13 +78,13 @@ Everaldo (Everaldo Coelho)
 ### Assets Used
 	scripts/img/reload.xcf (modified), src/qt/res/movies/*.png
 
-[Vignoni David](http://www.oxygen-icons.org)
+[Vignoni David](http://techbase.kde.org/Projects/Oxygen)
 -----------------------
 
 ### Info
 * Designer: Vignoni David
 * License: Oxygen icon theme is dual licensed. You may copy it under the Creative Common Attribution-ShareAlike 3.0 License or the GNU Library General Public License.
-* Site: [http://www.oxygen-icons.org](http://www.oxygen-icons.org)
+* Site: [http://techbase.kde.org/Projects/Oxygen](http://techbase.kde.org/Projects/Oxygen)
 
 ### Assets Used
 	src/qt/res/icons/debugwindow.png
@@ -93,12 +93,12 @@ Jonas Schnelli
 -----------------------
 
 ### Info
-* Designer: Jonas Schnelli (based on the original digibyte logo from Bitboy)
+* Designer: Jonas Schnelli (based on the original bitcoin logo from Bitboy)
 * License: MIT
 
 ### Assets Used
-	src/qt/res/icons/digibyte.icns, src/qt/res/src/digibyte.svg,
-	src/qt/res/src/digibyte.ico, src/qt/res/src/digibyte.png,
-	src/qt/res/src/digibyte_testnet.png, docs/digibyte_logo_doxygen.png,
+	src/qt/res/icons/bitcoin.icns, src/qt/res/src/bitcoin.svg,
+	src/qt/res/src/bitcoin.ico, src/qt/res/src/bitcoin.png,
+	src/qt/res/src/bitcoin_testnet.png, docs/bitcoin_logo_doxygen.png,
 	src/qt/res/icons/toolbar.png, src/qt/res/icons/toolbar_testnet.png,
 	src/qt/res/images/splash.png, src/qt/res/images/splash_testnet.png

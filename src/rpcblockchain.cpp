@@ -20,7 +20,6 @@ void ScriptPubKeyToJSON(const CScript& scriptPubKey, Object& out, bool fIncludeH
 double GetDifficulty(const CBlockIndex* blockindex, int algo)
 {
     unsigned int nBits;
-    
     // Floating point number that is a multiple of the minimum difficulty,
     // minimum difficulty = 1.0.
     if (blockindex == NULL)
@@ -38,7 +37,7 @@ double GetDifficulty(const CBlockIndex* blockindex, int algo)
     }
     else
         nBits = blockindex->nBits;
-    
+
     int nShift = (nBits >> 24) & 0xff;
 
     double dDiff =
@@ -290,7 +289,9 @@ Value getblock(const Array& params, bool fHelp)
 
     CBlock block;
     CBlockIndex* pblockindex = mapBlockIndex[hash];
-    ReadBlockFromDisk(block, pblockindex);
+
+    if(!ReadBlockFromDisk(block, pblockindex))
+        throw JSONRPCError(RPC_INTERNAL_ERROR, "Can't read block from disk");
 
     if (!fVerbose)
     {

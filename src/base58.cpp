@@ -290,13 +290,15 @@ bool CBitcoinSecret::SetString(const char* psz) {
                     fMini=true;
                 else
                 {
-                    uint256 hash2;
+                /**    uint256 hash2;
                     for (i=0; i<358; i++) // 358*2=716 +1=717
                     {
                         SHA256((unsigned char*)BEGIN(hash), sizeof(hash), (unsigned char*)&hash2);
                         SHA256((unsigned char*)BEGIN(hash2), sizeof(hash2), (unsigned char*)&hash);
                     }
                     if (*(hash.begin()) == 0) fMini = true;
+				*/
+					return false;
                 }
                 if (fMini)
                 {

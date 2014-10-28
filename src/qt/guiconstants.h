@@ -42,7 +42,7 @@ static const int MAX_PAYMENT_REQUEST_SIZE = 50000; // bytes
 #define SPINNER_FRAMES 35
 
 #define QAPP_ORG_NAME "Digitalcoin"
-#define QAPP_ORG_DOMAIN "digitalcoin.org"
+#define QAPP_ORG_DOMAIN "digitalcoin.co"
 #define QAPP_APP_NAME_DEFAULT "Digitalcoin-Qt"
 #define QAPP_APP_NAME_TESTNET "Digitalcoin-Qt-testnet"
 

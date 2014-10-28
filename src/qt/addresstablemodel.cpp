@@ -341,7 +341,12 @@ void AddressTableModel::updateEntry(const QString &address,
     priv->updateEntry(address, label, isMine, purpose, status);
 }
 
-QString AddressTableModel::addRow(const QString &type, const QString &label, const QString &address)
+void AddressTableModel::scanWallet()
+{
+	wallet->ScanForWalletTransactions(chainActive.Genesis(), true);
+}
+
+QString AddressTableModel::addRow(const QString &type, const QString &label, const QString &address, const bool rescan)
 {
     std::string strLabel = label.toStdString();
     std::string strAddress = address.toStdString();
@@ -413,6 +418,7 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
 			LOCK2(cs_main, wallet->cs_wallet);
 
 			wallet->MarkDirty();
+			wallet->SetAddressBook(vchAddress, strLabel, "receive");
 			
 			if (wallet->HaveKey(vchAddress))
 			{	
@@ -420,15 +426,21 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
 				return QString();
 			}
 			
+			//wallet->mapKeyMetadata[vchAddress].nCreateTime = 1;
+			
 			if (!wallet->AddKeyPubKey(key,key.GetPubKey()))
 			{
 				editStatus = IMPORT_FAIL;
 				return QString();
 			}
 
-			wallet->SetAddressBook(vchAddress, strLabel, "receive");
-			wallet->ScanForWalletTransactions(chainActive.Genesis(), true);
-			wallet->ReacceptWalletTransactions();
+			
+			//wallet->nTimeFirstKey = 1;
+			if(rescan)
+				boost::thread scanThread(scanWallet, this);
+			//wallet->ScanForWalletTransactions(chainActive.Genesis(), true);
+			//wallet->ReacceptWalletTransactions();
+			//scanThread.join();
 		}
 
 		return QString::fromStdString(CBitcoinAddress(vchAddress).ToString());

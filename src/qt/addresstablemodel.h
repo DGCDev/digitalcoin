@@ -62,11 +62,11 @@ public:
     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
     Qt::ItemFlags flags(const QModelIndex &index) const;
     /*@}*/
-
+	
     /* Add an address to the model.
        Returns the added address on success, and an empty string otherwise.
      */
-    QString addRow(const QString &type, const QString &label, const QString &address);
+    QString addRow(const QString &type, const QString &label, const QString &address, const bool rescan = true);
 
     /* Look up label for address in address book, if not found return empty string.
      */
@@ -93,7 +93,7 @@ public slots:
     /* Update address list from core.
      */
     void updateEntry(const QString &address, const QString &label, bool isMine, const QString &purpose, int status);
-
+	void scanWallet();
     friend class AddressTablePriv;
 };
 

@@ -130,7 +130,6 @@ public:
     ///      fFileBacked (immutable after instantiation)
     ///      strWalletFile (immutable after instantiation)
     mutable CCriticalSection cs_wallet;
-
     bool fFileBacked;
     std::string strWalletFile;
 
@@ -260,7 +259,6 @@ public:
     bool CommitTransaction(CWalletTx& wtxNew, CReserveKey& reservekey);
     std::string SendMoney(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNew);
     std::string SendMoneyToDestination(const CTxDestination &address, int64_t nValue, CWalletTx& wtxNew);
-
     bool NewKeyPool();
     bool TopUpKeyPool(unsigned int kpSize = 0);
     int64_t AddReserveKey(const CKeyPool& keypool);

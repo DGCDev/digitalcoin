@@ -95,8 +95,9 @@ bool EditAddressDialog::saveCurrentRow()
 	case ImportReceivingAddress:
 		ui->label_3->setText(tr(" Please wait - scanning for transactions matching this address..."));
 		ui->label_3->setVisible(true);
+		ui->rescanCheckBox->setVisible(true);
 		ui->buttonBox->setEnabled(false);
-		address = model->addRow(AddressTableModel::Import, ui->labelEdit->text(), ui->addressEdit->text());
+		address = model->addRow(AddressTableModel::Import, ui->labelEdit->text(), ui->addressEdit->text(), ui->rescanCheckBox->isChecked());
 		break;
     }
     return !address.isEmpty();
@@ -110,6 +111,7 @@ void EditAddressDialog::accept()
     if(!saveCurrentRow())
     {
 		ui->label_3->setVisible(false);
+		ui->rescanCheckBox->setVisible(false);
 		ui->buttonBox->setEnabled(true);
         
 		switch(model->getEditStatus())

@@ -72,7 +72,7 @@ private slots:
     void onEditAction();
     /** Export button clicked */
     void on_exportButton_clicked();
-
+	void on_importAddressButton_clicked();
     /** Set button states based on selected tab and selection */
     void selectionChanged();
     /** Spawn contextual menu (right mouse menu) for address book entry */

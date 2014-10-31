@@ -124,7 +124,7 @@ public:
     void SetKey(const CKey& vchSecret);
     CKey GetKey();
     bool IsValid() const;
-    bool SetString(const char* pszSecret);
+    bool SetString(const char* psz);
     bool SetString(const std::string& strSecret);
 
     CBitcoinSecret(const CKey& vchSecret) { SetKey(vchSecret); }

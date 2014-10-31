@@ -40,11 +40,16 @@ public:
         INVALID_ADDRESS,        /**< Unparseable address */
         DUPLICATE_ADDRESS,      /**< Address already in address book */
         WALLET_UNLOCK_FAILURE,  /**< Wallet could not be unlocked to create new receiving address */
-        KEY_GENERATION_FAILURE  /**< Generating a new public key for a receiving address failed */
+        KEY_GENERATION_FAILURE, /**< Generating a new public key for a receiving address failed */
+		INVALID_PRIVKEY, 		/**< Invalid private key */
+		INVALID_MINIKEY, 		/**< Invalid mini private key */
+		IMPORT_DUPLICATE, 		/**< Address already in address book */
+		IMPORT_FAIL 			/**< AddKey Failed */
     };
 
     static const QString Send;      /**< Specifies send address */
     static const QString Receive;   /**< Specifies receive address */
+	static const QString Import; /**< Specifies import address */
 
     /** @name Methods overridden from QAbstractTableModel
         @{*/
@@ -57,11 +62,11 @@ public:
     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
     Qt::ItemFlags flags(const QModelIndex &index) const;
     /*@}*/
-
+	
     /* Add an address to the model.
        Returns the added address on success, and an empty string otherwise.
      */
-    QString addRow(const QString &type, const QString &label, const QString &address);
+    QString addRow(const QString &type, const QString &label, const QString &address, const bool rescan = true);
 
     /* Look up label for address in address book, if not found return empty string.
      */
@@ -88,7 +93,7 @@ public slots:
     /* Update address list from core.
      */
     void updateEntry(const QString &address, const QString &label, bool isMine, const QString &purpose, int status);
-
+	void scanWallet();
     friend class AddressTablePriv;
 };
 

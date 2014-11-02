@@ -59,7 +59,7 @@ static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 static const unsigned int DEFAULT_MAX_ORPHAN_TRANSACTIONS = 100;
 /** Default for -maxorphanblocks, maximum number of orphan blocks kept in memory */
 static const unsigned int DEFAULT_MAX_ORPHAN_BLOCKS = 750;
-static const int COINBASE_MATURITY = 100;
+static const int COINBASE_MATURITY = 5;
 /** DGC V3 Hard Fork Block */
 static const int V3_FORK = 961900;
 static const int V3_TESTNET_FORK = 100;

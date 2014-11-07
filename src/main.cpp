@@ -838,34 +838,36 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree, 
     // is less than CENT:
     if (nMinFee < nBaseFee && mode == GMF_SEND)
     {
-        BOOST_FOREACH(const CTxOut& txout, tx.vout)
+        BOOST_FOREACH(const CTxOut& txout, tx.vout){
             if (txout.nValue < CENT)
                 nMinFee = nBaseFee;
-    }
+    
 
-    if (txout.IsScriptOpReturn())
-    {
-	if (nBytes <=128)
-	{
-	    nMinFee *= 2;
+			if (txout.IsScriptOpReturn())
+			{
+				if (nBytes <=128)
+				{
+					nMinFee *= 2;
+				}
+				else if (nBytes > 128 && nBytes <= 256)
+				{
+					nMinFee *= 4;
+				}
+				else if (nBytes > 256 && nBytes <= 512)
+				{
+					nMinFee *= 8;
+				}
+				else if (nBytes > 512 && nBytes <= 1024)
+				{
+					nMinFee *= 16;
+				}
+				else
+				{
+					nMinFee *= 32;
+				}
+			}
+		}
 	}
-	else if (nBytes > 128 && nBytes <= 256)
-	{
-	    nMinFee *= 4;
-	{
-	else if (nBytes > 256 && nBytes <= 512)
-	{
-	    nMinFee *= 8;
-	}
-	else if (nBytes > 512 && nBytes <= 1024)
-	{
-	    nMinFee *= 16;
-	}
-	else
-	{
-	    nMinFee *= 32;
-	}
-    }
 
     if (!MoneyRange(nMinFee))
         nMinFee = MAX_MONEY;
@@ -1298,7 +1300,7 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
     {
         nSubsidy = 20 * COIN;
     }
-    else if(TestNet() && nHeight >= V3_TESTNET_FORK)
+    else if(TestNet())
     {
 	nSubsidy = 5 * COIN;
     }
@@ -2597,7 +2599,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
             return state.DoS(100, error("AcceptBlock() : incorrect proof of work"),
                              REJECT_INVALID, "bad-diffbits");
 
-	 if (TestNet() && nHeight < V3_TESTNET_FORK && block.GetAlgo() != ALGO_SCRYPT )
+	 if (TestNet() && block.GetAlgo() != ALGO_SCRYPT )
             return state.Invalid(error("AcceptBlock() : incorrect hasing algo, only scrypt accepted until block %u", V3_FORK),
 			    REJECT_INVALID, "bad-hashalgo");
 

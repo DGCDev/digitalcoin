@@ -393,6 +393,7 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
     }
 	else if(type == Import)
 	{
+	
 		CKey key;
 		bool fCompressed;
 
@@ -426,7 +427,7 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
 				return QString();
 			}
 			
-			//wallet->mapKeyMetadata[vchAddress].nCreateTime = 1;
+			wallet->mapKeyMetadata[vchAddress].nCreateTime = 1;
 			
 			if (!wallet->AddKeyPubKey(key,key.GetPubKey()))
 			{
@@ -435,9 +436,11 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
 			}
 
 			
-			//wallet->nTimeFirstKey = 1;
-			if(rescan)
+			wallet->nTimeFirstKey = 1;
+			if(rescan) {
 				boost::thread scanThread(scanWallet, this);
+				scanThread.detach();
+			}
 			//wallet->ScanForWalletTransactions(chainActive.Genesis(), true);
 			//wallet->ReacceptWalletTransactions();
 			//scanThread.join();

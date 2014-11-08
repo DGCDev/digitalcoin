@@ -93,14 +93,7 @@ public:
         return !(a == b);
     }
 
-    bool IsScriptOpReturn() const
-    {
-	opcodetype opCode;
-	CScript::const_iterator itTxA = scriptPubKey.begin();
-	return (scriptPubKey.GetOp(itTxA, opCode)
-		 && opCode == OP_RETURN);
-    }
-
+    
     std::string ToString() const;
     void print() const;
 };
@@ -225,6 +218,14 @@ public:
     friend bool operator!=(const CTxOut& a, const CTxOut& b)
     {
         return !(a == b);
+    }
+	
+	bool IsScriptOpReturn() const
+    {
+	opcodetype opCode;
+	CScript::const_iterator itTxA = scriptPubKey.begin();
+	return (scriptPubKey.GetOp(itTxA, opCode)
+		 && opCode == OP_RETURN);
     }
 
     std::string ToString() const;

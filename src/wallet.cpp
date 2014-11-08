@@ -872,19 +872,22 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
                 ShowProgress(_("Rescanning..."), std::max(1, std::min(99, (int)((Checkpoints::GuessVerificationProgress(pindex, false) - dProgressStart) / (dProgressTip - dProgressStart) * 100))));
 
            	CBlock block;
-	
-			ReadBlockFromDisk(block, pindex);
+			try {
+				ReadBlockFromDisk(block, pindex);
 
-			BOOST_FOREACH(CTransaction& tx, block.vtx)
-			{
-				if (AddToWalletIfInvolvingMe(tx.GetHash(), tx, &block, true))
-					ret++;
+				BOOST_FOREACH(CTransaction& tx, block.vtx)
+				{
+					if (AddToWalletIfInvolvingMe(tx.GetHash(), tx, &block, true))
+						ret++;
+				}
+				pindex = chainActive.Next(pindex);
+				if (GetTime() >= nNow + 60) {
+					nNow = GetTime();
+					LogPrintf("Still rescanning. At block %d. Progress=%f\n", pindex->nHeight, Checkpoints::GuessVerificationProgress(pindex));
+				}
 			}
-            pindex = chainActive.Next(pindex);
-            if (GetTime() >= nNow + 60) {
-                nNow = GetTime();
-                LogPrintf("Still rescanning. At block %d. Progress=%f\n", pindex->nHeight, Checkpoints::GuessVerificationProgress(pindex));
-            }
+			catch (...){
+			}
         }
 		
         ShowProgress(_("Rescanning..."), 100); // hide progress dialog in GUI

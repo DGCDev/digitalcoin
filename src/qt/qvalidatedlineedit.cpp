@@ -28,7 +28,7 @@ void QValidatedLineEdit::setValid(bool valid)
     }
     else
     {
-        setStyleSheet(STYLE_INVALID);
+        //setStyleSheet(STYLE_INVALID); // disable it for now TODO: fix for private addresses and mini keys
     }
     this->valid = valid;
 }

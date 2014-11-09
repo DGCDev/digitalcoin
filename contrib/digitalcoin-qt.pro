@@ -1,3 +1,5 @@
+QT += printsupport
+
 FORMS += \
     ../src/qt/forms/aboutdialog.ui \
     ../src/qt/forms/addressbookpage.ui \
@@ -6,6 +8,8 @@ FORMS += \
     ../src/qt/forms/editaddressdialog.ui \
     ../src/qt/forms/helpmessagedialog.ui \
     ../src/qt/forms/intro.ui \
+	../src/qt/forms/chatwindow.ui \
+	../src/qt/forms/exchangebrowser.ui \
     ../src/qt/forms/openuridialog.ui \
     ../src/qt/forms/optionsdialog.ui \
     ../src/qt/forms/overviewpage.ui \

@@ -63,8 +63,10 @@ public:
         assert(hashGenesisBlock == uint256("0x5e039e1ca1dbf128973bf6cff98169e40a1b194c3b91463ab74956f413b2f9c8"));
         assert(genesis.hashMerkleRoot == uint256("0xecb2c595fff9f2364152c32027737007c5a4c60ec960cf93754b0211bc2a1501"));
 
-        vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #1", "digitalcoin.co"));
-        vSeeds.push_back(CDNSSeedData("ahmed seed #2", "178.62.28.81"));
+        vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #1", "digitalcoin.co"));        
+		vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #2", "game.digitalcoin.co"));
+		vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #3", "dev.digitalcoin.co"));
+		vSeeds.push_back(CDNSSeedData("ahmed seed #1", "178.62.28.81"));
         //vSeeds.push_back(CDNSSeedData("digihash.co seed #3", "seed3.digihash.co"));
         //vSeeds.push_back(CDNSSeedData("love2hash.com seed #4", "seed4.love2hash.com"));
         //vSeeds.push_back(CDNSSeedData("digiexplorer.info seed #5", "seed5.digiexplorer.info"));

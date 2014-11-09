@@ -14,6 +14,8 @@
 #include "optionsmodel.h"
 #include "rpcconsole.h"
 #include "utilitydialog.h"
+#include "exchangebrowser.h"
+#include "chatwindow.h"
 #ifdef ENABLE_WALLET
 #include "walletframe.h"
 #include "walletmodel.h"
@@ -72,7 +74,7 @@ BitcoinGUI::BitcoinGUI(bool fIsTestnet, QWidget *parent) :
 {
     GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
 
-    QString windowTitle = tr("Digitalcoin Core") + " - ";
+    QString windowTitle = tr("Digitalcoin") + " - ";
 #ifdef ENABLE_WALLET
     /* if compiled with wallet support, -disablewallet can still disable the wallet */
     bool enableWallet = !GetBoolArg("-disablewallet", false);
@@ -119,6 +121,7 @@ BitcoinGUI::BitcoinGUI(bool fIsTestnet, QWidget *parent) :
     {
         /** Create wallet frame and make it the central widget */
         walletFrame = new WalletFrame(this);
+		
         setCentralWidget(walletFrame);
     } else
 #endif
@@ -128,7 +131,7 @@ BitcoinGUI::BitcoinGUI(bool fIsTestnet, QWidget *parent) :
          */
         setCentralWidget(rpcConsole);
     }
-
+	
     // Accept D&D of URIs
     setAcceptDrops(true);
 
@@ -147,7 +150,7 @@ BitcoinGUI::BitcoinGUI(bool fIsTestnet, QWidget *parent) :
 
     // Create status bar
     statusBar();
-
+	
     // Status bar notification icons
     QFrame *frameBlocks = new QFrame();
     frameBlocks->setContentsMargins(0,0,0,0);
@@ -247,6 +250,17 @@ void BitcoinGUI::createActions(bool fIsTestnet)
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
+	chatAction = new QAction(QIcon(":/icons/chat"), tr("&Chat"), this);
+	chatAction->setToolTip(tr("View chat"));
+	chatAction->setCheckable(true);
+	tabGroup->addAction(chatAction);
+	
+	exchangeAction = new QAction(QIcon(":/icons/markets"), tr("&Market Data"), this);
+	exchangeAction->setToolTip(tr("Market"));
+	exchangeAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_7));
+	exchangeAction->setCheckable(true);
+	tabGroup->addAction(exchangeAction);
+	
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
     // can be triggered from the tray menu, and need to show the GUI to be useful.
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -257,6 +271,8 @@ void BitcoinGUI::createActions(bool fIsTestnet)
     connect(receiveCoinsAction, SIGNAL(triggered()), this, SLOT(gotoReceiveCoinsPage()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
+	connect(chatAction, SIGNAL(triggered()), this, SLOT(gotoChatPage()));
+	connect(exchangeAction, SIGNAL(triggered()), this, SLOT(gotoExchangeBrowserPage()));
 
     quitAction = new QAction(QIcon(":/icons/quit"), tr("E&xit"), this);
     quitAction->setStatusTip(tr("Quit application"));
@@ -386,6 +402,8 @@ void BitcoinGUI::createToolBars()
         toolbar->addAction(sendCoinsAction);
         toolbar->addAction(receiveCoinsAction);
         toolbar->addAction(historyAction);
+		toolbar->addAction(chatAction);
+		toolbar->addAction(exchangeAction);
         overviewAction->setChecked(true);
     }
 }
@@ -577,6 +595,18 @@ void BitcoinGUI::gotoHistoryPage()
 {
     historyAction->setChecked(true);
     if (walletFrame) walletFrame->gotoHistoryPage();
+}
+
+void BitcoinGUI::gotoChatPage()
+{
+    chatAction->setChecked(true);
+    if (walletFrame) walletFrame->gotoChatPage();
+}
+
+void BitcoinGUI::gotoExchangeBrowserPage()
+{
+    exchangeAction->setChecked(true);
+    if (walletFrame) walletFrame->gotoExchangeBrowserPage();
 }
 
 void BitcoinGUI::gotoReceiveCoinsPage()

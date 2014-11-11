@@ -6,6 +6,7 @@
 
 #include "hash.h"
 #include "uint256.h"
+#include "stealthaddress.h"
 
 #include <assert.h>
 #include <stdint.h>
@@ -195,6 +196,7 @@ namespace {
         bool operator()(const CKeyID &id) const { return addr->Set(id); }
         bool operator()(const CScriptID &id) const { return addr->Set(id); }
         bool operator()(const CNoDestination &no) const { return false; }
+	bool operator()(const CStealthAddress &stxAddr) const { return false; }
     };
 };
 

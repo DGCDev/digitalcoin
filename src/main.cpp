@@ -568,6 +568,7 @@ bool IsStandardTx(const CTransaction& tx, string& reason)
     }
 
     unsigned int nDataOut = 0;
+    unsigned int nTxnOut = 0;
     txnouttype whichType;
     BOOST_FOREACH(const CTxOut& txout, tx.vout) {
         if (!::IsStandard(txout.scriptPubKey, whichType)) {
@@ -576,14 +577,18 @@ bool IsStandardTx(const CTransaction& tx, string& reason)
         }
         if (whichType == TX_NULL_DATA)
             nDataOut++;
-        else if (txout.IsDust(CTransaction::nMinRelayTxFee)) {
-            reason = "dust";
-            return false;
-        }
+	else
+	{
+        	 if (txout.IsDust(CTransaction::nMinRelayTxFee)) {
+            		reason = "dust";
+            		return false;
+        	 }
+		 nTxnOut++;
+	}
     }
 
     // only one OP_RETURN txout is permitted
-    if (nDataOut > 1) {
+    if (nDataOut > nTxnOut) {
         reason = "multi-op-return";
         return false;
     }
@@ -2583,11 +2588,31 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
     CBlockIndex* pindexPrev = NULL;
     int nHeight = 0;
     if (hash != Params().HashGenesisBlock()) {
+	// Check Previous Block
         map<uint256, CBlockIndex*>::iterator mi = mapBlockIndex.find(block.hashPrevBlock);
         if (mi == mapBlockIndex.end())
             return state.DoS(10, error("AcceptBlock() : prev block not found"), 0, "bad-prevblk");
         pindexPrev = (*mi).second;
         nHeight = pindexPrev->nHeight+1;
+
+	// Check count of sequence of the same algorithm
+	if (TestNet() || (nHeight > V3_FORK))
+	{
+		int nAlgo = block.GetAlgo();
+		int nAlgoCount = 1;
+		CBlockIndex* piPrev = pindexPrev;
+		while (piPrev && (nAlgoCount <= MAX_BLOCK_ALGO_COUNT))
+		{
+			if (piPrev->GetAlgo() != nAlgo)
+				break;
+			nAlgoCount++;
+			piPrev = piPrev->pprev;
+		}
+		if (nAlgoCount > MAX_BLOCK_ALGO_COUNT)
+		{
+			return state.DoS(100, error("AcceptBlock() : Too Many Blocks From the Same Algo"), REJECT_INVALID, "algo-toomany");
+		}
+	}
 
         LogPrintf("Checking Block %d with Algo %d \n", nHeight, block.GetAlgo());
         if (block.GetAlgo() == ALGO_SCRYPT)  { LogPrintf("Algo is Scrypt \n ");}
@@ -2628,6 +2653,8 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
         if (pcheckpoint && nHeight < pcheckpoint->nHeight)
             return state.DoS(100, error("AcceptBlock() : forked chain older than last checkpoint (height %d)", nHeight));
 
+	/* Multi Algo uses a custom block version number to identify the algorithm, therefore the V2 block version rule cannot apply
+
         // Reject block.nVersion=1 blocks when 95% (75% on testnet) of the network has upgraded:
         if (block.nVersion < 2)
         {
@@ -2652,6 +2679,8 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CDiskBlockPos* dbp)
                                      REJECT_INVALID, "bad-cb-height");
             }
         }
+	*/
+
     }
 
     // Write block to history file

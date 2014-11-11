@@ -3,6 +3,7 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include "stealthaddress.h"
 #include "base58.h"
 #include "init.h"
 #include "main.h"
@@ -128,6 +129,15 @@ public:
             obj.push_back(Pair("sigsrequired", nRequired));
         return obj;
     }
+    
+    Object operator()(const CStealthAddress &stxAddr) const {
+	Object obj;
+	obj.push_back(Pair("isstealth", true));
+	obj.push_back(Pair("label", stxAddr.label));
+	obj.push_back(Pair("address", stxAddr.Encoded()));
+	return obj;
+    }
+
 };
 #endif
 

@@ -1270,6 +1270,8 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                 int64_t nTotalValue = nValue + nFeeRet;
                 double dPriority = 0;
                 // vouts to the payees
+				
+				
                 BOOST_FOREACH (const PAIRTYPE(CScript, int64_t)& s, vecSend)
                 {
                     CTxOut txout(s.second, s.first);
@@ -1279,6 +1281,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                         return false;
                     }
                     wtxNew.vout.push_back(txout);
+					
                 }
 
                 // Choose coins to use
@@ -1405,6 +1408,12 @@ bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue,
 {
     vector< pair<CScript, int64_t> > vecSend;
     vecSend.push_back(make_pair(scriptPubKey, nValue));
+	if(strlen(wtxNew.mapValue["data"].c_str()) > 0) {					
+		const char *conststr  = wtxNew.mapValue["data"].c_str();
+		int64_t val = 0;
+		CScript script = CScript() << ParseHex("6a") << vector<unsigned char>((const unsigned char*)conststr, (const unsigned char*)conststr + strlen(conststr));
+		vecSend.push_back(make_pair(script, val));
+	}
     return CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, strFailReason, coinControl);
 }
 

@@ -259,7 +259,7 @@ public:
     bool CommitTransaction(CWalletTx& wtxNew, CReserveKey& reservekey);
     std::string SendMoney(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNew);
     std::string SendMoneyToDestination(const CTxDestination &address, int64_t nValue, CWalletTx& wtxNew);
-    bool NewKeyPool();
+	bool NewKeyPool();
     bool TopUpKeyPool(unsigned int kpSize = 0);
     int64_t AddReserveKey(const CKeyPool& keypool);
     void ReserveKeyFromKeyPool(int64_t& nIndex, CKeyPool& keypool);

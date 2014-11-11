@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ExchangeBrowser</class>
+ <widget class="QWidget" name="ExchangeBrowser">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>766</width>
+    <height>509</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Digging</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetMaximumSize</enum>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <item row="2" column="0">
+    <widget class="QTabWidget" name="All">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#All QTabBar::tab {border:none;height:80px;margin-top:-20px;padding-bottom:20px;padding-right:60px;margin-left:-20px}
+QTabWidget::tab-bar {alignment:center;border:0px;}
+QTabWidget::pane {border:none;}
+#tab QTabWidget::pane,#tab_3 QTabWidget::pane,#tab_4 QTabWidget::pane, #tab_2 QTabWidget::pane {border:none;border-left:1px solid #95a5a6;}</string>
+     </property>
+     <property name="tabPosition">
+      <enum>QTabWidget::West</enum>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>1</width>
+       <height>1</height>
+      </size>
+     </property>
+     <property name="usesScrollButtons">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="tabBittrex">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <attribute name="icon">
+       <iconset>
+        <normaloff>:/icons/res/icons/bittrex.png</normaloff>:/icons/res/icons/bittrex.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string/>
+      </attribute>
+      <widget class="QTabWidget" name="tabWidgetBittrex">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>661</width>
+         <height>431</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>true</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTabBar:tab {height:20px;background:none;color:#8e8e8e;margin:0px;margin-right:10px;text-align:center;padding:2px;border-radius:3px;font-style:italic;width:80px;font-size:12px;margin-bottom:10px;}
+QTabWidget::tab-bar {alignment:right;;}
+QTabBar::tab:last {margin-right:100px;}</string>
+       </property>
+       <property name="tabPosition">
+        <enum>QTabWidget::North</enum>
+       </property>
+       <property name="tabShape">
+        <enum>QTabWidget::Rounded</enum>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>85</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="usesScrollButtons">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="qWidgetBittrexMarketData">
+        <property name="styleSheet">
+         <string notr="true">border:none;</string>
+        </property>
+        <attribute name="icon">
+         <iconset resource="../bitcoin.qrc">
+          <normaloff>:/icons/export</normaloff>:/icons/export</iconset>
+        </attribute>
+        <attribute name="title">
+         <string>Data</string>
+        </attribute>
+        <widget class="QWidget" name="qWidgetBittrexMain" native="true">
+         <property name="geometry">
+          <rect>
+           <x>-20</x>
+           <y>-50</y>
+           <width>701</width>
+           <height>441</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Myriad Pro</family>
+           <pointsize>-1</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font-family:Myriad Pro;color:#61696c;font-size:12px;</string>
+         </property>
+         <widget class="QWidget" name="qWidgetBittrexAsk" native="true">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>180</y>
+            <width>111</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-right:1px solid #bdc3c7;</string>
+          </property>
+          <widget class="QLabel" name="lblBittrexAskHeader">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>101</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border:none;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Ask&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lblBittrexAskBtc">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>40</y>
+             <width>91</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border:none;</string>
+           </property>
+           <property name="text">
+            <string>B0.00000000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lblBittrexAskUsd">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>60</y>
+             <width>91</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border:none;</string>
+           </property>
+           <property name="text">
+            <string>$0.00000000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="qWidgetBittrexBid" native="true">
+          <property name="geometry">
+           <rect>
+            <x>360</x>
+            <y>180</y>
+            <width>111</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <widget class="QLabel" name="lblBittrexBidHeader">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>101</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border:none;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Bid&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lblBittrexBidBtc">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>40</y>
+             <width>91</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>B0.00000000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lblBittrexBidUsd">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>60</y>
+             <width>91</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>$0.00000000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="qWidgetBittrexLast" native="true">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>180</y>
+            <width>111</width>
+            <height>81</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-right:1px solid #bdc3c7;</string>
+          </property>
+          <widget class="QLabel" name="lblBittrexLastHeader">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>101</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border:none;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Last&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lblBittrexLastBtc">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>40</y>
+             <width>91</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border:none;</string>
+           </property>
+           <property name="text">
+            <string>B0.00000000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lblBittrexLastUsd">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>60</y>
+             <width>91</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border:none;</string>
+           </property>
+           <property name="text">
+            <string>$0.00000000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QLabel" name="lblBittrexChangePerc">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>130</y>
+            <width>121</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-weight:600;font-size:17px;</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;0.00%&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexSellHeader">
+          <property name="geometry">
+           <rect>
+            <x>300</x>
+            <y>270</y>
+            <width>271</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Myriad Pro</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#f2594b;&quot;&gt;Sell&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QTreeWidget" name="qTreeWidgetBittrexSell">
+          <property name="geometry">
+           <rect>
+            <x>300</x>
+            <y>310</y>
+            <width>271</width>
+            <height>121</height>
+           </rect>
+          </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QScrollBar:vertical {margin-top:22px;background: #95a5a6;}QScrollBar::handle:vertical {background: #703030;min-width: 10px;min-height:20px;}QScrollBar::add-line:vertical {width: 0px;subcontrol-position: top left;}QScrollBar::sub-line:vertical {width: 0px;subcontrol-position: top left;}QScrollBar:left-arrow:horizontal, QScrollBar::right-arrow:horizontal {width: 0px;height: 0px;}QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {background: none;} QTreeWidget {background:#d3d6d8;}
+ QHeaderView::section {
+     background-color: #f2594b;
+     padding-left: 15px;
+     border: 0px;
+	height:22px;
+ }
+</string>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="autoScrollMargin">
+           <number>8</number>
+          </property>
+          <property name="indentation">
+           <number>10</number>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <property name="animated">
+           <bool>true</bool>
+          </property>
+          <attribute name="headerShowSortIndicator" stdset="0">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="headerStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Price</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Raavi</family>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <kerning>true</kerning>
+            </font>
+           </property>
+           <property name="background">
+            <color>
+             <red>242</red>
+             <green>89</green>
+             <blue>75</blue>
+            </color>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Quantity</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Raavi</family>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+             <stylestrategy>PreferAntialias</stylestrategy>
+             <kerning>true</kerning>
+            </font>
+           </property>
+           <property name="background">
+            <color>
+             <red>242</red>
+             <green>89</green>
+             <blue>75</blue>
+            </color>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </property>
+          </column>
+         </widget>
+         <widget class="QLabel" name="lblBittrexVolumeScHeader">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>120</y>
+            <width>81</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Volume DGC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexVolumeSc">
+          <property name="geometry">
+           <rect>
+            <x>440</x>
+            <y>119</y>
+            <width>141</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>000000.00000000</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexVolumeBtcHeader">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>142</y>
+            <width>81</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Volume BTC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexVolumeBtc">
+          <property name="geometry">
+           <rect>
+            <x>440</x>
+            <y>140</y>
+            <width>141</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0000.00000000</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexVolumeUsdHeader">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>100</y>
+            <width>81</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Volume USD&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexHigh">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>100</y>
+            <width>41</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;High&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexVolumeUsd">
+          <property name="geometry">
+           <rect>
+            <x>440</x>
+            <y>98</y>
+            <width>141</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>00000.00</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexHighBtc">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>100</y>
+            <width>91</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0.000000000</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexLow">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>120</y>
+            <width>41</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Low&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexLowBtc">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>120</y>
+            <width>91</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0.000000000</string>
+          </property>
+         </widget>
+         <widget class="QFrame" name="imgBittrexSell">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>510</x>
+            <y>310</y>
+            <width>61</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:#f2594b;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexBuyHeader">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>270</y>
+            <width>261</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Myriad Pro</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#7cc576;&quot;&gt;Buy&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QFrame" name="imgBittrexBuy">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>310</y>
+            <width>61</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:#7cc576;</string>
+          </property>
+         </widget>
+         <widget class="QTreeWidget" name="qTreeWidgetBittrexBuy">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>310</y>
+            <width>261</width>
+            <height>121</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QScrollBar:vertical {margin-top:22px;background: #95a5a6;}QScrollBar::handle:vertical {background: #4e8e81;max-width: 5px;min-height:20px;}QScrollBar::add-line:vertical {width: 0px;subcontrol-position: top left;}QScrollBar::sub-line:vertical {width: 0px;subcontrol-position: top left;}QScrollBar:left-arrow:horizontal, QScrollBar::right-arrow:horizontal {width: 0px;height: 0px;}QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {background: none;} QTreeWidget {background:#d3d6d8;}
+ QHeaderView::section {
+     background-color: #7cc576;
+     padding-left: 15px;
+     border: 0px;
+	height:22px;
+ }
+</string>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="indentation">
+           <number>10</number>
+          </property>
+          <column>
+           <property name="text">
+            <string>Price</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Raavi</family>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="background">
+            <color>
+             <red>124</red>
+             <green>197</green>
+             <blue>118</blue>
+            </color>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Quantity</string>
+           </property>
+           <property name="font">
+            <font>
+             <family>Raavi</family>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="background">
+            <color>
+             <red>124</red>
+             <green>197</green>
+             <blue>118</blue>
+            </color>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </property>
+          </column>
+         </widget>
+         <widget class="QLabel" name="lblBittrexHeader">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>50</y>
+            <width>161</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Mohave</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font-family:Mohave;</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;BITTREX&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexChange">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>110</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt; font-weight:600;&quot;&gt;Change&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexCloseBtc">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>140</y>
+            <width>91</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>0.000000000</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="lblBittrexClose">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>140</y>
+            <width>41</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Close&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <zorder>qWidgetBittrexAsk</zorder>
+         <zorder>qWidgetBittrexBid</zorder>
+         <zorder>qWidgetBittrexLast</zorder>
+         <zorder>lblBittrexChangePerc</zorder>
+         <zorder>lblBittrexSellHeader</zorder>
+         <zorder>qTreeWidgetBittrexSell</zorder>
+         <zorder>lblBittrexVolumeScHeader</zorder>
+         <zorder>lblBittrexVolumeSc</zorder>
+         <zorder>lblBittrexVolumeBtcHeader</zorder>
+         <zorder>lblBittrexVolumeBtc</zorder>
+         <zorder>lblBittrexVolumeUsdHeader</zorder>
+         <zorder>lblBittrexHigh</zorder>
+         <zorder>lblBittrexVolumeUsd</zorder>
+         <zorder>lblBittrexHighBtc</zorder>
+         <zorder>lblBittrexLow</zorder>
+         <zorder>lblBittrexLowBtc</zorder>
+         <zorder>lblBittrexBuyHeader</zorder>
+         <zorder>qTreeWidgetBittrexBuy</zorder>
+         <zorder>lblBittrexHeader</zorder>
+         <zorder>lblBittrexChange</zorder>
+         <zorder>imgBittrexSell</zorder>
+         <zorder>imgBittrexBuy</zorder>
+         <zorder>lblBittrexCloseBtc</zorder>
+         <zorder>lblBittrexClose</zorder>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="qWidgetBittrexGraphs">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <attribute name="icon">
+         <iconset resource="../bitcoin.qrc">
+          <normaloff>:/icons/markets</normaloff>:/icons/markets</iconset>
+        </attribute>
+        <attribute name="title">
+         <string>Graph</string>
+        </attribute>
+        <widget class="QFrame" name="qWidgetBittrexGraphsMain">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>620</width>
+           <height>391</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">Font-family:Myriad Pro;color:#61696c;font-size:12px;</string>
+         </property>
+         <widget class="QScrollArea" name="scrollAreaBittrex">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>0</y>
+            <width>541</width>
+            <height>381</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QScrollBar:horizontal {background: white;height: 15px;margin: 0px 0px 0 0px;}QScrollBar::handle:horizontal {background: #95a5a6;min-width: 20px;}QScrollBar::add-line:horizontal {width: 0px;subcontrol-position: top right;}QScrollBar::sub-line:horizontal {width: 0px;subcontrol-position: top right;}QScrollBar:left-arrow:horizontal, QScrollBar::right-arrow:horizontal {width: 0px;height: 0px;}QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {background: none;}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContentsBittrex">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1635</width>
+             <height>366</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>1635</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <widget class="QLabel" name="lblBittrexTrades">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>330</y>
+              <width>311</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Price chart, &lt;/span&gt;last 50 trades - Satoshi/trade&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+           <widget class="QCustomPlot" name="qCustomPlotBittrexTrades" native="true">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>10</y>
+              <width>531</width>
+              <height>311</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+           <widget class="QCustomPlot" name="qCustomPlotBittrexOrderDepth" native="true">
+            <property name="geometry">
+             <rect>
+              <x>550</x>
+              <y>10</y>
+              <width>531</width>
+              <height>311</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="lblBittrexOrderDepth">
+            <property name="geometry">
+             <rect>
+              <x>600</x>
+              <y>330</y>
+              <width>211</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Order depth &lt;/span&gt;- Volume/Satoshi&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+           <widget class="QTreeWidget" name="tblBittrexTrades">
+            <property name="geometry">
+             <rect>
+              <x>1100</x>
+              <y>10</y>
+              <width>521</width>
+              <height>331</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QScrollBar:vertical {background: white;height: 15px;}QScrollBar::handle:vertical {background: #d3d6d8;min-width: 20px;}</string>
+            </property>
+            <property name="verticalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOn</enum>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
+            <property name="autoScrollMargin">
+             <number>16</number>
+            </property>
+            <property name="indentation">
+             <number>10</number>
+            </property>
+            <property name="sortingEnabled">
+             <bool>true</bool>
+            </property>
+            <property name="animated">
+             <bool>false</bool>
+            </property>
+            <property name="headerHidden">
+             <bool>false</bool>
+            </property>
+            <attribute name="headerCascadingSectionResizes">
+             <bool>false</bool>
+            </attribute>
+            <attribute name="headerHighlightSections">
+             <bool>false</bool>
+            </attribute>
+            <column>
+             <property name="text">
+              <string>Type</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Price</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Quantity</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Total</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Time</string>
+             </property>
+            </column>
+           </widget>
+          </widget>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QWidget" name="widgetConversion" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>43</height>
+      </size>
+     </property>
+     <widget class="QPushButton" name="btnUpdateMarketData">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>0</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>calibri</family>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <italic>true</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">margin:0px;text-align:center;padding:2px;border-radius:3px;font-style:italic;width:100px;font-size:14px;font-family:calibri;font-weight:600;color:#61696c;</string>
+      </property>
+      <property name="text">
+       <string>Update</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>150</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblConvertSilkcoin">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>10</y>
+        <width>131</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#767676;&quot;&gt;Convert Digitalcoin:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="txtConvertSilkcoinQty">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>10</y>
+        <width>100</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>23</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #61696c;margin-left:4px;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnConvertSilkoin">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>10</y>
+        <width>51</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>23</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border:1px solid #61696c;background:white;font-weight:600;</string>
+      </property>
+      <property name="text">
+       <string>=</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblConvertSilkcoinResults">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>0</y>
+        <width>201</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:#61696c;</string>
+      </property>
+      <property name="text">
+       <string>$0.0000 / B0.00000000</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="iconOverviewUpdateWait">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>0</y>
+        <width>21</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/icons/transaction_2&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header location="global">qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../bitcoin.qrc"/>
+ </resources>
+ <connections/>
+</ui>

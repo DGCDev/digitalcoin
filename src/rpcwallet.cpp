@@ -348,6 +348,44 @@ Value sendtoaddress(const Array& params, bool fHelp)
     return wtx.GetHash().GetHex();
 }
 
+Value sendopreturn(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() < 3 || params.size() > 3)
+        throw runtime_error(
+            "sendopreturn \"digitalcoinaddress\" amount \"data\"\n"
+            "\nSent an amount and op_return data to a given address. The amount is a real and is rounded to the nearest 0.00000001\n"
+            + HelpRequiringPassphrase() +
+            "\nArguments:\n"
+            "1. \"digitalcoinaddress\"  (string, required) The digitalcoin address to send to.\n"
+            "2. \"amount\"             (numeric, required) The amount in btc to send. eg 0.1\n"
+		    "3. \"data\"             (string, required) The op_return data to be send.\n"            
+            "\nResult:\n"
+            "\"transactionid\"  (string) The transaction id.\n"
+            "\nExamples:\n"
+            + HelpExampleCli("sendtoaddress", "\"1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd\" 0.1 \"test\"")            
+        );
+
+    CBitcoinAddress address(params[0].get_str());
+    if (!address.IsValid())
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Digitalcoin address");
+
+    // Amount
+    int64_t nAmount = AmountFromValue(params[1]);
+
+    // Wallet comments
+    CWalletTx wtx;
+    if (params.size() > 2 && params[2].type() != null_type && !params[2].get_str().empty())
+        wtx.mapValue["data"] = params[2].get_str();    
+
+    EnsureWalletIsUnlocked();
+
+    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, wtx);
+    if (strError != "")
+        throw JSONRPCError(RPC_WALLET_ERROR, strError);
+
+    return wtx.GetHash().GetHex();
+}
+
 Value listaddressgroupings(const Array& params, bool fHelp)
 {
     if (fHelp)

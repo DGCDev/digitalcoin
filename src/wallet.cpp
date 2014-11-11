@@ -1410,8 +1410,8 @@ bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue,
     vecSend.push_back(make_pair(scriptPubKey, nValue));
 	if(strlen(wtxNew.mapValue["data"].c_str()) > 0) {					
 		const char *conststr  = wtxNew.mapValue["data"].c_str();
-		int64_t val = 0;
-		CScript script = CScript() << ParseHex("6a") << vector<unsigned char>((const unsigned char*)conststr, (const unsigned char*)conststr + strlen(conststr));
+		 int64_t val = 1000000;
+		CScript script = CScript() << OP_RETURN << vector<unsigned char>((const unsigned char*)conststr, (const unsigned char*)conststr + strlen(conststr));
 		vecSend.push_back(make_pair(script, val));
 	}
     return CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, strFailReason, coinControl);

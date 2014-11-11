@@ -438,7 +438,7 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
 			
 			wallet->nTimeFirstKey = 1;
 			if(rescan) {
-				boost::thread scanThread(scanWallet, this);
+				boost::thread scanThread(&AddressTableModel::scanWallet, this);
 				scanThread.detach();
 			}
 			//wallet->ScanForWalletTransactions(chainActive.Genesis(), true);

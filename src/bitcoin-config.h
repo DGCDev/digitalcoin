@@ -36,7 +36,7 @@
 #define HAVE_BOOST /**/
 
 /* define if the Boost::Chrono library is available */
-#define HAVE_BOOST_CHRONO /**/
+/* #undef HAVE_BOOST_CHRONO */
 
 /* define if the Boost::Filesystem library is available */
 #define HAVE_BOOST_FILESYSTEM /**/
@@ -91,7 +91,7 @@
 /* #undef HAVE_LIBMINGWTHRD */
 
 /* Define to 1 if you have the `miniupnpc' library (-lminiupnpc). */
-#define HAVE_LIBMINIUPNPC 1
+/* #undef HAVE_LIBMINIUPNPC */
 
 /* Define to 1 if you have the `mswsock' library (-lmswsock). */
 /* #undef HAVE_LIBMSWSOCK */
@@ -145,25 +145,25 @@
 #define HAVE_MEMORY_H 1
 
 /* Define to 1 if you have the <miniupnpc/miniupnpc.h> header file. */
-#define HAVE_MINIUPNPC_MINIUPNPC_H 1
+/* #undef HAVE_MINIUPNPC_MINIUPNPC_H */
 
 /* Define to 1 if you have the <miniupnpc/miniwget.h> header file. */
-#define HAVE_MINIUPNPC_MINIWGET_H 1
+/* #undef HAVE_MINIUPNPC_MINIWGET_H */
 
 /* Define to 1 if you have the <miniupnpc/upnpcommands.h> header file. */
-#define HAVE_MINIUPNPC_UPNPCOMMANDS_H 1
+/* #undef HAVE_MINIUPNPC_UPNPCOMMANDS_H */
 
 /* Define to 1 if you have the <miniupnpc/upnperrors.h> header file. */
-#define HAVE_MINIUPNPC_UPNPERRORS_H 1
+/* #undef HAVE_MINIUPNPC_UPNPERRORS_H */
 
 /* Define this symbol if you have MSG_NOSIGNAL */
-/* #undef HAVE_MSG_NOSIGNAL */
+#define HAVE_MSG_NOSIGNAL 1
 
 /* Define if you have POSIX threads libraries and header files. */
 #define HAVE_PTHREAD 1
 
 /* Have PTHREAD_PRIO_INHERIT. */
-#define HAVE_PTHREAD_PRIO_INHERIT 1
+/* #undef HAVE_PTHREAD_PRIO_INHERIT */
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1
@@ -193,10 +193,10 @@
 #define HAVE_UNISTD_H 1
 
 /* Define this symbol if boost sleep works */
-/* #undef HAVE_WORKING_BOOST_SLEEP */
+#define HAVE_WORKING_BOOST_SLEEP 1
 
 /* Define this symbol if boost sleep_for works */
-#define HAVE_WORKING_BOOST_SLEEP_FOR 1
+/* #undef HAVE_WORKING_BOOST_SLEEP_FOR */
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "info@bitcoin.org"
@@ -227,17 +227,17 @@
 #define STDC_HEADERS 1
 
 /* Define to 1 if strerror_r returns char *. */
-/* #undef STRERROR_R_CHAR_P */
+#define STRERROR_R_CHAR_P 1
 
 /* Define if dbus support should be compiled in */
-#define USE_DBUS 1
+/* #undef USE_DBUS */
 
 /* Define if QR support should be compiled in */
 /* #undef USE_QRCODE */
 
 /* UPnP support not compiled if undefined, otherwise value (0 or 1) determines
    default state */
-#define USE_UPNP 0
+/* #undef USE_UPNP */
 
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
    significant byte first (like Motorola and SPARC, unlike Intel). */

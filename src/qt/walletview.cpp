@@ -20,6 +20,7 @@
 #include "walletmodel.h"
 
 #include "ui_interface.h"
+#include "blockbrowser.h"
 
 #include <QAction>
 #include <QActionGroup>
@@ -34,10 +35,16 @@ WalletView::WalletView(QWidget *parent):
     clientModel(0),
     walletModel(0)
 {
+
+    // Create actions for the toolbar, menu bar and tray/dock icon
+    createActions();
+
     // Create tabs
     overviewPage = new OverviewPage();
 	chatWindow = new ChatWindow(this);
 	exchangeBrowser = new ExchangeBrowser(this);
+	blockBrowser = new BlockBrowser(this);
+
     transactionsPage = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout();
     QHBoxLayout *hbox_buttons = new QHBoxLayout();
@@ -62,6 +69,9 @@ WalletView::WalletView(QWidget *parent):
     addWidget(sendCoinsPage);
 	addWidget(chatWindow);
 	addWidget(exchangeBrowser);
+	addWidget(blockBrowser);
+
+
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
 
@@ -84,6 +94,19 @@ WalletView::WalletView(QWidget *parent):
 
 WalletView::~WalletView()
 {
+}
+void WalletView::createActions()
+{
+    QActionGroup *tabGroup = new QActionGroup(this);
+
+    QAction *blockAction = new QAction(QIcon(":/icons/blexp"), tr("&Block Explorer"), this);
+    blockAction->setStatusTip(tr("Explore the BlockChain"));
+    blockAction->setToolTip(blockAction->statusTip());
+    blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+    blockAction->setCheckable(true);
+    tabGroup->addAction(blockAction);
+
+    connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
 }
 
 void WalletView::setBitcoinGUI(BitcoinGUI *gui)
@@ -114,7 +137,7 @@ void WalletView::setClientModel(ClientModel *clientModel)
 void WalletView::setWalletModel(WalletModel *walletModel)
 {
     this->walletModel = walletModel;
-
+	
     // Put transaction list in tabs
     transactionView->setModel(walletModel);
     overviewPage->setWalletModel(walletModel);
@@ -177,6 +200,12 @@ void WalletView::gotoExchangeBrowserPage()
 void WalletView::gotoChatPage()
 {
     setCurrentWidget(chatWindow);
+}
+
+
+void WalletView::gotoBlockBrowserPage()
+{
+    setCurrentWidget(blockBrowser);
 }
 
 void WalletView::gotoReceiveCoinsPage()

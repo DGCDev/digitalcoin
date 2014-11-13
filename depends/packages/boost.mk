@@ -1,5 +1,5 @@
 package=boost
-$(package)_version=1_55_0
+$(package)_version=1_53_0
 $(package)_download_path=http://sourceforge.net/projects/boost/files/boost/1.53.0
 $(package)_file_name=$(package)_$($(package)_version).tar.bz2
 $(package)_sha256_hash=fff00023dd79486d444c8e29922f4072e1d451fc5a4d2b6075852ead7f2b7b52

@@ -50,7 +50,6 @@ src/qt/test/moc*.cpp
 
 # Compilation and Qt preprocessor part
 *.qm
-Makefile
 digitalcoin-qt
 Digitalcoin-Qt.app
 

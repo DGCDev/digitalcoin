@@ -60,8 +60,11 @@ static const unsigned int DEFAULT_MAX_ORPHAN_TRANSACTIONS = 100;
 /** Default for -maxorphanblocks, maximum number of orphan blocks kept in memory */
 static const unsigned int DEFAULT_MAX_ORPHAN_BLOCKS = 750;
 static const int COINBASE_MATURITY = 5;
+
 /** DGC V3 Hard Fork Block */
 static const int V3_FORK = 961900;
+static const int MAX_BLOCK_ALGO_COUNT = 3;
+
 /* Other DGC Fork Blocks */
 static const int DIFF_SWITCH_HEIGHT = 476280;
 static const int INFLATION_FIX_HEIGHT = 523800;
@@ -833,6 +836,21 @@ public:
         return (int64_t)nTime;
     }
 
+    CBigNum GetPrevWorkForAlgo(int algo) const
+    {
+        CBigNum nWork;
+        CBlockIndex* pindex = this->pprev;
+        while (pindex)
+        {
+            if (pindex->GetAlgo() == algo)
+            {
+                return pindex->GetBlockWork();
+            }
+            pindex = pindex->pprev;
+        }
+        return Params().ProofOfWorkLimit(algo);
+    }
+
     CBigNum GetBlockWork() const
     {
         CBigNum bnTarget;
@@ -869,7 +887,24 @@ public:
     CBigNum GetBlockWorkAdjusted() const
     {
         CBigNum bnRes;
-        bnRes = GetBlockWork() * GetAlgoWorkFactor();
+	if ((TestNet() && (nHeight >= 1)) || (!TestNet() && nHeight >= V3_FORK)) 
+	{
+		// Adjusted Block Work is the Sum of work of this block and the most recent work of one block of each algo
+		CBigNum nBlockWork = GetBlockWork();
+		int nAlgo = GetAlgo();
+		for (int algo = 0; algo < NUM_ALGOS; algo++)
+		{
+			if (algo != nAlgo)
+			{
+				nBlockWork += GetPrevWorkForAlgo(algo);
+			}
+		}
+		bnRes = nBlockWork / NUM_ALGOS;
+	}
+	else
+	{
+		bnRes = GetBlockWork() * GetAlgoWorkFactor();
+	}
         return bnRes;
     }
 

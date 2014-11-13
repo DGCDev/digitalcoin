@@ -7,6 +7,7 @@
 
 #include "clientmodel.h"
 #include "guiutil.h"
+#include "util.h"
 
 #include "rpcserver.h"
 #include "rpcclient.h"
@@ -282,7 +283,8 @@ void RPCConsole::setClientModel(ClientModel *model)
         ui->clientName->setText(model->clientName());
         ui->buildDate->setText(model->formatBuildDate());
         ui->startupTime->setText(model->formatClientStartupTime());
-
+		ui->username->setText(QString::fromStdString(mapArgs["-rpcuser"]));
+		ui->password->setText(QString::fromStdString(mapArgs["-rpcpassword"]));
         ui->networkName->setText(model->getNetworkName());
     }
 }

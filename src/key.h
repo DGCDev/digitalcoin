@@ -91,6 +91,7 @@ public:
     const unsigned char *begin() const { return vch; }
     const unsigned char *end() const { return vch+size(); }
     const unsigned char &operator[](unsigned int pos) const { return vch[pos]; }
+    std::vector<uint8_t> Raw() { return std::vector<uint8_t>(begin(), end()); }
 
     // Comparator implementation.
     friend bool operator==(const CPubKey &a, const CPubKey &b) {
@@ -174,6 +175,9 @@ public:
 // secure_allocator is defined in allocators.h
 // CPrivKey is a serialized private key, with all parameters included (279 bytes)
 typedef std::vector<unsigned char, secure_allocator<unsigned char> > CPrivKey;
+
+// CSecret is a serialization of just the secret parameter(32 bytes)
+typedef std::vector<unsigned char, secure_allocator<unsigned char> > CSecret;
 
 /** An encapsulated private key. */
 class CKey {

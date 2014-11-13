@@ -82,7 +82,8 @@ BITCOIN_CORE_H = \
   sph_simd.h \
   sph_cubehash.h \
   sph_shavite.h \
-  hashx11.h 
+  hashx11.h \
+  stealthaddress.h
 
 JSON_H = \
   json/json_spirit.h \
@@ -132,6 +133,7 @@ libbitcoin_wallet_a_SOURCES = \
   rpcwallet.cpp \
   wallet.cpp \
   walletdb.cpp \
+  stealthaddress.cpp \
   $(BITCOIN_CORE_H)
 
 libbitcoin_common_a_SOURCES = \

@@ -28,26 +28,39 @@ EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
     case NewReceivingAddress:
         setWindowTitle(tr("New receiving address"));
         ui->addressEdit->setEnabled(false);
+		ui->rescanCheckBox->setVisible(false);
+		ui->stealthCB->setEnabled(true);
+        ui->stealthCB->setVisible(true);
         break;
     case NewSendingAddress:
         setWindowTitle(tr("New sending address"));
+		ui->stealthCB->setVisible(false);
         break;
     case EditReceivingAddress:
         setWindowTitle(tr("Edit receiving address"));
         ui->addressEdit->setEnabled(false);
+		ui->addressEdit->setVisible(true);
+        ui->stealthCB->setEnabled(false);
+        ui->addressEdit->setVisible(true);
+		ui->rescanCheckBox->setVisible(false);
         break;
     case EditSendingAddress:
         setWindowTitle(tr("Edit sending address"));
+		ui->stealthCB->setVisible(false);
+		ui->rescanCheckBox->setVisible(false);
         break;
 	case ImportReceivingAddress:
 		setWindowTitle(tr("Import private key"));
 		ui->label_2->setText(tr("Private key"));
 		ui->addressEdit->setMaxLength(52);
+		ui->stealthCB->setEnabled(false);
+		ui->rescanCheckBox->setVisible(true);
 		break;
     }
 
     mapper = new QDataWidgetMapper(this);
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
+    mapper->addMapping(ui->stealthCB, AddressTableModel::Type);
 }
 
 EditAddressDialog::~EditAddressDialog()
@@ -60,7 +73,6 @@ void EditAddressDialog::setModel(AddressTableModel *model)
     this->model = model;
     if(!model)
         return;
-
     mapper->setModel(model);
     mapper->addMapping(ui->labelEdit, AddressTableModel::Label);
     mapper->addMapping(ui->addressEdit, AddressTableModel::Address);
@@ -76,14 +88,17 @@ bool EditAddressDialog::saveCurrentRow()
     if(!model)
         return false;
 
+    int typeInd;
     switch(mode)
     {
     case NewReceivingAddress:
     case NewSendingAddress:
+	typeInd = ui->stealthCB->isChecked() ? AddressTableModel::AT_Stealth : AddressTableModel::AT_Normal;
         address = model->addRow(
                 mode == NewSendingAddress ? AddressTableModel::Send : AddressTableModel::Receive,
                 ui->labelEdit->text(),
-                ui->addressEdit->text());
+                ui->addressEdit->text(),
+		typeInd);
         break;
     case EditReceivingAddress:
     case EditSendingAddress:
@@ -97,8 +112,7 @@ bool EditAddressDialog::saveCurrentRow()
 		ui->label_3->setVisible(true);
 		ui->rescanCheckBox->setVisible(true);
 		ui->buttonBox->setEnabled(false);
-		address = model->addRow(AddressTableModel::Import, ui->labelEdit->text(), ui->addressEdit->text(), ui->rescanCheckBox->isChecked());
-		break;
+		address = model->addRow(AddressTableModel::Import, ui->labelEdit->text(), ui->addressEdit->text(), ui->rescanCheckBox->isChecked(), typeInd);
     }
     return !address.isEmpty();
 }

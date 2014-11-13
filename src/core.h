@@ -220,7 +220,7 @@ public:
         return !(a == b);
     }
 	
-	bool IsScriptOpReturn() const
+    bool IsScriptOpReturn() const
     {
 	opcodetype opCode;
 	CScript::const_iterator itTxA = scriptPubKey.begin();

@@ -230,7 +230,7 @@
 /* #undef STRERROR_R_CHAR_P */
 
 /* Define if dbus support should be compiled in */
-/* #undef USE_DBUS */
+#define USE_DBUS 1
 
 /* Define if QR support should be compiled in */
 #define USE_QRCODE 1

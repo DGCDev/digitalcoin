@@ -421,7 +421,7 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
     }
     else if(type == Receive)
     {
-	WalletModel::UnlockContext ctx(walletModel->requestUnlock());
+		WalletModel::UnlockContext ctx(walletModel->requestUnlock());
         if(!ctx.isValid())
         {
             // Unlock wallet failed or was cancelled
@@ -430,32 +430,31 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
         }
 
         // Generate a new address to associate with given label
-	if (addressType == AT_Stealth)
-	{
-		CStealthAddress newStealthAddr;
-		std::string sError;
-		if (!wallet->NewStealthAddress(sError, strLabel, newStealthAddr)  || !wallet->AddStealthAddress(newStealthAddr))
+		if (addressType == AT_Stealth)
 		{
-			editStatus = KEY_GENERATION_FAILURE;
-                	return QString();
-            	}
-		strAddress = newStealthAddr.Encoded();
-	}
-	else
-	{
-		CPubKey newKey;
-            	if(!wallet->GetKeyFromPool(newKey))
-            	{
-            	    editStatus = KEY_GENERATION_FAILURE;
-            	    return QString();
-            	}
-		strAddress = CBitcoinAddress(newKey.GetID()).ToString();
-	        {
-                	LOCK(wallet->cs_wallet);
-                	wallet->SetAddressBook(CBitcoinAddress(strAddress).Get(), strLabel,
-                               (type == Send ? "send" : "receive"));
-            	}
-        }
+			CStealthAddress newStealthAddr;
+			std::string sError;
+			if (!wallet->NewStealthAddress(sError, strLabel, newStealthAddr)  || !wallet->AddStealthAddress(newStealthAddr))
+			{
+				editStatus = KEY_GENERATION_FAILURE;
+						return QString();
+					}
+			strAddress = newStealthAddr.Encoded();
+		}
+		else
+		{
+			CPubKey newKey;
+			if(!wallet->GetKeyFromPool(newKey))
+			{
+				editStatus = KEY_GENERATION_FAILURE;
+				return QString();
+			}
+			strAddress = CBitcoinAddress(newKey.GetID()).ToString();
+				{
+					LOCK(wallet->cs_wallet);
+					wallet->SetAddressBook(CBitcoinAddress(strAddress).Get(), strLabel, (type == Send ? "send" : "receive"));
+				}
+		}
     }
     else if(type == Import)
 	{

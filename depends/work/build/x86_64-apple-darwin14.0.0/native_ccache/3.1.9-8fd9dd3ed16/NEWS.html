@@ -1,0 +1,1706 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.6" />
+<title>ccache news</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+tt {
+  font-family: monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+.monospaced {
+  font-family: monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>ccache news</h1>
+<span id="revnumber">version 3.1.9</span>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_ccache_3_1_9">ccache 3.1.9</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2013-01-06</p></div>
+<div class="sect2">
+<h3 id="_bug_fixes">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+The EAGAIN signal is now handled correctly when emitting cached stderr
+      output. This fixes a problem triggered by large error outputs from the
+      compiler.
+</p>
+</li>
+<li>
+<p>
+Subdirectories in the cache are no longer created in read-only mode.
+</p>
+</li>
+<li>
+<p>
+Fixed so that ccache&#8217;s log file descriptor is not made available to the
+      compiler.
+</p>
+</li>
+<li>
+<p>
+Improved error reporting when failing to create temporary stdout/stderr
+      files when executing the compiler.
+</p>
+</li>
+<li>
+<p>
+Disappearing temporary stdout/stderr files are now handled gracefully.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_other">Other</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Fixed test suite to work on ecryptfs.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ccache_3_1_8">ccache 3.1.8</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2012-08-11</p></div>
+<div class="sect2">
+<h3 id="_new_features_and_improvements">New features and improvements</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Made paths to dependency files relative in order to increase cache hits.
+</p>
+</li>
+<li>
+<p>
+Added work-around to make ccache work with buggy GCC 4.1 when creating a
+      pre-compiled header.
+</p>
+</li>
+<li>
+<p>
+Clang plugins are now hashed to catch plugin upgrades.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_bug_fixes_2">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Fixed crash when the current working directory has been removed.
+</p>
+</li>
+<li>
+<p>
+Fixed crash when stderr is closed.
+</p>
+</li>
+<li>
+<p>
+Corrected a corner case when parsing backslash escapes in string
+      literals.
+</p>
+</li>
+<li>
+<p>
+Paths are now correctly canonicalized when computing paths relative to
+      the base directory.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_other_2">Other</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Made git version macro work when compiling outside of the source
+      directory.
+</p>
+</li>
+<li>
+<p>
+Fixed <tt>static_assert</tt> macro definition clash with GCC 4.7.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ccache_3_1_7">ccache 3.1.7</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2012-01-08</p></div>
+<div class="sect2">
+<h3 id="_bug_fixes_3">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Non-writable <tt>CCACHE_DIR</tt> is now handled gracefully when
+      <tt>CCACHE_READONLY</tt> is set.
+</p>
+</li>
+<li>
+<p>
+Made failure to create files (typically due to bad directory permissions)
+      in the cache directory fatal. Previously, such failures were silently and
+      erroneously flagged as "compiler produced stdout".
+</p>
+</li>
+<li>
+<p>
+Both the <tt>-specs=file</tt> and <tt>--specs=file</tt> forms are now recognized.
+</p>
+</li>
+<li>
+<p>
+Added recognition and hashing of GCC plugins specified with
+      <tt>-fplugin=file</tt>.
+</p>
+</li>
+<li>
+<p>
+<tt>CCACHE_COMPILERCHECK</tt> now also determines how to hash explicit specs
+      files (<tt>-specs=file</tt>).
+</p>
+</li>
+<li>
+<p>
+Added <tt>CPATH</tt>, <tt>C_INCLUDE_PATH</tt> and similar environment variables to the
+      hash to avoid false cache hits when such variables have changed.
+</p>
+</li>
+<li>
+<p>
+Corrected log message when unify mode is enabled.
+</p>
+</li>
+<li>
+<p>
+Reverted the GCC bug compatibility introduced in ccache 3.1.5 for
+      <tt>-MT</tt>/<tt>-MQ</tt> options with concatenated arguments. (The bug is fixed in
+      recent GCC versions.)
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_other_3">Other</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Corrected license header for <tt>mdfour.c</tt>.
+</p>
+</li>
+<li>
+<p>
+Improved documentation on how to fix bad object files in the cache.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ccache_3_1_6">ccache 3.1.6</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2011-08-21</p></div>
+<div class="sect2">
+<h3 id="_new_features_and_improvements_2">New features and improvements</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Rewrite argument to <tt>--sysroot</tt> if <tt>CCACHE_BASEDIR</tt> is used.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_bug_fixes_4">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Don&#8217;t crash if <tt>getcwd()</tt> fails.
+</p>
+</li>
+<li>
+<p>
+Fixed alignment of &#8220;called for preprocessing&#8221; counter.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ccache_3_1_5">ccache 3.1.5</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2011-05-29</p></div>
+<div class="sect2">
+<h3 id="_new_features_and_improvements_3">New features and improvements</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Added a new statistics counter named &#8220;called for preprocessing&#8221;.
+</p>
+</li>
+<li>
+<p>
+The original command line is now logged to the file specified with
+      <tt>CCACHE_LOGFILE</tt>.
+</p>
+</li>
+<li>
+<p>
+Improved error logging when system calls fail.
+</p>
+</li>
+<li>
+<p>
+Added support for rewriting absolute paths in <tt>-F</tt>/<tt>-iframework</tt> GCC
+      options.
+</p>
+</li>
+<li>
+<p>
+Improved order of statistics counters in <tt>ccache -s</tt> output.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_bug_fixes_5">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+The <tt>-MF</tt>/<tt>-MT</tt>/<tt>-MQ</tt> options with concatenated argument are now handled
+      correctly when they are last on the command line.
+</p>
+</li>
+<li>
+<p>
+ccache is now bug compatible with GCC for the <tt>-MT</tt>/<tt>-MQ</tt> options with
+      concatenated arguments.
+</p>
+</li>
+<li>
+<p>
+Fixed a minor memory leak.
+</p>
+</li>
+<li>
+<p>
+Systems that lack (and don&#8217;t need to be linked with) libm are now
+      supported.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ccache_3_1_4">ccache 3.1.4</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2011-01-09</p></div>
+<div class="sect2">
+<h3 id="_bug_fixes_6">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Made a work-around for a bug in gzputc() in zlib 1.2.5.
+</p>
+</li>
+<li>
+<p>
+Corrupt manifest files are now removed so that they won&#8217;t block direct
+      mode hits.
+</p>
+</li>
+<li>
+<p>
+ccache now copes with file systems that don&#8217;t know about symbolic links.
+</p>
+</li>
+<li>
+<p>
+The file handle in now correctly closed on write error when trying to
+      create a cache dir tag.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ccache_3_1_3">ccache 3.1.3</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2010-11-28</p></div>
+<div class="sect2">
+<h3 id="_bug_fixes_7">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+The -MFarg, -MTarg and -MQarg compiler options (i.e, without space
+      between option and argument) are now handled correctly.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_other_4">Other</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Portability fixes for HP-UX 11.00 and other esoteric systems.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ccache_3_1_2">ccache 3.1.2</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2010-11-21</p></div>
+<div class="sect2">
+<h3 id="_bug_fixes_8">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Bail out on too hard compiler options <tt>-fdump-*</tt>.
+</p>
+</li>
+<li>
+<p>
+NULL return values from malloc/calloc of zero bytes are now handled
+      correctly.
+</p>
+</li>
+<li>
+<p>
+Fixed issue when parsing precompiler output on AIX.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_other_5">Other</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Improved documentation on which information is included in the hash sum.
+</p>
+</li>
+<li>
+<p>
+Made the &#8220;too new header file&#8221; test case work on file systems with
+      unsynchronized clocks.
+</p>
+</li>
+<li>
+<p>
+The test suite now also works on systems that lack a /dev/zero.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ccache_3_1_1">ccache 3.1.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2010-11-07</p></div>
+<div class="sect2">
+<h3 id="_bug_fixes_9">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+ccache now falls back to preprocessor mode when a non-regular include
+      file (device, socket, etc) has been detected so that potential hanging
+      due to blocking reads is avoided.
+</p>
+</li>
+<li>
+<p>
+CRC errors are now detected when decompressing compressed files in the
+      cache.
+</p>
+</li>
+<li>
+<p>
+Fixed potential object file corruption race on NFS.
+</p>
+</li>
+<li>
+<p>
+Minor documentation corrections.
+</p>
+</li>
+<li>
+<p>
+Fixed configure detection of ar.
+</p>
+</li>
+<li>
+<p>
+ccache development version (set by dev.mk) now works with gits whose
+      <tt>describe</tt> command doesn&#8217;t understand <tt>--dirty</tt>.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_other_6">Other</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Minor debug log message improvements.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ccache_3_1">ccache 3.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2010-09-16</p></div>
+<div class="sect2">
+<h3 id="_new_features_and_improvements_4">New features and improvements</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Added support for hashing the output of a custom command (e.g.
+      <tt>%compiler% --version</tt>) to identify the compiler instead of stat-ing or
+      hashing the compiler binary. This can improve robustness when the
+      compiler (as seen by ccache) actually isn&#8217;t the real compiler but another
+      compiler wrapper.
+</p>
+</li>
+<li>
+<p>
+Added support for caching compilations that use precompiled headers. (See
+      the manual for important instructions regarding this.)
+</p>
+</li>
+<li>
+<p>
+Locking of the files containing statistics counters is now done using
+      symlinks instead of POSIX locks. This should make ccache behave a lot
+      better on file systems where POSIX locks are slow or broken (e.g. NFS on
+      some systems).
+</p>
+</li>
+<li>
+<p>
+Manifest files are now updated without the need of taking locks.
+</p>
+</li>
+<li>
+<p>
+Updates of statistics counters are now always done in one of the
+      sub-level statistics files. This reduces lock contention, which
+      especially improves performance on slow NFS mounts.
+</p>
+</li>
+<li>
+<p>
+Reading and writing of statistics counters has been made
+      forward-compatible (unknown counters are retained).
+</p>
+</li>
+<li>
+<p>
+Files are now read without using mmap(). This has two benefits: it&#8217;s more
+      robust against file changes during reading and it improves performance on
+      poor systems where mmap() doesn&#8217;t use the disk cache.
+</p>
+</li>
+<li>
+<p>
+Added <tt>.cp</tt> and <tt>.CP</tt> as known C++ suffixes.
+</p>
+</li>
+<li>
+<p>
+Improved logging.
+</p>
+</li>
+<li>
+<p>
+Added <tt>-install_name</tt> as an option known to take an argument. (This
+      improves statistics when using the Darwin linker.)
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_bug_fixes_10">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Non-fatal error messages are now never printed to stderr but logged
+      instead.
+</p>
+</li>
+<li>
+<p>
+Fixed a bug affecting failing commands when <tt>--ccache-skip</tt> is used.
+</p>
+</li>
+<li>
+<p>
+Made <tt>--ccache-skip</tt> work for all options.
+</p>
+</li>
+<li>
+<p>
+EINTR is now handled correctly.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_other_7">Other</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Work on porting ccache to win32 (native), mostly done by Ramiro Polla.
+      The port is not yet finished, but will hopefully be complete in some
+      subsequent release.
+</p>
+</li>
+<li>
+<p>
+Added a <tt>--nostats</tt> flag to the performance benchmark program.
+</p>
+</li>
+<li>
+<p>
+Made the performance benchmark program more accurate when measuring cache
+      hits.
+</p>
+</li>
+<li>
+<p>
+Added a new test framework for unit tests written in C.
+</p>
+</li>
+<li>
+<p>
+Got rid of <tt>configure-dev</tt>; dev mode is now given by <tt>dev.mk.in</tt>
+      presence.
+</p>
+</li>
+<li>
+<p>
+Improved documentation on how to combine ccache with other compiler
+      wrappers (like <tt>distcc</tt>).
+</p>
+</li>
+<li>
+<p>
+New <tt>LICENSE.txt</tt> file with licensing and copyright details about bundled
+      source code.
+</p>
+</li>
+<li>
+<p>
+New <tt>AUTHORS.txt</tt> file with a list of ccache contributors.
+</p>
+</li>
+<li>
+<p>
+New <tt>HACKING.txt</tt> file with some notes about ccache code conventions.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ccache_3_0_1">ccache 3.0.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2010-07-15</p></div>
+<div class="sect2">
+<h3 id="_bug_fixes_11">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+The statistics counter &#8220;called for link&#8221; is now correctly updated when
+      linking with a single object file.
+</p>
+</li>
+<li>
+<p>
+Fixed a problem with out-of-source builds.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ccache_3_0">ccache 3.0</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Release date: 2010-06-20</p></div>
+<div class="sect2">
+<h3 id="_general">General</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+ccache is now licensed under the GNU General Public License (GPL) version
+      3 or later.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_upgrade_notes">Upgrade notes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+The way the hashes are calculated has changed, so you won&#8217;t get cache
+      hits for compilation results stored by older ccache versions. Because of
+      this, you might as well clear the old cache directory with <tt>ccache
+      --clear</tt> if you want, unless you plan to keep using an older ccache
+      version.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_new_features_and_improvements_5">New features and improvements</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+ccache now has a &#8220;direct mode&#8221; where it computes a hash of the source
+      code (including all included files) and compiler options without
+      running the preprocessor. By not running the preprocessor, CPU usage is
+      reduced; the speed is somewhere between 1 and 5 times that of ccache
+      running in traditional mode, depending on the circumstances. The speedup
+      will be higher when I/O is fast (e.g., when files are in the disk cache).
+      The direct mode can be disabled by setting <tt>CCACHE_NODIRECT</tt>.
+</p>
+</li>
+<li>
+<p>
+Support has been added for rewriting absolute paths to relative paths
+      when hashing, in order to increase cache hit rate when building the same
+      source code in different directories even when compiling with <tt>-g</tt> and
+      when using absolute include directory paths. This is done by setting the
+      <tt>CCACHE_BASEDIR</tt> environment variable to an absolute path that specifies
+      which paths to rewrite.
+</p>
+</li>
+<li>
+<p>
+Object files are now optionally stored compressed in the cache. The
+      runtime cost is negligible, and more files will fit in the ccache
+      directory and in the disk cache. Set <tt>CCACHE_COMPRESS</tt> to enable object
+      file compression. Note that you can&#8217;t use compression in combination with
+      the hard link feature.
+</p>
+</li>
+<li>
+<p>
+A <tt>CCACHE_COMPILERCHECK</tt> option has been added. This option tells ccache
+      what compiler-identifying information to hash to ensure that results
+      retrieved from the cache are accurate. Possible values are: none (don&#8217;t
+      hash anything), mtime (hash the compiler&#8217;s mtime and size) and content
+      (hash the content of the compiler binary). The default is mtime.
+</p>
+</li>
+<li>
+<p>
+It is now possible to specify extra files whose contents should be
+      included in the hash sum by setting the <tt>CCACHE_EXTRAFILES</tt> option.
+</p>
+</li>
+<li>
+<p>
+Added support for Objective-C and Objective-C++. The statistics counter
+      &#8220;not a C/C++ file&#8221; has been renamed to &#8220;unsupported source language&#8221;.
+</p>
+</li>
+<li>
+<p>
+Added support for the <tt>-x</tt> compiler option.
+</p>
+</li>
+<li>
+<p>
+Added support for long command-line options.
+</p>
+</li>
+<li>
+<p>
+A <tt>CACHEDIR.TAG</tt> file is now created in the cache directory. See
+      <a href="http://www.brynosaurus.com/cachedir/">http://www.brynosaurus.com/cachedir/</a>.
+</p>
+</li>
+<li>
+<p>
+Messages printed to the debug log (specified by <tt>CCACHE_LOGFILE</tt>) have
+      been improved.
+</p>
+</li>
+<li>
+<p>
+You can relax some checks that ccache does in direct mode by setting
+      <tt>CCACHE_SLOPPINESS</tt>. See the manual for more information.
+</p>
+</li>
+<li>
+<p>
+<tt>CCACHE_TEMPDIR</tt> no longer needs to be on the same filesystem as
+      <tt>CCACHE_DIR</tt>.
+</p>
+</li>
+<li>
+<p>
+The default value of <tt>CCACHE_TEMPDIR</tt> has been changed to
+      <tt>$CCACHE_DIR/tmp</tt> to avoid cluttering the top directory.
+</p>
+</li>
+<li>
+<p>
+Temporary files that later will be moved into the cache are now created
+      in the cache directory they will end up in. This makes ccache more
+      friendly to Linux&#8217;s directory layout.
+</p>
+</li>
+<li>
+<p>
+Improved the test suite and added tests for most of the new
+      functionality. It&#8217;s now also possible to specify a subset of tests to
+      run.
+</p>
+</li>
+<li>
+<p>
+Standard error output from the compiler is now only stored in the cache
+      if it&#8217;s non-empty.
+</p>
+</li>
+<li>
+<p>
+If the compiler produces no object file or an empty object file, but
+      gives a zero exit status (could be due to a file system problem, a buggy
+      program specified by <tt>CCACHE_PREFIX</tt>, etc.), ccache copes with it
+      properly.
+</p>
+</li>
+<li>
+<p>
+Added <tt>installcheck</tt> and <tt>distcheck</tt> make targets.
+</p>
+</li>
+<li>
+<p>
+Clarified cache size limit options' and cleanup semantics.
+</p>
+</li>
+<li>
+<p>
+Improved display of cache max size values.
+</p>
+</li>
+<li>
+<p>
+The following options are no longer hashed in the preprocessor mode:
+      <tt>-imacros</tt>, <tt>-imultilib</tt>, <tt>-iprefix</tt>, <tt>-iquote</tt>, <tt>-isysroot</tt>,
+      <tt>-iwithprefix</tt>, <tt>-iwithprefixbefore</tt>, <tt>-nostdinc</tt>, <tt>-nostdinc++</tt> and
+      <tt>-U</tt>.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_bug_fixes_12">Bug fixes</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Various portability improvements.
+</p>
+</li>
+<li>
+<p>
+Improved detection of home directory.
+</p>
+</li>
+<li>
+<p>
+User-defined <tt>CPPFLAGS</tt> and <tt>LDFLAGS</tt> are now respected in the Makefile.
+</p>
+</li>
+<li>
+<p>
+Fixed NFS issues.
+</p>
+</li>
+<li>
+<p>
+Computation of the hash sum has been improved to decrease the risk of
+      hash collisions. For instance, the compiler options <tt>-X -Y</tt> and <tt>-X-Y</tt>
+      previously contributed equally to the hash sum.
+</p>
+</li>
+<li>
+<p>
+Bail out on too hard compiler options <tt>--coverage</tt>, <tt>-fprofile-arcs</tt>,
+      <tt>-fprofile-generate</tt>, <tt>-fprofile-use</tt>, <tt>-frepo</tt>, <tt>-ftest-coverage</tt> and
+      <tt>-save-temps</tt>. Also bail out on <tt>@file</tt> style options.
+</p>
+</li>
+<li>
+<p>
+Errors when using multiple <tt>-arch</tt> compiler options are now noted as
+      &#8220;unsupported compiler option&#8221;.
+</p>
+</li>
+<li>
+<p>
+<tt>-MD</tt>/<tt>-MMD</tt> options without <tt>-MT</tt>/<tt>-MF</tt> are now handled correctly.
+</p>
+</li>
+<li>
+<p>
+The <tt>-finput-charset</tt> option is now handled correctly.
+</p>
+</li>
+<li>
+<p>
+Added support for <tt>-Wp,-MD</tt> and <tt>-Wp,-MMD</tt> options.
+</p>
+</li>
+<li>
+<p>
+The compiler options <tt>-Xassembler</tt>, <tt>-b</tt>, <tt>-G</tt> and <tt>-V</tt> are now correctly
+      recognized as taking an argument.
+</p>
+</li>
+<li>
+<p>
+Debug information containing line numbers of predefined and command-line
+      macros (enabled with the compiler option <tt>-g3</tt>) will now be correct.
+</p>
+</li>
+<li>
+<p>
+Corrected LRU cleanup handling of object files.
+</p>
+</li>
+<li>
+<p>
+<tt>utimes()</tt> is now used instead of <tt>utime()</tt> when available.
+</p>
+</li>
+<li>
+<p>
+Non-writable cache directories are now handled gracefully.
+</p>
+</li>
+<li>
+<p>
+Corrected documentation about sharing the cache directory.
+</p>
+</li>
+<li>
+<p>
+Fixed compilation warnings from GCC 4.3.
+</p>
+</li>
+<li>
+<p>
+The command specified by <tt>CCACHE_PREFIX</tt> is no longer part of the hash.
+</p>
+</li>
+<li>
+<p>
+Fixed bad memory access spotted by Valgrind.
+</p>
+</li>
+<li>
+<p>
+Fixed a bug in <tt>x_realloc</tt>.
+</p>
+</li>
+<li>
+<p>
+Freed memory is no longer referenced when compiling a <tt>.i</tt>/<tt>.ii</tt> file and
+      falling back to running the real compiler.
+</p>
+</li>
+<li>
+<p>
+The test suite is now immune to external values of the <tt>CCACHE_*</tt>
+      environment variables.
+</p>
+</li>
+<li>
+<p>
+Improved detection of recursive invocation.
+</p>
+</li>
+<li>
+<p>
+The ccache binary is now not unconditionally stripped when installing.
+</p>
+</li>
+<li>
+<p>
+Statistics counters are now correctly updated for -E option failures and
+      internal errors.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Version 3.1.9<br />
+Last updated 2013-01-06 17:55:15 CET
+</div>
+</div>
+</body>
+</html>

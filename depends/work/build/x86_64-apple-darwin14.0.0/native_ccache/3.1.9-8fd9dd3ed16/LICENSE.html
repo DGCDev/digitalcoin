@@ -1,0 +1,1220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.6" />
+<title>ccache copyright and license</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+tt {
+  font-family: monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+.monospaced {
+  font-family: monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>ccache copyright and license</h1>
+<span id="revnumber">version 3.1.9</span>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_overall_license">Overall license</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The license for ccache as a whole is as follows:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>  This program is free software; you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free Software
+  Foundation; either version 3 of the License, or (at your option) any later
+  version.
+
+  This program is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+  PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along with
+  this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
+  Street, Fifth Floor, Boston, MA 02110-1301 USA</tt></pre>
+</div></div>
+<div class="paragraph"><p>The full license text can be found in GPL-3.0.txt and at
+<a href="http://www.gnu.org/licenses/gpl-3.0.html">http://www.gnu.org/licenses/gpl-3.0.html</a>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_copyright_and_authors">Copyright and authors</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>ccache is a collective work with contributions from many people, listed in
+AUTHORS.txt and at <a href="http://ccache.samba.org/authors.html">http://ccache.samba.org/authors.html</a>. Subsequent additions
+by contributing authors are implicitly licensed to the public under the same
+terms (GNU GPL version 3 or later), but the contributing authors retain
+copyrights on their portions of the work.</p></div>
+<div class="paragraph"><p>The copyright for ccache as a whole is as follows:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>  Copyright (C) 2002-2007 Andrew Tridgell
+  Copyright (C) 2009-2011 Joel Rosdahl</tt></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_files_derived_from_other_sources">Files derived from other sources</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The ccache distribution contain some files from other sources and some have
+been modified for use in ccache. These files all carry attribution notices, and
+may qualify as &#8220;separate and independent works in themselves&#8221; for purposes of
+the GPL: that is, if separated from the ccache sources, they may be usable
+under less restrictive terms.</p></div>
+<div class="sect2">
+<h3 id="_getopt_long_hc">getopt_long.[hc]</h3>
+<div class="paragraph"><p>This implementation of <tt>getopt_long()</tt> was copied from
+<a href="http://www.postgresql.org">PostgreSQL</a> and has the following license text:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>  Portions Copyright (c) 1987, 1993, 1994
+  The Regents of the University of California.  All rights reserved.
+
+  Portions Copyright (c) 2003
+  PostgreSQL Global Development Group
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+  1. Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+  2. Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+  3. Neither the name of the University nor the names of its contributors
+     may be used to endorse or promote products derived from this software
+     without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+  FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+  OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+  SUCH DAMAGE.</tt></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_hashtable_hc">hashtable*.[hc]</h3>
+<div class="paragraph"><p>This code comes from <a href="http://www.cl.cam.ac.uk/~cwc22/hashtable/">http://www.cl.cam.ac.uk/~cwc22/hashtable/</a> with the
+following license:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>  Copyright (c) 2002, 2004, Christopher Clark
+  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+
+    * Neither the name of the original author; nor the names of any
+      contributors may be used to endorse or promote products derived from this
+      software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.</tt></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_m4_feature_macros_m4">m4/feature_macros.m4</h3>
+<div class="paragraph"><p>This Autoconf M4 snippet comes from <a href="http://www.python.org">Python</a> 2.6&#8217;s
+<tt>configure.in</tt> with the following license:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>  A. HISTORY OF THE SOFTWARE
+  ==========================
+
+  Python was created in the early 1990s by Guido van Rossum at Stichting
+  Mathematisch Centrum (CWI, see http://www.cwi.nl) in the Netherlands
+  as a successor of a language called ABC.  Guido remains Python's
+  principal author, although it includes many contributions from others.
+
+  In 1995, Guido continued his work on Python at the Corporation for
+  National Research Initiatives (CNRI, see http://www.cnri.reston.va.us)
+  in Reston, Virginia where he released several versions of the
+  software.
+
+  In May 2000, Guido and the Python core development team moved to
+  BeOpen.com to form the BeOpen PythonLabs team.  In October of the same
+  year, the PythonLabs team moved to Digital Creations (now Zope
+  Corporation, see http://www.zope.com).  In 2001, the Python Software
+  Foundation (PSF, see http://www.python.org/psf/) was formed, a
+  non-profit organization created specifically to own Python-related
+  Intellectual Property.  Zope Corporation is a sponsoring member of
+  the PSF.
+
+  All Python releases are Open Source (see http://www.opensource.org for
+  the Open Source Definition).  Historically, most, but not all, Python
+  releases have also been GPL-compatible; the table below summarizes
+  the various releases.
+
+      Release         Derived     Year        Owner       GPL-
+                      from                                compatible? (1)
+
+      0.9.0 thru 1.2              1991-1995   CWI         yes
+      1.3 thru 1.5.2  1.2         1995-1999   CNRI        yes
+      1.6             1.5.2       2000        CNRI        no
+      2.0             1.6         2000        BeOpen.com  no
+      1.6.1           1.6         2001        CNRI        yes (2)
+      2.1             2.0+1.6.1   2001        PSF         no
+      2.0.1           2.0+1.6.1   2001        PSF         yes
+      2.1.1           2.1+2.0.1   2001        PSF         yes
+      2.2             2.1.1       2001        PSF         yes
+      2.1.2           2.1.1       2002        PSF         yes
+      2.1.3           2.1.2       2002        PSF         yes
+      2.2.1           2.2         2002        PSF         yes
+      2.2.2           2.2.1       2002        PSF         yes
+      2.2.3           2.2.2       2003        PSF         yes
+      2.3             2.2.2       2002-2003   PSF         yes
+      2.3.1           2.3         2002-2003   PSF         yes
+      2.3.2           2.3.1       2002-2003   PSF         yes
+      2.3.3           2.3.2       2002-2003   PSF         yes
+      2.3.4           2.3.3       2004        PSF         yes
+      2.3.5           2.3.4       2005        PSF         yes
+      2.4             2.3         2004        PSF         yes
+      2.4.1           2.4         2005        PSF         yes
+      2.4.2           2.4.1       2005        PSF         yes
+      2.4.3           2.4.2       2006        PSF         yes
+      2.4.4           2.4.3       2006        PSF         yes
+      2.5             2.4         2006        PSF         yes
+      2.5.1           2.5         2007        PSF         yes
+      2.5.2           2.5.1       2008        PSF         yes
+      2.5.3           2.5.2       2008        PSF         yes
+      2.6             2.5         2008        PSF         yes
+      2.6.1           2.6         2008        PSF         yes
+
+  Footnotes:
+
+  (1) GPL-compatible doesn't mean that we're distributing Python under
+      the GPL.  All Python licenses, unlike the GPL, let you distribute
+      a modified version without making your changes open source.  The
+      GPL-compatible licenses make it possible to combine Python with
+      other software that is released under the GPL; the others don't.
+
+  (2) According to Richard Stallman, 1.6.1 is not GPL-compatible,
+      because its license has a choice of law clause.  According to
+      CNRI, however, Stallman's lawyer has told CNRI's lawyer that 1.6.1
+      is "not incompatible" with the GPL.
+
+  Thanks to the many outside volunteers who have worked under Guido's
+  direction to make these releases possible.
+
+
+  B. TERMS AND CONDITIONS FOR ACCESSING OR OTHERWISE USING PYTHON
+  ===============================================================
+
+  PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
+  --------------------------------------------
+
+  1. This LICENSE AGREEMENT is between the Python Software Foundation
+  ("PSF"), and the Individual or Organization ("Licensee") accessing and
+  otherwise using this software ("Python") in source or binary form and
+  its associated documentation.
+
+  2. Subject to the terms and conditions of this License Agreement, PSF hereby
+  grants Licensee a nonexclusive, royalty-free, world-wide license to reproduce,
+  analyze, test, perform and/or display publicly, prepare derivative works,
+  distribute, and otherwise use Python alone or in any derivative version,
+  provided, however, that PSF's License Agreement and PSF's notice of copyright,
+  i.e., "Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Python
+  Software Foundation; All Rights Reserved" are retained in Python alone or in any
+  derivative version prepared by Licensee.
+
+  3. In the event Licensee prepares a derivative work that is based on
+  or incorporates Python or any part thereof, and wants to make
+  the derivative work available to others as provided herein, then
+  Licensee hereby agrees to include in any such work a brief summary of
+  the changes made to Python.
+
+  4. PSF is making Python available to Licensee on an "AS IS"
+  basis.  PSF MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR
+  IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, PSF MAKES NO AND
+  DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS
+  FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF PYTHON WILL NOT
+  INFRINGE ANY THIRD PARTY RIGHTS.
+
+  5. PSF SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF PYTHON
+  FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS
+  A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING PYTHON,
+  OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.
+
+  6. This License Agreement will automatically terminate upon a material
+  breach of its terms and conditions.
+
+  7. Nothing in this License Agreement shall be deemed to create any
+  relationship of agency, partnership, or joint venture between PSF and
+  Licensee.  This License Agreement does not grant permission to use PSF
+  trademarks or trade name in a trademark sense to endorse or promote
+  products or services of Licensee, or any third party.
+
+  8. By copying, installing or otherwise using Python, Licensee
+  agrees to be bound by the terms and conditions of this License
+  Agreement.
+
+
+  BEOPEN.COM LICENSE AGREEMENT FOR PYTHON 2.0
+  -------------------------------------------
+
+  BEOPEN PYTHON OPEN SOURCE LICENSE AGREEMENT VERSION 1
+
+  1. This LICENSE AGREEMENT is between BeOpen.com ("BeOpen"), having an
+  office at 160 Saratoga Avenue, Santa Clara, CA 95051, and the
+  Individual or Organization ("Licensee") accessing and otherwise using
+  this software in source or binary form and its associated
+  documentation ("the Software").
+
+  2. Subject to the terms and conditions of this BeOpen Python License
+  Agreement, BeOpen hereby grants Licensee a non-exclusive,
+  royalty-free, world-wide license to reproduce, analyze, test, perform
+  and/or display publicly, prepare derivative works, distribute, and
+  otherwise use the Software alone or in any derivative version,
+  provided, however, that the BeOpen Python License is retained in the
+  Software, alone or in any derivative version prepared by Licensee.
+
+  3. BeOpen is making the Software available to Licensee on an "AS IS"
+  basis.  BEOPEN MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR
+  IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, BEOPEN MAKES NO AND
+  DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS
+  FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE WILL NOT
+  INFRINGE ANY THIRD PARTY RIGHTS.
+
+  4. BEOPEN SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF THE
+  SOFTWARE FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS
+  AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE, OR ANY
+  DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.
+
+  5. This License Agreement will automatically terminate upon a material
+  breach of its terms and conditions.
+
+  6. This License Agreement shall be governed by and interpreted in all
+  respects by the law of the State of California, excluding conflict of
+  law provisions.  Nothing in this License Agreement shall be deemed to
+  create any relationship of agency, partnership, or joint venture
+  between BeOpen and Licensee.  This License Agreement does not grant
+  permission to use BeOpen trademarks or trade names in a trademark
+  sense to endorse or promote products or services of Licensee, or any
+  third party.  As an exception, the "BeOpen Python" logos available at
+  http://www.pythonlabs.com/logos.html may be used according to the
+  permissions granted on that web page.
+
+  7. By copying, installing or otherwise using the software, Licensee
+  agrees to be bound by the terms and conditions of this License
+  Agreement.
+
+
+  CNRI LICENSE AGREEMENT FOR PYTHON 1.6.1
+  ---------------------------------------
+
+  1. This LICENSE AGREEMENT is between the Corporation for National
+  Research Initiatives, having an office at 1895 Preston White Drive,
+  Reston, VA 20191 ("CNRI"), and the Individual or Organization
+  ("Licensee") accessing and otherwise using Python 1.6.1 software in
+  source or binary form and its associated documentation.
+
+  2. Subject to the terms and conditions of this License Agreement, CNRI
+  hereby grants Licensee a nonexclusive, royalty-free, world-wide
+  license to reproduce, analyze, test, perform and/or display publicly,
+  prepare derivative works, distribute, and otherwise use Python 1.6.1
+  alone or in any derivative version, provided, however, that CNRI's
+  License Agreement and CNRI's notice of copyright, i.e., "Copyright (c)
+  1995-2001 Corporation for National Research Initiatives; All Rights
+  Reserved" are retained in Python 1.6.1 alone or in any derivative
+  version prepared by Licensee.  Alternately, in lieu of CNRI's License
+  Agreement, Licensee may substitute the following text (omitting the
+  quotes): "Python 1.6.1 is made available subject to the terms and
+  conditions in CNRI's License Agreement.  This Agreement together with
+  Python 1.6.1 may be located on the Internet using the following
+  unique, persistent identifier (known as a handle): 1895.22/1013.  This
+  Agreement may also be obtained from a proxy server on the Internet
+  using the following URL: http://hdl.handle.net/1895.22/1013".
+
+  3. In the event Licensee prepares a derivative work that is based on
+  or incorporates Python 1.6.1 or any part thereof, and wants to make
+  the derivative work available to others as provided herein, then
+  Licensee hereby agrees to include in any such work a brief summary of
+  the changes made to Python 1.6.1.
+
+  4. CNRI is making Python 1.6.1 available to Licensee on an "AS IS"
+  basis.  CNRI MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR
+  IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, CNRI MAKES NO AND
+  DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS
+  FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF PYTHON 1.6.1 WILL NOT
+  INFRINGE ANY THIRD PARTY RIGHTS.
+
+  5. CNRI SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF PYTHON
+  1.6.1 FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS
+  A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING PYTHON 1.6.1,
+  OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.
+
+  6. This License Agreement will automatically terminate upon a material
+  breach of its terms and conditions.
+
+  7. This License Agreement shall be governed by the federal
+  intellectual property law of the United States, including without
+  limitation the federal copyright law, and, to the extent such
+  U.S. federal law does not apply, by the law of the Commonwealth of
+  Virginia, excluding Virginia's conflict of law provisions.
+  Notwithstanding the foregoing, with regard to derivative works based
+  on Python 1.6.1 that incorporate non-separable material that was
+  previously distributed under the GNU General Public License (GPL), the
+  law of the Commonwealth of Virginia shall govern this License
+  Agreement only as to issues arising under or with respect to
+  Paragraphs 4, 5, and 7 of this License Agreement.  Nothing in this
+  License Agreement shall be deemed to create any relationship of
+  agency, partnership, or joint venture between CNRI and Licensee.  This
+  License Agreement does not grant permission to use CNRI trademarks or
+  trade name in a trademark sense to endorse or promote products or
+  services of Licensee, or any third party.
+
+  8. By clicking on the "ACCEPT" button where indicated, or by copying,
+  installing or otherwise using Python 1.6.1, Licensee agrees to be
+  bound by the terms and conditions of this License Agreement.
+
+          ACCEPT
+
+
+  CWI LICENSE AGREEMENT FOR PYTHON 0.9.0 THROUGH 1.2
+  --------------------------------------------------
+
+  Copyright (c) 1991 - 1995, Stichting Mathematisch Centrum Amsterdam,
+  The Netherlands.  All rights reserved.
+
+  Permission to use, copy, modify, and distribute this software and its
+  documentation for any purpose and without fee is hereby granted,
+  provided that the above copyright notice appear in all copies and that
+  both that copyright notice and this permission notice appear in
+  supporting documentation, and that the name of Stichting Mathematisch
+  Centrum or CWI not be used in advertising or publicity pertaining to
+  distribution of the software without specific, written prior
+  permission.
+
+  STICHTING MATHEMATISCH CENTRUM DISCLAIMS ALL WARRANTIES WITH REGARD TO
+  THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+  FITNESS, IN NO EVENT SHALL STICHTING MATHEMATISCH CENTRUM BE LIABLE
+  FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
+  OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</tt></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_murmurhashneutral2_hc">murmurhashneutral2.[hc]</h3>
+<div class="paragraph"><p>This fast hash implementation is released to the public domain by Austin
+Appleby. See <a href="http://murmurhash.googlepages.com">http://murmurhash.googlepages.com</a>.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_snprintf_c_and_m4_snprintf_m4">snprintf.c and m4/snprintf.m4</h3>
+<div class="paragraph"><p>This implementation of <tt>snprintf()</tt> and similar functions was downloaded from
+<a href="http://www.jhweiss.de/software/snprintf.html">http://www.jhweiss.de/software/snprintf.html</a> and has the following license:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>  Copyright (c) 1995 Patrick Powell.
+
+  This code is based on code written by Patrick Powell &lt;papowell@astart.com&gt;.
+  It may be used for any purpose as long as this notice remains intact on all
+  source code distributions.
+
+  Copyright (c) 2008 Holger Weiss.
+
+  This version of the code is maintained by Holger Weiss &lt;holger@jhweiss.de&gt;.
+  My changes to the code may freely be used, modified and/or redistributed for
+  any purpose. It would be nice if additions and fixes to this file (including
+  trivial code cleanups) would be sent back in order to let me include them in
+  the version available at &lt;http://www.jhweiss.de/software/snprintf.html&gt;.
+  However, this is not a requirement for using or redistributing (possibly
+  modified) versions of this file, nor is leaving this notice intact mandatory.</tt></pre>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_zlib_hc">zlib/*.[hc]</h3>
+<div class="paragraph"><p>This is a bundled subset of zlib 1.2.3 from <a href="http://www.zlib.net">http://www.zlib.net</a> with the
+following license:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>  Copyright (C) 1995-2005 Jean-loup Gailly and Mark Adler
+
+  This software is provided 'as-is', without any express or implied
+  warranty.  In no event will the authors be held liable for any damages
+  arising from the use of this software.
+
+  Permission is granted to anyone to use this software for any purpose,
+  including commercial applications, and to alter it and redistribute it
+  freely, subject to the following restrictions:
+
+  1. The origin of this software must not be misrepresented; you must not
+     claim that you wrote the original software. If you use this software
+     in a product, an acknowledgment in the product documentation would be
+     appreciated but is not required.
+  2. Altered source versions must be plainly marked as such, and must not be
+     misrepresented as being the original software.
+  3. This notice may not be removed or altered from any source distribution.
+
+  Jean-loup Gailly        Mark Adler
+  jloup@gzip.org          madler@alumni.caltech.edu
+
+
+  The data format used by the zlib library is described by RFCs (Request for
+  Comments) 1950 to 1952 in the files http://www.ietf.org/rfc/rfc1950.txt
+  (zlib format), rfc1951.txt (deflate format) and rfc1952.txt (gzip format).</tt></pre>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Version 3.1.9<br />
+Last updated 2013-01-06 17:46:13 CET
+</div>
+</div>
+</body>
+</html>

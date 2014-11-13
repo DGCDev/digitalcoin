@@ -10,15 +10,30 @@ src/qt/test/test_digitalcoin-qt
 Makefile.in
 aclocal.m4
 autom4te.cache/
+build-aux/config.guess
+build-aux/config.sub
+build-aux/depcomp
+build-aux/install-sh
+build-aux/ltmain.sh
+build-aux/m4/libtool.m4
+build-aux/m4/lt-obsolete.m4
+build-aux/m4/ltoptions.m4
+build-aux/m4/ltsugar.m4
+build-aux/m4/ltversion.m4
+build-aux/missing
+build-aux/compile
+build-aux/test-driver
 config.log
 config.status
 configure
+libtool
 src/digitalcoin-config.h
 src/digitalcoin-config.h.in
-src/build-aux/
-src/stamp-h1
+src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
+
+src/univalue/gen
 
 src/qt/*.moc
 src/qt/moc_*.cpp
@@ -33,6 +48,7 @@ src/qt/test/moc*.cpp
 *.bak
 *.rej
 *.orig
+*.pyc
 *.o
 *.o-*
 *.patch
@@ -50,6 +66,7 @@ src/qt/test/moc*.cpp
 
 # Compilation and Qt preprocessor part
 *.qm
+Makefile
 digitalcoin-qt
 Digitalcoin-Qt.app
 
@@ -82,3 +99,5 @@ qa/pull-tester/run-digitalcoind-for-test.sh
 qa/pull-tester/build-tests.sh
 
 !src/leveldb*/Makefile
+
+/doc/doxygen

@@ -16,6 +16,7 @@
 #include "utilitydialog.h"
 #include "exchangebrowser.h"
 #include "chatwindow.h"
+#include "blockbrowser.h"
 #ifdef ENABLE_WALLET
 #include "walletframe.h"
 #include "walletmodel.h"

@@ -17,6 +17,7 @@ class TransactionView;
 class WalletModel;
 class ExchangeBrowser;
 class ChatWindow;
+class BlockBrowser;
 
 QT_BEGIN_NAMESPACE
 class QModelIndex;
@@ -57,28 +58,36 @@ private:
     WalletModel *walletModel;
 	ChatWindow *chatWindow;
 	ExchangeBrowser *exchangeBrowser;
+	BlockBrowser *blockBrowser;
+
     OverviewPage *overviewPage;
     QWidget *transactionsPage;
     ReceiveCoinsDialog *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
 
     TransactionView *transactionView;
-
     QProgressDialog *progressDialog;
+
+    /** Create the main UI actions. */
+    void createActions();
+    /** Create the menu bar and sub-menus. */
 
 public slots:
     /** Switch to overview (home) page */
     void gotoOverviewPage();
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
-	/** Switch to chat page */
+    /** Switch to chat page */
     void gotoChatPage();
-	/** Switch to exchange browser page */
+    /** Switch to exchange browser page */
     void gotoExchangeBrowserPage();	
     /** Switch to receive coins page */
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage(QString addr = "");
+
+    /** Switch to block explorer page */
+    void gotoBlockBrowserPage();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");

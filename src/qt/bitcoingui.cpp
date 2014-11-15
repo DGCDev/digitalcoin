@@ -16,6 +16,7 @@
 #include "utilitydialog.h"
 #include "exchangebrowser.h"
 #include "chatwindow.h"
+#include "blockbrowser.h"
 #ifdef ENABLE_WALLET
 #include "walletframe.h"
 #include "walletmodel.h"
@@ -261,6 +262,13 @@ void BitcoinGUI::createActions(bool fIsTestnet)
 	exchangeAction->setCheckable(true);
 	tabGroup->addAction(exchangeAction);
 	
+	blockAction = new QAction(QIcon(":/icons/blexp"), tr("&Block Explorer"), this);
+ 	blockAction->setStatusTip(tr("Explore the BlockChain"));
+	blockAction->setToolTip(blockAction->statusTip());
+	blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+	blockAction->setCheckable(true);
+	tabGroup->addAction(blockAction);
+
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
     // can be triggered from the tray menu, and need to show the GUI to be useful.
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -273,6 +281,7 @@ void BitcoinGUI::createActions(bool fIsTestnet)
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
 	connect(chatAction, SIGNAL(triggered()), this, SLOT(gotoChatPage()));
 	connect(exchangeAction, SIGNAL(triggered()), this, SLOT(gotoExchangeBrowserPage()));
+	connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowserPage()));
 
     quitAction = new QAction(QIcon(":/icons/quit"), tr("E&xit"), this);
     quitAction->setStatusTip(tr("Quit application"));
@@ -343,6 +352,7 @@ void BitcoinGUI::createActions(bool fIsTestnet)
         connect(usedSendingAddressesAction, SIGNAL(triggered()), walletFrame, SLOT(usedSendingAddresses()));
         connect(usedReceivingAddressesAction, SIGNAL(triggered()), walletFrame, SLOT(usedReceivingAddresses()));
         connect(openAction, SIGNAL(triggered()), this, SLOT(openClicked()));
+	connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
     }
 #endif
 }
@@ -381,6 +391,9 @@ void BitcoinGUI::createMenuBar()
     }
     settings->addAction(optionsAction);
 
+    QMenu *network = appMenuBar->addMenu(tr("&Network"));
+    network->addAction(blockAction);
+
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
     if(walletFrame)
     {
@@ -404,6 +417,7 @@ void BitcoinGUI::createToolBars()
         toolbar->addAction(historyAction);
 		toolbar->addAction(chatAction);
 		toolbar->addAction(exchangeAction);
+		toolbar->addAction(blockAction);
         overviewAction->setChecked(true);
     }
 }
@@ -607,6 +621,12 @@ void BitcoinGUI::gotoExchangeBrowserPage()
 {
     exchangeAction->setChecked(true);
     if (walletFrame) walletFrame->gotoExchangeBrowserPage();
+}
+
+void BitcoinGUI::gotoBlockBrowserPage()
+{
+    blockAction->setChecked(true);
+    if (walletFrame) walletFrame->gotoBlockBrowserPage();
 }
 
 void BitcoinGUI::gotoReceiveCoinsPage()

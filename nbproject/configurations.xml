@@ -253,8 +253,6 @@
         </ccTool>
       </item>
       <item path="src/aes_helper.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/alert.cpp" ex="false" tool="1" flavor2="4">
         <ccTool flags="0">
@@ -352,8 +350,6 @@
         </ccTool>
       </item>
       <item path="src/blake.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/bloom.cpp" ex="false" tool="1" flavor2="4">
         <ccTool flags="0">
@@ -375,8 +371,6 @@
         </ccTool>
       </item>
       <item path="src/bmw.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/chainparams.cpp" ex="false" tool="1" flavor2="0">
         <ccTool flags="0">
@@ -474,8 +468,6 @@
         </ccTool>
       </item>
       <item path="src/cubehash.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/db.cpp" ex="false" tool="1" flavor2="0">
         <ccTool flags="0">
@@ -497,12 +489,8 @@
         </ccTool>
       </item>
       <item path="src/echo.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/groestl.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/hash.cpp" ex="false" tool="1" flavor2="0">
         <ccTool flags="0">
@@ -543,12 +531,8 @@
         </ccTool>
       </item>
       <item path="src/jh.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/keccak.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/key.cpp" ex="false" tool="1" flavor2="0">
         <ccTool flags="0">
@@ -589,170 +573,90 @@
         </ccTool>
       </item>
       <item path="src/leveldb/db/builder.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/c.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/db_impl.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/db_iter.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/dbformat.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/filename.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/log_reader.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/log_writer.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/memtable.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/repair.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/table_cache.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/version_edit.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/version_set.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/db/write_batch.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/helpers/memenv/memenv.cc"
             ex="false"
             tool="1"
             flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/port/port_posix.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/table/block.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/table/block_builder.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/table/filter_block.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/table/format.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/table/iterator.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/table/merger.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/table/table.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/table/table_builder.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/table/two_level_iterator.cc"
             ex="false"
             tool="1"
             flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/arena.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/bloom.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/cache.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/coding.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/comparator.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/crc32c.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/env.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/env_posix.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/env_win.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/filter_policy.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/hash.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/histogram.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/logging.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/options.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldb/util/status.cc" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/leveldbwrapper.cpp" ex="false" tool="1" flavor2="0">
         <ccTool flags="0">
@@ -774,8 +678,6 @@
         </ccTool>
       </item>
       <item path="src/luffa.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
         <ccTool flags="0">
@@ -892,44 +794,24 @@
         </ccTool>
       </item>
       <item path="src/qt/bitcoin.cpp" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/qt/bitcoinaddressvalidator.cpp" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/qt/bitcoinamountfield.cpp" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/qt/bitcoingui.cpp" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/qt/bitcoinunits.cpp" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/qt/clientmodel.cpp" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/qt/csvmodelwriter.cpp" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/qt/exchangebrowser.cpp" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/qt/guiutil.cpp" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/qt/intro.cpp" ex="false" tool="1" flavor2="0">
-        <ccTool flags="0">
-        </ccTool>
       </item>
       <item path="src/rpcblockchain.cpp" ex="false" tool="1" flavor2="0">
         <ccTool flags="0">
@@ -1160,16 +1042,10 @@
         </ccTool>
       </item>
       <item path="src/shavite.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/simd.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/skein.c" ex="false" tool="0" flavor2="0">
-        <cTool flags="1">
-        </cTool>
       </item>
       <item path="src/sync.cpp" ex="false" tool="1" flavor2="0">
         <ccTool flags="0">

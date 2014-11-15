@@ -44,6 +44,113 @@
         <df name="wallettools">
         </df>
       </df>
+      <df name="depends">
+        <df name="builders">
+        </df>
+        <df name="hosts">
+        </df>
+        <df name="packages">
+        </df>
+        <df name="patches">
+          <df name="boost">
+          </df>
+          <df name="native_cdrkit">
+          </df>
+          <df name="qt">
+          </df>
+        </df>
+        <df name="sources">
+        </df>
+        <df name="work">
+          <df name="build">
+            <df name="x86_64-apple-darwin14.0.0">
+              <df name="native_ccache">
+                <df name="3.1.9-8fd9dd3ed16">
+                  <df name="test">
+                    <in>framework.c</in>
+                    <in>framework.h</in>
+                    <in>main.c</in>
+                    <in>suites.h</in>
+                    <in>test_args.c</in>
+                    <in>test_argument_processing.c</in>
+                    <in>test_compopt.c</in>
+                    <in>test_counters.c</in>
+                    <in>test_hash.c</in>
+                    <in>test_hashutil.c</in>
+                    <in>test_lockfile.c</in>
+                    <in>test_stats.c</in>
+                    <in>test_util.c</in>
+                    <in>util.c</in>
+                    <in>util.h</in>
+                  </df>
+                  <df name="zlib">
+                    <in>adler32.c</in>
+                    <in>compress.c</in>
+                    <in>crc32.c</in>
+                    <in>crc32.h</in>
+                    <in>deflate.c</in>
+                    <in>deflate.h</in>
+                    <in>gzio.c</in>
+                    <in>inffast.c</in>
+                    <in>inffast.h</in>
+                    <in>inffixed.h</in>
+                    <in>inflate.c</in>
+                    <in>inflate.h</in>
+                    <in>inftrees.c</in>
+                    <in>inftrees.h</in>
+                    <in>trees.c</in>
+                    <in>trees.h</in>
+                    <in>zconf.h</in>
+                    <in>zlib.h</in>
+                    <in>zutil.c</in>
+                    <in>zutil.h</in>
+                  </df>
+                  <in>args.c</in>
+                  <in>ccache.c</in>
+                  <in>ccache.h</in>
+                  <in>cleanup.c</in>
+                  <in>compopt.c</in>
+                  <in>compopt.h</in>
+                  <in>counters.c</in>
+                  <in>counters.h</in>
+                  <in>execute.c</in>
+                  <in>exitfn.c</in>
+                  <in>getopt_long.c</in>
+                  <in>getopt_long.h</in>
+                  <in>hash.c</in>
+                  <in>hashtable.c</in>
+                  <in>hashtable.h</in>
+                  <in>hashtable_itr.c</in>
+                  <in>hashtable_itr.h</in>
+                  <in>hashtable_private.h</in>
+                  <in>hashutil.c</in>
+                  <in>hashutil.h</in>
+                  <in>language.c</in>
+                  <in>language.h</in>
+                  <in>lockfile.c</in>
+                  <in>main.c</in>
+                  <in>manifest.c</in>
+                  <in>manifest.h</in>
+                  <in>mdfour.c</in>
+                  <in>mdfour.h</in>
+                  <in>murmurhashneutral2.c</in>
+                  <in>murmurhashneutral2.h</in>
+                  <in>snprintf.c</in>
+                  <in>stats.c</in>
+                  <in>system.h</in>
+                  <in>unify.c</in>
+                  <in>util.c</in>
+                  <in>version.c</in>
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+        <df name="x86_64-apple-darwin14.0.0">
+          <df name="lib">
+          </df>
+        </df>
+      </df>
       <df name="doc">
         <df name="gitian-building">
         </df>
@@ -306,6 +413,8 @@
           <in>bitcoinstrings.cpp</in>
           <in>bitcoinunits.cpp</in>
           <in>bitcoinunits.h</in>
+          <in>blockbrowser.cpp</in>
+          <in>blockbrowser.h</in>
           <in>chatwindow.cpp</in>
           <in>chatwindow.h</in>
           <in>clientmodel.cpp</in>
@@ -592,6 +701,8 @@
         <in>sph_simd.h</in>
         <in>sph_skein.h</in>
         <in>sph_types.h</in>
+        <in>stealthaddress.cpp</in>
+        <in>stealthaddress.h</in>
         <in>sync.cpp</in>
         <in>sync.h</in>
         <in>threadsafety.h</in>

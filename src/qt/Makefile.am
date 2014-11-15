@@ -88,6 +88,7 @@ QT_FORMS_UI = \
   forms/aboutdialog.ui \
   forms/addressbookpage.ui \
   forms/askpassphrasedialog.ui \
+  forms/blockbrowser.ui \
   forms/coincontroldialog.ui \
   forms/editaddressdialog.ui \
   forms/helpmessagedialog.ui \
@@ -109,6 +110,7 @@ QT_MOC_CPP = \
   moc_addressbookpage.cpp \
   moc_addresstablemodel.cpp \
   moc_askpassphrasedialog.cpp \
+  moc_blockbrowser.cpp \
   moc_bitcoinaddressvalidator.cpp \
   moc_bitcoinamountfield.cpp \
   moc_bitcoingui.cpp \
@@ -175,6 +177,7 @@ BITCOIN_QT_H = \
   addressbookpage.h \
   addresstablemodel.h \
   askpassphrasedialog.h \
+  blockbrowser.h \
   bitcoinaddressvalidator.h \
   bitcoinamountfield.h \
   bitcoingui.h \
@@ -300,6 +303,7 @@ BITCOIN_QT_CPP += \
   addressbookpage.cpp \
   addresstablemodel.cpp \
   askpassphrasedialog.cpp \
+  blockbrowser.cpp \
   coincontroldialog.cpp \
   coincontroltreewidget.cpp \
   editaddressdialog.cpp \

@@ -62,7 +62,7 @@ static const unsigned int DEFAULT_MAX_ORPHAN_BLOCKS = 750;
 static const int COINBASE_MATURITY = 5;
 
 /** DGC V3 Hard Fork Block */
-static const int V3_FORK = 961900;
+static const int V3_FORK = 1013250;
 static const int MAX_BLOCK_ALGO_COUNT = 3;
 
 /* Other DGC Fork Blocks */

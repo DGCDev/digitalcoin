@@ -33,6 +33,7 @@ public:
     bool setCurrentWallet(const QString& name);
     bool removeWallet(const QString &name);
     void removeAllWallets();
+	
 
     bool handlePaymentRequest(const SendCoinsRecipient& recipient);
 
@@ -63,7 +64,7 @@ public slots:
     void gotoSendCoinsPage(QString addr = "");
 
     void gotoBlockBrowserPage(); 
-
+	void reloadUi();
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
     /** Show Sign/Verify Message dialog and switch to verify message tab */

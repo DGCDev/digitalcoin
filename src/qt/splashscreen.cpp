@@ -71,11 +71,11 @@ SplashScreen::SplashScreen(const QPixmap &pixmap, Qt::WindowFlags f, bool isTest
         pixPaint.setFont(QFont(font, 10*fontFactor));
         titleVersionVSpace -= 5;
     }
-    pixPaint.drawText(newPixmap.width()-titleTextWidth-paddingRight+2,paddingTop+2+titleVersionVSpace,versionText);
+    //pixPaint.drawText(newPixmap.width()-titleTextWidth-paddingRight+2,paddingTop+2+titleVersionVSpace,versionText);
 
     // draw copyright stuff
     pixPaint.setFont(QFont(font, 10*fontFactor));
-    pixPaint.drawText(newPixmap.width()-titleTextWidth-paddingRight,35+titleCopyrightVSpace,copyrightText);
+    //pixPaint.drawText(newPixmap.width()-titleTextWidth-paddingRight,35+titleCopyrightVSpace,copyrightText);
 
     // draw testnet string if testnet is on
     if(isTestNet) {

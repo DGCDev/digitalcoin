@@ -220,12 +220,10 @@ public:
         return !(a == b);
     }
 	
-    bool IsScriptOpReturn() const
+    bool IsOpReturn() const
     {
 	opcodetype opCode;
-	CScript::const_iterator itTxA = scriptPubKey.begin();
-	return (scriptPubKey.GetOp(itTxA, opCode)
-		 && opCode == OP_RETURN);
+	return (opCode == OP_RETURN);
     }
 
     std::string ToString() const;

@@ -39,7 +39,7 @@ WalletView::WalletView(QWidget *parent):
     // Create actions for the toolbar, menu bar and tray/dock icon
     createActions();
 	parent->setObjectName("MainWindow");
-	parent->setStyleSheet("#MainWindow{border-image: url(:/images/wallet) 0 0 0 0 stretch stretch;}");
+	//parent->setStyleSheet("#MainWindow{border-image: url(:/images/wallet) 0 0 0 0 stretch stretch;}");
     // Create tabs
     overviewPage = new OverviewPage();
 	chatWindow = new ChatWindow(this);

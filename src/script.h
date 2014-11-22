@@ -678,6 +678,7 @@ public:
         LogPrintf("CScript(%s)\n", HexStr(begin(), end(), true).c_str());
     }
 
+	
     std::string ToString() const
     {
         std::string str;

@@ -222,8 +222,8 @@ public:
 	
     bool IsOpReturn() const
     {
-	opcodetype opCode;
-	return (opCode == OP_RETURN);
+		opcodetype opCode;
+		return (opCode == OP_RETURN);
     }
 
     std::string ToString() const;

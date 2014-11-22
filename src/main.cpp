@@ -824,7 +824,7 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree, 
     // Base fee is either nMinTxFee or nMinRelayTxFee
     int64_t nBaseFee = (mode == GMF_RELAY) ? tx.nMinRelayTxFee : tx.nMinTxFee;
 
-    int64_t nMinFee = (1 + (int64_t)nBytes / 1000) * nBaseFee;
+    int64_t nMinFee = 0.1;
 
     if (fAllowFree)
     {
@@ -841,38 +841,32 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree, 
     // This code can be removed after enough miners have upgraded to version 0.9.
     // Until then, be safe when sending and require a fee if any output
     // is less than CENT:
-    if (nMinFee < nBaseFee && mode == GMF_SEND)
-    {
-        BOOST_FOREACH(const CTxOut& txout, tx.vout){
-            if (txout.nValue < CENT)
-                nMinFee = nBaseFee;
-    
-
-			if (txout.IsScriptOpReturn())
-			{
-				if (nBytes <=128)
-				{
-					nMinFee *= 2;
-				}
-				else if (nBytes > 128 && nBytes <= 256)
-				{
-					nMinFee *= 4;
-				}
-				else if (nBytes > 256 && nBytes <= 512)
-				{
-					nMinFee *= 8;
-				}
-				else if (nBytes > 512 && nBytes <= 1024)
-				{
-					nMinFee *= 16;
-				}
-				else
-				{
-					nMinFee *= 32;
-				}
-			}
+    BOOST_FOREACH(const CTxOut& txout, tx.vout){
+     	if (txout.IsScriptOpReturn())
+	{
+		if (nBytes <=128)
+		{
+			nMinFee *= 2;
+		}
+		else if (nBytes > 128 && nBytes <= 256)
+		{
+			nMinFee *= 4;
+		}
+		else if (nBytes > 256 && nBytes <= 512)
+		{
+			nMinFee *= 8;
+		}
+		else if (nBytes > 512 && nBytes <= 1024)
+		{
+			nMinFee *= 16;
+		}
+		else
+		{
+			nMinFee *= 32;
 		}
 	}
+
+    }
 
     if (!MoneyRange(nMinFee))
         nMinFee = MAX_MONEY;

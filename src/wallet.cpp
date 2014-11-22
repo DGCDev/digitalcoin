@@ -1310,7 +1310,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                     CTxOut txout(s.second, s.first);
 
 		    CScript::const_iterator itTxA = txout.scriptPubKey.begin();
-                    if (!txout.IsScriptOpReturn())
+                    if (!txout.IsOpReturn())
 		    {
 			 if (txout.IsDust(CTransaction::nMinRelayTxFee))
 			 {

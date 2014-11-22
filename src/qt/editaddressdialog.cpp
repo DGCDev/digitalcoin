@@ -20,40 +20,34 @@ EditAddressDialog::EditAddressDialog(Mode mode, QWidget *parent) :
 {
     ui->setupUi(this);
 	ui->label_3->setVisible(false);
-
+	ui->rescanCheckBox->setVisible(false);
+	ui->stealthCB->setEnabled(false);
     GUIUtil::setupAddressWidget(ui->addressEdit, this);
 
     switch(mode)
     {
     case NewReceivingAddress:
         setWindowTitle(tr("New receiving address"));
-        ui->addressEdit->setEnabled(false);
-		ui->rescanCheckBox->setVisible(false);
+        ui->addressEdit->setEnabled(false);	
 		ui->stealthCB->setEnabled(true);
         ui->stealthCB->setVisible(true);
         break;
     case NewSendingAddress:
         setWindowTitle(tr("New sending address"));
-		ui->stealthCB->setVisible(false);
         break;
     case EditReceivingAddress:
         setWindowTitle(tr("Edit receiving address"));
         ui->addressEdit->setEnabled(false);
-		ui->addressEdit->setVisible(true);
-        ui->stealthCB->setEnabled(false);
+		ui->addressEdit->setVisible(true);        
         ui->addressEdit->setVisible(true);
-		ui->rescanCheckBox->setVisible(false);
         break;
     case EditSendingAddress:
         setWindowTitle(tr("Edit sending address"));
-		ui->stealthCB->setVisible(false);
-		ui->rescanCheckBox->setVisible(false);
         break;
 	case ImportReceivingAddress:
 		setWindowTitle(tr("Import private key"));
 		ui->label_2->setText(tr("Private key"));
 		ui->addressEdit->setMaxLength(52);
-		ui->stealthCB->setEnabled(false);
 		ui->rescanCheckBox->setVisible(true);
 		break;
     }

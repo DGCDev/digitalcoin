@@ -38,7 +38,8 @@ WalletView::WalletView(QWidget *parent):
 
     // Create actions for the toolbar, menu bar and tray/dock icon
     createActions();
-
+	parent->setObjectName("MainWindow");
+	//parent->setStyleSheet("#MainWindow{border-image: url(:/images/wallet) 0 0 0 0 stretch stretch;}");
     // Create tabs
     overviewPage = new OverviewPage();
 	chatWindow = new ChatWindow(this);
@@ -105,7 +106,7 @@ void WalletView::createActions()
     blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
     blockAction->setCheckable(true);
     tabGroup->addAction(blockAction);
-
+	
     connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
 }
 
@@ -211,6 +212,14 @@ void WalletView::gotoBlockBrowserPage()
 void WalletView::gotoReceiveCoinsPage()
 {
     setCurrentWidget(receiveCoinsPage);
+}
+
+void WalletView::reloadUi()
+{
+    QFile qss("stylesheet.qss");
+	qss.open(QFile::ReadOnly);
+	setStyleSheet(qss.readAll());
+	qss.close();
 }
 
 void WalletView::gotoSendCoinsPage(QString addr)

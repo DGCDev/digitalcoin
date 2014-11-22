@@ -22,7 +22,7 @@ WalletFrame::WalletFrame(BitcoinGUI *_gui) :
     walletStack = new QStackedWidget(this);
     walletFrameLayout->setContentsMargins(0,0,0,0);
     walletFrameLayout->addWidget(walletStack);
-
+  
     QLabel *noWallet = new QLabel(tr("No wallet has been loaded."));
     noWallet->setAlignment(Qt::AlignCenter);
     walletStack->addWidget(noWallet);
@@ -203,6 +203,12 @@ void WalletFrame::usedSendingAddresses()
     WalletView *walletView = currentWalletView();
     if (walletView)
         walletView->usedSendingAddresses();
+}
+
+void WalletFrame::reloadUi(){
+    WalletView *walletView = currentWalletView();
+    if (walletView)
+        walletView->reloadUi();
 }
 
 void WalletFrame::usedReceivingAddresses()

@@ -110,7 +110,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                     continue;
                 }
 
-		if (txout.IsScriptOpReturn())
+		if (txout.IsOpReturn())
                 {
                     // OP_RETURN txout
                     continue;

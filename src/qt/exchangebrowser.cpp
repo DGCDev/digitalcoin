@@ -39,7 +39,7 @@ ExchangeBrowser::ExchangeBrowser(QWidget* parent) : QWidget(parent), ui(new Ui::
     getRequest(apiCoinbasePrice);
 
     ui->setupUi(this);
-    setFixedSize(400, 420);
+    setFixedSize(500, 420);
 
     ui->qCustomPlotBittrexTrades->addGraph();
     ui->qCustomPlotBittrexTrades->setBackground(QBrush(QColor("#edf1f7")));
@@ -53,6 +53,7 @@ ExchangeBrowser::ExchangeBrowser(QWidget* parent) : QWidget(parent), ui(new Ui::
 
     //One time primer
     pollAPIs();
+	
 }
 
 void ExchangeBrowser::on_btnConvertSilkoin_clicked()
@@ -68,6 +69,7 @@ void ExchangeBrowser::on_btnConvertSilkoin_clicked()
 void ExchangeBrowser::on_btnUpdateMarketData_clicked()
 {
     pollAPIs();
+	
 }
 
 void ExchangeBrowser::openBittrex()

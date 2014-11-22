@@ -842,7 +842,7 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree, 
     // Until then, be safe when sending and require a fee if any output
     // is less than CENT:
     BOOST_FOREACH(const CTxOut& txout, tx.vout){
-     	if (txout.IsScriptOpReturn())
+     	if (txout.IsOpReturn())
 	{
 		if (nBytes <=128)
 		{

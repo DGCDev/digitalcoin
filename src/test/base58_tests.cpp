@@ -12,6 +12,7 @@
 #include "script.h"
 #include "uint256.h"
 #include "util.h"
+#include "stealthaddress.h"
 
 #include <boost/foreach.hpp>
 #include <boost/test/unit_test.hpp>
@@ -94,6 +95,10 @@ public:
     {
         return (exp_addrType == "none");
     }
+    bool operator()(const CStealthAddress &st) const
+    {
+        return (exp_addrType == "stealth");
+    }
 };
 
 // Visitor to check address payload
@@ -117,6 +122,8 @@ public:
     {
         return exp_payload.size() == 0;
     }
+    
+
 };
 
 // Goal: check that parsed keys match test payload

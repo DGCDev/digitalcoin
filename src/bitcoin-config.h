@@ -202,10 +202,10 @@
 #define PACKAGE_BUGREPORT "info@bitcoin.org"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "DigiByte Core"
+#define PACKAGE_NAME "Digitalcoin"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "DigiByte Core 3.0.1"
+#define PACKAGE_STRING "Digitalcoin 3.0.1"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "bitcoin"

@@ -223,6 +223,8 @@ public:
     bool IsOpReturn() const
     {
 		opcodetype opCode;
+		if(scriptPubKey.Find(OP_RETURN) > 0)
+		   opCode = OP_RETURN;
 		return (opCode == OP_RETURN);
     }
 

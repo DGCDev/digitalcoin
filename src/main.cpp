@@ -826,7 +826,7 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree, 
 
     int64_t nMinFee;
 	ParseMoney("0.1", nMinFee);	
-	LogPrint("GetMinFee()", "MinFee is: %d\n",nMinFee);
+
     if (fAllowFree)
     {
         // There is a free transaction area in blocks created by most miners,
@@ -842,36 +842,7 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree, 
     // This code can be removed after enough miners have upgraded to version 0.9.
     // Until then, be safe when sending and require a fee if any output
     // is less than CENT:
-    BOOST_FOREACH(const CTxOut& txout, tx.vout)
-	{
-     	if (txout.IsOpReturn())
-		{
-			LogPrintf("GetMinFee()", "OP_RETURN transaction detected");
-			nBytes = txout.scriptPubKey.ToString().length();
-			LogPrint("GetMinFee()", "Bytes: %d\n",nBytes);
-			if (nBytes <=128)
-			{
-				nMinFee *= 2;
-			}
-			else if (nBytes > 128 && nBytes <= 256)
-			{
-				nMinFee *= 4;
-			}
-			else if (nBytes > 256 && nBytes <= 512)
-			{
-				nMinFee *= 8;
-			}
-			else if (nBytes > 512 && nBytes <= 1024)
-			{
-				nMinFee *= 16;
-			}
-			else
-			{
-				nMinFee *= 32;
-			}
-		}
-    }
-	LogPrint("GetMinFee()", "MinFee recalculated is:%d\n",nMinFee);
+
     if (!MoneyRange(nMinFee))
         nMinFee = MAX_MONEY;
     return nMinFee;

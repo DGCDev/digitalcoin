@@ -1318,7 +1318,33 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                             strFailReason = _("Transaction amount too small");
                             return false;
                          }
-                    }
+                    } 
+		    else {
+			int64_t size = txout.scriptPubKey.ToString().length();
+			int64_t nMinFee = CTransaction::nMinTxFee;
+			LogPrint("GetMinFee()", "Bytes: %d\n",size);
+			if (size <=128)
+			{	
+			   nMinFee *= 2;
+			}
+			else if (size > 128 && size<= 256)
+			{
+			   nMinFee *= 4;
+			}
+			else if (size > 256 && size <= 512)
+			{
+			   nMinFee *= 8;
+			}
+			else if (size > 512 && size <= 1024)
+			{
+			   nMinFee *= 16;
+	 		}
+			else
+			{
+			   nMinFee *= 32;
+			}
+			nFeeRet += nMinFee;
+		    }
                     wtxNew.vout.push_back(txout);
 					
                 }

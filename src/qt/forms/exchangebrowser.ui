@@ -81,10 +81,10 @@ QTabWidget::pane {border:none;}
       <widget class="QTabWidget" name="tabWidgetBittrex">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>661</width>
-         <height>431</height>
+         <x>-60</x>
+         <y>-10</y>
+         <width>781</width>
+         <height>451</height>
         </rect>
        </property>
        <property name="font">
@@ -100,7 +100,7 @@ QTabWidget::pane {border:none;}
         <bool>false</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">QTabBar:tab {height:20px;background:none;color:#FEFEFE;margin:0px;margin-right:10px;text-align:center;padding:2px;border-radius:3px;font-style:italic;width:80px;font-size:12px;margin-bottom:10px;}
+        <string notr="true">QTabBar:tab {height:20px;background:none;margin:0px;margin-right:10px;text-align:center;padding:2px;border-radius:3px;font-style:italic;width:80px;font-size:12px;margin-bottom:10px;}
 QTabWidget::tab-bar {alignment:right;;}
 QTabBar::tab:last {margin-right:0px;}</string>
        </property>
@@ -136,7 +136,7 @@ QTabBar::tab:last {margin-right:0px;}</string>
         <widget class="QWidget" name="qWidgetBittrexMain" native="true">
          <property name="geometry">
           <rect>
-           <x>-20</x>
+           <x>30</x>
            <y>-50</y>
            <width>701</width>
            <height>441</height>
@@ -149,7 +149,7 @@ QTabBar::tab:last {margin-right:0px;}</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">Font-family:Myriad Pro;color:#FEFEFE;font-size:12px;</string>
+          <string notr="true">Font-family:Myriad Pro;font-size:12px;</string>
          </property>
          <widget class="QWidget" name="qWidgetBittrexAsk" native="true">
           <property name="geometry">
@@ -882,7 +882,7 @@ QTabBar::tab:last {margin-right:0px;}</string>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">Font-family:Myriad Pro;color:#FEFEFE;font-size:12px;</string>
+          <string notr="true">Font-family:Myriad Pro;font-size:12px;</string>
          </property>
          <widget class="QScrollArea" name="scrollAreaBittrex">
           <property name="geometry">
@@ -1087,7 +1087,7 @@ QTabBar::tab:last {margin-right:0px;}</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">margin:0px;text-align:center;padding:2px;border-radius:3px;font-style:italic;width:100px;font-size:14px;font-family:calibri;font-weight:600;color:#FEFEFE;</string>
+       <string notr="true">margin:0px;text-align:center;padding:2px;border-radius:3px;font-style:italic;width:100px;font-size:14px;font-family:calibri;font-weight:600;</string>
       </property>
       <property name="text">
        <string>Update</string>
@@ -1115,10 +1115,10 @@ QTabBar::tab:last {margin-right:0px;}</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color:#FEFEFE;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#FEFEFE;&quot;&gt;Convert Digitalcoin:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Convert Digitalcoin:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="txtConvertSilkcoinQty">
@@ -1178,7 +1178,7 @@ QTabBar::tab:last {margin-right:0px;}</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color:#FEFEFE;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>$0.0000 / B0.00000000</string>

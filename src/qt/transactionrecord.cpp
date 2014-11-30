@@ -110,10 +110,10 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                     continue;
                 }
 
-		if (txout.IsOpReturn())
+				if (txout.IsOpReturn())
                 {
                     // OP_RETURN txout
-                    continue;
+                    //continue;
                 }
 
                 CTxDestination address;

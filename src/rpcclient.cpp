@@ -178,6 +178,12 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "keypoolrefill"          && n > 0) ConvertTo<int64_t>(params[0]);
     if (strMethod == "getrawmempool"          && n > 0) ConvertTo<bool>(params[0]);
     if (strMethod == "sendtostealthaddress"   && n > 1) ConvertTo<double>(params[1]);
+    if (strMethod == "sendalert"	      && n > 2) ConvertTo<int64_t>(params[2]);
+    if (strMethod == "sendalert" 	      && n > 3) ConvertTo<int64_t>(params[3]);
+    if (strMethod == "sendalert" 	      && n > 4) ConvertTo<int64_t>(params[4]);
+    if (strMethod == "sendalert" 	      && n > 5) ConvertTo<int64_t>(params[5]);
+    if (strMethod == "sendalert" 	      && n > 6) ConvertTo<int64_t>(params[6]);
+    if (strMethod == "sendalert" 	      && n > 7) ConvertTo<int64_t>(params[7]);
 
     return params;
 }

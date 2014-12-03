@@ -308,7 +308,7 @@ std::string HelpMessage(HelpMessageMode hmm)
     strUsage += "  -blockminsize=<n>      " + _("Set minimum block size in bytes (default: 0)") + "\n";
     strUsage += "  -blockmaxsize=<n>      " + strprintf(_("Set maximum block size in bytes (default: %d)"), DEFAULT_BLOCK_MAX_SIZE) + "\n";
     strUsage += "  -blockprioritysize=<n> " + strprintf(_("Set maximum size of high-priority/low-fee transactions in bytes (default: %d)"), DEFAULT_BLOCK_PRIORITY_SIZE) + "\n";
-    strUsage += "  -algo=<algo>           " + _("Mining algorithm: sha256d, scrypt, groestl, skein, qubit") + "\n";
+    strUsage += "  -algo=<algo>           " + _("Mining algorithm: sha256d, scrypt, x11") + "\n";
     strUsage += "\n" + _("RPC server options:") + "\n";
     strUsage += "  -server                " + _("Accept command line and JSON-RPC commands") + "\n";
     strUsage += "  -rpcuser=<user>        " + _("Username for JSON-RPC connections") + "\n";
@@ -518,7 +518,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     }
 
     // Algo
-    std::string strAlgo = GetArg("-algo", "sha256d");
+    std::string strAlgo = GetArg("-algo", "scrypt");
     transform(strAlgo.begin(),strAlgo.end(),strAlgo.begin(),::tolower);
     if (strAlgo == "sha" || strAlgo == "sha256" || strAlgo == "sha256d")
         miningAlgo = ALGO_SHA256D;

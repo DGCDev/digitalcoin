@@ -947,7 +947,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Unix: ~/.digitalcoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Digitalcoin-v3";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "digitalcoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -959,10 +959,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "Digitalcoin-v3";
+    return pathRet / "digitalcoin";
 #else
     // Unix
-    return pathRet / ".digitalcoin-v3";
+    return pathRet / ".digitalcoin";
 #endif
 #endif
 }

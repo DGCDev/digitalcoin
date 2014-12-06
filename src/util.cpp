@@ -1035,7 +1035,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 	boost::filesystem::ofstream pathConfigFile(GetConfigFile());
 
 	// Construct the new config file
-	std::string configLine = "listen=1\ntxindex=1\nserver=1\ndaemon=1\nrpcuser=";
+	std::string configLine = "listen=1\ntxindex=1\nreindex=1\nserver=1\ndaemon=1\nrpcuser=";
 	configLine += random(20);
 	configLine += "\nrpcpassword=";
 	configLine += random(35);
@@ -1065,7 +1065,8 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     }
     // If datadir is changed in .conf file:
     ClearDatadirCache();
-    if(streamConfigCheck.good()){
+    boost::filesystem::ifstream streamConfCheck(GetConfigFile());
+    if(streamConfCheck.good()){
 	boost::filesystem::ifstream sConfig(GetConfigFile());
 	std::string newConfig;
 	while(sConfig) {

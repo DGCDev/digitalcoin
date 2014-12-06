@@ -36,7 +36,7 @@
 #define HAVE_BOOST /**/
 
 /* define if the Boost::Chrono library is available */
-/* #undef HAVE_BOOST_CHRONO */
+#define HAVE_BOOST_CHRONO /**/
 
 /* define if the Boost::Filesystem library is available */
 #define HAVE_BOOST_FILESYSTEM /**/

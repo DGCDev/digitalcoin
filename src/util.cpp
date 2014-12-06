@@ -1065,6 +1065,21 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
     }
     // If datadir is changed in .conf file:
     ClearDatadirCache();
+    if(streamConfigCheck.good()){
+	boost::filesystem::ifstream sConfig(GetConfigFile());
+	std::string newConfig;
+	while(sConfig) {
+	   std::string sLine;
+	   std::getline(sConfig, sLine);
+	   if(sLine.compare("reindex=1") != 0)
+       	      newConfig += sLine + "\n";
+	}
+	boost::filesystem::ofstream pathConfigFile(GetConfigFile());
+	pathConfigFile << newConfig;
+        pathConfigFile.flush();
+        pathConfigFile.close();
+
+    }
 }
 
 boost::filesystem::path GetPidFile()

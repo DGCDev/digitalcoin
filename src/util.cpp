@@ -957,9 +957,9 @@ boost::filesystem::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    pathRet /= "Library/Application Support";
+    pathRet /= "Library/Application Support/digitalcoin";
     TryCreateDirectory(pathRet);
-    return pathRet / "digitalcoin";
+    return pathRet;
 #else
     // Unix
     return pathRet / ".digitalcoin";

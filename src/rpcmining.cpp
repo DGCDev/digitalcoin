@@ -18,6 +18,8 @@
 #include "json/json_spirit_utils.h"
 #include "json/json_spirit_value.h"
 
+
+
 using namespace json_spirit;
 using namespace std;
 
@@ -54,41 +56,44 @@ void ShutdownRPCMining()
 // Return average network hashes per second based on the last 'lookup' blocks,
 // or from the last difficulty change if 'lookup' is nonpositive.
 // If 'height' is nonnegative, compute the estimate at the time when a given block was found.
+
+
 Value GetNetworkHashPS(int lookup, int height) {
-    CBlockIndex *pb = chainActive.Tip();
-
-    if (height >= 0 && height < chainActive.Height())
-        pb = chainActive[height];
-
+    const CBlockIndex *pb = chainActive.Tip();
+    
+    if(pb->GetAlgo() != miningAlgo)
+	pb = GetLastBlockIndex(pb, miningAlgo); // Get last block of current algo
+  
     if (pb == NULL || !pb->nHeight)
         return 0;
 
-    // If lookup is -1, then use blocks since last difficulty change.
+    // If lookup is -1, then watch at 10 previous blocks.
     if (lookup <= 0)
-        lookup = pb->nHeight % 2016 + 1;
+	lookup = 10;
 
-    // If lookup is larger than chain, then set it to chain length.
-    if (lookup > pb->nHeight)
-        lookup = pb->nHeight;
+    // If lookup is larger than 100, set it back down. You won't get any good accuracy with higher values.
+    if (lookup > 100)
+        lookup = 10;
 
-    CBlockIndex *pb0 = pb;
-    int64_t minTime = pb0->GetBlockTime();
-    int64_t maxTime = minTime;
+    const CBlockIndex *pb0 = pb;
+    
+    double mul = std::pow((double)2,(double)32); //crispy diff multiplier
+    uint64_t averageHash = 0; 
+    
+    const CBlockIndex *pb1 = pb0;
+
     for (int i = 0; i < lookup; i++) {
-        pb0 = pb0->pprev;
-        int64_t time = pb0->GetBlockTime();
-        minTime = std::min(time, minTime);
-        maxTime = std::max(time, maxTime);
+	pb1 = pb0;
+	
+        pb0 = GetLastBlockIndex(pb0->pprev, miningAlgo);
+	if(pb0 == NULL)
+	   break;
+	double diff = (GetDifficulty(pb0,miningAlgo) + GetDifficulty(pb1,miningAlgo)) / 2; // calculate diff average of this and previous block
+
+        averageHash = ((diff * mul / 40) + averageHash) / 2;  //calculate hashrate average
     }
-
-    // In case there's a situation where minTime == maxTime, we don't want a divide by zero exception.
-    if (minTime == maxTime)
-        return 0;
-
-    uint256 workDiff = pb->nChainWork - pb0->nChainWork;
-    int64_t timeDiff = maxTime - minTime;
-
-    return (int64_t)(workDiff.getdouble() / timeDiff);
+   
+    return averageHash;
 }
 
 Value getnetworkhashps(const Array& params, bool fHelp)
@@ -109,7 +114,7 @@ Value getnetworkhashps(const Array& params, bool fHelp)
             + HelpExampleRpc("getnetworkhashps", "")
        );
 
-    return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 120, params.size() > 1 ? params[1].get_int() : -1);
+    return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 10, params.size() > 1 ? params[1].get_int() : -1);
 }
 
 #ifdef ENABLE_WALLET

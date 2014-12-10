@@ -67,13 +67,13 @@ Value GetNetworkHashPS(int lookup, int height) {
     if (pb == NULL || !pb->nHeight)
         return 0;
 
-    // If lookup is -1, then watch at 10 previous blocks.
+    // If lookup is -1, then watch at 25 previous blocks.
     if (lookup <= 0)
-	lookup = 10;
+	lookup = 25;
 
     // If lookup is larger than 100, set it back down. You won't get any good accuracy with higher values.
     if (lookup > 100)
-        lookup = 10;
+        lookup = 25;
 
     const CBlockIndex *pb0 = pb;
     
@@ -114,7 +114,7 @@ Value getnetworkhashps(const Array& params, bool fHelp)
             + HelpExampleRpc("getnetworkhashps", "")
        );
 
-    return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 10, params.size() > 1 ? params[1].get_int() : -1);
+    return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 25, params.size() > 1 ? params[1].get_int() : -1);
 }
 
 #ifdef ENABLE_WALLET
@@ -273,7 +273,7 @@ Value getmininginfo(const Array& params, bool fHelp)
     obj.push_back(Pair("difficulty_x11",     (double)GetDifficulty(NULL, ALGO_X11)));
     obj.push_back(Pair("errors",           GetWarnings("statusbar")));
     obj.push_back(Pair("genproclimit",     (int)GetArg("-genproclimit", -1)));
-//    obj.push_back(Pair("networkhashps",    getnetworkhashps(params, false)));
+    obj.push_back(Pair("networkhashps",    getnetworkhashps(params, false)));
     obj.push_back(Pair("pooledtx",         (uint64_t)mempool.size()));
     obj.push_back(Pair("testnet",          TestNet()));
 #ifdef ENABLE_WALLET

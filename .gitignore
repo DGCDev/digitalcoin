@@ -1,5 +1,7 @@
 *.tar.gz
 
+nbproject/*
+
 *.exe
 src/digitalcoin
 src/digitalcoind

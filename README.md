@@ -7,9 +7,9 @@ sudo apt-get install libboost-all-dev
 
 sudo apt-get install libdb4.8-dev
 
-git clone git://github.com/DGCFoundation/DGCV3.0.git
+git clone git://github.com/DGCFoundation/digitalcoin.git
 
-cd DGCV3.0
+cd digitalcoin
 
 ./autogen.sh
 
@@ -27,9 +27,9 @@ Digitalcoin integration/staging tree
 
 http://digitalcoin.co
 
-Copyright (c) 2009-2014 Bitcoin Developers
+Copyright (c) 2009-2015 Bitcoin Developers
 Copyright (c) 2011-2014 Litecoin Developers 
-Copyright (c) 2011-2014 Digitalcoin Developers
+Copyright (c) 2013-2015 Digitalcoin Developers
 
 What is DigitalCoin?
 --------------------

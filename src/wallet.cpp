@@ -1309,42 +1309,43 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                 {
                     CTxOut txout(s.second, s.first);
 
-		    CScript::const_iterator itTxA = txout.scriptPubKey.begin();
-                    if (!txout.IsOpReturn())
-		    {
-			 if (txout.IsDust(CTransaction::nMinRelayTxFee))
-			 {
-                            LogPrintf("%s\n", txout.ToString());
-                            strFailReason = _("Transaction amount too small");
-                            return false;
-                         }
-                    } 
-		    else {
-			int64_t size = txout.scriptPubKey.ToString().length();
-			int64_t nMinFee = CTransaction::nMinTxFee;
-			LogPrint("GetMinFee()", "Bytes: %d\n",size);
-			if (size <=128)
-			{	
-			   nMinFee *= 2;
-			}
-			else if (size > 128 && size<= 256)
-			{
-			   nMinFee *= 4;
-			}
-			else if (size > 256 && size <= 512)
-			{
-			   nMinFee *= 8;
-			}
-			else if (size > 512 && size <= 1024)
-			{
-			   nMinFee *= 16;
-	 		}
-			else
-			{
-			   nMinFee *= 32;
-			}
-			nFeeRet += nMinFee;
-		    }
+					CScript::const_iterator itTxA = txout.scriptPubKey.begin();
+						if (!txout.IsOpReturn())
+						{
+							if (txout.IsDust(CTransaction::nMinRelayTxFee))
+							{
+								LogPrintf("%s\n", txout.ToString());
+								strFailReason = _("Transaction amount too small");
+								return false;
+							}
+						} 
+						else 
+						{
+							int64_t size = txout.scriptPubKey.ToString().length();
+							int64_t nMinFee = CTransaction::nMinTxFee;
+							LogPrint("GetMinFee()", "Bytes: %d\n",size);
+							if (size <=128)
+							{	
+							   nMinFee *= 2;
+							}
+							else if (size > 128 && size<= 256)
+							{
+							   nMinFee *= 4;
+							}
+							else if (size > 256 && size <= 512)
+							{
+							   nMinFee *= 8;
+							}
+							else if (size > 512 && size <= 1024)
+							{
+							   nMinFee *= 16;
+							}
+							else
+							{
+							   nMinFee *= 32;
+							}
+							nFeeRet += nMinFee;
+						}
                     wtxNew.vout.push_back(txout);
 					
                 }
@@ -1360,10 +1361,14 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                 BOOST_FOREACH(PAIRTYPE(const CWalletTx*, unsigned int) pcoin, setCoins)
                 {
                     int64_t nCredit = pcoin.first->vout[pcoin.second].nValue;
-                    //The priority after the next block (depth+1) is used instead of the current,
+                    //The coin age after the next block (depth+1) is used instead of the current,
                     //reflecting an assumption the user would accept a bit more delay for
                     //a chance at a free transaction.
-                    dPriority += (double)nCredit * (pcoin.first->GetDepthInMainChain()+1);
+					//But mempool inputs might still be in the mempool, so their age stays 0
+                    int age = pcoin.first->GetDepthInMainChain();
+                    if (age != 0)
+                        age += 1;
+ 					dPriority += (double)nCredit * age;
                 }
 
                 int64_t nChange = nValueIn - nValue - nFeeRet;

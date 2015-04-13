@@ -660,7 +660,8 @@ void static BitcoinMiner(CWallet *pwallet)
 
 					// Check for stop or if block needs to be rebuilt
 					boost::this_thread::interruption_point();
-					if (vNodes.empty() && Params().NetworkID() != CChainParams::REGTEST)
+					// Regtest mode doesn't require peers
+					if (vNodes.empty() && Params().MiningRequiresPeers())
 						break;
 					if (nBlockNonce >= 0xffff0000)
 						break;

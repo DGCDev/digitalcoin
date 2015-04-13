@@ -8,6 +8,7 @@
 #include "guiutil.h"
 
 #include <QWidget>
+#include <QKeyEvent>
 
 class TransactionFilterProxy;
 class WalletModel;
@@ -78,6 +79,8 @@ private:
 
     virtual void resizeEvent(QResizeEvent* event);
 
+	bool eventFilter(QObject *obj, QEvent *event);
+	
 private slots:
     void contextualMenu(const QPoint &);
     void dateRangeChanged();

@@ -271,8 +271,7 @@ public:
         return (vin.empty() && vout.empty());
     }
 
-    uint256 GetHash() const;
-    bool IsNewerThan(const CTransaction& old) const;
+    uint256 GetHash() const;    
 
     // Return sum of txouts.
     int64_t GetValueOut() const;

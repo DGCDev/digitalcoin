@@ -96,6 +96,7 @@ public:
 
     virtual const CBlock& GenesisBlock() const { return genesis; }
 	virtual bool RequireStandard() const { return false; }
+	virtual bool RPCisTestNet() const { return true; }
     virtual Network NetworkID() const { return CChainParams::MAIN; }
 
     virtual const vector<CAddress>& FixedSeeds() const {

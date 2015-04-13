@@ -769,13 +769,13 @@ bool AppInit2(boost::thread_group& threadGroup)
         SetReachable(NET_TOR);
     }
 
-    // see Step 2: parameter interactions for more information about these
-    fNoListen = !GetBoolArg("-listen", true);
+    // see Step 2: parameter interactions for more information about these    
+	fListen = GetBoolArg("-listen", true);
     fDiscover = GetBoolArg("-discover", true);
     fNameLookup = GetBoolArg("-dns", true);
 
     bool fBound = false;
-    if (!fNoListen) {
+    if (fListen) {
         if (mapArgs.count("-bind")) {
             BOOST_FOREACH(std::string strBind, mapMultiArgs["-bind"]) {
                 CService addrBind;

@@ -96,7 +96,7 @@ unsigned short GetListenPort()
 // find 'best' local address for a particular peer
 bool GetLocal(CService& addr, const CNetAddr *paddrPeer)
 {
-    if (fNoListen)
+    if (!fListen)
         return false;
 
     int nBestScore = -1;

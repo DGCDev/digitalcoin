@@ -67,6 +67,8 @@ public:
 	virtual bool MiningRequiresPeers() const { return true; }
 	 /* Make miner stop after a block is found. In RPC, don't return
      * until nGenProcLimit blocks are generated */
+	 /* Default value for -checkmempool argument */
+	virtual bool DefaultCheckMemPool() const { return false; }
 	virtual bool MineBlocksOnDemand() const { return false; }
     const string& DataDir() const { return strDataDir; }
     virtual Network NetworkID() const = 0;

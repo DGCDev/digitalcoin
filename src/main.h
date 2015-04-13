@@ -118,7 +118,6 @@ extern int miningAlgo;
 static const uint64_t nMinDiskSpace = 52428800;
 
 
-class CCoinsDB;
 class CBlockTreeDB;
 struct CDiskBlockPos;
 class CTxUndo;

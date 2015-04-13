@@ -14,7 +14,6 @@
 #include <utility>
 #include <vector>
 
-class CBigNum;
 class CCoins;
 class uint256;
 
@@ -51,8 +50,7 @@ private:
     CBlockTreeDB(const CBlockTreeDB&);
     void operator=(const CBlockTreeDB&);
 public:
-    bool WriteBlockIndex(const CDiskBlockIndex& blockindex);
-    bool WriteBestInvalidWork(const CBigNum& bnBestInvalidWork);
+    bool WriteBlockIndex(const CDiskBlockIndex& blockindex);    
     bool ReadBlockFileInfo(int nFile, CBlockFileInfo &fileinfo);
     bool WriteBlockFileInfo(int nFile, const CBlockFileInfo &fileinfo);
     bool ReadLastBlockFile(int &nFile);

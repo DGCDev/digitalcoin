@@ -72,6 +72,8 @@ public:
 	virtual bool MineBlocksOnDemand() const { return false; }
     const string& DataDir() const { return strDataDir; }
     virtual Network NetworkID() const = 0;
+	/* Make standard checks */
+	virtual bool RequireStandard() const { return true; }
     const vector<CDNSSeedData>& DNSSeeds() const { return vSeeds; }
     const std::vector<unsigned char> &Base58Prefix(Base58Type type) const { return base58Prefixes[type]; }
     virtual const vector<CAddress>& FixedSeeds() const = 0;

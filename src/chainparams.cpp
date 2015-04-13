@@ -95,6 +95,7 @@ public:
     }
 
     virtual const CBlock& GenesisBlock() const { return genesis; }
+	virtual bool RequireStandard() const { return false; }
     virtual Network NetworkID() const { return CChainParams::MAIN; }
 
     virtual const vector<CAddress>& FixedSeeds() const {
@@ -124,6 +125,7 @@ public:
         vSeeds.clear();
 
     }
+	virtual bool RequireStandard() const { return false; }
     virtual Network NetworkID() const { return CChainParams::TESTNET; }
 };
 static CTestNetParams testNetParams;

@@ -63,6 +63,9 @@ public:
     virtual bool RequireRPCPassword() const { return true; }
 	/* Make miner wait to have peers to avoid wasting work */
 	virtual bool MiningRequiresPeers() const { return true; }
+	 /* Make miner stop after a block is found. In RPC, don't return
+     * until nGenProcLimit blocks are generated */
+	virtual bool MineBlocksOnDemand() const { return false; }
     const string& DataDir() const { return strDataDir; }
     virtual Network NetworkID() const = 0;
     const vector<CDNSSeedData>& DNSSeeds() const { return vSeeds; }

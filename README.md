@@ -7,9 +7,9 @@ sudo apt-get install libboost-all-dev
 
 sudo apt-get install libdb4.8-dev
 
-git clone git://github.com/DGCFoundation/DGCV3.0.git
+git clone https://github.com/DGCDev/digitalcoin.git
 
-cd DGCV3.0
+cd digitalcoin
 
 ./autogen.sh
 

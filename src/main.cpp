@@ -55,8 +55,6 @@ int64_t CTransaction::nMinTxFee = 5000000;  // Override with -mintxfee
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying and mining) */
 int64_t CTransaction::nMinRelayTxFee = 20000;
 
-static CMedianFilter<int> cPeerBlockCounts(8, 0); // Amount of blocks that other nodes claim to have
-
 struct COrphanBlock {
     uint256 hashBlock;
     uint256 hashPrev;
@@ -1507,12 +1505,6 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, int algo)
         return error("CheckProofOfWork(algo=%d) : hash doesn't match nBits", algo);
 
     return true;
-}
-
-// Return maximum amount of blocks that other nodes claim to have
-int GetNumBlocksOfPeers()
-{
-    return std::max(cPeerBlockCounts.median(), Checkpoints::GetTotalBlocksEstimate());
 }
 
 bool IsInitialBlockDownload()

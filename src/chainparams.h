@@ -9,16 +9,13 @@
 #include "uint256.h"
 #include "util.h"
 #include "core.h"
+#include "protocol.h"
 
 #include <vector>
 
 using namespace std;
 
-#define MESSAGE_START_SIZE 4
 typedef unsigned char MessageStartChars[MESSAGE_START_SIZE];
-
-class CAddress;
-class CBlock;
 
 struct CDNSSeedData {
     string name, host;
@@ -61,23 +58,25 @@ public:
     int SubsidyHalvingInterval() const { return nSubsidyHalvingInterval; }
 	/* Used if GenerateBitcoins is called with a negative number of threads */
 	int DefaultMinerThreads() const { return nMinerThreads; }
-    virtual const CBlock& GenesisBlock() const = 0;
-    virtual bool RequireRPCPassword() const { return true; }
+  
+	const CBlock& GenesisBlock() const { return genesis; };
+	bool RequireRPCPassword() const { return fRequireRPCPassword; }
 	/* Make miner wait to have peers to avoid wasting work */
-	virtual bool MiningRequiresPeers() const { return true; }
+	bool MiningRequiresPeers() const { return fMiningRequiresPeers; }
 	 /* Make miner stop after a block is found. In RPC, don't return
      * until nGenProcLimit blocks are generated */
 	 /* Default value for -checkmempool argument */
-	virtual bool DefaultCheckMemPool() const { return false; }
-	virtual bool MineBlocksOnDemand() const { return false; }
+	bool DefaultCheckMemPool() const { return fDefaultCheckMemPool; }
+	bool MineBlocksOnDemand() const { return fMineBlocksOnDemand; }
     const string& DataDir() const { return strDataDir; }
-    virtual Network NetworkID() const = 0;
+    Network NetworkID() const { return networkID; }
 	/* Make standard checks */
-	virtual bool RequireStandard() const { return true; }
-	virtual bool RPCisTestNet() const { return false; }
+	bool RequireStandard() const { return fRequireStandard; }
+	bool RPCisTestNet() const { return fRPCisTestNet; }
     const vector<CDNSSeedData>& DNSSeeds() const { return vSeeds; }
-    const std::vector<unsigned char> &Base58Prefix(Base58Type type) const { return base58Prefixes[type]; }
-    virtual const vector<CAddress>& FixedSeeds() const = 0;
+    const std::vector<unsigned char>& Base58Prefix(Base58Type type) const { return base58Prefixes[type]; }
+	const vector<CAddress>& FixedSeeds() const { return vFixedSeeds; }
+	
     int RPCPort() const { return nRPCPort; }
 protected:
     CChainParams() {}
@@ -94,6 +93,16 @@ protected:
     string strDataDir;
     vector<CDNSSeedData> vSeeds;
     std::vector<unsigned char> base58Prefixes[MAX_BASE58_TYPES];
+	Network networkID;
+    CBlock genesis;
+    vector<CAddress> vFixedSeeds;
+    bool fRequireRPCPassword;
+    bool fMiningRequiresPeers;
+    bool fDefaultCheckMemPool;
+    bool fAllowMinDifficultyBlocks;
+    bool fRequireStandard;
+    bool fRPCisTestNet;
+	bool fMineBlocksOnDemand;
 };
 
 /**

@@ -39,7 +39,7 @@ public:
         bnProofOfWorkLimit[ALGO_SHA256D] = ~uint256(0) >> 20;
         bnProofOfWorkLimit[ALGO_SCRYPT]  = ~uint256(0) >> 20;
         bnProofOfWorkLimit[ALGO_X11] = ~uint256(0) >> 20;
-
+		nMinerThreads = 0;
 	// Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
         const char* pszTimestamp = "Digitalcoin, A Currency for a Digital Age";
@@ -141,6 +141,7 @@ public:
         pchMessageStart[3] = 0xdb;
         //nSubsidyHalvingInterval = 150;
        // bnProofOfWorkLimit = CBigNum();
+		nMinerThreads = 1;
         genesis.nTime = 1392796564;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 961533;

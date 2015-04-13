@@ -32,6 +32,7 @@ endif
 test_digitalcoin_LDADD += $(BDB_LIBS)
 
 test_digitalcoin_SOURCES = \
+  bignum.h \
   alert_tests.cpp \
   allocator_tests.cpp \
   base32_tests.cpp \

@@ -38,7 +38,12 @@ namespace boost {
 
 /** The maximum number of entries in an 'inv' protocol message */
 static const unsigned int MAX_INV_SZ = 50000;
-
+/** -upnp default */
+#ifdef USE_UPNP
+static const bool DEFAULT_UPNP = USE_UPNP;
+#else
+static const bool DEFAULT_UPNP = false;
+#endif
 /** The maximum number of entries in mapAskFor */
 static const size_t MAPASKFOR_MAX_SZ = MAX_INV_SZ;
 

@@ -8,6 +8,8 @@
 #include <QObject>
 #include <QString>
 
+class TransactionRecord;
+
 class CWallet;
 class CWalletTx;
 

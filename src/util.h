@@ -339,6 +339,13 @@ inline bool IsSwitchChar(char c)
 }
 
 /**
+ * Convert string to signed 32-bit integer with strict parse error feedback.
+ * @returns true if the entire string could be parsed as valid integer,
+ *   false if not the entire string could be parsed or when overflow or underflow occured.
+*/
+bool ParseInt32(const std::string& str, int32_t *out);
+
+/**
  * Return string argument or default value
  *
  * @param strArg Argument to get (e.g. "-foo")

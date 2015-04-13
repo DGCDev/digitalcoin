@@ -36,9 +36,9 @@ public:
         vAlertPubKey = ParseHex("04016c44069c3152982413d3ba3bf262a3a4d3ddad859ba78e0d744f5c67c2205d2aa2122e6c62b6310dad2d1e2f7e39028455ff1dbb26511c60fc96c8b4560c43");
         nDefaultPort = 7999;
         nRPCPort = 7998;
-        bnProofOfWorkLimit[ALGO_SHA256D] = CBigNum(~uint256(0) >> 20);
-        bnProofOfWorkLimit[ALGO_SCRYPT]  = CBigNum(~uint256(0) >> 20);
-        bnProofOfWorkLimit[ALGO_X11] = CBigNum(~uint256(0) >> 20);
+        bnProofOfWorkLimit[ALGO_SHA256D] = CScriptNum(~uint256(0) >> 20);
+        bnProofOfWorkLimit[ALGO_SCRYPT]  = CScriptNum(~uint256(0) >> 20);
+        bnProofOfWorkLimit[ALGO_X11] = CScriptNum(~uint256(0) >> 20);
 
 	// Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
@@ -66,6 +66,7 @@ public:
         vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #1", "digitalcoin.co"));        
 		vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #2", "game.digitalcoin.co"));
 		vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #3", "dev.digitalcoin.co"));
+		vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #3", "wiki.digitalcoin.co"));
 		vSeeds.push_back(CDNSSeedData("ahmed seed #1", "178.62.28.81"));
         //vSeeds.push_back(CDNSSeedData("digihash.co seed #3", "seed3.digihash.co"));
         //vSeeds.push_back(CDNSSeedData("love2hash.com seed #4", "seed4.love2hash.com"));

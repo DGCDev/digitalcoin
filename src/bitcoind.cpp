@@ -4,7 +4,6 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "rpcserver.h"
-#include "rpcclient.h"
 #include "init.h"
 #include "main.h"
 #include "noui.h"
@@ -94,14 +93,9 @@ bool AppInit(int argc, char* argv[])
 			else
             {
                 strUsage += "\n" + _("Usage:") + "\n" +
-                      "  digitalcoind [options]                     " + _("Start Digitalcoin Daemon") + "\n" +
-                    _("Usage (deprecated, use digitalcoin-cli):") + "\n" +
-                      "  digitalcoind [options] <command> [params]  " + _("Send command to digitalcoind") + "\n" +
-                      "  digitalcoind [options] help                " + _("List commands") + "\n" +
-                      "  digitalcoind [options] help <command>      " + _("Get help for a command") + "\n";
-
-                strUsage += "\n" + HelpMessage(HMM_digitalcoinD);
-                strUsage += "\n" + HelpMessageCli(false);
+                    "  digitalcoind [options]                     " + _("Start Digitalcoin Daemon") + "\n";
+					
+                strUsage += "\n" + HelpMessage(HMM_digitalcoinD);                
 			}
 
             fprintf(stdout, "%s", strUsage.c_str());
@@ -116,8 +110,8 @@ bool AppInit(int argc, char* argv[])
 
         if (fCommandLine)
         {
-            int ret = CommandLineRPC(argc, argv);
-            exit(ret);
+            fprintf(stderr, "Error: There is no RPC client functionality in digitalcoind anymore. Use the digitalcoin-cli utility instead.\n");
+			exit(1);
         }
 #ifndef WIN32
         fDaemon = GetBoolArg("-daemon", false);

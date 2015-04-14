@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I src/m4
 SUBDIRS = src
-.PHONY: deploy
+.PHONY: deploy FORCE
 
 GZIP_ENV="-9n"
 
@@ -53,8 +53,8 @@ $(DIGITALCOIN_WIN_INSTALLER): $(DIGITALCOIND_BIN) $(DIGITALCOIN_QT_BIN) $(DIGITA
 	@test -f $(MAKENSIS) && $(MAKENSIS) $(top_builddir)/share/setup.nsi || \
 	  echo error: could not build $@
 
-$(DIGITALCOIND_BIN) $(DIGITALCOIN_QT_BIN) $(DIGITALCOIN_CLI_BIN):
-	make -C $(dir $@) $(notdir $@)
+$(if $(findstring src/,$(MAKECMDGOALS)),$(MAKECMDGOALS), none): FORCE
+	$(MAKE) -C src $(patsubst src/%,%,$@)
 
 $(OSX_APP)/Contents/PkgInfo:
 	$(MKDIR_P) $(@D)

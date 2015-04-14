@@ -507,21 +507,22 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
             return error("DigitalcoinMiner : generated block is stale");
 
-        // Remove key from key pool
-        reservekey.KeepKey();
+	}
+	
+	// Remove key from key pool
+	reservekey.KeepKey();
 
-        // Track how many getdata requests this block gets
-        {
-            LOCK(wallet.cs_wallet);
-            wallet.mapRequestCount[pblock->GetHash()] = 0;
-        }
-
-        // Process this block the same as if we had received it from another node
-        CValidationState state;
-        if (!ProcessBlock(state, NULL, pblock))
-            return error("DigitalcoinMiner : ProcessBlock, block not accepted");
+	// Track how many getdata requests this block gets
+	{
+		LOCK(wallet.cs_wallet);
+		wallet.mapRequestCount[pblock->GetHash()] = 0;
     }
 
+	// Process this block the same as if we had received it from another node
+	CValidationState state;
+	if (!ProcessBlock(state, NULL, pblock))
+		return error("BitcoinMiner : ProcessBlock, block not accepted");
+	
     return true;
 }
 

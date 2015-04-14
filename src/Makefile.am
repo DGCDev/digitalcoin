@@ -86,6 +86,7 @@ BITCOIN_CORE_H = \
   version.h \
   walletdb.h \
   wallet.h \
+  compat/sanity.h
   scrypt.h \
   sph_blake.h \
   sph_groestl.h \
@@ -170,6 +171,8 @@ libbitcoin_common_a_SOURCES = \
   sync.cpp \
   util.cpp \
   version.cpp \
+  compat/glibc_sanity.cpp \
+  compat/glibcxx_sanity.cpp \
   scrypt.cpp \
   blake.c \
   bmw.c \

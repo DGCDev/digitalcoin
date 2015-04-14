@@ -48,9 +48,9 @@ public:
     std::map<NodeId, int> mapNodeRows;
 
     /** Pull a full list of peers from vNodes into our cache */
-    void refreshPeers() {
-        TRY_LOCK(cs_vNodes, lockNodes);
+    void refreshPeers() {        
         {
+			TRY_LOCK(cs_vNodes, lockNodes);
             if (!lockNodes)
             {
                 // skip the refresh if we can't immediately get the lock
@@ -69,9 +69,9 @@ public:
             }
         }
 
-        // if we can, retrieve the CNodeStateStats for each node.
-        TRY_LOCK(cs_main, lockMain);
+        // if we can, retrieve the CNodeStateStats for each node.        
         {
+			TRY_LOCK(cs_main, lockMain);
             if (lockMain)
             {
                 BOOST_FOREACH(CNodeCombinedStats &stats, cachedNodeStats)

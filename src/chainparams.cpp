@@ -98,8 +98,7 @@ public:
 		fMiningRequiresPeers = true;
 		fDefaultCheckMemPool = false;
 		fAllowMinDifficultyBlocks = false;
-		fRequireStandard = true;
-		fRPCisTestNet = false;
+		fRequireStandard = true;		
 		fMineBlocksOnDemand = false;
     }
 };
@@ -127,8 +126,7 @@ public:
 		fMiningRequiresPeers = true;
 		fDefaultCheckMemPool = false;
 		fAllowMinDifficultyBlocks = true;
-		fRequireStandard = false;
-		fRPCisTestNet = true;
+		fRequireStandard = false;		
 		fMineBlocksOnDemand = false;
     }
 };
@@ -164,8 +162,7 @@ public:
 		fMiningRequiresPeers = false;
 		fDefaultCheckMemPool = true;
 		fAllowMinDifficultyBlocks = true;
-		fRequireStandard = false;
-		fRPCisTestNet = true;
+		fRequireStandard = false;		
 		fMineBlocksOnDemand = true;
 	}
 };

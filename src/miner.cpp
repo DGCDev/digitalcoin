@@ -678,7 +678,7 @@ void static BitcoinMiner(CWallet *pwallet)
 					// Update nTime every few seconds
 					UpdateTime(*pblock, pindexPrev);
 					nBlockTime = ByteReverse(pblock->nTime);
-					if (Params().RPCisTestNet())
+					if (Params().NetworkID() == CChainParams::TESTNET)
 					{
 						// Changing pblock->nTime can change work required on testnet:
 						nBlockBits = ByteReverse(pblock->nBits);
@@ -812,7 +812,7 @@ void static ScryptMiner(CWallet *pwallet)
             // Update nTime every few seconds
             UpdateTime(*pblock, pindexPrev);
             nBlockTime = ByteReverse(pblock->nTime);
-            if (Params().RPCisTestNet())
+            if (Params().NetworkID() == CChainParams::TESTNET)
             {
                 // Changing pblock->nTime can change work required on testnet:
                 nBlockBits = ByteReverse(pblock->nBits);
@@ -914,7 +914,7 @@ void static GenericMiner(CWallet *pwallet, int algo)
             // Update nTime every few seconds
             UpdateTime(*pblock, pindexPrev);
             // nBlockTime = ByteReverse(pblock->nTime);
-            if (Params().RPCisTestNet())
+            if (Params().NetworkID() == CChainParams::TESTNET)
             {
                 // Changing pblock->nTime can change work required on testnet:
                 // nBlockBits = ByteReverse(pblock->nBits);

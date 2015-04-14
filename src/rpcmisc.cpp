@@ -79,7 +79,7 @@ Value getinfo(const Array& params, bool fHelp)
     obj.push_back(Pair("difficulty_sha256d", (double)GetDifficulty(NULL, ALGO_SHA256D)));
     obj.push_back(Pair("difficulty_scrypt",  (double)GetDifficulty(NULL, ALGO_SCRYPT)));
     obj.push_back(Pair("difficulty_x11",     (double)GetDifficulty(NULL, ALGO_X11)));
-    obj.push_back(Pair("testnet",       Params().RPCisTestNet()));
+    obj.push_back(Pair("testnet",       Params().NetworkID() == CChainParams::TESTNET));
 #ifdef ENABLE_WALLET
     if (pwalletMain) {
         obj.push_back(Pair("keypoololdest", pwalletMain->GetOldestKeyPoolTime()));

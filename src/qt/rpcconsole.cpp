@@ -316,7 +316,7 @@ void RPCConsole::setClientModel(ClientModel *model)
         ui->startupTime->setText(model->formatClientStartupTime());
 		ui->username->setText(QString::fromStdString(mapArgs["-rpcuser"]));
 		ui->password->setText(QString::fromStdString(mapArgs["-rpcpassword"]));
-        ui->networkName->setText(model->getNetworkName());
+        ui->networkName->setText(QString::fromStdString(Params().NetworkIDString()));
     }
 }
 

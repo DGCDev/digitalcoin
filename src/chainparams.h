@@ -70,6 +70,8 @@ public:
 	bool MineBlocksOnDemand() const { return fMineBlocksOnDemand; }
     const string& DataDir() const { return strDataDir; }
     Network NetworkID() const { return networkID; }
+	/* Return the BIP70 network string (main, test or regtest) */
+	std::string NetworkIDString() const { return strNetworkID; }
 	/* Make standard checks */
 	bool RequireStandard() const { return fRequireStandard; }
 	bool RPCisTestNet() const { return fRPCisTestNet; }

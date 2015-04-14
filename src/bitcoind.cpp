@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The Bitcoin developers
+// Copyright (c) 2009-2013 The digitalcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,8 +20,8 @@
  *
  * \section intro_sec Introduction
  *
- * This is the developer documentation of the reference client for an experimental new digital currency called Bitcoin (http://www.bitcoin.org/),
- * which enables instant payments to anyone, anywhere in the world. Bitcoin uses peer-to-peer technology to operate
+ * This is the developer documentation of the reference client for an experimental new digital currency called digitalcoin (http://www.digitalcoin.org/),
+ * which enables instant payments to anyone, anywhere in the world. digitalcoin uses peer-to-peer technology to operate
  * with no central authority: managing transactions and issuing money are carried out collectively by the network.
  *
  * The software is a community-driven open source project, released under the MIT license.
@@ -63,7 +63,7 @@ bool AppInit(int argc, char* argv[])
         //
         // Parameters
         //
-        // If Qt is used, parameters/bitcoin.conf are parsed in qt/bitcoin.cpp's main()
+        // If Qt is used, parameters/digitalcoin.conf are parsed in qt/digitalcoin.cpp's main()
         ParseParameters(argc, argv);
         if (!boost::filesystem::is_directory(GetDataDir(false)))
         {
@@ -83,19 +83,22 @@ bool AppInit(int argc, char* argv[])
             return false;
         }
 
-        if (mapArgs.count("-?") || mapArgs.count("--help"))
+        if (mapArgs.count("-?") || mapArgs.count("-help") || mapArgs.count("-version"))
         {
-            // First part of help message is specific to bitcoind / RPC client
-            std::string strUsage = _("Digitalcoin Core Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n\n" +
-                _("Usage:") + "\n" +
-                  "  digitalcoind [options]                     " + _("Start Digitalcoin Core Daemon") + "\n" +
-                _("Usage (deprecated, use digitalcoin-cli):") + "\n" +
-                  "  digitalcoind [options] <command> [params]  " + _("Send command to Digitalcoin Core") + "\n" +
-                  "  digitalcoind [options] help                " + _("List commands") + "\n" +
-                  "  digitalcoind [options] help <command>      " + _("Get help for a command") + "\n";
+             std::string strUsage = _("Digitalcoin Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n";
 
-            strUsage += "\n" + HelpMessage(HMM_BITCOIND);
-            strUsage += "\n" + HelpMessageCli(false);
+            if (!mapArgs.count("-version"))
+            {
+                strUsage += "\n" + _("Usage:") + "\n" +
+                      "  digitalcoind [options]                     " + _("Start Digitalcoin Daemon") + "\n" +
+                    _("Usage (deprecated, use digitalcoin-cli):") + "\n" +
+                      "  digitalcoind [options] <command> [params]  " + _("Send command to digitalcoind") + "\n" +
+                      "  digitalcoind [options] help                " + _("List commands") + "\n" +
+                      "  digitalcoind [options] help <command>      " + _("Get help for a command") + "\n";
+
+                strUsage += "\n" + HelpMessage(HMM_digitalcoinD);
+                strUsage += "\n" + HelpMessageCli(false);
+			}
 
             fprintf(stdout, "%s", strUsage.c_str());
             return false;
@@ -174,7 +177,7 @@ int main(int argc, char* argv[])
 {
     SetupEnvironment();
 
-    // Connect bitcoind signal handlers
+    // Connect digitalcoind signal handlers
     noui_connect();
 
     return (AppInit(argc, argv) ? 0 : 1);

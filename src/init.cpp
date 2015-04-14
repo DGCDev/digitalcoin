@@ -31,6 +31,7 @@
 #ifndef WIN32
 #include <signal.h>
 #endif
+#include "compat/sanity.h"
 
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/filesystem.hpp>
@@ -431,7 +432,8 @@ bool InitSanityCheck(void)
         return false;
     }
 
-    // TODO: remaining sanity checks, see #4081
+    if (!glibc_sanity_test() || !glibcxx_sanity_test())
+		return false;
 
     return true;
 }

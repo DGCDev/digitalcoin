@@ -832,9 +832,9 @@ public:
         return (int64_t)nTime;
     }
 
-    CBigNum GetPrevWorkForAlgo(int algo) const
+    uint256 GetPrevWorkForAlgo(int algo) const
     {
-        CBigNum nWork;
+        uint256 nWork;
         CBlockIndex* pindex = this->pprev;
         while (pindex)
         {
@@ -864,11 +864,11 @@ public:
 
     int GetAlgoWorkFactor() const 
     {
-        if (!TestNet() && (nHeight < multiAlgoDiffChangeTarget))
+        if (!Params().RPCisTestNet() && (nHeight < multiAlgoDiffChangeTarget))
         {
             return 1;
         }
-        if (TestNet() && (nHeight < 100))
+        if (Params().RPCisTestNet() && (nHeight < 100))
         {
             return 1;
         }
@@ -886,13 +886,13 @@ public:
         }
     }
 
-    CBigNum GetBlockWorkAdjusted() const
+    uint256 GetBlockWorkAdjusted() const
     {
-        CBigNum bnRes;
-	if ((TestNet() && (nHeight >= 1)) || (!TestNet() && nHeight >= V3_FORK)) 
+        uint256 bnRes;
+	if ((Params().RPCisTestNet() && (nHeight >= 1)) || (!Params().RPCisTestNet() && nHeight >= V3_FORK)) 
 	{
 		// Adjusted Block Work is the Sum of work of this block and the most recent work of one block of each algo
-		CBigNum nBlockWork = GetBlockWork();
+		uint256 nBlockWork = GetBlockWork();
 		int nAlgo = GetAlgo();
 		for (int algo = 0; algo < NUM_ALGOS; algo++)
 		{
@@ -1039,7 +1039,7 @@ public:
         str += CBlockIndex::ToString();
         str += strprintf("\n                hashBlock=%s, hashPrev=%s)",
             GetBlockHash().ToString(),
-			LogPrintf("%s\n", ToString());
+			LogPrintf("%s\n", ToString()));
         return str;
     }
 
@@ -1196,11 +1196,6 @@ struct CBlockTemplate
     std::vector<int64_t> vTxFees;
     std::vector<int64_t> vTxSigOps;
 };
-
-
-
-
-
 
 /** Used to relay blocks as header + vector<merkle branch>
  * to filtered nodes.

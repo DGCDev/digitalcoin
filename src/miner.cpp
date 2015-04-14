@@ -672,7 +672,7 @@ void static BitcoinMiner(CWallet *pwallet)
 					// Update nTime every few seconds
 					UpdateTime(*pblock, pindexPrev);
 					nBlockTime = ByteReverse(pblock->nTime);
-					if (TestNet())
+					if (Params().RPCisTestNet())
 					{
 						// Changing pblock->nTime can change work required on testnet:
 						nBlockBits = ByteReverse(pblock->nBits);
@@ -726,7 +726,7 @@ void static ScryptMiner(CWallet *pwallet)
         // Search
         //
         int64_t nStart = GetTime();
-        uint256 hashTarget = CScriptNum().SetCompact(pblock->nBits).getuint256();
+        uint256 hashTarget = uint256().SetCompact(pblock->nBits);
         while(true)
         {
             unsigned int nHashesDone = 0;
@@ -806,11 +806,11 @@ void static ScryptMiner(CWallet *pwallet)
             // Update nTime every few seconds
             UpdateTime(*pblock, pindexPrev);
             nBlockTime = ByteReverse(pblock->nTime);
-            if (TestNet())
+            if (Params().RPCisTestNet())
             {
                 // Changing pblock->nTime can change work required on testnet:
                 nBlockBits = ByteReverse(pblock->nBits);
-                hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
+                hashTarget = uint256().SetCompact(pblock->nBits);
             }
             
         }
@@ -847,7 +847,7 @@ void static GenericMiner(CWallet *pwallet, int algo)
         //
         // Search
         //
-        uint256 hashTarget = CScriptNum().SetCompact(pblock->nBits).getuint256();
+        uint256 hashTarget = uint256().SetCompact(pblock->nBits);
         int64_t nStart = GetTime();
         uint256 hash;
         while(true)
@@ -908,7 +908,7 @@ void static GenericMiner(CWallet *pwallet, int algo)
             // Update nTime every few seconds
             UpdateTime(*pblock, pindexPrev);
             // nBlockTime = ByteReverse(pblock->nTime);
-            if (TestNet())
+            if (Params().RPCisTestNet())
             {
                 // Changing pblock->nTime can change work required on testnet:
                 // nBlockBits = ByteReverse(pblock->nBits);

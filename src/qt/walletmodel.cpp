@@ -225,8 +225,8 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
 
             if (rcp.typeInd == AddressTableModel::AT_Stealth)
             {
-                if (   (!TestNet() && (chainActive.Height() < V3_FORK))
-                    || (TestNet() && (chainActive.Height() < 1)) )
+                if (   (!Params().RPCisTestNet() && (chainActive.Height() < V3_FORK))
+                    || (Params().RPCisTestNet() && (chainActive.Height() < 1)) )
                 {
                     emit message(tr("Send Coins"), tr("Stealth addresses not yet supported"),
                          CClientUIInterface::MSG_ERROR);

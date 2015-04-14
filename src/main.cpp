@@ -1271,11 +1271,11 @@ int64_t GetBlockValue(int nHeight, int64_t nFees)
     {
         nSubsidy = 20 * COIN;
     }
-    else if(TestNet())
+    else if(Params().RPCisTestNet())
     {
 	nSubsidy = 5 * COIN;
     }
-    else if(!TestNet() && nHeight >= V3_FORK)
+    else if(!Params().RPCisTestNet() && nHeight >= V3_FORK)
     {
 	nSubsidy = 5 * COIN;
     }
@@ -1316,7 +1316,7 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime)
     uint256 bnProofOfWorkLimit = Params().ProofOfWorkLimit(ALGO_SCRYPT);
     // Testnet has min-difficulty blocks
     // after nTargetSpacing*2 time between blocks:
-    if (TestNet() && nTime > nTargetSpacing*2)
+    if (Params().RPCisTestNet() && nTime > nTargetSpacing*2)
         return bnProofOfWorkLimit.GetCompact();
 
     uint256 bnResult;
@@ -1338,15 +1338,15 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime)
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo)
 {
    int nHeight = pindexLast->nHeight;
-   if (TestNet())
+   if (Params().RPCisTestNet())
    {
 	return 0x1d13ffec;
    }
-   else if (!TestNet() && nHeight < V3_FORK)
+   else if (!Params().RPCisTestNet() && nHeight < V3_FORK)
    {
 	return GetNextWorkRequiredV1(pindexLast, pblock, algo);
    }
-   else if (!TestNet() && nHeight >= V3_FORK)
+   else if (!Params().RPCisTestNet() && nHeight >= V3_FORK)
    {
         LogPrintf("Switch to DigiShield");
         return GetNextWorkRequiredV2(pindexLast, pblock, algo);
@@ -1367,7 +1367,7 @@ unsigned int GetNextWorkRequiredV1(const CBlockIndex* pindexLast, const CBlockHe
    int64_t nInterval = fInflationFixProtocol? (nTargetTimespanCurrent / nTargetSpacing) : (nTargetTimespanCurrent / (nTargetSpacing / 2));
 
     // Testnet Fixed Diff
-    if (TestNet())
+    if (Params().RPCisTestNet())
     {
 	return nProofOfWorkLimit;
     }
@@ -1422,7 +1422,7 @@ unsigned int GetNextWorkRequiredV1(const CBlockIndex* pindexLast, const CBlockHe
     /// debug print
     LogPrintf("GetNextWorkRequired V1 RETARGET\n");
     LogPrintf("Before: %08x  %s\n", pindexLast->nBits, bnOld.ToString());
-    LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew).ToString());
+    LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.ToString());
     return bnNew.GetCompact();
 }
 
@@ -1459,7 +1459,7 @@ unsigned int GetNextWorkRequiredV2(const CBlockIndex* pindexLast, const CBlockHe
     // Global retarget
     uint256 bnNew;
 	uint256 bnOld;
-    bnNew.SetCompact(pindexLast->nBits);
+    bnNew.SetCompact(pindexPrevAlgo->nBits);
 	bnOld = bnNew;   
     bnNew *= nActualTimespan;
     bnNew /= nAveragingTargetTimespan;
@@ -1490,7 +1490,7 @@ unsigned int GetNextWorkRequiredV2(const CBlockIndex* pindexLast, const CBlockHe
     LogPrintf("GetNextWorkRequired RETARGET\n");
     LogPrintf("nTargetTimespan = %d    nActualTimespan = %d\n", nTargetTimespan, nActualTimespan);
     LogPrintf("Before: %08x  %s\n", pindexLast->nBits, bnOld.ToString());
-    LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew).ToString());
+    LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.ToString());
 
     return bnNew.GetCompact();
 }
@@ -1665,7 +1665,7 @@ void UpdateTime(CBlockHeader& block, const CBlockIndex* pindexPrev)
     block.nTime = max(pindexPrev->GetMedianTimePast()+1, GetAdjustedTime());
 
     // Updating time can change work required on testnet:
-    if (TestNet())
+    if (Params().RPCisTestNet())
         block.nBits = GetNextWorkRequired(pindexPrev, &block, block.GetAlgo());
 }
 
@@ -2649,7 +2649,7 @@ bool AcceptBlockHeader(CBlockHeader& block, CValidationState& state, CBlockIndex
         nHeight = pindexPrev->nHeight+1;
 
 	// Check count of sequence of the same algorithm
-	if (TestNet() || (nHeight > V3_FORK))
+	if (Params().RPCisTestNet() || (nHeight > V3_FORK))
 	{
 		int nAlgo = block.GetAlgo();
 		int nAlgoCount = 1;
@@ -2677,11 +2677,11 @@ bool AcceptBlockHeader(CBlockHeader& block, CValidationState& state, CBlockIndex
             return state.DoS(100, error("AcceptBlock() : incorrect proof of work"),
                              REJECT_INVALID, "bad-diffbits");
 
-		if (TestNet() && block.GetAlgo() != ALGO_SCRYPT )
+		if (Params().RPCisTestNet() && block.GetAlgo() != ALGO_SCRYPT )
             return state.Invalid(error("AcceptBlock() : incorrect hasing algo, only scrypt accepted until block %u", V3_FORK),
 			    REJECT_INVALID, "bad-hashalgo");
 
-		else if(!TestNet() && nHeight < V3_FORK && block.GetAlgo() != ALGO_SCRYPT)
+		else if(!Params().RPCisTestNet() && nHeight < V3_FORK && block.GetAlgo() != ALGO_SCRYPT)
                return state.Invalid(error("AcceptBlock() : incorrect hasing algo, only scrypt accepted until block %u", V3_FORK),
                            REJECT_INVALID, "bad-hashalgo");
 
@@ -2705,8 +2705,8 @@ bool AcceptBlockHeader(CBlockHeader& block, CValidationState& state, CBlockIndex
         // Reject block.nVersion=1 blocks when 95% (75% on testnet) of the network has upgraded:
         if (block.nVersion < 2)
         {
-            if ((!TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 950, 1000)) ||
-                (TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 75, 100)))
+            if ((!Params().RPCisTestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 950, 1000)) ||
+                (Params().RPCisTestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 75, 100)))
             {
                 return state.Invalid(error("AcceptBlock() : rejected nVersion=1 block"),
                                      REJECT_OBSOLETE, "bad-version");
@@ -2716,8 +2716,8 @@ bool AcceptBlockHeader(CBlockHeader& block, CValidationState& state, CBlockIndex
         if (block.nVersion >= 2)
         {
             // if 750 of the last 1,000 blocks are version 2 or greater (51/100 if testnet):
-            if ((!TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 750, 1000)) ||
-                (TestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 51, 100)))
+            if ((!Params().RPCisTestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 750, 1000)) ||
+                (Params().RPCisTestNet() && CBlockIndex::IsSuperMajority(2, pindexPrev, 51, 100)))
             {
                 CScript expect = CScript() << nHeight;
                 if (block.vtx[0].vin[0].scriptSig.size() < expect.size() ||
@@ -2727,6 +2727,8 @@ bool AcceptBlockHeader(CBlockHeader& block, CValidationState& state, CBlockIndex
             }
         }
 	*/
+	}
+	
 	if (pindex == NULL)
         pindex = AddToBlockIndex(block);
 
@@ -2735,7 +2737,7 @@ bool AcceptBlockHeader(CBlockHeader& block, CValidationState& state, CBlockIndex
 	
 	return true;
 
-}    
+}
 
 bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, CDiskBlockPos* dbp)
 {

@@ -31,11 +31,10 @@ public:
 template<unsigned int BITS>
 class base_uint
 {
-private:
-    enum { WIDTH=BITS/32 };
-    uint32_t pn[WIDTH];
 public:
-
+	enum { WIDTH=BITS/32 };
+	 uint32_t pn[WIDTH];
+	  
 	base_uint()
     {
         for (int i = 0; i < WIDTH; i++)
@@ -465,7 +464,6 @@ public:
        
 };
 
-
 /** 160-bit unsigned big integer. */
 class uint160 : public base_uint<160> {
 public:
@@ -475,7 +473,6 @@ public:
     explicit uint160(const std::string& str) : base_uint<160>(str) {}
 	explicit uint160(const std::vector<unsigned char>& vch) : base_uint<160>(vch) {}
 };
-
 
 /** 256-bit unsigned big integer. */
 class uint256 : public base_uint<256> {
@@ -557,19 +554,23 @@ public:
     }
 };
 
-
-
 /** 512-bit unsigned big integer. */
 class uint512 : public base_uint<512> {
-{
 public:
     uint512() {}
     uint512(const base_uint<512>& b) : base_uint<512>(b) {}
     uint512(uint64_t b) : base_uint<512>(b) {}
     explicit uint512(const std::string& str) : base_uint<512>(str) {}
 	explicit uint512(const std::vector<unsigned char>& vch) : base_uint<512>(vch) {}
+	
+	uint256 trim256() const
+    {
+        uint256 ret;
+        for (unsigned int i = 0; i < uint256::WIDTH; i++){
+            ret.pn[i] = pn[i];
+        }
+        return ret;
+    }	
 };
-
-
     
 #endif

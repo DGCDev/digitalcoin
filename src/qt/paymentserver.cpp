@@ -562,8 +562,8 @@ bool PaymentServer::processPaymentRequest(PaymentRequestPlus& request, SendCoins
                 .arg(BitcoinUnits::formatWithUnit(optionsModel->getDisplayUnit(), sendingTo.second)),
 				CClientUIInterface::MSG_ERROR);
 
-            qDebug() << "PaymentServer::processPaymentRequest : " << msg;
-            emit message(tr("Payment request error"), msg, CClientUIInterface::MSG_ERROR);
+            qDebug() << "PaymentServer::processPaymentRequest : " << recipient.message;
+            emit message(tr("Payment request error"), recipient.message, CClientUIInterface::MSG_ERROR);
             return false;
         }
 

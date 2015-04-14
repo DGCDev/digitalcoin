@@ -420,9 +420,6 @@ public:
             }
         }
     }
-}
-    }
-
 
     void AddInventoryKnown(const CInv& inv)
     {

@@ -746,7 +746,7 @@ bool AppInit2(boost::thread_group& threadGroup)
 
 		if(nSocksVersion < 5)
 			SetProxy(NET_IPV4, addrProxy, nSocksVersion);
-        else (nSocksVersion > 4) {
+        else if(nSocksVersion > 4) {
             SetProxy(NET_IPV6, addrProxy, nSocksVersion);
             SetNameProxy(addrProxy, nSocksVersion);
         }

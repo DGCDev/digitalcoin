@@ -51,9 +51,9 @@ unsigned int nCoinCacheSize = 5000;
 uint256 hashGenesisBlock("0x7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496");
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
-int64_t CTransaction::nMinTxFee = 5000000;  // Override with -mintxfee
+CFeeRate CTransaction::minTxFee = CFeeRate(5000000);  // Override with -mintxfee
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying and mining) */
-int64_t CTransaction::nMinRelayTxFee = 20000;
+CFeeRate CTransaction::minRelayTxFee = CFeeRate(20000);
 
 struct COrphanBlock {
     uint256 hashBlock;
@@ -577,10 +577,10 @@ bool IsStandardTx(const CTransaction& tx, string& reason)
             nDataOut++;
 	else
 	{
-        	 if (txout.IsDust(CTransaction::nMinRelayTxFee)) {
-            		reason = "dust";
-            		return false;
-        	 }
+        	if (txout.IsDust(CTransaction::minRelayTxFee)) {
+				reason = "dust";
+				return false;
+        	}
 		 nTxnOut++;
 	}
     }
@@ -819,10 +819,10 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state)
 
 int64_t GetMinFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree, enum GetMinFee_mode mode)
 {
-    // Base fee is either nMinTxFee or nMinRelayTxFee
-    int64_t nBaseFee = (mode == GMF_RELAY) ? tx.nMinRelayTxFee : tx.nMinTxFee;
+    // Base fee is either minTxFee or minRelayTxFee
+	CFeeRate baseFeeRate = (mode == GMF_RELAY) ? tx.minRelayTxFee : tx.minTxFee;
 
-    int64_t nMinFee = nBaseFee;	
+    int64_t nMinFee = baseFeeRate.GetFee(nBytes);
 
     if (fAllowFree)
     {
@@ -835,10 +835,6 @@ int64_t GetMinFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree, 
         if (nBytes < (mode == GMF_SEND ? 1000 : (DEFAULT_BLOCK_PRIORITY_SIZE - 1000)))
             nMinFee = 0;
     }
-
-    // This code can be removed after enough miners have upgraded to version 0.9.
-    // Until then, be safe when sending and require a fee if any output
-    // is less than CENT:
 
     if (!MoneyRange(nMinFee))
         nMinFee = MAX_MONEY;
@@ -946,10 +942,10 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
                                       hash.ToString(), nFees, txMinFee),
                              REJECT_INSUFFICIENTFEE, "insufficient fee");
 
-        // Continuously rate-limit free transactions
+        // Continuously rate-limit free (really, very-low-fee)transactions
         // This mitigates 'penny-flooding' -- sending thousands of free transactions just to
         // be annoying or make others' transactions take longer to confirm.
-        if (fLimitFree && nFees < CTransaction::nMinRelayTxFee)
+        if (fLimitFree && nFees < CTransaction::minRelayTxFee.GetFee(nSize))
         {
             static CCriticalSection csFreeLimiter;
             static double dFreeCount;
@@ -970,10 +966,10 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
             dFreeCount += nSize;
         }
 
-        if (fRejectInsaneFee && nFees > CTransaction::nMinRelayTxFee * 10000)
+        if (fRejectInsaneFee && nFees > CTransaction::minRelayTxFee.GetFee(nSize) * 10000)
             return error("AcceptToMemoryPool: : insane fees %s, %d > %d",
                          hash.ToString(),
-                         nFees, CTransaction::nMinRelayTxFee * 10000);
+                         nFees, CTransaction::minRelayTxFee.GetFee(nSize) * 10000);
 
         // Check against previous transactions
         // This is done last to help prevent CPU exhaustion denial-of-service attacks.

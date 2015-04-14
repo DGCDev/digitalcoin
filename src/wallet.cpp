@@ -16,7 +16,7 @@
 using namespace std;
 
 // Settings
-int64_t nTransactionFee = DEFAULT_TRANSACTION_FEE;
+CFeeRate payTxFee(DEFAULT_TRANSACTION_FEE);
 bool bSpendZeroConfChange = true;
 
 //////////////////////////////////////////////////////////////////////////////
@@ -1293,7 +1293,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
     {
         LOCK2(cs_main, cs_wallet);
         {
-            nFeeRet = nTransactionFee;
+            nFeeRet = payTxFee.GetFeePerK();
             while (true)
             {
                 wtxNew.vin.clear();
@@ -1312,7 +1312,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
 					CScript::const_iterator itTxA = txout.scriptPubKey.begin();
 						if (!txout.IsOpReturn())
 						{
-							if (txout.IsDust(CTransaction::nMinRelayTxFee))
+							if (txout.IsDust(CTransaction::minRelayTxFee))
 							{
 								LogPrintf("%s\n", txout.ToString());
 								strFailReason = _("Transaction amount too small");
@@ -1322,7 +1322,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
 						else 
 						{
 							int64_t size = txout.scriptPubKey.ToString().length();
-							int64_t nMinFee = CTransaction::nMinTxFee;
+							int64_t nMinFee = CTransaction::minTxFee;
 							LogPrint("GetMinFee()", "Bytes: %d\n",size);
 							if (size <=128)
 							{	
@@ -1372,17 +1372,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                 }
 
                 int64_t nChange = nValueIn - nValue - nFeeRet;
-                // The following if statement should be removed once enough miners
-                // have upgraded to the 0.9 GetMinFee() rules. Until then, this avoids
-                // creating free transactions that have change outputs less than
-                // CENT bitcoins.
-                if (nFeeRet < CTransaction::nMinTxFee && nChange > 0 && nChange < CENT)
-                {
-                    int64_t nMoveToFee = min(nChange, CTransaction::nMinTxFee - nFeeRet);
-                    nChange -= nMoveToFee;
-                    nFeeRet += nMoveToFee;
-                }
-
+                
                 if (nChange > 0)
                 {
                     // Fill a vout to ourself
@@ -1415,7 +1405,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
 
                     CTxOut newTxOut(nChange, scriptChange);
                     // Never create dust outputs; if we would, just
-                    if (newTxOut.IsDust(CTransaction::nMinRelayTxFee))
+                    if (newTxOut.IsDust(CTransaction::minRelayTxFee))
                     {
                         nFeeRet += nChange;
                         reservekey.ReturnKey();
@@ -1453,7 +1443,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                 dPriority = wtxNew.ComputePriority(dPriority, nBytes);
 
                 // Check that enough fee is included
-                int64_t nPayFee = nTransactionFee * (1 + (int64_t)nBytes / 1000);
+                int64_t nPayFee = payTxFee.GetFee(nBytes);
                 bool fAllowFree = AllowFree(dPriority);
                 int64_t nMinFee = GetMinFee(wtxNew, nBytes, fAllowFree, GMF_SEND);
                 if (nFeeRet < max(nPayFee, nMinFee))
@@ -1942,7 +1932,7 @@ bool CWallet::SendStealthMoneyToDestination(CStealthAddress& sxAddress, int64_t 
        sError = "Invalid amount";
        return false;
    };
-   if (nValue + nTransactionFee > GetBalance())
+   if (nValue > GetBalance())
    {
        sError = "Insufficient funds";
        return false;

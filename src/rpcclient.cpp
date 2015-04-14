@@ -184,6 +184,8 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "sendalert" 	      && n > 5) ConvertTo<int64_t>(params[5]);
     if (strMethod == "sendalert" 	      && n > 6) ConvertTo<int64_t>(params[6]);
     if (strMethod == "sendalert" 	      && n > 7) ConvertTo<int64_t>(params[7]);
+	if (strMethod == "estimatefee"            && n > 0) ConvertTo<boost::int64_t>(params[0]);
+	if (strMethod == "estimatepriority" && n > 0) ConvertTo<boost::int64_t>(params[0]);
 
     return params;
 }

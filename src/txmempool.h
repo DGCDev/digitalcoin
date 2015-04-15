@@ -71,6 +71,7 @@ public:
     mutable CCriticalSection cs;
     std::map<uint256, CTxMemPoolEntry> mapTx;
     std::map<COutPoint, CInPoint> mapNextTx;
+	std::map<uint256, std::pair<double, int64_t> > mapDeltas;
 
     CTxMemPool();
 	~CTxMemPool();
@@ -95,6 +96,11 @@ public:
     unsigned int GetTransactionsUpdated() const;
     void AddTransactionsUpdated(unsigned int n);
 
+	/** Affect CreateNewBlock prioritisation of transactions */
+    void PrioritiseTransaction(const uint256 hash, const std::string strHash, double dPriorityDelta, int64_t nFeeDelta);
+    void ApplyDeltas(const uint256 hash, double &dPriorityDelta, int64_t &nFeeDelta);
+	void ClearPrioritisation(const uint256 hash);
+	
     unsigned long size()
     {
         LOCK(cs);

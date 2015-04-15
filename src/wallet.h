@@ -149,6 +149,9 @@ public:
     StealthKeyMetaMap mapStealthKeyMeta;
     uint32_t nStealth, nFoundStealth;
 
+	// Increment to cause UI refresh, similar to new block
+	int64_t nConflictsReceived;
+	
     CWallet()
     {
         SetNull();
@@ -323,6 +326,13 @@ public:
     {
         return (GetDebit(tx) > 0);
     }
+	bool IsConflicting(const CTransaction& tx) const
+    {
+  	    BOOST_FOREACH(const CTxIn& txin, tx.vin)
+    	    if (mapTxSpends.count(txin.prevout))
+    	        return true;
+   	    return false;
+	}
     int64_t GetDebit(const CTransaction& tx) const
     {
         int64_t nDebit = 0;
@@ -395,7 +405,7 @@ public:
     int GetVersion() { LOCK(cs_wallet); return nWalletVersion; }
 
     // Get wallet transactions that conflict with given transaction (spend same outputs)
-    std::set<uint256> GetConflicts(const uint256& txid) const;
+    std::set<uint256> GetConflicts(const uint256& txid, bool includeEquivalent) const;
 
     /** Address book entry changed.
      * @note called with lock cs_wallet held.
@@ -716,7 +726,7 @@ public:
 
     void RelayWalletTransaction();
 
-    std::set<uint256> GetConflicts() const;
+    std::set<uint256> GetConflicts(bool includeEquivalent=true) const;
 };
 
 

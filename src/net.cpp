@@ -1778,6 +1778,7 @@ public:
             delete pnode;
         vNodes.clear();
         vNodesDisconnected.clear();
+		vhListenSocket.clear();
         delete semOutbound;
         semOutbound = NULL;
         delete pnodeLocalHost;

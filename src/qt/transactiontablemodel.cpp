@@ -129,12 +129,12 @@ public:
             case CT_NEW:
                 if(inModel)
                 {
-                    qDebug() << "TransactionTablePriv::updateWallet : Warning: Got CT_NEW, but transaction is already in model";
+                    qWarning() << "TransactionTablePriv::updateWallet : Warning: Got CT_NEW, but transaction is already in model";
                     break;
                 }
                 if(!inWallet)
                 {
-                    qDebug() << "TransactionTablePriv::updateWallet : Warning: Got CT_NEW, but transaction is not in wallet";
+                    qWarning() << "TransactionTablePriv::updateWallet : Warning: Got CT_NEW, but transaction is not in wallet";
                     break;
                 }
                 if(showTransaction)
@@ -158,7 +158,7 @@ public:
             case CT_DELETED:
                 if(!inModel)
                 {
-                    qDebug() << "TransactionTablePriv::updateWallet : Warning: Got CT_DELETED, but transaction is not in model";
+                    qWarning() << "TransactionTablePriv::updateWallet : Warning: Got CT_DELETED, but transaction is not in model";
                     break;
                 }
                 // Removed -- remove entire transaction from table

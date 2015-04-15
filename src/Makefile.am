@@ -23,7 +23,8 @@ BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BITCOIN_CONFIG_INCLUDES) $(BO
 noinst_LIBRARIES = \
   libbitcoin_server.a \
   libbitcoin_common.a \
-  libbitcoin_cli.a
+  libbitcoin_cli.a \
+  crypto/libbitcoin_crypto.a
 if ENABLE_WALLET
 BITCOIN_INCLUDES += $(BDB_CPPFLAGS)
 noinst_LIBRARIES += libbitcoin_wallet.a
@@ -76,10 +77,6 @@ BITCOIN_CORE_H = \
   rpcserver.h \
   script.h \
   serialize.h \
-  crypto/common.h \
-  crypto/ripemd160.h \
-  crypto/sha1.h \
-  crypto/sha2.h \
   sync.h \
   threadsafety.h \
   tinyformat.h \
@@ -161,6 +158,16 @@ libbitcoin_wallet_a_SOURCES = \
   stealthaddress.cpp \
   $(BITCOIN_CORE_H)
 
+crypto_libbitcoin_crypto_a_CPPFLAGS = $(BITCOIN_CONFIG_INCLUDES)
+crypto_libbitcoin_crypto_a_SOURCES = \
+  crypto/sha1.cpp \
+  crypto/sha2.cpp \
+  crypto/ripemd160.cpp \
+  crypto/common.h \
+  crypto/sha2.h \
+  crypto/sha1.h \
+  crypto/ripemd160.h
+  
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   base58.cpp \
@@ -173,9 +180,6 @@ libbitcoin_common_a_SOURCES = \
   protocol.cpp \
   rpcprotocol.cpp \
   script.cpp \
-  crypto/ripemd160.cpp \
-  crypto/sha1.cpp \
-  crypto/sha2.cpp \
   sync.cpp \
   util.cpp \
   version.cpp \
@@ -212,6 +216,7 @@ nodist_libbitcoin_common_a_SOURCES = $(srcdir)/obj/build.h
 digitalcoind_LDADD = \
   libbitcoin_server.a \
   libbitcoin_common.a \
+  crypto/libbitcoin_crypto.a \
   $(LIBLEVELDB) \
   $(LIBMEMENV)
 if ENABLE_WALLET
@@ -232,6 +237,7 @@ digitalcoind_CPPFLAGS = $(BITCOIN_INCLUDES)
 digitalcoin_cli_LDADD = \
   libbitcoin_cli.a \
   libbitcoin_common.a \
+  crypto/libbitcoin_crypto.a \
   $(BOOST_LIBS)
 digitalcoin_cli_SOURCES = bitcoin-cli.cpp
 digitalcoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
@@ -268,8 +274,9 @@ LIBBITCOIN_SERVER=libbitcoin_server.a
 LIBBITCOIN_WALLET=libbitcoin_wallet.a
 LIBBITCOIN_COMMON=libbitcoin_common.a
 LIBBITCOIN_CLI=libbitcoin_cli.a
+LIBBITCOIN_CRYPTO=crypto/libbitcoin_crypto.a
 LIBBITCOINQT=qt/libbitcoinqt.a
-	
+
 if ENABLE_TESTS
 include Makefile.test.include
 endif

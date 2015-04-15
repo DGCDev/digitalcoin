@@ -7,6 +7,7 @@
 
 #include "db.h"
 #include "key.h"
+#include "keystore.h"
 #include "stealthaddress.h"
 
 #include <list>
@@ -116,6 +117,8 @@ public:
     bool WriteMasterKey(unsigned int nID, const CMasterKey& kMasterKey);
 
     bool WriteCScript(const uint160& hash, const CScript& redeemScript);
+	
+	bool WriteWatchOnly(const CTxDestination &dest);
 
     bool WriteStealthKeyMeta(const CKeyID& keyId, const CStealthKeyMetadata& sxKeyMeta);
     bool EraseStealthKeyMeta(const CKeyID& keyId);

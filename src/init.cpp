@@ -115,8 +115,7 @@ void Shutdown()
 
     RenameThread("bitcoin-shutoff");
     mempool.AddTransactionsUpdated(1);
-    StopRPCThreads();
-    ShutdownRPCMining();
+    StopRPCThreads();    
 #ifdef ENABLE_WALLET
     if (pwalletMain)
         bitdb.Flush(false);
@@ -1193,9 +1192,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     LogPrintf("mapAddressBook.size() = %u\n",  pwalletMain ? pwalletMain->mapAddressBook.size() : 0);
 #endif
 
-    StartNode(threadGroup);
-    // InitRPCMining is needed here so getwork/getblocktemplate in the GUI debug console works properly.
-    InitRPCMining();
+    StartNode(threadGroup);   
     if (fServer)
         StartRPCThreads();
 

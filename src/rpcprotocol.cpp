@@ -103,7 +103,7 @@ string HTTPReply(int nStatus, const string& strMsg, bool keepalive, bool headers
         strMsg.size(),
 		contentType,
         FormatFullVersion(),
-        headersOnly ? "" : useInternalContent ? cStatus : strMsg.c_str());
+        (headersOnly ? "" : (useInternalContent ? cStatus : strMsg.c_str())));
 }
 
 bool ReadHTTPRequestLine(std::basic_istream<char>& stream, int &proto,

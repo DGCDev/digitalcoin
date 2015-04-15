@@ -6,14 +6,13 @@
 #ifndef BITCOIN_HASH_H
 #define BITCOIN_HASH_H
 
+#include "crypto/ripemd160.h"
 #include "crypto/sha2.h"
 #include "serialize.h"
 #include "uint256.h"
 #include "version.h"
 
 #include <vector>
-
-#include <openssl/ripemd.h>
 
 /** A hasher class for Bitcoin's 256-bit hash (double SHA-256). */
 class CHash256 {
@@ -45,7 +44,7 @@ public:
     void Finalize(unsigned char *hash) {
         unsigned char buf[32];
         sha.Finalize(buf);
-        RIPEMD160(buf, 32, hash);
+        CRIPEMD160().Write(buf, 32).Finalize(hash);
     }
 
     CHash160& Write(const unsigned char *data, size_t len) {

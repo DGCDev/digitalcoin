@@ -75,6 +75,7 @@ BITCOIN_CORE_H = \
   rpcserver.h \
   script.h \
   serialize.h \
+  crypto/ripemd160.h \
   crypto/sha1.h \
   crypto/sha2.h \
   sync.h \
@@ -170,6 +171,7 @@ libbitcoin_common_a_SOURCES = \
   protocol.cpp \
   rpcprotocol.cpp \
   script.cpp \
+  crypto/ripemd160.cpp \
   crypto/sha1.cpp \
   crypto/sha2.cpp \
   sync.cpp \

@@ -204,6 +204,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
 
 struct CNodeStateStats {
     int nMisbehavior;
+	int nSyncHeight;
 };
 
 struct CDiskBlockPos

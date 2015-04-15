@@ -26,8 +26,7 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
     ui->setupUi(this);
 
 #if QT_VERSION >= 0x040700
-    ui->signatureOut_SM->setPlaceholderText(tr("Click \"Sign Message\" to generate signature"));
-    ui->addressIn_VM->setPlaceholderText(tr("Enter a Digitalcoin address (e.g. DNS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
+    ui->signatureOut_SM->setPlaceholderText(tr("Click \"Sign Message\" to generate signature"));    
 #endif
 
     GUIUtil::setupAddressWidget(ui->addressIn_SM, this);

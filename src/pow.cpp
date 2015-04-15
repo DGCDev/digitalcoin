@@ -12,10 +12,6 @@
 #include "uint256.h"
 
 
-static const int64_t nTargetTimespan = 108 * 40; // digitalcoin: 108 blocks (72 mins) [OLD WAS 6*60*3*20]
-static const int64_t nTargetSpacing = 1 * 40; // digitalcoin: 40 seconds
-static const int64_t nInterval = nTargetTimespan / nTargetSpacing;
-
 //MultiAlgo Target updates
 static const int64_t multiAlgoTargetTimespan = 120; // 2 minutes (NUM_ALGOS(3) * 40 seconds)
 static const int64_t multiAlgoTargetSpacing = 120; // 2 minutes (NUM_ALGOS * 30 seconds)
@@ -41,8 +37,8 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime)
 {
     uint256 bnProofOfWorkLimit = Params().ProofOfWorkLimit(ALGO_SCRYPT);
     // Testnet has min-difficulty blocks
-    // after nTargetSpacing*2 time between blocks:
-    if (Params().NetworkID() == CChainParams::TESTNET && nTime > nTargetSpacing*2)
+    // after Params().TargetSpacing()*2 time between blocks:
+    if (Params().NetworkID() == CChainParams::TESTNET && nTime > Params().TargetSpacing()*2)
         return bnProofOfWorkLimit.GetCompact();
 
     uint256 bnResult;
@@ -52,7 +48,7 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime)
         // Maximum 400% adjustment...
         bnResult *= 4;
         // ... in best-case exactly 4-times-normal target time
-        nTime -= nTargetTimespan*4;
+        nTime -= Params().TargetTimespan()*4;
     }
     if (bnResult > bnProofOfWorkLimit)
         bnResult = bnProofOfWorkLimit;
@@ -89,8 +85,8 @@ unsigned int GetNextWorkRequiredV1(const CBlockIndex* pindexLast, const CBlockHe
    bool fInflationFixProtocol = (nHeight >= INFLATION_FIX_HEIGHT);
    bool fDifficultySwitchHeightTwo = (nHeight >= DIFF2_SWITCH_HEIGHT);
 
-   int64_t nTargetTimespanCurrent = fInflationFixProtocol? nTargetTimespan : (nTargetTimespan*5);
-   int64_t nInterval = fInflationFixProtocol? (nTargetTimespanCurrent / nTargetSpacing) : (nTargetTimespanCurrent / (nTargetSpacing / 2));
+   int64_t nTargetTimespanCurrent = fInflationFixProtocol? Params().TargetTimespan() : (Params().TargetTimespan()*5);
+   int64_t Params().Interval() = fInflationFixProtocol? (nTargetTimespanCurrent / Params().TargetSpacing()) : (nTargetTimespanCurrent / (Params().TargetSpacing() / 2));
 
     // Testnet Fixed Diff
     if (Params().NetworkID() == CChainParams::TESTNET)
@@ -102,16 +98,16 @@ unsigned int GetNextWorkRequiredV1(const CBlockIndex* pindexLast, const CBlockHe
         return nProofOfWorkLimit;
 
     // Only change once per interval
-    if ((pindexLast->nHeight+1) % nInterval != 0)
+    if ((pindexLast->nHeight+1) % Params().Interval() != 0)
     {
         return pindexLast->nBits;
     }
 
     // digitalcoin: This fixes an issue where a 51% attack can change difficulty at will.
     // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
-    int blockstogoback = nInterval-1;
-    if ((pindexLast->nHeight+1) != nInterval)
-        blockstogoback = nInterval;
+    int blockstogoback = Params().Interval()-1;
+    if ((pindexLast->nHeight+1) != Params().Interval())
+        blockstogoback = Params().Interval();
 
     // Go back by what we want to be the last intervals worth of blocks
     const CBlockIndex* pindexFirst = pindexLast;
@@ -214,7 +210,7 @@ unsigned int GetNextWorkRequiredV2(const CBlockIndex* pindexLast, const CBlockHe
 
     /// debug print
     LogPrintf("GetNextWorkRequired RETARGET\n");
-    LogPrintf("nTargetTimespan = %d    nActualTimespan = %d\n", nTargetTimespan, nActualTimespan);
+    LogPrintf("nTargetTimespan = %d    nActualTimespan = %d\n", Params().TargetTimespan(), nActualTimespan);
     LogPrintf("Before: %08x  %s\n", pindexLast->nBits, bnOld.ToString());
     LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.ToString());
 

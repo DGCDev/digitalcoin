@@ -41,6 +41,9 @@ public:
         bnProofOfWorkLimit[ALGO_SCRYPT]  = ~uint256(0) >> 20;
         bnProofOfWorkLimit[ALGO_X11] = ~uint256(0) >> 20;
 		nMinerThreads = 0;
+		nTargetTimespan = 108 * 40; // digitalcoin: 108 blocks (72 mins) [OLD WAS 6*60*3*20]
+		nTargetSpacing = 1 * 40; // digitalcoin: 40 seconds		
+		
 	// Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
         const char* pszTimestamp = "Digitalcoin, A Currency for a Digital Age";
@@ -117,7 +120,10 @@ public:
         // a large 4-byte int at any alignment.
         nDefaultPort = 12025;
         nRPCPort = 14023;
+		nMinerThreads = 0;
         strDataDir = "testnet3";
+		nTargetTimespan = 108 * 40; // digitalcoin: 108 blocks (72 mins) [OLD WAS 6*60*3*20]
+		nTargetSpacing = 1 * 40; // digitalcoin: 40 seconds		
 
 		vFixedSeeds.clear();
         vSeeds.clear();
@@ -153,6 +159,8 @@ public:
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
         strDataDir = "regtest";
+		nTargetTimespan = 108 * 40; // digitalcoin: 108 blocks (72 mins) [OLD WAS 6*60*3*20]
+		nTargetSpacing = 1 * 40; // digitalcoin: 40 seconds		
         //assert(hashGenesisBlock == uint256("0x0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"));
 
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.

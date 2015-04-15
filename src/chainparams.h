@@ -56,7 +56,9 @@ public:
     int SubsidyHalvingInterval() const { return nSubsidyHalvingInterval; }
 	/* Used if GenerateBitcoins is called with a negative number of threads */
 	int DefaultMinerThreads() const { return nMinerThreads; }
-  
+	int64_t TargetTimespan() const { return nTargetTimespan; }
+	int64_t TargetSpacing() const { return nTargetSpacing; }
+	int64_t Interval() const { return nTargetTimespan / nTargetSpacing; }
 	const CBlock& GenesisBlock() const { return genesis; }
 	bool RequireRPCPassword() const { return fRequireRPCPassword; }
 	/* Make miner wait to have peers to avoid wasting work */
@@ -89,6 +91,8 @@ protected:
 	int nMinerThreads;
     uint256 bnProofOfWorkLimit[NUM_ALGOS];
     int nSubsidyHalvingInterval;
+	int64_t nTargetTimespan;
+	int64_t nTargetSpacing;
     std::string strDataDir;
     std::vector<CDNSSeedData> vSeeds;
     std::vector<unsigned char> base58Prefixes[MAX_BASE58_TYPES];

@@ -80,7 +80,8 @@ BITCOIN_CORE_H = \
   serialize.h \
   sync.h \
   threadsafety.h \
-  tinyformat.h \
+  timedata.h \
+  tinyformat.h \  
   txdb.h \
   txmempool.h \
   ui_interface.h \
@@ -89,7 +90,7 @@ BITCOIN_CORE_H = \
   version.h \
   walletdb.h \
   wallet.h \
-  compat/sanity.h
+  compat/sanity.h \
   scrypt.h \
   sph_blake.h \
   sph_groestl.h \
@@ -144,6 +145,7 @@ libbitcoin_server_a_SOURCES = \
   rpcnet.cpp \
   rpcrawtransaction.cpp \
   rpcserver.cpp \
+  timedata.cpp \
   txdb.cpp \
   txmempool.cpp \
   $(JSON_H) \

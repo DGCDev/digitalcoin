@@ -25,7 +25,7 @@ unsigned int pnSeed[] =
 class CMainParams : public CChainParams {
 public:
     CMainParams() {
-		networkID = CChainParams::MAIN;
+		networkID = CBaseChainParams::MAIN;
 		strNetworkID = "main";
 		// The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
@@ -35,8 +35,7 @@ public:
         pchMessageStart[2] = 0xb6;
         pchMessageStart[3] = 0xdb;
         vAlertPubKey = ParseHex("04016c44069c3152982413d3ba3bf262a3a4d3ddad859ba78e0d744f5c67c2205d2aa2122e6c62b6310dad2d1e2f7e39028455ff1dbb26511c60fc96c8b4560c43");
-        nDefaultPort = 7999;
-        nRPCPort = 7998;
+        nDefaultPort = 7999;        
         bnProofOfWorkLimit[ALGO_SHA256D] = ~uint256(0) >> 20;
         bnProofOfWorkLimit[ALGO_SCRYPT]  = ~uint256(0) >> 20;
         bnProofOfWorkLimit[ALGO_X11] = ~uint256(0) >> 20;
@@ -113,15 +112,13 @@ static CMainParams mainParams;
 class CTestNetParams : public CMainParams {
 public:
     CTestNetParams() {
-		networkID = CChainParams::TESTNET;
+		networkID = CBaseChainParams::TESTNET;
 		strNetworkID = "test";
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        nDefaultPort = 12025;
-        nRPCPort = 14023;
+        nDefaultPort = 12025;        
 		nMinerThreads = 0;
-        strDataDir = "testnet3";
 		nTargetTimespan = 108 * 40; // digitalcoin: 108 blocks (72 mins) [OLD WAS 6*60*3*20]
 		nTargetSpacing = 1 * 40; // digitalcoin: 40 seconds		
 
@@ -144,7 +141,7 @@ static CTestNetParams testNetParams;
 class CRegTestParams : public CTestNetParams {
 public:
     CRegTestParams() {
-		networkID = CChainParams::REGTEST;
+		networkID = CBaseChainParams::REGTEST;
 		strNetworkID = "regtest";
         pchMessageStart[0] = 0xfa;
         pchMessageStart[1] = 0xb3;
@@ -157,8 +154,7 @@ public:
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 961533;
         hashGenesisBlock = genesis.GetHash();
-        nDefaultPort = 18444;
-        strDataDir = "regtest";
+        nDefaultPort = 18444;        
 		nTargetTimespan = 108 * 40; // digitalcoin: 108 blocks (72 mins) [OLD WAS 6*60*3*20]
 		nTargetSpacing = 1 * 40; // digitalcoin: 40 seconds		
         //assert(hashGenesisBlock == uint256("0x0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"));
@@ -176,21 +172,23 @@ public:
 };
 static CRegTestParams regTestParams;
 
-static CChainParams *pCurrentParams = &mainParams;
+static CChainParams *pCurrentParams = 0;
 
 const CChainParams &Params() {
+	assert(pCurrentParams);
     return *pCurrentParams;
 }
 
-void SelectParams(CChainParams::Network network) {
+void SelectParams(CBaseChainParams::Network network) {
+	SelectBaseParams(network);
     switch (network) {
-        case CChainParams::MAIN:
+        case CBaseChainParams::MAIN:
             pCurrentParams = &mainParams;
             break;
-        case CChainParams::TESTNET:
+        case CBaseChainParams::TESTNET:
             pCurrentParams = &testNetParams;
             break;
-        case CChainParams::REGTEST:
+        case CBaseChainParams::REGTEST:
             pCurrentParams = &regTestParams;
             break;
         default:
@@ -200,19 +198,11 @@ void SelectParams(CChainParams::Network network) {
 }
 
 bool SelectParamsFromCommandLine() {
-    bool fRegTest = GetBoolArg("-regtest", false);
-    bool fTestNet = GetBoolArg("-testnet", false);
-
-    if (fTestNet && fRegTest) {
+    if (!SelectBaseParamsFromCommandLine())
         return false;
     }
 
-    if (fRegTest) {
-        SelectParams(CChainParams::REGTEST);
-    } else if (fTestNet) {
-        SelectParams(CChainParams::TESTNET);
-    } else {
-        SelectParams(CChainParams::MAIN);
-    }
+	SelectParams(BaseParams().NetworkID());
+	
     return true;
 }

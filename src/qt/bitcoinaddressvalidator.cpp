@@ -88,7 +88,7 @@ BitcoinAddressCheckValidator::BitcoinAddressCheckValidator(QObject *parent) :
 QValidator::State BitcoinAddressCheckValidator::validate(QString &input, int &pos) const
 {
     Q_UNUSED(pos);
-    string saddr = input.toStdString();
+    std::string saddr = input.toStdString();
     // Validate stealth address
     if (saddr.length() > 75)
     {

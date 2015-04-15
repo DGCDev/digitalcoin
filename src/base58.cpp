@@ -306,7 +306,7 @@ bool CBitcoinSecret::SetString(const char* psz) {
                 {
                     uint256 hash;
                     SHA256((unsigned char*)psz, nSecretLength, (unsigned char*)&hash);
-					vector<unsigned char> v;
+					std::vector<unsigned char> v;
 					v.resize(1);
 					v[0] = (unsigned char)158;
                     SetData(v, (unsigned char*)&hash, 32);

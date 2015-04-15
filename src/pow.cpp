@@ -38,7 +38,7 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime)
     uint256 bnProofOfWorkLimit = Params().ProofOfWorkLimit(ALGO_SCRYPT);
     // Testnet has min-difficulty blocks
     // after Params().TargetSpacing()*2 time between blocks:
-    if (Params().NetworkID() == CChainParams::TESTNET && nTime > Params().TargetSpacing()*2)
+    if (Params().NetworkID() == CBaseChainParams::TESTNET && nTime > Params().TargetSpacing()*2)
         return bnProofOfWorkLimit.GetCompact();
 
     uint256 bnResult;
@@ -60,15 +60,15 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime)
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo)
 {
    int nHeight = pindexLast->nHeight;
-   if (Params().NetworkID() == CChainParams::TESTNET)
+   if (Params().NetworkID() == CBaseChainParams::TESTNET)
    {
 	return 0x1d13ffec;
    }
-   else if (!Params().NetworkID() == CChainParams::TESTNET && nHeight < V3_FORK)
+   else if (!Params().NetworkID() == CBaseChainParams::TESTNET && nHeight < V3_FORK)
    {
 	return GetNextWorkRequiredV1(pindexLast, pblock, algo);
    }
-   else if (!Params().NetworkID() == CChainParams::TESTNET && nHeight >= V3_FORK)
+   else if (!Params().NetworkID() == CBaseChainParams::TESTNET && nHeight >= V3_FORK)
    {
         LogPrintf("Switch to DigiShield");
         return GetNextWorkRequiredV2(pindexLast, pblock, algo);
@@ -86,10 +86,10 @@ unsigned int GetNextWorkRequiredV1(const CBlockIndex* pindexLast, const CBlockHe
    bool fDifficultySwitchHeightTwo = (nHeight >= DIFF2_SWITCH_HEIGHT);
 
    int64_t nTargetTimespanCurrent = fInflationFixProtocol? Params().TargetTimespan() : (Params().TargetTimespan()*5);
-   int64_t Params().Interval() = fInflationFixProtocol? (nTargetTimespanCurrent / Params().TargetSpacing()) : (nTargetTimespanCurrent / (Params().TargetSpacing() / 2));
+   int64_t nInterval = fInflationFixProtocol? (nTargetTimespanCurrent / Params().TargetSpacing()) : (nTargetTimespanCurrent / (Params().TargetSpacing() / 2));
 
     // Testnet Fixed Diff
-    if (Params().NetworkID() == CChainParams::TESTNET)
+    if (Params().NetworkID() == CBaseChainParams::TESTNET)
     {
 	return nProofOfWorkLimit;
     }
@@ -98,16 +98,16 @@ unsigned int GetNextWorkRequiredV1(const CBlockIndex* pindexLast, const CBlockHe
         return nProofOfWorkLimit;
 
     // Only change once per interval
-    if ((pindexLast->nHeight+1) % Params().Interval() != 0)
+    if ((pindexLast->nHeight+1) % nInterval != 0)
     {
         return pindexLast->nBits;
     }
 
     // digitalcoin: This fixes an issue where a 51% attack can change difficulty at will.
     // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
-    int blockstogoback = Params().Interval()-1;
-    if ((pindexLast->nHeight+1) != Params().Interval())
-        blockstogoback = Params().Interval();
+    int blockstogoback = nInterval-1;
+    if ((pindexLast->nHeight+1) != nInterval)
+        blockstogoback = nInterval;
 
     // Go back by what we want to be the last intervals worth of blocks
     const CBlockIndex* pindexFirst = pindexLast;

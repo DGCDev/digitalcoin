@@ -176,7 +176,7 @@ BITCOIN_QT_H = \
   qt/bitcoinunits.h \
   qt/blockbrowser.h \
   qt/chatwindow.h \
-  qt/clientmodel.h \  
+  qt/clientmodel.h \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
   qt/csvmodelwriter.h \
@@ -399,7 +399,7 @@ $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
 	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitcoin $< | \
- $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
@@ -417,11 +417,10 @@ ui_%.h: %.ui
 
 %.moc: %.cpp
 	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(QT_INCLUDES) $(MOC_DEFS) $< | \
-	$(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
-	
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 moc_%.cpp: %.h
 	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(QT_INCLUDES) $(MOC_DEFS) $< | \
-	$(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 %.qm: %.ts
 	@test -f $(LRELEASE)

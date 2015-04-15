@@ -2361,7 +2361,7 @@ Value scanforstealthtxns(const Array& params, bool fHelp)
                 continue; // leave out coinbase and others
             nTransactions++;
 
-            pwalletMain->AddToWalletIfInvolvingMe(tx.GetHash(), tx, &block, fUpdate);
+            pwalletMain->AddToWalletIfInvolvingMe(tx, &block, fUpdate);
         };
 
         pindex = chainActive.Next(pindex);

@@ -1323,7 +1323,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
 						else 
 						{
 							int64_t size = txout.scriptPubKey.ToString().length();
-							int64_t nMinFee = CTransaction::minTxFee;
+							int64_t nMinFee = CTransaction::minTxFee.GetFeePerK();
 							LogPrint("GetMinFee()", "Bytes: %d\n",size);
 							if (size <=128)
 							{	
@@ -1892,7 +1892,7 @@ string CWallet::SendStealthMoney(CScript scriptPubKey, int64_t nValue, std::vect
    CReserveKey reservekey(this);
    int64_t nFeeRequired;
 
-   if ((!Params().NetworkID() == CChainParams::TESTNET && (chainActive.Height() < V3_FORK)) || (Params().NetworkID() == CChainParams::TESTNET && (chainActive.Height() < 1)))
+   if ((!Params().NetworkID() == CBaseChainParams::TESTNET && (chainActive.Height() < V3_FORK)) || (Params().NetworkID() == CBaseChainParams::TESTNET && (chainActive.Height() < 1)))
    {
        string strError = _("Error: Stealth addresses not yet supported");
        LogPrintf("SendStealthMoney() : %s", strError.c_str());
@@ -2278,7 +2278,7 @@ string CWallet::SendMoneyToDestination(const CTxDestination& address, int64_t nV
     // Check amount
     if (nValue <= 0)
         return _("Invalid amount");
-    if (nValue + nTransactionFee > GetBalance())
+    if (nValue > GetBalance())
         return _("Insufficient funds");
 
     // Parse Bitcoin address

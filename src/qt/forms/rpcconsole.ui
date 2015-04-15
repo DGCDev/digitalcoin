@@ -300,7 +300,7 @@
         </widget>
        </item>
        <item row="13" column="0">
-        <widget class="QLabel" name="label_15">
+        <widget class="QLabel" name="label_21">
          <property name="font">
           <font>
            <weight>75</weight>
@@ -313,7 +313,7 @@
         </widget>
        </item>
        <item row="14" column="0">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="label_20">
          <property name="text">
           <string>Username</string>
          </property>
@@ -336,7 +336,7 @@
         </widget>
        </item>
        <item row="15" column="0">
-        <widget class="QLabel" name="label_18">
+        <widget class="QLabel" name="label_19">
          <property name="text">
           <string>Password</string>
          </property>

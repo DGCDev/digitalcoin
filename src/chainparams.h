@@ -86,6 +86,7 @@ protected:
 	int64_t nTargetSpacing;    
     std::vector<CDNSSeedData> vSeeds;
     std::vector<unsigned char> base58Prefixes[MAX_BASE58_TYPES];
+	std::string strNetworkID;
 	CBaseChainParams::Network networkID;
     CBlock genesis;
     std::vector<CAddress> vFixedSeeds;

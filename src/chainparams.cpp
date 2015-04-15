@@ -200,7 +200,7 @@ void SelectParams(CBaseChainParams::Network network) {
 bool SelectParamsFromCommandLine() {
     if (!SelectBaseParamsFromCommandLine())
         return false;
-    }
+    
 
 	SelectParams(BaseParams().NetworkID());
 	

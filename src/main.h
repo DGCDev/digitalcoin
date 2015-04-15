@@ -846,11 +846,11 @@ public:
 
     int GetAlgoWorkFactor() const 
     {
-        if (!Params().NetworkID() == CChainParams::TESTNET && (nHeight < multiAlgoDiffChangeTarget))
+        if (!Params().NetworkID() == CBaseChainParams::TESTNET && (nHeight < multiAlgoDiffChangeTarget))
         {
             return 1;
         }
-        if (Params().NetworkID() == CChainParams::TESTNET && (nHeight < 100))
+        if (Params().NetworkID() == CBaseChainParams::TESTNET && (nHeight < 100))
         {
             return 1;
         }
@@ -871,7 +871,7 @@ public:
     uint256 GetBlockWorkAdjusted() const
     {
         uint256 bnRes;
-	if ((Params().NetworkID() == CChainParams::TESTNET && (nHeight >= 1)) || (!Params().NetworkID() == CChainParams::TESTNET && nHeight >= V3_FORK)) 
+	if ((Params().NetworkID() == CBaseChainParams::TESTNET && (nHeight >= 1)) || (!Params().NetworkID() == CBaseChainParams::TESTNET && nHeight >= V3_FORK)) 
 	{
 		// Adjusted Block Work is the Sum of work of this block and the most recent work of one block of each algo
 		uint256 nBlockWork = GetBlockWork();

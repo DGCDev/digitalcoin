@@ -227,7 +227,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, int algo)
         {
             // Take highest priority transaction off the priority queue:
             double dPriority = vecPriority.front().get<0>();
-            double dFeePerKb = vecPriority.front().get<1>();
+            CFeeRate feeRate = vecPriority.front().get<1>();
             const CTransaction& tx = *(vecPriority.front().get<2>());
 
             std::pop_heap(vecPriority.begin(), vecPriority.end(), comparer);
@@ -454,7 +454,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
 
 void static MinerWaitOnline()
 {
-    if (Params().NetworkID() != CChainParams::REGTEST) 
+    if (Params().NetworkID() != CBaseChainParams::REGTEST) 
     {
         // Busy-wait for the network to come online so we don't waste time mining
         // on an obsolete chain. In regtest mode we expect to fly solo.
@@ -481,7 +481,7 @@ void static BitcoinMiner(CWallet *pwallet)
         MinerWaitOnline();
 		try { 
 			while (true) {
-				if (Params().NetworkID() != CChainParams::REGTEST) {
+				if (Params().NetworkID() != CBaseChainParams::REGTEST) {
 					// Busy-wait for the network to come online so we don't waste time mining
 					// on an obsolete chain. In regtest mode we expect to fly solo.
 					while (vNodes.empty())
@@ -580,12 +580,10 @@ void static BitcoinMiner(CWallet *pwallet)
 						break;
 
 					// Update nTime every few seconds
-					UpdateTime(*pblock, pindexPrev);
-					nBlockTime = ByteReverse(pblock->nTime);
-					if (Params().NetworkID() == CChainParams::TESTNET)
+					UpdateTime(*pblock, pindexPrev);					
+					if (Params().NetworkID() == CBaseChainParams::TESTNET)
 					{
-						// Changing pblock->nTime can change work required on testnet:
-						nBlockBits = ByteReverse(pblock->nBits);
+						// Changing pblock->nTime can change work required on testnet:						
 						hashTarget = uint256().SetCompact(pblock->nBits);
 					}
 				}
@@ -620,28 +618,20 @@ void static ScryptMiner(CWallet *pwallet)
         LogPrintf("Running scrypt miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
-        //
-        // Prebuild hash buffers
-        //
-        char pmidstatebuf[32+16]; char* pmidstate = alignup<16>(pmidstatebuf);
-        char pdatabuf[128+16];    char* pdata     = alignup<16>(pdatabuf);
-        char phash1buf[64+16];    char* phash1    = alignup<16>(phash1buf);
-
-        FormatHashBuffers(pblock, pmidstate, pdata, phash1);
-
-        unsigned int& nBlockTime = *(unsigned int*)(pdata + 64 + 4);
-        unsigned int& nBlockBits = *(unsigned int*)(pdata + 64 + 8);
-
-        //
+        //        
         // Search
         //
         int64_t nStart = GetTime();
         uint256 hashTarget = uint256().SetCompact(pblock->nBits);
+		uint256 hash;		
+		uint32_t nNonce = 0;
+		uint32_t nOldNonce = 0;
         while(true)
-        {
-            unsigned int nHashesDone = 0;
+        {            
+			uint32_t nHashesDone = nNonce - nOldNonce;		
             uint256 thash;
             char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
+			nOldNonce = nNonce;
             while(true)
             {
 #if defined(USE_SSE2)
@@ -658,7 +648,7 @@ void static ScryptMiner(CWallet *pwallet)
                 // Generic scrypt
                 scrypt_1024_1_1_256_sp_generic(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
 #endif
-
+				nNonce++;
                 if (thash <= hashTarget)
                 {
                     // Found a solution
@@ -667,7 +657,7 @@ void static ScryptMiner(CWallet *pwallet)
                     SetThreadPriority(THREAD_PRIORITY_LOWEST);
                     break;
                 }
-                pblock->nNonce += 1;
+                pblock->nNonce += nNonce;
                 nHashesDone += 1;
                 if ((pblock->nNonce & 0xFF) == 0)
                     break;
@@ -704,9 +694,9 @@ void static ScryptMiner(CWallet *pwallet)
 
             // Check for stop or if block needs to be rebuilt
             boost::this_thread::interruption_point();
-            if (vNodes.empty() && Params().NetworkID() != CChainParams::REGTEST)
+            if (vNodes.empty() && Params().NetworkID() != CBaseChainParams::REGTEST)
                 break;
-            if (pblock->nNonce >= 0xffff0000)
+            if (nNonce >= 0xffff0000)
                 break;
             if (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60)
                 break;
@@ -715,7 +705,7 @@ void static ScryptMiner(CWallet *pwallet)
 
             // Update nTime every few seconds
             UpdateTime(*pblock, pindexPrev);          
-            if (Params().NetworkID() == CChainParams::TESTNET)
+            if (Params().NetworkID() == CBaseChainParams::TESTNET)
             {
                 // Changing pblock->nTime can change work required on testnet:                
                 hashTarget = uint256().SetCompact(pblock->nBits);
@@ -804,7 +794,7 @@ void static GenericMiner(CWallet *pwallet, int algo)
 
             // Check for stop or if block needs to be rebuilt
             boost::this_thread::interruption_point();
-            if (vNodes.empty() && Params().NetworkID() != CChainParams::REGTEST)
+            if (vNodes.empty() && Params().NetworkID() != CBaseChainParams::REGTEST)
                 break;
             if (++pblock->nNonce >= 0xffff0000)
                 break;
@@ -816,7 +806,7 @@ void static GenericMiner(CWallet *pwallet, int algo)
             // Update nTime every few seconds
             UpdateTime(*pblock, pindexPrev);
             // nBlockTime = ByteReverse(pblock->nTime);
-            if (Params().NetworkID() == CChainParams::TESTNET)
+            if (Params().NetworkID() == CBaseChainParams::TESTNET)
             {
                 // Changing pblock->nTime can change work required on testnet:
                 // nBlockBits = ByteReverse(pblock->nBits);

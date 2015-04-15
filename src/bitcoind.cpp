@@ -95,7 +95,7 @@ bool AppInit(int argc, char* argv[])
                 strUsage += "\n" + _("Usage:") + "\n" +
                     "  digitalcoind [options]                     " + _("Start Digitalcoin Daemon") + "\n";
 					
-                strUsage += "\n" + HelpMessage(HMM_digitalcoinD);                
+                strUsage += "\n" + HelpMessage(HMM_BITCOIND);                
 			}
 
             fprintf(stdout, "%s", strUsage.c_str());

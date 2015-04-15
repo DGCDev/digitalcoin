@@ -91,7 +91,7 @@ BITCOIN_CORE_H = \
   sync.h \
   threadsafety.h \
   timedata.h \
-  tinyformat.h \  
+  tinyformat.h \
   txdb.h \
   txmempool.h \
   ui_interface.h \
@@ -141,7 +141,7 @@ libbitcoin_server_a_SOURCES = \
   alert.cpp \
   bloom.cpp \
   checkpoints.cpp \
-  init.cpp \  
+  init.cpp \
   leveldbwrapper.cpp \
   main.cpp \
   miner.cpp \
@@ -196,7 +196,7 @@ libbitcoin_common_a_SOURCES = \
   key.cpp \
   keystore.cpp \
   netbase.cpp \
-  protocol.cpp \  
+  protocol.cpp \
   scrypt.cpp \
   blake.c \
   bmw.c \
@@ -233,6 +233,7 @@ libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
 # cli: shared between bitcoin-cli and bitcoin-qt
+libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
   $(BITCOIN_CORE_H)

@@ -156,12 +156,13 @@ CBitcoinAddress GetAccountAddress(string strAccount, bool bForceNew=false)
 
 Value getaccountaddress(const Array& params, bool fHelp)
 {
-    if (fHelp || params.size() != 1)
+    if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
             "getaccountaddress \"account\"\n"
             "\nReturns the current Digitalcoin address for receiving payments to this account.\n"
             "\nArguments:\n"
             "1. \"account\"        (string, required) The account name for the address. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created and a new address created  if there is no account by the given name.\n"
+			"2. \"includeWatchonly\"    (bool, optional, default=false) Whether to include watchonly addresses in balance calculation and details[]\n"
             "\nResult:\n"
             "\"digitalcoinaddress\" (string) The account digitalcoin address\n"
             "\nExamples:\n"
@@ -1562,6 +1563,11 @@ Value gettransaction(const Array& params, bool fHelp)
     uint256 hash;
     hash.SetHex(params[0].get_str());
 
+	isminefilter filter = MINE_SPENDABLE;
+    if(params.size() > 1)
+        if(params[1].get_bool())
+			filter = filter | MINE_WATCH_ONLY;
+	
     Object entry;
     if (!pwalletMain->mapWallet.count(hash))
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid or non-wallet transaction id");
@@ -1579,7 +1585,7 @@ Value gettransaction(const Array& params, bool fHelp)
     WalletTxToJSON(wtx, entry);
 
     Array details;
-    ListTransactions(wtx, "*", 0, false, details);
+    ListTransactions(wtx, "*", 0, false, details, filter);
     entry.push_back(Pair("details", details));
 
     CDataStream ssTx(SER_NETWORK, PROTOCOL_VERSION);

@@ -5,13 +5,14 @@
 
 #include "script.h"
 
+#include "crypto/ripemd160.h"
+#include "crypto/sha1.h"
+#include "crypto/sha2.h"
 #include "core.h"
 #include "hash.h"
 #include "key.h"
 #include "keystore.h"
-#include "crypto/ripemd160.h"
-#include "crypto/sha1.h"
-#include "crypto/sha2.h"
+#include "random.h"
 #include "sync.h"
 #include "uint256.h"
 #include "util.h"

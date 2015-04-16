@@ -348,7 +348,7 @@ Value sendtoaddress(const Array& params, bool fHelp)
 
     EnsureWalletIsUnlocked();
 
-    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, wtx);
+    string strError = pwalletMain->SendMoney(address.Get(), nAmount, wtx);
     if (strError != "")
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
 
@@ -386,7 +386,7 @@ Value sendopreturn(const Array& params, bool fHelp)
 
     EnsureWalletIsUnlocked();
 
-    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, wtx);
+    string strError = pwalletMain->SendMoney(address.Get(), nAmount, wtx);
     if (strError != "")
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
 

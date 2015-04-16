@@ -291,8 +291,7 @@ public:
     bool SendStealthMoneyToDestination(CStealthAddress& sxAddress, int64_t nValue, std::string& sNarr, CWalletTx& wtxNew, std::string& sError, bool fAskFee = false);
     bool FindStealthTransactions(const CTransaction& tx, mapValue_t& mapNarr);
 
-    std::string SendMoney(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNew);
-    std::string SendMoneyToDestination(const CTxDestination &address, int64_t nValue, CWalletTx& wtxNew);
+    std::string SendMoney(const CTxDestination &address, int64_t nValue, CWalletTx& wtxNew);
 	
 	static int64_t GetMinimumFee(unsigned int nTxBytes, unsigned int nConfirmTarget, const CTxMemPool& pool);
 	static CFeeRate minTxFee;

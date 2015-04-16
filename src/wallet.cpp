@@ -2357,18 +2357,30 @@ bool CWallet::FindStealthTransactions(const CTransaction& tx, mapValue_t& mapNar
 
 
 
-string CWallet::SendMoney(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNew)
+string CWallet::SendMoney(const CTxDestination &address, int64_t nValue, CWalletTx& wtxNew)
 {
-    CReserveKey reservekey(this);
-    int64_t nFeeRequired;
+	// Check amount
+    if (nValue <= 0)
+        return _("Invalid amount");
+    if (nValue > GetBalance())
+		return _("Insufficient funds");
 
+	string strError;
     if (IsLocked())
     {
-        string strError = _("Error: Wallet locked, unable to create transaction!");
+        strError = _("Error: Wallet locked, unable to create transaction!");
         LogPrintf("SendMoney() : %s", strError);
         return strError;
     }
-    string strError;
+	
+	// Parse Bitcoin address
+	CScript scriptPubKey;
+	scriptPubKey.SetDestination(address);
+
+	// Create and send the transaction
+	CReserveKey reservekey(this);
+	int64_t nFeeRequired;
+    
     if (!CreateTransaction(scriptPubKey, nValue, wtxNew, reservekey, nFeeRequired, strError))
     {
         if (nValue + nFeeRequired > GetBalance())
@@ -2383,22 +2395,6 @@ string CWallet::SendMoney(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNe
     return "";
 }
 
-
-
-string CWallet::SendMoneyToDestination(const CTxDestination& address, int64_t nValue, CWalletTx& wtxNew)
-{
-    // Check amount
-    if (nValue <= 0)
-        return _("Invalid amount");
-    if (nValue > GetBalance())
-        return _("Insufficient funds");
-
-    // Parse Bitcoin address
-    CScript scriptPubKey;
-    scriptPubKey.SetDestination(address);
-
-    return SendMoney(scriptPubKey, nValue, wtxNew);
-}
 
 int64_t CWallet::GetMinimumFee(unsigned int nTxBytes, unsigned int nConfirmTarget, const CTxMemPool& pool)
 {

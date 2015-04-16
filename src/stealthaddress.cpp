@@ -143,7 +143,7 @@ int GenerateRandomSecret(ec_secret& out)
     // -- check max, try max 32 times
     for (i = 0; i < 32; ++i)
     {
-        RAND_bytes((unsigned char*) test.begin(), 32);
+        GetRandBytes((unsigned char*) test.begin(), 32);
         if (test > min && test < max)
         {
             memcpy(&out.e[0], test.begin(), 32);

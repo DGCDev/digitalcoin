@@ -240,9 +240,8 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += "  -onion=<ip:port>       " + _("Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)") + "\n";
     strUsage += "  -onlynet=<net>         " + _("Only connect to nodes in network <net> (IPv4, IPv6 or Tor)") + "\n";
     strUsage += "  -port=<port>           " + _("Listen for connections on <port> (default: 8333 or testnet: 18333)") + "\n";
-    strUsage += "  -proxy=<ip:port>       " + _("Connect through SOCKS proxy") + "\n";
-    strUsage += "  -seednode=<ip>         " + _("Connect to a node to retrieve peer addresses, and disconnect") + "\n";
-    strUsage += "  -socks=<n>             " + _("Select SOCKS version for -proxy (4 or 5, default: 5)") + "\n";
+    strUsage += "  -proxy=<ip:port>       " + _("Connect through SOCKS5 proxy") + "\n";
+    strUsage += "  -seednode=<ip>         " + _("Connect to a node to retrieve peer addresses, and disconnect") + "\n";    
     strUsage += "  -timeout=<n>           " + _("Specify connection timeout in milliseconds (default: 5000)") + "\n";
 #ifdef USE_UPNP
 #if USE_UPNP
@@ -760,11 +759,7 @@ bool AppInit2(boost::thread_group& threadGroup)
 #endif // ENABLE_WALLET
     // ********************************************************* Step 6: network initialization
 
-    RegisterNodeSignals(GetNodeSignals());
-
-    int nSocksVersion = GetArg("-socks", 5);
-    if (nSocksVersion != 4 && nSocksVersion != 5)
-        return InitError(strprintf(_("Unknown -socks proxy version requested: %i"), nSocksVersion));
+    RegisterNodeSignals(GetNodeSignals());    
 
     if (mapArgs.count("-onlynet")) {
         std::set<enum Network> nets;
@@ -788,12 +783,11 @@ bool AppInit2(boost::thread_group& threadGroup)
         if (!addrProxy.IsValid())
             return InitError(strprintf(_("Invalid -proxy address: '%s'"), mapArgs["-proxy"]));
 
-		if(nSocksVersion < 5)
-			SetProxy(NET_IPV4, addrProxy, nSocksVersion);
-        else if(nSocksVersion > 4) {
-            SetProxy(NET_IPV6, addrProxy, nSocksVersion);
-            SetNameProxy(addrProxy, nSocksVersion);
-        }
+		if (!IsLimited(NET_IPV4))
+			SetProxy(NET_IPV4, addrProxy);
+        if (!IsLimited(NET_IPV6))
+            SetProxy(NET_IPV6, addrProxy);
+		SetNameProxy(addrProxy);
         fProxy = true;
     }
 
@@ -808,7 +802,7 @@ bool AppInit2(boost::thread_group& threadGroup)
             addrOnion = CService(mapArgs["-onion"], 9050);
         if (!addrOnion.IsValid())
             return InitError(strprintf(_("Invalid -onion address: '%s'"), mapArgs["-onion"]));
-        SetProxy(NET_TOR, addrOnion, 5);
+        SetProxy(NET_TOR, addrOnion);
         SetReachable(NET_TOR);
     }
 

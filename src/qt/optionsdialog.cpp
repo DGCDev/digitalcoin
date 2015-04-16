@@ -50,17 +50,10 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
 
     ui->proxyIp->setEnabled(false);
     ui->proxyPort->setEnabled(false);
-    ui->proxyPort->setValidator(new QIntValidator(1, 65535, this));
-
-    /** SOCKS version is only selectable for default proxy and is always 5 for IPv6 and Tor */
-    ui->socksVersion->setEnabled(false);
-    ui->socksVersion->addItem("5", 5);
-    ui->socksVersion->addItem("4", 4);
-    ui->socksVersion->setCurrentIndex(0);
+    ui->proxyPort->setValidator(new QIntValidator(1, 65535, this));   
 
     connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->proxyIp, SLOT(setEnabled(bool)));
-    connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->proxyPort, SLOT(setEnabled(bool)));
-    connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->socksVersion, SLOT(setEnabled(bool)));
+    connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->proxyPort, SLOT(setEnabled(bool)));    
 
     ui->proxyIp->installEventFilter(this);
 
@@ -181,8 +174,7 @@ void OptionsDialog::setMapper()
 
     mapper->addMapping(ui->connectSocks, OptionsModel::ProxyUse);
     mapper->addMapping(ui->proxyIp, OptionsModel::ProxyIP);
-    mapper->addMapping(ui->proxyPort, OptionsModel::ProxyPort);
-    mapper->addMapping(ui->socksVersion, OptionsModel::ProxySocksVersion);
+    mapper->addMapping(ui->proxyPort, OptionsModel::ProxyPort);    
 
     /* Window */
 #ifndef Q_OS_MAC

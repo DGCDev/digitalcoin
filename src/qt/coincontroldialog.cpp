@@ -522,10 +522,7 @@ void CoinControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
 
         // Priority
         dPriority = dPriorityInputs / (nBytes - nBytesInputs + (nQuantityUncompressed * 29)); // 29 = 180 - 151 (uncompressed public keys are over the limit. max 151 bytes of the input are ignored for priority)
-        sPriorityLabel = CoinControlDialog::getPriorityLabel(mempool, dPriority);
-
-        // Fee
-        int64_t nFee = payTxFee.GetFee(max((unsigned int)1000, nBytes));
+        sPriorityLabel = CoinControlDialog::getPriorityLabel(mempool, dPriority);        
 
         // Min Fee
         nPayFee = CWallet::GetMinimumFee(nBytes, nTxConfirmTarget, mempool);

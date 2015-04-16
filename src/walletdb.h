@@ -118,7 +118,7 @@ public:
 
     bool WriteCScript(const uint160& hash, const CScript& redeemScript);
 	
-	bool WriteWatchOnly(const CTxDestination &dest);
+	bool WriteWatchOnly(const CScript &script);
 
     bool WriteStealthKeyMeta(const CKeyID& keyId, const CStealthKeyMetadata& sxKeyMeta);
     bool EraseStealthKeyMeta(const CKeyID& keyId);

@@ -1158,7 +1158,7 @@ Value listreceivedbyaccount(const Array& params, bool fHelp)
             "\nExamples:\n"
             + HelpExampleCli("listreceivedbyaccount", "")
             + HelpExampleCli("listreceivedbyaccount", "6 true")
-            + HelpExampleRpc("listreceivedbyaccount", "6, true")
+            + HelpExampleRpc("listreceivedbyaccount", "6, true, true")
         );
 
     return ListReceived(params, true);

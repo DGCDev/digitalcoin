@@ -203,6 +203,9 @@ enum isminetype
     MINE_SPENDABLE = 2,
 };
 
+/** used for bitflags of isminetype */
+typedef uint8_t isminefilter;
+
 // Mandatory script verification flags that all new blocks must comply with for
 // them to be valid. (but old blocks may not comply with) Currently just P2SH,
 // but in the future other flags may be added, such as a soft-fork to enforce

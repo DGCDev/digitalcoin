@@ -89,6 +89,9 @@ QT_TRANSLATE_NOOP("digitalcoin-core", ""
 QT_TRANSLATE_NOOP("digitalcoin-core", ""
 "How thorough the block verification of -checkblocks is (0-4, default: 3)"),
 QT_TRANSLATE_NOOP("digitalcoin-core", ""
+"If paytxfee is not set, include enough fee so transactions are confirmed on "
+"average within n blocks (default: 1)"),
+QT_TRANSLATE_NOOP("digitalcoin-core", ""
 "In this mode -genproclimit controls how many blocks are generated "
 "immediately."),
 QT_TRANSLATE_NOOP("digitalcoin-core", ""
@@ -195,6 +198,7 @@ QT_TRANSLATE_NOOP("digitalcoin-core", "How many blocks to check at startup (defa
 QT_TRANSLATE_NOOP("digitalcoin-core", "If <category> is not supplied, output all debugging information."),
 QT_TRANSLATE_NOOP("digitalcoin-core", "Importing..."),
 QT_TRANSLATE_NOOP("digitalcoin-core", "Imports blocks from external blk000??.dat file"),
+QT_TRANSLATE_NOOP("digitalcoin-core", "Include IP addresses in debug output (default: 0)"),
 QT_TRANSLATE_NOOP("digitalcoin-core", "Incorrect or no genesis block found. Wrong datadir for network?"),
 QT_TRANSLATE_NOOP("digitalcoin-core", "Information"),
 QT_TRANSLATE_NOOP("digitalcoin-core", "Initialization sanity check failed. Digitalcoin Core is shutting down."),
@@ -203,6 +207,7 @@ QT_TRANSLATE_NOOP("digitalcoin-core", "Invalid -onion address: '%s'"),
 QT_TRANSLATE_NOOP("digitalcoin-core", "Invalid -proxy address: '%s'"),
 QT_TRANSLATE_NOOP("digitalcoin-core", "Invalid amount for -minrelaytxfee=<amount>: '%s'"),
 QT_TRANSLATE_NOOP("digitalcoin-core", "Invalid amount for -mintxfee=<amount>: '%s'"),
+QT_TRANSLATE_NOOP("digitalcoin-core", "Invalid amount for -paytxfee=<amount>: '%s' (must be at least %s)"),
 QT_TRANSLATE_NOOP("digitalcoin-core", "Invalid amount for -paytxfee=<amount>: '%s'"),
 QT_TRANSLATE_NOOP("digitalcoin-core", "Invalid amount"),
 QT_TRANSLATE_NOOP("digitalcoin-core", "Keep at most <n> unconnectable blocks in memory (default: %u)"),

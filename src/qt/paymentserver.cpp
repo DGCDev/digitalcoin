@@ -211,9 +211,13 @@ bool PaymentServer::ipcParseCommandLine(int argc, char* argv[])
             if (readPaymentRequest(arg, request))
             {
                 if (request.getDetails().network() == "main")
+				{
                     SelectParams(CBaseChainParams::MAIN);
-                else
+                }
+				else if (request.getDetails().network() == "test")
+				{
                     SelectParams(CBaseChainParams::TESTNET);
+				}
             }
         }
         else

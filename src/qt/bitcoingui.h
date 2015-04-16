@@ -24,18 +24,14 @@ class ExchangeBrowser;
 class ChatWindow;
 class BlockBrowser;
 class SendCoinsRecipient;
+class UnitDisplayStatusBarControl;
 class WalletFrame;
 class WalletModel;
 
 class CWallet;
 
-class UnitDisplayStatusBarControl;
-
 QT_BEGIN_NAMESPACE
 class QAction;
-class QLabel;
-class QMenu;
-class QPoint;
 class QProgressBar;
 class QProgressDialog;
 QT_END_NAMESPACE

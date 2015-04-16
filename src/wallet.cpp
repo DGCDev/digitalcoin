@@ -21,6 +21,9 @@ CFeeRate payTxFee(DEFAULT_TRANSACTION_FEE);
 unsigned int nTxConfirmTarget = 1;
 bool bSpendZeroConfChange = true;
 
+/** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
+CFeeRate CWallet::minTxFee = CFeeRate(5000000); // Override with -mintxfee
+
 //////////////////////////////////////////////////////////////////////////////
 //
 // mapWallet
@@ -1408,42 +1411,42 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
                     CTxOut txout(s.second, s.first);
 
 					CScript::const_iterator itTxA = txout.scriptPubKey.begin();
-						if (!txout.IsOpReturn())
+					if (!txout.IsOpReturn())
+					{
+						if (txout.IsDust(::minRelayTxFee))
 						{
-							if (txout.IsDust(CTransaction::minRelayTxFee))
-							{
-								LogPrintf("%s\n", txout.ToString());
-								strFailReason = _("Transaction amount too small");
-								return false;
-							}
-						} 
-						else 
-						{
-							int64_t size = txout.scriptPubKey.ToString().length();
-							int64_t nMinFee = CTransaction::minTxFee.GetFeePerK();
-							LogPrint("GetMinFee()", "Bytes: %d\n",size);
-							if (size <=128)
-							{	
-							   nMinFee *= 2;
-							}
-							else if (size > 128 && size<= 256)
-							{
-							   nMinFee *= 4;
-							}
-							else if (size > 256 && size <= 512)
-							{
-							   nMinFee *= 8;
-							}
-							else if (size > 512 && size <= 1024)
-							{
-							   nMinFee *= 16;
-							}
-							else
-							{
-							   nMinFee *= 32;
-							}
-							nFeeRet += nMinFee;
+							LogPrintf("%s\n", txout.ToString());
+							strFailReason = _("Transaction amount too small");
+							return false;
 						}
+					} 
+					else 
+					{
+						int64_t size = txout.scriptPubKey.ToString().length();
+						int64_t nMinFee = CWallet::minTxFee.GetFeePerK();
+						LogPrint("GetMinFee()", "Bytes: %d\n",size);
+						if (size <=128)
+						{	
+						   nMinFee *= 2;
+						}
+						else if (size > 128 && size<= 256)
+						{
+						   nMinFee *= 4;
+						}
+						else if (size > 256 && size <= 512)
+						{
+						   nMinFee *= 8;
+						}
+						else if (size > 512 && size <= 1024)
+						{
+						   nMinFee *= 16;
+						}
+						else
+						{
+						   nMinFee *= 32;
+						}
+						nFeeRet += nMinFee;
+					}
                     txNew.vout.push_back(txout);
 					
                 }
@@ -1503,7 +1506,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend,
 
                     CTxOut newTxOut(nChange, scriptChange);
                     // Never create dust outputs; if we would, just
-                    if (newTxOut.IsDust(CTransaction::minRelayTxFee))
+                    if (newTxOut.IsDust(::minRelayTxFee))
                     {
                         nFeeRet += nChange;
                         reservekey.ReturnKey();
@@ -2407,7 +2410,7 @@ int64_t CWallet::GetMinimumFee(unsigned int nTxBytes, unsigned int nConfirmTarge
     // ... unless we don't have enough mempool data, in which case fall
     // back to a hard-coded fee
     if (nFeeNeeded == 0)
-        nFeeNeeded = CTransaction::minTxFee.GetFee(nTxBytes);
+        nFeeNeeded = minTxFee.GetFee(nTxBytes);
     return nFeeNeeded;
 }
 

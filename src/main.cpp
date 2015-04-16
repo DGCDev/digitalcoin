@@ -38,8 +38,6 @@ using namespace boost;
 
 CCriticalSection cs_main;
 
-CTxMemPool mempool;
-
 map<uint256, CBlockIndex*> mapBlockIndex;
 CChain chainActive;
 int64_t nTimeBestReceived = 0;
@@ -51,10 +49,10 @@ bool fTxIndex = false;
 unsigned int nCoinCacheSize = 5000;
 uint256 hashGenesisBlock("0x7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496");
 
-/** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
-CFeeRate CTransaction::minTxFee = CFeeRate(5000000);  // Override with -mintxfee
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying and mining) */
-CFeeRate CTransaction::minRelayTxFee = CFeeRate(20000);
+CFeeRate minRelayTxFee = CFeeRate(20000);
+
+CTxMemPool mempool(::minRelayTxFee);
 
 struct COrphanBlock {
     uint256 hashBlock;
@@ -629,7 +627,7 @@ bool IsStandardTx(const CTransaction& tx, string& reason)
             nDataOut++;
 	else
 	{
-        	if (txout.IsDust(CTransaction::minRelayTxFee)) {
+        	if (txout.IsDust(::minRelayTxFee)) {
 				reason = "dust";
 				return false;
         	}
@@ -884,7 +882,7 @@ int64_t GetMinRelayFee(const CTransaction& tx, unsigned int nBytes, bool fAllowF
             return 0;
 	}
 	
-    int64_t nMinFee = tx.minRelayTxFee.GetFee(nBytes);
+    int64_t nMinFee = ::minRelayTxFee.GetFee(nBytes);
 
     if (fAllowFree)
     {
@@ -1065,7 +1063,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
         // Continuously rate-limit free (really, very-low-fee)transactions
         // This mitigates 'penny-flooding' -- sending thousands of free transactions just to
         // be annoying or make others' transactions take longer to confirm.
-        if (fLimitFree && nFees < CTransaction::minRelayTxFee.GetFee(nSize))
+        if (fLimitFree && nFees < ::minRelayTxFee.GetFee(nSize))
         {           
             static double dFreeCount;
             
@@ -1078,10 +1076,10 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
             LogPrint("mempool", "Rate limit dFreeCount: %g => %g\n", dFreeCount, dFreeCount+nSize);            
         }
 
-        if (fRejectInsaneFee && nFees > CTransaction::minRelayTxFee.GetFee(nSize) * 10000)
+        if (fRejectInsaneFee && nFees > ::minRelayTxFee.GetFee(nSize) * 10000)
             return error("AcceptToMemoryPool: : insane fees %s, %d > %d",
                          hash.ToString(),
-                         nFees, CTransaction::minRelayTxFee.GetFee(nSize) * 10000);
+                         nFees, ::minRelayTxFee.GetFee(nSize) * 10000);
 
         // Check against previous transactions
         // This is done last to help prevent CPU exhaustion denial-of-service attacks.

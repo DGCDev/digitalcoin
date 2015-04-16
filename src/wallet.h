@@ -295,6 +295,7 @@ public:
     std::string SendMoneyToDestination(const CTxDestination &address, int64_t nValue, CWalletTx& wtxNew);
 	
 	static int64_t GetMinimumFee(unsigned int nTxBytes, unsigned int nConfirmTarget, const CTxMemPool& pool);
+	static CFeeRate minTxFee;
 	
     bool NewKeyPool();
     bool TopUpKeyPool(unsigned int kpSize = 0);   

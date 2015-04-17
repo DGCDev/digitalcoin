@@ -19,11 +19,10 @@
 #include "uint256.h"
 #include "util.h"
 
+#ifndef WIN32
 #if HAVE_INET_PTON
 #include <arpa/inet.h>
 #endif
-
-#ifndef WIN32
 #include <fcntl.h>
 #endif
 
@@ -31,6 +30,10 @@
 #include <boost/algorithm/string/predicate.hpp> // for startswith() and endswith()
 
 #if !defined(HAVE_MSG_NOSIGNAL) && !defined(MSG_NOSIGNAL)
+#define MSG_NOSIGNAL 0
+#endif
+
+#if !defined(MSG_NOSIGNAL)
 #define MSG_NOSIGNAL 0
 #endif
 

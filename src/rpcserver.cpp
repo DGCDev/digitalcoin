@@ -33,6 +33,8 @@ using namespace json_spirit;
 
 static std::string strRPCUserColonPass;
 
+static bool fRPCRunning = false;
+
 // These are created by StartRPCThreads, destroyed in StopRPCThreads
 static asio::io_service* rpc_io_service = NULL;
 static map<string, boost::shared_ptr<deadline_timer> > deadlineTimers;
@@ -754,6 +756,7 @@ void StartRPCThreads()
     rpc_worker_group = new boost::thread_group();
     for (int i = 0; i < GetArg("-rpcthreads", 32); i++)
         rpc_worker_group->create_thread(boost::bind(&asio::io_service::run, rpc_io_service));
+	fRPCRunning = true;
 }
 
 void StartDummyRPCThread()
@@ -766,13 +769,15 @@ void StartDummyRPCThread()
         rpc_dummy_work = new asio::io_service::work(*rpc_io_service);
         rpc_worker_group = new boost::thread_group();
         rpc_worker_group->create_thread(boost::bind(&asio::io_service::run, rpc_io_service));
+		fRPCRunning = true;
     }
 }
 
 void StopRPCThreads()
 {
     if (rpc_io_service == NULL) return;
-
+	// Set this to false first, so that longpolling loops will exit when woken up
+	fRPCRunning = false;
     // First, cancel all timers and acceptors
     // This is not done automatically by ->stop(), and in some cases the destructor of
     // asio::io_service can hang if this is skipped.
@@ -793,12 +798,18 @@ void StopRPCThreads()
     deadlineTimers.clear();
 
     rpc_io_service->stop();
+	cvBlockChange.notify_all();
     if (rpc_worker_group != NULL)
         rpc_worker_group->join_all();
     delete rpc_dummy_work; rpc_dummy_work = NULL;
     delete rpc_worker_group; rpc_worker_group = NULL;
     delete rpc_ssl_context; rpc_ssl_context = NULL;
     delete rpc_io_service; rpc_io_service = NULL;
+}
+
+bool IsRPCRunning()
+{
+    return fRPCRunning;
 }
 
 void RPCRunHandler(const boost::system::error_code& err, boost::function<void(void)> func)

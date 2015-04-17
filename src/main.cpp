@@ -41,6 +41,8 @@ CCriticalSection cs_main;
 map<uint256, CBlockIndex*> mapBlockIndex;
 CChain chainActive;
 int64_t nTimeBestReceived = 0;
+CWaitableCriticalSection csBestBlock;
+CConditionVariable cvBlockChange;
 int nScriptCheckThreads = 0;
 bool fImporting = false;
 bool fReindex = false;
@@ -2023,8 +2025,10 @@ void static UpdateTip(CBlockIndex *pindexNew) {
       chainActive.Tip()->GetAlgo(),
       DateTimeStrFormat("%Y-%m-%d %H:%M:%S", chainActive.Tip()->GetBlockTime()),
       Checkpoints::GuessVerificationProgress(chainActive.Tip()));
-
-    // Check the version of the last 100 blocks to see if we need to upgrade:
+	
+	cvBlockChange.notify_all();
+    
+	// Check the version of the last 100 blocks to see if we need to upgrade:
     /*
     if (!fIsInitialDownload)
     {

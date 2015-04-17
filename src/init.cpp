@@ -59,7 +59,7 @@ enum BindFlags {
     BF_NONE         = 0,
     BF_EXPLICIT     = (1U << 0),
     BF_REPORT_ERROR = (1U << 1),
-	BF_WHITELIST = (1U << 2),BF_REPORT_ERROR = (1U << 1)
+	BF_WHITELIST = (1U << 2)
 };
 
 static const char* FEE_ESTIMATES_FILENAME="fee_estimates.dat";

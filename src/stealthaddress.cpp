@@ -3,10 +3,10 @@
 // file license.txt or http://www.opensource.org/licenses/mit-license.php.
 
 #include "stealthaddress.h"
+
 #include "base58.h"
+#include "random.h"
 
-
-#include <openssl/rand.h>
 #include <openssl/ec.h>
 #include <openssl/ecdsa.h>
 #include <openssl/obj_mac.h>

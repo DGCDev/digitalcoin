@@ -19,10 +19,11 @@
 #include "uint256.h"
 #include "util.h"
 
-#ifndef WIN32
 #if HAVE_INET_PTON
 #include <arpa/inet.h>
 #endif
+
+#ifndef WIN32
 #include <fcntl.h>
 #endif
 

@@ -329,7 +329,8 @@ void MarkBlockAsInFlight(NodeId nodeid, const uint256 &hash) {
 	list<QueuedBlock>::iterator it = state->vBlocksInFlight.insert(state->vBlocksInFlight.end(), newentry);
 	state->nBlocksInFlight++;
 	mapBlocksInFlight[hash] = std::make_pair(nodeid, it);
-
+}
+	
 /** Check whether the last unknown block a peer advertized is not yet known. */
 void ProcessBlockAvailability(NodeId nodeid) {
     CNodeState *state = State(nodeid);

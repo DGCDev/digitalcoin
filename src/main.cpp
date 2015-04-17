@@ -4040,14 +4040,15 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
         bool fMissingInputs = false;
         CValidationState state;
+		
+		mapAlreadyAskedFor.erase(inv);
+		
         if (AcceptToMemoryPool(mempool, state, tx, true, &fMissingInputs))
         {
             mempool.check(pcoinsTip);
-            RelayTransaction(tx);
-            mapAlreadyAskedFor.erase(inv);
+            RelayTransaction(tx);            
             vWorkQueue.push_back(inv.hash);
             vEraseQueue.push_back(inv.hash);
-
 
             LogPrint("mempool", "AcceptToMemoryPool: peer=%d %s : accepted %s (poolsz %u)\n",
 				pfrom->id, pfrom->cleanSubVer,
@@ -4081,8 +4082,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                     if (AcceptToMemoryPool(mempool, stateDummy, orphanTx, true, &fMissingInputs2))
                     {
                         LogPrint("mempool", "   accepted orphan tx %s\n", orphanHash.ToString());
-                        RelayTransaction(orphanTx);
-                        mapAlreadyAskedFor.erase(CInv(MSG_TX, orphanHash));
+                        RelayTransaction(orphanTx);                        
                         vWorkQueue.push_back(orphanHash);
                     }
                     else if (!fMissingInputs2)

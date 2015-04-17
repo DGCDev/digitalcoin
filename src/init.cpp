@@ -299,9 +299,11 @@ std::string HelpMessage(HelpMessageMode mode)
     if (mode == HMM_BITCOIN_QT)
         strUsage += ", qt";
     strUsage += ".\n";
+#ifdef ENABLE_WALLET
     strUsage += "  -gen                   " + _("Generate coins (default: 0)") + "\n";
     strUsage += "  -genproclimit=<n>      " + _("Set the processor limit for when generation is on (-1 = unlimited, default: -1)") + "\n";
-    strUsage += "  -help-debug            " + _("Show all debugging options (usage: --help -help-debug)") + "\n";
+#endif
+	strUsage += "  -help-debug            " + _("Show all debugging options (usage: --help -help-debug)") + "\n";
     strUsage += "  -logips                " + _("Include IP addresses in debug output (default: 0)") + "\n";
 	strUsage += "  -logtimestamps         " + _("Prepend debug output with timestamp (default: 1)") + "\n";
     if (GetBoolArg("-help-debug", false))

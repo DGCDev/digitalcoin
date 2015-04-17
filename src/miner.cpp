@@ -502,8 +502,10 @@ void static BitcoinMiner(CWallet *pwallet)
 				CBlockIndex* pindexPrev = chainActive.Tip();
 
 				auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey, ALGO_SHA256D));
-				if (!pblocktemplate.get())
+				if (!pblocktemplate.get()){
+					LogPrintf("Error in BitcoinMiner: Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
 					return;
+				}
 				CBlock *pblock = &pblocktemplate->block;
 				IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 

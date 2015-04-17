@@ -362,8 +362,7 @@ public:
     {
         if (hSocket != INVALID_SOCKET)
         {
-            closesocket(hSocket);
-            hSocket = INVALID_SOCKET;
+            CloseSocket(hSocket);
         }
         if (pfilter)
             delete pfilter;

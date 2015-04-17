@@ -180,4 +180,7 @@ bool ConnectSocketByName(CService &addr, SOCKET& hSocketRet, const char *pszDest
 /** Return readable error string for a network error code */
 std::string NetworkErrorString(int err);
 
+/** Close socket and set hSocket to INVALID_SOCKET */
+bool CloseSocket(SOCKET& hSocket);
+
 #endif

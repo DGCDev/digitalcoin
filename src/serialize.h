@@ -853,17 +853,36 @@ struct ser_streamplaceholder
     int nVersion;
 };
 
-
-
-
-
-
-
-
-
-
-
 typedef std::vector<char, zero_after_free_allocator<char> > CSerializeData;
+
+class CSizeComputer
+{
+protected:
+    size_t nSize;
+
+public:
+    int nType;
+    int nVersion;
+
+    CSizeComputer(int nTypeIn, int nVersionIn) : nSize(0), nType(nTypeIn), nVersion(nVersionIn) {}
+
+    CSizeComputer& write(const char *psz, int nSize)
+    {
+        this->nSize += nSize;
+        return *this;
+    }
+
+    template<typename T>
+    CSizeComputer& operator<<(const T& obj)
+    {
+        ::Serialize(*this, obj, nType, nVersion);
+        return (*this);
+    }
+
+    size_t size() const {
+        return nSize;
+    }
+};
 
 /** Double ended buffer combining vector and stream-like interfaces.
  *

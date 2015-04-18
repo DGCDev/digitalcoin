@@ -48,6 +48,7 @@ bool fImporting = false;
 bool fReindex = false;
 bool fBenchmark = false;
 bool fTxIndex = false;
+bool fIsBareMultisigStd = true;
 unsigned int nCoinCacheSize = 5000;
 uint256 hashGenesisBlock("0x7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496");
 
@@ -627,15 +628,19 @@ bool IsStandardTx(const CTransaction& tx, string& reason)
             return false;
         }
         if (whichType == TX_NULL_DATA)
-            nDataOut++;
-	else
-	{
-        	if (txout.IsDust(::minRelayTxFee)) {
+            nDataOut++;		
+		else
+		{
+			if ((whichType == TX_MULTISIG) && (!fIsBareMultisigStd)) {
+				reason = "bare-multisig";
+				return false;
+			}
+			else if (txout.IsDust(::minRelayTxFee)) {
 				reason = "dust";
 				return false;
-        	}
-		 nTxnOut++;
-	}
+			}
+			nTxnOut++;
+		}
     }
 
     // only one OP_RETURN txout is permitted

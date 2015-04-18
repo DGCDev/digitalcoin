@@ -80,28 +80,6 @@ qint64 BitcoinUnits::factor(int unit)
     }
 }
 
-qint64 BitcoinUnits::maxAmount(int unit)
-{
-    switch(unit)
-    {
-    case DGC:  return Q_INT64_C(21000000);
-    case mDGC: return Q_INT64_C(21000000000);
-    case uDGC: return Q_INT64_C(21000000000000);
-    default:   return 0;
-    }
-}
-
-int BitcoinUnits::amountDigits(int unit)
-{
-    switch(unit)
-    {
-    case DGC: return 8; // 21,000,000 (# digits, without commas)
-    case mDGC: return 11; // 21,000,000,000
-    case uDGC: return 14; // 21,000,000,000,000
-    default: return 0;
-    }
-}
-
 int BitcoinUnits::decimals(int unit)
 {
     switch(unit)

@@ -31,8 +31,7 @@ public:
         MinimizeOnClose,        // bool
         ProxyUse,               // bool
         ProxyIP,                // QString
-        ProxyPort,              // int
-        ProxySocksVersion,      // int
+        ProxyPort,              // int        
         Fee,                    // qint64
         DisplayUnit,            // BitcoinUnits::Unit
         DisplayAddresses,       // bool

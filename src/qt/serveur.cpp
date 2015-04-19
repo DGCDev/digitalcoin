@@ -180,9 +180,9 @@ QString Serveur::parseCommande(QString comm,bool serveur)
         QString msg=args.join(" ");
 
         if(pref=="me")
-            return "PRIVMSG "+destChan+" ACTION " + msg + "";
+            return "PRIVMSG "+destChan+" ACTION " + msg;
         else if(pref=="msg")
-            return "MSG "+destChan+" ACTION " + msg + "";
+            return "MSG "+destChan+" ACTION " + msg;
         else if(pref=="join")
         {
             join(msg);

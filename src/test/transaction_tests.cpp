@@ -9,6 +9,7 @@
 #include "keystore.h"
 #include "main.h"
 #include "script.h"
+#include "core_io.h"
 
 #include <map>
 #include <string>
@@ -21,7 +22,6 @@ using namespace json_spirit;
 
 // In script_tests.cpp
 extern Array read_json(const std::string& jsondata);
-extern CScript ParseScript(string s);
 
 BOOST_AUTO_TEST_SUITE(transaction_tests)
 

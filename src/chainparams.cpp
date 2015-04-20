@@ -14,14 +14,34 @@
 using namespace std;
 using namespace boost::assign;
 
+struct SeedSpec6 {
+    uint8_t addr[16];
+    uint16_t port;
+};
+
+#include "chainparamsseeds.h"
+
 //
 // Main network
 //
 
-unsigned int pnSeed[] =
+// Convert the pnSeeds6 array into usable address objects.
+static void convertSeed6(std::vector<CAddress> &vSeedsOut, const SeedSpec6 *data, unsigned int count)
 {
-    0xE195C721, 0x31D3A142, 0x92B9B572, 0xA2F3716E, 0x5F551D90
-};
+	// It'll only connect to one or two seed nodes because once it connects,
+    // it'll get a pile of addresses with newer timestamps.
+    // Seed nodes are given a random 'last seen time' of between one and two
+    // weeks ago.
+    const int64_t nOneWeek = 7*24*60*60;
+    for (unsigned int i = 0; i < count; i++)
+    {
+        struct in6_addr ip;
+        memcpy(&ip, data[i].addr, sizeof(ip));
+        CAddress addr(CService(ip, data[i].port));
+        addr.nTime = GetTime() - GetRand(nOneWeek) - nOneWeek;
+        vSeedsOut.push_back(addr);
+    }
+}
 
 class CMainParams : public CChainParams {
 public:
@@ -82,20 +102,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
 
-        // Convert the pnSeeds array into usable address objects.
-        for (unsigned int i = 0; i < ARRAYLEN(pnSeed); i++)
-        {
-            // It'll only connect to one or two seed nodes because once it connects,
-            // it'll get a pile of addresses with newer timestamps.
-            // Seed nodes are given a random 'last seen time' of between one and two
-            // weeks ago.
-            const int64_t nOneWeek = 7*24*60*60;
-            struct in_addr ip;
-            memcpy(&ip, &pnSeed[i], sizeof(ip));
-            CAddress addr(CService(ip, GetDefaultPort()));
-            addr.nTime = GetTime() - GetRand(nOneWeek) - nOneWeek;
-            vFixedSeeds.push_back(addr);
-        }
+        convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
     
 		fRequireRPCPassword = true;
 		fMiningRequiresPeers = true;
@@ -125,7 +132,9 @@ public:
 
 		vFixedSeeds.clear();
         vSeeds.clear();
-
+		
+		convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
+		
 		fRequireRPCPassword = true;
 		fMiningRequiresPeers = true;
 		fDefaultCheckMemPool = false;

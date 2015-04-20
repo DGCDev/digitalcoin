@@ -44,22 +44,6 @@ public:
 protected:
     virtual bool eventFilter(QObject* obj, QEvent *event);
 
-private:
-    /** show detailed information on ui about selected node */
-    void updateNodeDetail(const CNodeCombinedStats *combinedStats);
-
-	/** initialize peer table */
-	void initPeerTable();
-	
-    enum ColumnWidths
-    {
-        ADDRESS_COLUMN_WIDTH = 250,
-        MINIMUM_COLUMN_WIDTH = 120
-    };
-
-    /** track the node that we are currently viewing detail on in the peers tab */
-	CNodeCombinedStats detailNodeStats;
-	
 private slots:
     void on_lineEdit_returnPressed();
     void on_tabWidget_currentChanged(int index);
@@ -99,14 +83,22 @@ signals:
 private:
     static QString FormatBytes(quint64 bytes);
     void setTrafficGraphRange(int mins);
-
+	void startExecutor();
+	/** show detailed information on ui about selected node */
+    void updateNodeDetail(const CNodeCombinedStats *stats);
+	
+    enum ColumnWidths
+    {
+        ADDRESS_COLUMN_WIDTH = 200,
+        SUBVERSION_COLUMN_WIDTH = 100,
+        PING_COLUMN_WIDTH = 80
+	};
+	
     Ui::RPCConsole *ui;
     ClientModel *clientModel;
-    QStringList history;
-	GUIUtil::TableViewLastColumnResizingFixer *columnResizingFixer;
+    QStringList history;	
     int historyPtr;
-
-    void startExecutor();
+    NodeId cachedNodeid;
 };
 
 #endif // RPCCONSOLE_H

@@ -4,6 +4,7 @@
 src/digitalcoin
 src/digitalcoind
 src/digitalcoin-cli
+src/digitalcoin-tx
 src/test/test_digitalcoin
 src/qt/test/test_digitalcoin-qt
 

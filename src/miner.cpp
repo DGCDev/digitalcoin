@@ -662,7 +662,7 @@ void static ScryptMiner(CWallet *pwallet)
                 {
                     // Found a solution
                     SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                    CheckWork(pblock, *pwallet, reservekey);
+                    ProcessBlockFound(pblock, *pwallet, reservekey);
                     SetThreadPriority(THREAD_PRIORITY_LOWEST);
                     break;
                 }
@@ -766,7 +766,7 @@ void static GenericMiner(CWallet *pwallet, int algo)
                 LogPrintf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex().c_str(), hashTarget.GetHex().c_str());
                 pblock->print();
 
-                CheckWork(pblock, *pwallet, reservekey);
+                ProcessBlockFound(pblock, *pwallet, reservekey);
                 SetThreadPriority(THREAD_PRIORITY_LOWEST);
                 break;
             }

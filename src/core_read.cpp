@@ -65,7 +65,7 @@ CScript ParseScript(std::string s)
         {
             // Raw hex data, inserted NOT pushed onto stack:
             std::vector<unsigned char> raw = ParseHex(string(w->begin()+2, w->end()));
-            result.insert(result.end(), raw->begin(), raw->end());
+            result.insert(result.end(), raw.begin(), raw.end());
         }
         else if (w->size() >= 2 && starts_with(*w, "'") && ends_with(*w, "'"))
         {

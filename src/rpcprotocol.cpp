@@ -101,7 +101,7 @@ string HTTPReplyHeader(int nStatus, bool keepalive, size_t contentLength, const 
             "Content-Length: %u\r\n"
             "Content-Type: %s\r\n"
             "Server: digitalcoin-json-rpc/%s\r\n"
-            "\r\n"            
+            "\r\n",            
         nStatus,
         httpStatusDescription(nStatus),
         rfc1123Time(),

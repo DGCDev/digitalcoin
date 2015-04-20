@@ -46,7 +46,7 @@ distcheck-hook:
 distcleancheck:
 	@:
 
-$(DIGITALCOIN_WIN_INSTALLER): $(DIGITALCOIND_BIN) $(DIGITALCOIN_QT_BIN) $(DIGITALCOIN_CLI_BIN)
+$(DIGITALCOIN_WIN_INSTALLER): all-recursive
 	$(MKDIR_P) $(top_builddir)/release
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(DIGITALCOIND_BIN) $(top_builddir)/release
 	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM) $(DIGITALCOIN_QT_BIN) $(top_builddir)/release

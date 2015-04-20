@@ -103,6 +103,16 @@ if TARGET_WINDOWS
 deploy: $(DIGITALCOIN_WIN_INSTALLER)
 endif
 
+$(DIGITALCOIN_QT_BIN): FORCE
+	$(MAKE) -C src qt/$(@F)
+
+$(DIGITALCOIND_BIN): FORCE
+	$(MAKE) -C src $(@F)
+
+$(DIGITALCOIN_CLI_BIN): FORCE
+	$(MAKE) -C src $(@F)
+
+
 if USE_LCOV
 
 baseline.info:

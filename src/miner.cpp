@@ -414,7 +414,7 @@ CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey, int algo)
     return CreateNewBlock(scriptPubKey, algo);
 }
 
-bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
+bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
 {
     int algo = pblock->GetAlgo();
     uint256 hashPoW = pblock->GetPoWHash(algo);
@@ -536,7 +536,7 @@ void static BitcoinMiner(CWallet *pwallet)
 							assert(hash == pblock->GetHash());
 
 							SetThreadPriority(THREAD_PRIORITY_NORMAL);
-							CheckWork(pblock, *pwallet, reservekey);
+							ProcessBlockFound(pblock, *pwallet, reservekey);
 							SetThreadPriority(THREAD_PRIORITY_LOWEST);
 							
 							// In regression test mode, stop mining after a block is found.

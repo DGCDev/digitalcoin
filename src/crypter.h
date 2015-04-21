@@ -118,6 +118,9 @@ private:
     // if fUseCrypto is false, vMasterKey must be empty
     bool fUseCrypto;
 
+	// keeps track of whether Unlock has run a thourough check before
+	bool fDecryptionThoroughlyChecked;
+	
 protected:
     CryptedKeyMap mapCryptedKeys;
     CKeyingMaterial vMasterKey;
@@ -130,7 +133,7 @@ protected:
     bool Unlock(const CKeyingMaterial& vMasterKeyIn);
 
 public:
-    CCryptoKeyStore() : fUseCrypto(false)
+    CCryptoKeyStore() : fUseCrypto(false), fDecryptionThoroughlyChecked(false)
     {
     }
 

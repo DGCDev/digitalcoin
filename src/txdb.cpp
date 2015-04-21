@@ -103,7 +103,7 @@ bool CBlockTreeDB::ReadLastBlockFile(int &nFile) {
 }
 
 bool CCoinsViewDB::GetStats(CCoinsStats &stats) {
-    leveldb::Iterator *pcursor = db.NewIterator();
+    boost::scoped_ptr<leveldb::Iterator> pcursor(db.NewIterator());
     pcursor->SeekToFirst();
 
     CHashWriter ss(SER_GETHASH, PROTOCOL_VERSION);
@@ -145,8 +145,7 @@ bool CCoinsViewDB::GetStats(CCoinsStats &stats) {
         } catch (std::exception &e) {
             return error("%s : Deserialize or I/O error - %s", __func__, e.what());
         }
-    }
-    delete pcursor;
+    }    
     stats.nHeight = mapBlockIndex.find(GetBestBlock())->second->nHeight;
     stats.hashSerialized = ss.GetHash();
     stats.nTotalAmount = nTotalAmount;
@@ -178,7 +177,7 @@ bool CBlockTreeDB::ReadFlag(const std::string &name, bool &fValue) {
 
 bool CBlockTreeDB::LoadBlockIndexGuts()
 {
-    leveldb::Iterator *pcursor = NewIterator();
+    boost::scoped_ptr<leveldb::Iterator> pcursor(NewIterator());
 
     CDataStream ssKeySet(SER_DISK, CLIENT_VERSION);
     ssKeySet << make_pair('b', uint256(0));
@@ -223,8 +222,7 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
         } catch (std::exception &e) {
             return error("%s : Deserialize or I/O error - %s", __func__, e.what());
         }
-    }
-    delete pcursor;
+    }    
 
     return true;
 }

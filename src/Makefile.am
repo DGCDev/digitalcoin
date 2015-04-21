@@ -303,6 +303,8 @@ bitcoin_tx_SOURCES = bitcoin-tx.cpp
 bitcoin_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
+bitcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS)
+
 if TARGET_WINDOWS
 digitalcoind_SOURCES += bitcoind-res.rc
 endif
@@ -310,6 +312,7 @@ endif
 
 digitalcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS)
 digitalcoind_CPPFLAGS = $(BITCOIN_INCLUDES)
+digitalcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS)
 
 # bitcoin-cli binary #
 digitalcoin_cli_LDADD = \
@@ -330,6 +333,7 @@ digitalcoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 if TARGET_WINDOWS
 digitalcoin_cli_SOURCES += bitcoin-cli-res.rc
 endif
+digitalcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS)
 
 CLEANFILES = leveldb/libleveldb.a leveldb/libmemenv.a *.gcda *.gcno
 

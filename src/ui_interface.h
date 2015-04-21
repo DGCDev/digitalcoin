@@ -77,10 +77,7 @@ public:
     boost::signals2::signal<void (const std::string &message)> InitMessage;
 
     /** Translate a message to the native language of the user. */
-    boost::signals2::signal<std::string (const char* psz)> Translate;
-
-    /** Block chain changed. */
-    boost::signals2::signal<void ()> NotifyBlocksChanged;
+    boost::signals2::signal<std::string (const char* psz)> Translate;    
 
     /** Number of network connections changed. */
     boost::signals2::signal<void (int newNumConnections)> NotifyNumConnectionsChanged;

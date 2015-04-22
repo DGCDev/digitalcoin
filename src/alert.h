@@ -67,8 +67,7 @@ public:
 
     void SetNull();
 
-    std::string ToString() const;
-    void print() const;
+    std::string ToString() const;    
 };
 
 /** An alert is a combination of a serialized CUnsignedAlert and a signature. */

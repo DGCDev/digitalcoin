@@ -42,13 +42,6 @@ public:
     {
     }
 
-    void print() const
-    {
-        LogPrintf("COrphan(hash=%s, dPriority=%.1f, fee=%s)\n",
-			ptx->GetHash().ToString(), dPriority, feeRate.ToString());
-        BOOST_FOREACH(uint256 hash, setDependsOn)
-            LogPrintf("   setDependsOn %s\n", hash.ToString());
-    }
 };
 
 

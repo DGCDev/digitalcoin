@@ -19,8 +19,8 @@ unsigned int GetNextWorkRequiredV2(const CBlockIndex* pindexLast, const CBlockHe
 
 /** Check whether a block hash satisfies the proof-of-work requirement specified by nBits */
 bool CheckProofOfWork(uint256 hash, unsigned int nBits, int algo);
-/** Calculate the minimum amount of work a received block needs, without knowing its direct parent */
-unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime);
+/** Check the work is more than the minimum a received block needs, without knowing its direct parent */
+bool CheckMinWork(unsigned int nBits, unsigned int nBase, int64_t deltaTime);
 
 void UpdateTime(CBlockHeader* block, const CBlockIndex* pindexPrev);
 

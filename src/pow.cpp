@@ -31,29 +31,35 @@ static const int64_t nMinActualTimespan = nAveragingTargetTimespan * (100 - nMax
 static const int64_t nMaxActualTimespan = nAveragingTargetTimespan * (100 + nMaxAdjustDown) / 100;
 
 //
-// minimum amount of work that could possibly be required nTime after
-// minimum work required was nBase
+// true if nBits is greater than the minimum amount of work that could
+// possibly be required deltaTime after minimum work required was nBase
 //
-unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime)
+bool CheckMinWork(unsigned int nBits, unsigned int nBase, int64_t deltaTime)
 {
+	bool fOverflow = false;
+    uint256 bnNewBlock;
+    bnNewBlock.SetCompact(nBits, NULL, &fOverflow);
+    if (fOverflow)
+        return false;
+
     uint256 bnProofOfWorkLimit = Params().ProofOfWorkLimit(ALGO_SCRYPT);
     // Testnet has min-difficulty blocks
     // after Params().TargetSpacing()*2 time between blocks:
-    if (Params().NetworkID() == CBaseChainParams::TESTNET && nTime > Params().TargetSpacing()*2)
-        return bnProofOfWorkLimit.GetCompact();
+    if (Params().AllowMinDifficultyBlocks() && deltaTime > Params().TargetSpacing()*2)
+		return bnNewBlock <= bnLimit;
 
     uint256 bnResult;
     bnResult.SetCompact(nBase);
-    while (nTime > 0 && bnResult < bnProofOfWorkLimit)
+    while (deltaTime > 0 && bnResult < bnLimit)
     {
         // Maximum 400% adjustment...
         bnResult *= 4;
         // ... in best-case exactly 4-times-normal target time
-        nTime -= Params().TargetTimespan()*4;
+        deltaTime -= Params().TargetTimespan()*4;
     }
     if (bnResult > bnProofOfWorkLimit)
         bnResult = bnProofOfWorkLimit;
-    return bnResult.GetCompact();
+    return bnNewBlock <= bnResult;
 }
 
 void UpdateTime(CBlockHeader& block, const CBlockIndex* pindexPrev)

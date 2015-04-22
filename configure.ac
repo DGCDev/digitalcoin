@@ -442,11 +442,7 @@ if test x$use_reduce_exports != xno; then
     fi
     AC_MSG_WARN([Cannot set default symbol visibility. Disabling reduced exports.])
     use_reduce_exports=no
-  ])
-  if test x$use_reduce_exports != xno; then
-    AX_CHECK_LINK_FLAG([[-Wl,--exclude-libs,ALL]], [RELDFLAGS="-Wl,--exclude-libs,ALL"])
-    CXXFLAGS="$CXXFLAGS $RE_CXXFLAGS"
-  fi
+  ]) 
 fi
 
 LEVELDB_CPPFLAGS=
@@ -473,6 +469,11 @@ fi
 
 dnl Check for boost libs
 AX_BOOST_BASE
+AX_BOOST_SYSTEM
+AX_BOOST_FILESYSTEM
+AX_BOOST_PROGRAM_OPTIONS
+AX_BOOST_THREAD
+AX_BOOST_CHRONO
 
 if test x$use_reduce_exports != xno; then
   AC_MSG_CHECKING([for working boost reduced exports])
@@ -502,11 +503,10 @@ if test x$use_reduce_exports != xno; then
   CPPFLAGS="$TEMP_CPPFLAGS"
 fi
 
-AX_BOOST_SYSTEM
-AX_BOOST_FILESYSTEM
-AX_BOOST_PROGRAM_OPTIONS
-AX_BOOST_THREAD
-AX_BOOST_CHRONO
+if test x$use_reduce_exports != xno; then
+    CXXFLAGS="$CXXFLAGS $RE_CXXFLAGS"
+    AX_CHECK_LINK_FLAG([[-Wl,--exclude-libs,ALL]], [RELDFLAGS="-Wl,--exclude-libs,ALL"])
+fi
 
 if test x$use_tests = xyes; then
 

@@ -670,6 +670,10 @@ if test "x$use_ccache" != "xno"; then
   AC_MSG_RESULT($use_ccache)
 fi
 
+if test "x$use_ccache" = "xyes"; then
+    AX_CHECK_PREPROC_FLAG([-Qunused-arguments],[CPPFLAGS="-Qunused-arguments $CPPFLAGS"])
+fi
+
 dnl enable wallet
 AC_MSG_CHECKING([if wallet should be enabled])
 if test x$enable_wallet != xno; then

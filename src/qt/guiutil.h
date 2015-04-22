@@ -178,7 +178,7 @@ namespace GUIUtil
     QString formatDurationStr(int secs);
 
     /* Format CNodeStats.nServices bitmask into a user-readable string */
-    QString formatServicesStr(uint64_t mask);
+    QString formatServicesStr(quint64 mask);
 	
     /* Convert OS specific boost path to QString through UTF-8 */
     QString boostPathToQString(const boost::filesystem::path &path);

@@ -431,7 +431,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         hashBlock.GetHex(), 
         hashPoW.GetHex(), 
         hashTarget.GetHex());
-    pblock->print();
+    LogPrintf("%s\n", pblock->ToString());
     LogPrintf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue));
 
     // Found a solution

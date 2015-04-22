@@ -9,6 +9,7 @@
 #include "chainparams.h"
 #include "core.h"
 #include "main.h"
+#include "timedata.h"
 #include "uint256.h"
 
 
@@ -55,7 +56,14 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime)
     return bnResult.GetCompact();
 }
 
+void UpdateTime(CBlockHeader& block, const CBlockIndex* pindexPrev)
+{
+    block.nTime = max(pindexPrev->GetMedianTimePast()+1, GetAdjustedTime());
 
+    // Updating time can change work required on testnet:
+    if (Params().NetworkID() == CBaseChainParams::TESTNET)
+        block.nBits = GetNextWorkRequired(pindexPrev, &block, block.GetAlgo());
+}
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, int algo)
 {

@@ -1561,25 +1561,6 @@ void static InvalidBlockFound(CBlockIndex *pindex, const CValidationState &state
     }
 }
 
-void UpdateTime(CBlockHeader& block, const CBlockIndex* pindexPrev)
-{
-    block.nTime = max(pindexPrev->GetMedianTimePast()+1, GetAdjustedTime());
-
-    // Updating time can change work required on testnet:
-    if (Params().NetworkID() == CBaseChainParams::TESTNET)
-        block.nBits = GetNextWorkRequired(pindexPrev, &block, block.GetAlgo());
-}
-
-
-
-
-
-
-
-
-
-
-
 void UpdateCoins(const CTransaction& tx, CValidationState &state, CCoinsViewCache &inputs, CTxUndo &txundo, int nHeight)
 {
     bool ret;

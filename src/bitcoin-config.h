@@ -163,7 +163,7 @@
 #define HAVE_PTHREAD 1
 
 /* Have PTHREAD_PRIO_INHERIT. */
-/* #undef HAVE_PTHREAD_PRIO_INHERIT */
+#define HAVE_PTHREAD_PRIO_INHERIT 1
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1
@@ -193,10 +193,10 @@
 #define HAVE_UNISTD_H 1
 
 /* Define this symbol if boost sleep works */
-#define HAVE_WORKING_BOOST_SLEEP 1
+/* #undef HAVE_WORKING_BOOST_SLEEP */
 
 /* Define this symbol if boost sleep_for works */
-/* #undef HAVE_WORKING_BOOST_SLEEP_FOR */
+#define HAVE_WORKING_BOOST_SLEEP_FOR 1
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "info@bitcoin.org"
@@ -230,10 +230,10 @@
 #define STRERROR_R_CHAR_P 1
 
 /* Define if dbus support should be compiled in */
-/* #undef USE_DBUS */
+#define USE_DBUS 1
 
 /* Define if QR support should be compiled in */
-/* #undef USE_QRCODE */
+#define USE_QRCODE 1
 
 /* UPnP support not compiled if undefined, otherwise value (0 or 1) determines
    default state */
@@ -249,6 +249,11 @@
 # ifndef WORDS_BIGENDIAN
 /* #  undef WORDS_BIGENDIAN */
 # endif
+#endif
+
+/* Enable large inode numbers on Mac OS X 10.5.  */
+#ifndef _DARWIN_USE_64_BIT_INODE
+# define _DARWIN_USE_64_BIT_INODE 1
 #endif
 
 /* Number of bits in a file offset, on hosts where this is settable. */

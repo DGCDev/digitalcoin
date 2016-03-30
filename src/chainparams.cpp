@@ -20,7 +20,6 @@ using namespace boost::assign;
 
 unsigned int pnSeed[] =
 {
-    0xE195C721, 0x31D3A142, 0x92B9B572, 0xA2F3716E, 0x5F551D90
 };
 
 class CMainParams : public CChainParams {
@@ -29,50 +28,47 @@ public:
 	// The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xfb;
-        pchMessageStart[1] = 0xc0;
-        pchMessageStart[2] = 0xb6;
-        pchMessageStart[3] = 0xdb;
+        pchMessageStart[0] = 0xf7;
+        pchMessageStart[1] = 0xa7;
+        pchMessageStart[2] = 0x7e;
+        pchMessageStart[3] = 0xff;
         vAlertPubKey = ParseHex("04016c44069c3152982413d3ba3bf262a3a4d3ddad859ba78e0d744f5c67c2205d2aa2122e6c62b6310dad2d1e2f7e39028455ff1dbb26511c60fc96c8b4560c43");
-        nDefaultPort = 7999;
-        nRPCPort = 7998;
+        nDefaultPort = 21102;
+        nRPCPort = 20102;
         bnProofOfWorkLimit[ALGO_SHA256D] = CBigNum(~uint256(0) >> 20);
         bnProofOfWorkLimit[ALGO_SCRYPT]  = CBigNum(~uint256(0) >> 20);
         bnProofOfWorkLimit[ALGO_X11] = CBigNum(~uint256(0) >> 20);
 
 	// Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.
-        const char* pszTimestamp = "Digitalcoin, A Currency for a Digital Age";
+        const char* pszTimestamp = "Name: Dogecoin Dark";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 50 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04a5814813115273a109cff99907ba4a05d951873dae7acb6c973d0c9e7c88911a3dbc9aa600deac241b91707e7b4ffb30ad91c8e56e695a1ddf318592988afe0a") << OP_CHECKSIG;
+        txNew.vout[0].SetEmpty();
+        txNew.nTime = 1412878964;
 
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1367867384;
-        genesis.nBits    = 0x1e0ffff0;
-        genesis.nNonce   = 672176;
+        genesis.nTime    = 1412878964;
+        genesis.nBits    = bnProofOfWorkLimit[ALGO_SCRYPT].GetCompact();
+        genesis.nNonce   = 1473191;
 
         hashGenesisBlock = genesis.GetHash();
 
-        assert(hashGenesisBlock == uint256("0x5e039e1ca1dbf128973bf6cff98169e40a1b194c3b91463ab74956f413b2f9c8"));
+        assert(hashGenesisBlock == uint256("0x00000fc63692467faeb20cdb3b53200dc601d75bdfa1001463304cc790d77278"));
         assert(genesis.hashMerkleRoot == uint256("0xecb2c595fff9f2364152c32027737007c5a4c60ec960cf93754b0211bc2a1501"));
 
-        vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #1", "digitalcoin.co"));        
-		vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #2", "game.digitalcoin.co"));
-		vSeeds.push_back(CDNSSeedData("digitalcoin.co seed #3", "dev.digitalcoin.co"));
-		vSeeds.push_back(CDNSSeedData("ahmed seed #1", "178.62.28.81"));
-        //vSeeds.push_back(CDNSSeedData("digihash.co seed #3", "seed3.digihash.co"));
-        //vSeeds.push_back(CDNSSeedData("love2hash.com seed #4", "seed4.love2hash.com"));
-        //vSeeds.push_back(CDNSSeedData("digiexplorer.info seed #5", "seed5.digiexplorer.info"));
+	vSeeds.push_back(CDNSSeedData("162.243.30.96", "162.243.30.96"));
+	vSeeds.push_back(CDNSSeedData("104.131.144.82", "104.131.144.82"));
+	vSeeds.push_back(CDNSSeedData("192.241.187.222", "192.241.187.222"));
+	vSeeds.push_back(CDNSSeedData("162.243.14.59", "162.243.14.59")); 
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(30);
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(5);
+        base58Prefixes[SCRIPT_ADDRESS] = list_of(33);
         base58Prefixes[SECRET_KEY] =     list_of(0x9e);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);

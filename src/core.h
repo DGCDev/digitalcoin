@@ -183,6 +183,11 @@ public:
         READWRITE(scriptPubKey);
     )
 
+    void SetEmpty()
+    {
+	nValue = 0;
+	scriptPubKey.clear();
+    }
     void SetNull()
     {
         nValue = -1;
@@ -240,6 +245,7 @@ public:
     static int64_t nMinRelayTxFee;
     static const int CURRENT_VERSION=1;
     int nVersion;
+    unsigned int nTime;
     std::vector<CTxIn> vin;
     std::vector<CTxOut> vout;
     unsigned int nLockTime;
@@ -253,6 +259,7 @@ public:
     (
         READWRITE(this->nVersion);
         nVersion = this->nVersion;
+	READWRITE(nTime);
         READWRITE(vin);
         READWRITE(vout);
         READWRITE(nLockTime);
@@ -261,6 +268,7 @@ public:
     void SetNull()
     {
         nVersion = CTransaction::CURRENT_VERSION;
+	nTime = GetAdjustedTime();
         vin.clear();
         vout.clear();
         nLockTime = 0;
@@ -290,6 +298,7 @@ public:
     friend bool operator==(const CTransaction& a, const CTransaction& b)
     {
         return (a.nVersion  == b.nVersion &&
+		a.nTime     == b.nTime &&
                 a.vin       == b.vin &&
                 a.vout      == b.vout &&
                 a.nLockTime == b.nLockTime);
@@ -398,13 +407,16 @@ class CBlockHeader
 {
 public:
     // header
-    static const int CURRENT_VERSION=BLOCK_VERSION_DEFAULT;
+    static const int CURRENT_VERSION=4;
     int nVersion;
     uint256 hashPrevBlock;
     uint256 hashMerkleRoot;
     unsigned int nTime;
     unsigned int nBits;
     unsigned int nNonce;
+
+    // ppcoin: block signature - signed by one of the coin base txout[N]'s owner
+    std::vector<unsigned char> vchBlockSig;
 
     CBlockHeader()
     {
@@ -421,6 +433,7 @@ public:
         READWRITE(nTime);
         READWRITE(nBits);
         READWRITE(nNonce);
+	READWRITE(vchBlockSig);
     )
 
     void SetNull()
@@ -431,6 +444,7 @@ public:
         nTime = 0;
         nBits = 0;
         nNonce = 0;
+	vchBlockSig.clear();
     }
 
     bool IsNull() const

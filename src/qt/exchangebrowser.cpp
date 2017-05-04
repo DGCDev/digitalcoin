@@ -83,13 +83,13 @@ void ExchangeBrowser::openPoloniex()
 
 void ExchangeBrowser::pollAPIs()
 {
-    ui->iconOverviewUpdateWait->setVisible(true);
+    //ui->iconOverviewUpdateWait->setVisible(true);
 
-    getRequest(apiCoinbasePrice);
+    //getRequest(apiCoinbasePrice);
 
-    getRequest(apiBittrexMarketSummary);
-    getRequest(apiBittrexTrades);
-    getRequest(apiBittrexOrders);
+    //getRequest(apiBittrexMarketSummary);
+    //getRequest(apiBittrexTrades);
+    //getRequest(apiBittrexOrders);
 }
 
 void ExchangeBrowser::processOverview()
